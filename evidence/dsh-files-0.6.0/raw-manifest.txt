@@ -1,0 +1,51 @@
+# Raw evidence index (sha256 of every file under raw/, excluding this manifest)
+generated_at = 2026-10-18T11:14:06.750Z
+plugin = dsh-files 0.6.0 (snapshot: D:\natnat\lingshu\dsh-files-main)
+generator = node probes/make-manifest.mjs
+
+raw/00-node-version.txt         22  2142c1a27bc7a53827c8be4f3960e9057f18426958469087891e14bf1bc75194
+raw/00-runtime.txt         64  6ebd6a2da7d57eabe152d4f4ed42f6ff3162b6b646810438837af519474c13d9
+raw/01-self-test.txt      13156  7370144b01b96ac73a176838b49eb81631a21db396576d562fa294967b71c7f9
+raw/02-tsc-main.txt          8  2095d5302e465922147e220c0389f7a923ea0c1509a23097f04b3c220798aef8
+raw/03-tsc-client.txt          8  2095d5302e465922147e220c0389f7a923ea0c1509a23097f04b3c220798aef8
+raw/10-export-names.txt       5510  433c7cca2be4c473978bb5a5a1296232213cd7941e3c9a78762b403ed2740330
+raw/11-routes.txt      18930  01b41a94a70b84032dc4899950f1ac6da84b498cf0c2e2bff8a5bbe3f2ccee06
+raw/12-fixtures.txt       2166  fa5554fb14bc0a4afff3b526e2ebeb423db078e6e07adfc9cf19dc3f25bd1e53
+raw/13-read-document.txt      11556  b5424b11c3c7877fc9f7ca3055504fe93acd55a27c605f78e24780cfbbd70e0d
+raw/14-win32-name-check.txt       2755  8e8f87dd82506c3fb6d1eef93ee1ec3eae54dee9477e43388837418269200787
+raw/15-win32-reserved-names.txt       2663  ecc42a3afd5f8ef8ca6d0415d2c77a4a243f4513a4101bae0ad0771f05dea59d
+raw/16-gbk-ratios.txt        978  70bd7e4a07c3f50faeddd7104b5175d3d25df038fe681bae131e3ce2f91910a8
+raw/20-anchor-manifest.txt       2390  05b667c00b556a7831238a560a8de6f3d1521bd0cbfc57f1602c19c5426c98f0
+raw/21-dedupe.txt       1160  40604754ab785b63ea111cfb68608823b9dcdf8279517c5db3b424d789bc3a2e
+raw/22-env-baseline.txt       1390  c3e3b3b2eb6885827c4542a14fd6b3d2ab62aae68f0ae50f58b286c92e07019f
+raw/artifacts/export-cwd/attachments/COM1         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/CON.txt         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/LPT1.txt         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/NUL.doc         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/a_b.txt         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/dup-1.txt         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/dup.txt         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/env         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/escape.txt         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/evil.txt         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/normal.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+raw/artifacts/export-cwd/attachments/report.txt.         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/trailing space .txt         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/export-cwd/attachments/中文 合同.pdf         31  6c27434e2020ef52ecb6620a943c1ef91151d31dff66325a05d49cf033b54672
+raw/artifacts/routes-cwd/attachments/report.txt.         14  608b6a4fe8c36f9ec1f988dff9672973f5df76b118d5e322c000100cf03410cd
+raw/fixtures/binary-mz.pdf        260  0605fa6d3576d436e74213278f960df7549221175b364b6220dfbf3d7db22ef4
+raw/fixtures/generated/docx-sample.docx       1580  a1717455f0e991b6a8884727df86dc0f7d9b09b06087c117df905729a304819f
+raw/fixtures/generated/legacy-sample.doc      23655  eb38276b6964aa68bd3e5025289a580bddca4729128729be1c7aa3ce0081b16c
+raw/fixtures/generated/pdf-scanned-like.pdf        628  596aac23e3661551ccaa4448d044cf8b31481e2d0a6351723a6c6e0e8087cdc5
+raw/fixtures/generated/pdf-two-pages.pdf       1191  81ed81fe6fd750222560ab3ecacf799e6342b567d69708fd144c90b1ddb21a7e
+raw/fixtures/generated/xlsx-two-sheets.xlsx       4070  c48b68655849a6060cd8aa2532d109c50bc6ef7a94890385aa2e97e1404a0b7d
+raw/fixtures/text-empty.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+raw/fixtures/text-gb18030-4byte.txt         19  8c934dfb85e2d0264fbda3dd417e0c49f5dec9332e65c21d54f658e8a77946cc
+raw/fixtures/text-gbk-longlines.txt        104  0b749c6cfb25c78543b8480ddbf8e21c618788afce64c241dab9e2149d02f6e3
+raw/fixtures/text-gbk.txt         57  62c122f18d2e125c550de53ca9bb85a5c8e3b8d8221d989f1cd202c2e0b367ca
+raw/fixtures/text-lines100.txt        792  b4c395cc55a76980dcc23b596801da4dce057b3b21dc632998cb7b0fc6c23b01
+raw/fixtures/text-utf16be-bom.txt         80  eaa1de482c45b79c3a6d47b5285266b6bf1a22bafe44a04841956a29115e29d0
+raw/fixtures/text-utf16le-bom.txt         80  264f96c03ea4cd19189023e64e8eaca8b6fb3bbd1825e60c2067cb3ec28d2811
+raw/fixtures/text-utf16le-nobom.txt         34  c0085b2debb83978df7fe727a855165eebdb3a56491fce819b8c4df25106fc65
+raw/fixtures/text-utf8.txt         75  3310818fc521be7d0a6fd95b6ba3399c63b6321abf82326887c224a6862750fa
