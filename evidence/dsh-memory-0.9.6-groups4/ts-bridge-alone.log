@@ -1,0 +1,61 @@
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-0gMoCT\mdcg · 身份/凭据根 aux=~\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\40464.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ 握手：进程启动并完成 initialize 握手 (5045.9758ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 6s）
+[lingshu-bridge] [mdcg-mcp] 数据面已迁出插件包（旧位置只复制未删除）：D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data → ~\.dsh\.dsh-memory\data（9 项）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-issue12-0vkAUY\mdcg · 身份/凭据根 aux=~\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\1100.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ issue #12 回归：宿主 cwd 在插件仓外且零路径参数，MdcgClient 默认锚定仓根仍可启动 (4661.5272ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 7s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-AYc235\mdcg · 身份/凭据根 aux=~\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\22564.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ 工具发现（kernel）：默认面只有 cg / stg 两个认知基元 (8051.6467ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 9s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-ECgdu7\mdcg · 身份/凭据根 aux=~\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\31588.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ 工具发现（full）：cg/stg 基元 + mdcg_* 细粒度工具（33） (5845.1139ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 6s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-sSanY3\mdcg · 身份/凭据根 aux=~\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\18284.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ 数据往返：mdcg_remember → mdcg_search 命中写入的记忆 (6144.2861ms)
+[lingshu-bridge] [fsutil] ShardedLog 分片目录缺失，已重建（目录 _index_log，调用点 append）——本进程持有的分片实例不自愈；本次后进程内累计重建 1 次。排查方向：库根 _index_log/ 被外部清理/还原删掉，或库根被换过；正文 .md 未受影响，索引缺口由重放/全库扫描补齐。
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 8s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-aSygJp\mdcg · 身份/凭据根 aux=~\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\27488.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ 错误处理：调用不存在的工具以 isError 软错误返回（不抛异常） (8097.7228ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 9s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-O4EPF9\mdcg · 身份/凭据根 aux=~\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\38436.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 5s）
+✔ dispose：进程优雅退出 (5821.9ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 44842.6495
+
+EXIT=0
