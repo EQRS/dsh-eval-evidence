@@ -1,0 +1,44 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-18T14:15:12.615Z
+label = @hyzyn/dsh-env 0.3.10 (packages/env @ 7363332f)
+generator = tools/make_manifest.mjs
+
+raw/00-env-baseline.txt        754  5f42b4bb645e5e534a2b4f98632ad3d812baefcc5d2aec4501f88f9d1a4b4844
+raw/00b-host-version.txt       1356  acfb2536af006757f8f6b090667fc6ba494ab3ec4bd51e29fc441de7fd0d5a97
+raw/01-anchor.txt       3056  28404ba60d45f853b30fcbdf9b949e00200e50293e2ec6d5f9d0c13d28bbf739
+raw/01b-anchor-after-install.txt       2942  58ddbe6a7798f28be5d8880932c7d609a2e6ba72cf04c4ff66083f69a9a2fee4
+raw/01c-anchor-restored.txt       2942  0aa45cf66bba6f8521563ee41bc8799737cfc7295c9d3ca8616b6002d581f000
+raw/01d-preview-artifacts.txt       1646  47d085e5db62d0f213770174d22422ede2b6ce4756024999b3a3f2ab9076d7f1
+raw/02-pnpm-install.txt       6333  44430d7b832b9ea99887f279cac4d924f4976cd83540e50c5fbb8acc1b8bc67d
+raw/03-anchor-network.txt       5487  a702eaf31c180fd7c4b016bb5ac63d70b0743baa5f171b4e5154fbdfd3bbd5d0
+raw/04-test-env-package.txt       4809  89dfb638c413d7c7add753d1f94cbb51b18e8383f1ce4585d13832cd91115b64
+raw/05-test-full-reference.txt     303545  a3a0e6d96ff6ff8f7b7aab77fa8e35173bac31cb5645d6f497309c40777b1443
+raw/06-typecheck-env.txt       1197  23b07a885d57dbd77a0f4aa538e16014eb620cbbb3d831104966bb592c078fcb
+raw/10-github-commit.json      10584  8b9f5da9663ba4934cf3cc5c1497ed530f9c94cfd6dab62de0710a4372357141
+raw/11b-repo-tarball-ghfast.top.tgz         14  a7596aa3beb103b542384e4c191806e0c5f2c0dffd6094c7a9e2e1185cd81e7c
+raw/11c-tarball-mirror-compare.txt        421  8491c9c1f50d1279eae5c52641391476bc5b5d68f98b31b072a983e6bc06259e
+raw/13-npm-registry.json       4954  92fbcdf391a5533effa252fb2cb9340130a7db6f6f2a7df2822d406d3ff70e53
+raw/14-commit.patch       5245  60dd0c5ad6340f501fa890dea4513f89e9167eb8596ce2d92f5592d911932d89
+raw/15-raw-package.json       4216  283a5fc901a740d826e9d3e2003c7121ab419bb7dc296c270a0186826ccc484b
+raw/15-raw-packages_env_package.json       2066  ca7f8b10375e0c794e6cd4aa289d1ae8e36c72e692a727dddbef2851765ed35a
+raw/15-raw-packages_env_src_index.ts      34152  b12ed670e5f6f3e999612781150c5962dec895c74a459d245b005b57767eb31a
+raw/15-raw-pnpm-lock.yaml     114994  d54abb9c6c43004931b537ccfeb16a4443dcc125b4d608efd95bb0838e034003
+raw/16-npm-_hyzyn_dsh-env-0.3.10.tgz      35510  9a36c3f9a4aaa1e0de40a0de227159c97423b20a8251f6f4d585a7e7c7c5cb3c
+raw/16-npm-_hyzyn_dsh-plugin-kit-0.1.57.tgz      18976  a296aee6fad5a45cc8673d831cf0ded488be555ef3a38dc0ac0c0806c212c62d
+raw/17-npm-packagejson-diff.txt       4380  99cd939f7c2158197ffa2a6d7cf83caefd7df61227e553901cc636621b1e0742
+raw/20-probe-env-parse.txt       6279  32afc217ebbefdb8c527d2647db5f3ec30416d34c49395e5a6b00dc90aa551c8
+raw/21-probe-artifact.txt       2697  72662d04bc6ffeb59615c062a68ff44be6b13f9d3d76fced94f0514f8761b718
+raw/22-probe-js-expr.txt       3697  79495a063d90b45792684cc09fddcd5e050b42adcacae40bcc6fa62c59f33748
+raw/23-probe-routes-mask.txt       6708  bcec0636ec9812d1aa7025283ea93910dceef065011a4ec8e7489dacd27c8d1a
+raw/24-probe-process-env.txt       5079  22842eec4693629ceafe57a7bd8119d63f9238167d6e921990ade6a141a420b1
+raw/30-dedupe.txt       1129  6e64f5337eae6925114765eabe7f230d76f9f112c71c945d832ef457d606ce66
+raw/30b-ledger-keywords.txt        308  bf1bcbcf607b823d5ef644f3d96febaa88f3199bdcb004771dd5737b51d30cee
+raw/30c-ledger-hit-detail.txt        739  51e9ee633675428f3601cf73d8e38725874bb29691e11c079367df432c5c324b
+raw/31-review-plugins-page1.html      91831  4a99c6bba679deb84280f68c164d30602a3154398dfee505596c077312ec31b7
+raw/31-review-plugins-page2.html      95480  5efd7712cf89dcd74dbcd714c531818f6c9d8db497abc8ddd37c38453af1ba3a
+raw/31-review-plugins-page3.html      83097  845e7b3630d50d321cdcd89fa6e26f877807bfe22a38006a8a2917cd9010f7d3
+raw/31-review-plugins-page4.html      59287  394c8fb33d600f8399622c8746600cddd258725dd5c15a388686da97d9c00946
+raw/32-review-site-check.json       6323  8ff5548ee425df25265ba39fef31ab27a17d1b37f620dce1a88c6d4e6e31505e
+raw/33-review-site-console.txt       6532  dbc9c83fa9db63e71674d222bbd539ead9c45c763545fc022eccdb445327a7f4
+raw/34-review-detail-dsh-env.html      24100  ec4473e826073e69420f6b89557ad3d3611c13c6ada8817a708dcb8793613aaf
+raw/40-make-issue.txt        689  00c368aac9bf24473218fc6d8568d9b5f12a5e54cc830383787a2979390beeb3
