@@ -1,0 +1,14 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-19T05:14:47.584Z
+label = dsh-flakefinder 0.3.5
+generator = tools/make_manifest.mjs
+
+raw/00-anchor.txt        730  679345a13cb3a0becc054155747703981ebdd5180268dc82ee291095670e56be
+raw/02-install.txt        796  7102cc901ec3293b080d225d5777491afcb9dc03dd329f306ad4227f2edaac09
+raw/03-build.txt        309  e8b7af2c84b747a281d7b4997bef65c98a8062890b0698ddb3d77901a158ea5b
+raw/04-self-test.txt       3175  9107e84449040a1b210bccc418c6f52630278216bcd24f862e673a78d636769e
+raw/05-probe.txt       2468  7163de7b57204e26a71c8b1acf9a32a13e228bac36ccc81aaa177405405eaeee
+raw/06-probe-fixed.txt       2612  cc0781ab09ac32fd23eeabe6cd8ad4dff8770159670f609998527fbb69618185
+raw/07-junit-mixed-defect.txt        630  8c361dd565aafd11dbb631394e88a6bf7f7b4dadd2e2519a1cd86b70f96e39eb
+raw/08-pytest-real-junit.txt       1017  ac38fc964d422bf3337ffe3756d2b3c58639f865dac00a5e43bd71b4310340d8
+raw/09-dedupe-grep.txt        134  e29dc90e40a3f4cc58f3bad399cfd2fe4c918f30e060142f8447afeaee8d7ed9
