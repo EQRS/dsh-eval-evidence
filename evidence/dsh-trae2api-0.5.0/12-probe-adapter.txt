@@ -1,0 +1,62 @@
+# 独立探针：provider 适配 / 流式 / 失败契约（离线桩）
+generated_at = 2026-10-18T15:00:56.844Z
+repo = D:\natnat\lingshu\外部插件\dsh-trae2api\deepseek-harness-trae-main
+
+CASE request_url | POST 目标 | observed="https://api.example/api/ide/v2/llm_raw_chat" | expected="https://api.example/api/ide/v2/llm_raw_chat" | PASS
+CASE body_route | function/config/model/access | observed=["chat","glm-5.3","glm-5.3__max",4,0] | expected=["chat","glm-5.3","glm-5.3__max",4,0] | PASS
+CASE body_session | session_id/conversation_id 一致且为 UUID | observed=["c9f29348-37d6-5b33-ae00-3c100a119237","c9f29348-37d6-5b33-ae00-3c100a119237",true] | expected=[true,{}] | PASS
+CASE body_metadata | metadata.agent_type/use_prompt_cache_pool | observed={"agent_type":"chat","use_prompt_cache_pool":true} | expected={"agent_type":"chat","use_prompt_cache_pool":true} | PASS
+CASE body_tools | tools 嵌套函数 + parameters JSON 字符串 | observed=[{"type":"function","function":{"name":"bash","description":"run shell","parameters":"{\"type\":\"object\",\"properties\":{\"cmd\":{\"type\":\"string\"}}}"}}] | expected=[{"type":"function","function":{"name":"bash","description":"run shell","parameters":"{\"type\":\"object\",\"properties\":{\"cmd\":{\"type\":\"string\"}}}"}}] | PASS
+CASE body_messages | messages 序列 | observed=[{"role":"user","content":[{"type":"text","text":"hello"}]}] | expected=[{"role":"user","content":[{"type":"text","text":"hello"}]}] | PASS
+CASE headers_auth | authorization / 身份头 | observed=["Cloud-IDE-JWT tok1","app-test","20260908","codex_exec","0.206.1-tob"] | expected=["Cloud-IDE-JWT tok1","app-test","20260908","codex_exec","0.206.1-tob"] | PASS
+CASE headers_request_id | x-request-id 是 UUID | observed=true | expected=true | PASS
+CASE stream_reasoning | reasoning 块与增量 | observed=["think more","think more"] | expected=["think more","think more"] | PASS
+CASE stream_text | text 块与增量 | observed=["Hello","Hello"] | expected=["Hello","Hello"] | PASS
+CASE stream_usage | 缓存扣除后的 inputTokens 等 | observed={"inputTokens":70,"outputTokens":5,"totalTokens":105,"cacheReadTokens":20,"cacheWriteTokens":10,"reasoningTokens":2} | expected={"inputTokens":70,"outputTokens":5,"totalTokens":105,"cacheReadTokens":20,"cacheWriteTokens":10,"reasoningTokens":2} | PASS
+CASE stream_finish | finish stop | observed={"type":"finish","reason":{"kind":"stop"}} | expected={"type":"finish","reason":{"kind":"stop"}} | PASS
+CASE stream_block_order | 块 index 顺序 0=reasoning,1=text | observed=[0,1] | expected=[0,1] | PASS
+CASE tool_end | 合并后的工具调用 | observed={"type":"tool-call","id":"call_a","name":"bash","arguments":"{\"cmd\":\"ls\"}"} | expected={"type":"tool-call","id":"call_a","name":"bash","arguments":"{\"cmd\":\"ls\"}"} | PASS
+CASE tool_finish | finish tool-calls | observed={"kind":"tool-calls"} | expected={"kind":"tool-calls"} | PASS
+CASE recover_call | 从正文恢复工具调用 | observed={"type":"tool-call","id":"call_1803ebf3a0c24c04b7b669b9","name":"bash","arguments":"{\"cmd\":\"pwd\"}"} | expected={"type":"tool-call","name":"bash","arguments":"{\"cmd\":\"pwd\"}"} | PASS
+CASE recover_text_kept | 标记外的文本保留 | observed="先执行：完成" | expected="先执行：完成" | PASS
+CASE recover_finish | finish tool-calls | observed={"kind":"tool-calls"} | expected={"kind":"tool-calls"} | PASS
+CASE loop_cut_finish | 重复塌缩 → max-tokens | observed={"kind":"max-tokens"} | expected={"kind":"max-tokens"} | PASS
+CASE loop_cut_warn | 记录 warning | observed=true | expected=true | PASS
+CASE loop_cut_usage | 被切时输出估算 usage | observed=true | expected=true | PASS
+CASE budget_cut | maxTokens=50（≈50 token）截断 | observed={"kind":"max-tokens"} | expected={"kind":"max-tokens"} | PASS
+CASE empty_retry_calls | 空回合重试了一次 | observed=2 | expected=2 | PASS
+CASE empty_retry_text | 第二次输出成功 | observed="second try ok" | expected="second try ok" | PASS
+CASE transient_retry | 3003 重试后成功 | observed=[2,"recovered"] | expected=[2,"recovered"] | PASS
+CASE error_4023_code | MODEL_NOT_FOUND | observed="MODEL_NOT_FOUND" | expected="MODEL_NOT_FOUND" | PASS
+CASE error_4023_hint | 错误文本带 4023 说明 | observed=true | expected=true | PASS
+CASE error_http500 | PROVIDER_UNAVAILABLE + status（failure.status） | observed=["PROVIDER_UNAVAILABLE",500,true] | expected=["PROVIDER_UNAVAILABLE",500,true] | PASS
+CASE auth_retry | 401 换 JWT 重试 | observed=[2,[false,true],"Cloud-IDE-JWT fresh","after refresh"] | expected=[2,[false,true],"Cloud-IDE-JWT fresh","after refresh"] | PASS
+CASE read_timeout | PROVIDER_TIMEOUT | observed=["PROVIDER_TIMEOUT",true] | expected=["PROVIDER_TIMEOUT",true] | PASS
+CASE user_abort | 保留调用方 reason（非 PROVIDER_TIMEOUT） | observed=[true,"user stop"] | expected=[true,"user stop"] | PASS
+CASE miderror_swallowed | 流中途错误：输出保留、finish=stop、仅日志 | observed=["partial ","stop",true] | expected=["partial ","stop",true] | PASS | FINDING: 中途错误不向调用方抛错，调用方拿到截断的 stop 回答
+CASE mainloop_callbacks | 主循环开始/结束回调 | observed=["start:s1","end:s1:GLM-5.3:answer"] | expected=["start:s1","end:s1:GLM-5.3:answer"] | PASS
+CASE mainloop_purpose_skipped | purpose 请求不触发 | observed=[] | expected=[] | PASS
+CASE mainloop_no_tools_skipped | 无工具请求不触发 | observed=[] | expected=[] | PASS
+CASE mainloop_tool_turn | 工具回合只 start 不 end | observed=["start"] | expected=["start"] | PASS
+CASE image_inline | 多模态路由内联 data URI | observed=[{"type":"text","text":"look"},{"type":"image_url","image_url":{"url":"data:image/png;base64,AQID"}}] | expected=[{"type":"text","text":"look"},{"type":"image_url","image_url":{"url":"data:image/png;base64,AQID"}}] | PASS
+CASE image_failure_placeholder | 取图失败降级为占位文本 | observed=[{"type":"text","text":"look\n\n[image omitted]"}] | expected=[{"type":"text","text":"look\n\n[image omitted]"}] | PASS
+CASE resolve_glm | GLM-5.3 窗口/输出/思考 | observed=[1000000,64000,["light","high","extra_high"],"high"] | expected=[1000000,64000,["light","high","extra_high"],"high"] | PASS
+CASE resolve_doubao | Doubao 窗口/输出 | observed=[184000,16000] | expected=[184000,16000] | PASS
+CASE resolve_unknown | 未知模型默认 200K/32K/无 reasoning | observed=[200000,32000,null] | expected=[200000,32000,null] | PASS
+CASE list_models | 模型数 + 描述 + 模态 | observed=[20,"1M 上下文（Max）","184K 上下文",["text","image"]] | expected=[20,"1M 上下文（Max）","184K 上下文",["text","image"]] | PASS
+CASE complete_text | complete() 汇总文本 | observed="side answer" | expected="side answer" | PASS
+CASE complete_body | complete 无工具、最低档、独立 session | observed=[0,"light","glm-5.3__max",2] | expected=[0,"light","glm-5.3__max",2] | PASS
+CASE complete_unknown_model | MODEL_NOT_FOUND | observed="MODEL_NOT_FOUND" | expected="MODEL_NOT_FOUND" | PASS
+CASE effort_same | effort GLM-5.3/extra_high | observed="extra_high" | expected="extra_high" | PASS
+CASE effort_xhigh | effort GLM-5.3/xhigh | observed="extra_high" | expected="extra_high" | PASS
+CASE effort_medium | effort Doubao-Seed-Evolving/medium | observed="high" | expected="high" | PASS
+CASE effort_none | effort Doubao-Seed-Evolving/none | observed="light" | expected="light" | PASS
+CASE effort_bogus | effort GLM-5.3/bogus | observed=undefined | expected=undefined | PASS
+CASE stream_unknown_model | MODEL_NOT_FOUND 且列出可用 | observed=["MODEL_NOT_FOUND",true] | expected=["MODEL_NOT_FOUND",true] | PASS
+CASE session_hashed | 非 UUID session 被哈希成 UUID | observed=true | expected=true | PASS
+
+## 汇总：52/52 通过，0 不符
+
+## 边界
+- 全部请求为本地桩，未访问 Trae；真实 PAT 兑换与真实模型调用见报告「未验」。
+- LlmError 的 code/status 由 @deepseek-ai/dsh-llm 0.2.0-rc.2 提供（devDependency，与本快照声明一致）。
