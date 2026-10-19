@@ -1,0 +1,60 @@
+# 独立探针：DOI / BibTeX 解析与去重（离线）
+generated_at = 2026-10-18T14:05:39.016Z
+repo = D:\natnat\lingshu\外部插件\dsh-cite\dsh-cite-master
+lib_entry = D:\natnat\lingshu\外部插件\dsh-cite\dsh-cite-master\lib\index.js
+MAX_INPUT_BYTES = 262144  MAX_BATCH = 100
+
+## A. DOI 行解析 / 归一化（parseCitationInput）
+CASE doi_rows | 行数 | observed=4 | expected=4 | PASS
+CASE doi_uppercase | doi[0] | observed="10.1000/abc" | expected="10.1000/abc" | PASS
+CASE doi_url_form | doi[1] | observed="10.1000/abc" | expected="10.1000/abc" | PASS
+CASE doi_prefix_form | doi[2] | observed="10.1000/abc" | expected="10.1000/abc" | PASS
+CASE doi_invalid_line | doi[3].work | observed=null | expected=null | PASS
+CASE doi_invalid_line_error | doi[3].error | observed="DOI 格式不正确：not-a-doi（示例：10.1038/nature12345）。" | expected="含 “DOI 格式不正确”" | PASS
+CASE doi_balanced_parens | doi[0] | observed="10.1000/article(2020)" | expected="10.1000/article(2020)" | PASS
+CASE doi_batch_100_limit | 错误文本 | observed="BibTeX / DOI 解析失败：单批不能超过 100 条，请拆分导入；没有保存任何条目。" | expected="含 “100”" | PASS
+CASE doi_input_256k_limit | 错误文本 | observed="单次输入不能超过 256 KiB，请拆分导入。" | expected="含 “256”" | PASS
+CASE doi_empty_input | 错误文本 | observed="请先粘贴 DOI / BibTeX，或选择 .bib 文件。" | expected="非空" | PASS
+
+## B. BibTeX 本地解析（Citation.js，不联网）
+CASE bibtex_rows | 行数 | observed=2 | expected=2 | PASS
+CASE bibtex_nested_braces_latex | title | observed="Nested Braces and art" | expected="Nested Braces and art" | PASS
+CASE bibtex_no_html | title 无标签 | observed=false | expected=false | PASS
+CASE bibtex_compound_surname | authors[0].family | observed="de la Cruz" | expected="de la Cruz" | PASS
+CASE bibtex_org_author | authors[1].name | observed="World Health Organization" | expected="World Health Organization" | PASS
+CASE bibtex_macro | containerTitle | observed="Reference Review" | expected="Reference Review" | PASS
+CASE bibtex_doi_lowercased | doi | observed="10.1000/abc" | expected="10.1000/abc" | PASS
+CASE bibtex_incomplete_warnings | warnings | observed=["missing_authors","missing_year","missing_doi"] | expected=["missing_authors","missing_year","missing_doi"] | PASS
+CASE bibtex_unmapped_field_dropped | work.note | observed=undefined | expected=undefined | PASS | 说明：note 只保留在完整备份的原始输入里（文档已声明）
+CASE bibtex_workWarnings_missing_title | workWarnings | observed=[] | expected=[] | PASS
+CASE bibtex_chapter_type | type | observed="book-chapter" | expected="book-chapter" | PASS
+CASE bibtex_chapter_container | containerTitle | observed="Collected Works" | expected="Collected Works" | PASS
+OBSERVED bibtex_chapter_work: {"doi":"","type":"book-chapter","title":"A chapter","authors":[{"given":"Jane","family":"Smith","name":""}],"containerTitle":"Collected Works","publisher":"Example Press","year":2021,"language":"","volume":"","issue":"","page":"10-20","url":"","isbn":""}
+CASE bibtex_malformed | 错误文本 | observed="BibTeX / DOI 解析失败：没有找到可导入的文献。DOI 每行一条；BibTeX 应以 @article、@book 等条目开头。" | expected="含 “解析失败”" | PASS
+CASE bibtex_no_entries | 错误文本 | observed="BibTeX / DOI 解析失败：没有找到可导入的文献。DOI 每行一条；BibTeX 应以 @article、@book 等条目开头。" | expected="含 “没有找到”" | PASS
+CASE candidate_key | candidateKey 形态 | observed="asharedtitle|2023|liming" | expected="asharedtitle|2023|liming" | PASS
+CASE bibtex_year_ok | year | observed=2020 | expected=2020 | PASS
+CASE bibtex_year_suffix | year | observed=0 | expected=2020 | FAIL(FINDING) | FINDING: 年份字母后缀被解析为 0（根因未定，疑 Citation.js）
+CASE bibtex_year_missing | year | observed=0 | expected=0 | PASS
+
+## C. workbench.preview 去重 / 可能重复 / 默认选择（离线；fetch 桩禁止联网）
+CASE preview_doi_batch_dedupe | duplicate | observed=[null,"batch","batch"] | expected=[null,"batch","batch"] | PASS
+CASE preview_doi_selected_default | selectedDefault | observed=[true,false,false] | expected=[true,false,false] | PASS
+OBSERVED preview_doi_trailing_punctuation: dois=["10.1000/abc.","10.1000/abc;","10.1000/abc"]
+OBSERVED preview_doi_trailing_punctuation: duplicate=[null,null,null] selectedDefault=[true,true,true]
+CASE preview_doi_trailing_period_cleaned | doi | observed="10.1000/abc." | expected="10.1000/abc" | FAIL(FINDING) | FINDING: 句点进入 DOI
+CASE preview_doi_trailing_semicolon_cleaned | doi | observed="10.1000/abc;" | expected="10.1000/abc" | FAIL(FINDING) | FINDING: 分号进入 DOI
+CASE preview_doi_trailing_punct_dedupe | duplicate | observed=[null,null,null] | expected=[null,null,"batch"] | FAIL(FINDING) | FINDING: 三条同 DOI 因标点未判重
+CASE preview_library_dedupe | duplicate | observed="library" | expected="library" | PASS
+CASE preview_library_selected_default | selectedDefault | observed=false | expected=false | PASS
+CASE preview_batch_candidate | rows[1].candidate | observed=true | expected=true | PASS
+CASE preview_batch_candidate_selected_default | rows[1].selectedDefault | observed=false | expected=false | PASS
+CASE preview_library_candidate | rows[0].candidate | observed=true | expected=true | PASS
+CASE preview_candidate_cross_kind | rows[1].candidate | observed=true | expected=true | PASS
+
+## 汇总：35/39 通过，4 不符（不符项已在上面标 FAIL/FINDING）
+
+## 补充说明
+- DOI 行尾句点/分号被 assertDoi 当作 DOI 合法字符保留；extractDois()（cite_check / cite_lookup 用）会剥除行尾标点，两条代码路径口径不同。
+- 批次/库去重与"可能重复"标记在 CitationWorkbench.preview() 完成，worker 解析层只返回原始行。
+- 临时库目录：C:/Users/30951/AppData/Local/Temp/dsh-cite-parse-ruS3UB（已删除）
