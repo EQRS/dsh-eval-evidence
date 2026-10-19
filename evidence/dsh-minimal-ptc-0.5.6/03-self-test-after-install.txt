@@ -1,0 +1,43 @@
+# command: <node> --test
+# cwd: D:\natnat\lingshu\外部插件\dsh-minimal-ptc\dsh-minimal-ptc-main
+# exit: 0
+# seconds: 0.79
+
+## stdout
+✔ toWindowsPath converts MSYS drive paths on win32 (2.6497ms)
+✔ detectShellPath explicit config wins (0.468ms)
+✔ detectShellPath honors GIT_BASH env on win32 (0.6516ms)
+﹣ detectShellPath on POSIX returns bash regardless of GIT_BASH (0.1951ms) # SKIP
+✔ resolveConfig defaults (0.4226ms)
+✔ start() applies the request timeout to background shells (94.4415ms)
+✔ resolveConfig rejects invalid timer values (1.0357ms)
+✔ schedulerKeyStatus: Symbol.for-keyed registry reads as global (1.4585ms)
+✔ schedulerKeyStatus: module-local same-description symbol reads as module-local (0.4383ms)
+✔ schedulerKeyStatus: missing registry or scheduler reads as absent (0.2916ms)
+✔ schedulerKeyStatus: the 0.1.6 dual-instance failure is visible (0.4168ms)
+✔ findProfileCoreCopies: flags @deepseek-ai copies inside profiles only (25.2187ms)
+✔ materialization honors version marker and user-created directories (66.8854ms)
+✔ 现代与兼容预设保留官方定时能力、子代理限制及极简提示词 (17.3114ms)
+✔ complete minimal prompt retains the Host SDK and literal descriptions (3.0433ms)
+✔ each assembly follows visible tools and the current runtime format (0.517ms)
+✔ unavailable language or output contracts fail visibly (2.2645ms)
+✔ selects the workflow provider after startup and refreshes managed presets when the host changes (30.1194ms)
+✔ old hosts without schedule never import the absent official module (2.1305ms)
+✔ a schedule service arriving after preset startup activates official tools (0.4145ms)
+✔ an available service with a broken official module is not silently ignored (0.9022ms)
+✔ plugin exposes the preset materializer shape (1.2709ms)
+✔ materializes all preset files including the git-bash executor (16.6253ms)
+✔ ships a ptc-minimal preset composition (1.2851ms)
+✔ 0.1.7 registration preserves a retired user-customized preset directory (6.5064ms)
+✔ matches the dsh-v0.1.2-alpha.4 PTC tool surface (0.8185ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 603.6244
+
+## stderr
+
