@@ -1,0 +1,13 @@
+# 预注册（跑前冻结，2026-10-19）
+experiment: dsh-sql 装（sql_list/sql_schema/sql_query）vs 不装（裸模型）
+tasks: 8 个 SQLite 事实问题（T1-T8）
+seeds: [101, 202, 303]；temperature=0.7；model=deepseek-flash
+样本量: 8 场景 × 3 轮 × 2 组 = 48 次基础运行（装组含多轮 tool call）
+主要指标: D = Σ(T_i 装组正确数 - 不装组正确数)，范围 [-24, 24]
+a = 12（多对 4 题 = 4×3）
+b = 6
+精度门槛: bootstrap 95% 区间半宽 <= 6
+区间: 按场景重采样, B=10000, seed=20261019
+判定: L>a 真有用；U<-b 帮倒忙；L>-b 且 U<a 没啥差别；其余还说不准
+反作弊: 不中途改 a/b/样本量；不在看到结果后加场景
+frozen_at: 2026-10-19T07:42:37.626Z
