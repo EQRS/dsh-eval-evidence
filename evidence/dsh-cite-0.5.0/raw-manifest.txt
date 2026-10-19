@@ -1,0 +1,32 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-18T14:14:42.264Z
+label = dsh-cite 0.5.0
+generator = tools/make_manifest.mjs
+
+raw/00-anchor.txt       2976  6d08e4ffff2c7695071129a1d20023c060739fdb31f9f0b9421ebcf86383a933
+raw/01-env.txt       1605  81f613f5e0d45030a24b94d03f9e04e1cbb6675aa24fd7d4bb13783af285a234
+raw/02-tarball-verify.txt       2664  50aa6d82a97e08cefff1004f7f2125daa8594482ca50ffbf906e88b76398c604
+raw/03-install.txt       1257  9b6b03c8269650ee7efe4c819029dee70258800698dec67d51fe653935e69b4d
+raw/04-typecheck.txt        429  5da6fd8d60b67ccb944b0ef9891fbea5a1cc015964ffc30fccdd9faef2dbc81f
+raw/05-build.txt        448  5e937f9d9fc381cf17fc2d5c354c0de7656c6f971943d8bf93213c42ba332ac1
+raw/06-self-test.txt       3492  b39b9b5b4048c0ffb68051cc28d8ecce82caf0437ad1b362c1d4e32faadb6211
+raw/10-probe-parse.txt       6031  50c8f0cd5a784292884d5ef43729ba2865f22e4252fa8e7fe2efdda03f4f8320
+raw/11-probe-format.txt       4602  2d1009ccf32b78212d9677a30571e2e56cf9095e654b4232a09c7da30aba3ea8
+raw/12-probe-enrich.txt       4402  c171abd73683238323791787478f5258221d0e6af809cd5ae78268f9184dac10
+raw/13-probe-api.txt       4052  fe9770429b18b568bfe300c596e901aeaf4422b016affeb4dc2cc02b4bc6e338
+raw/14-probe-crossref-online.txt       4292  d4cc51a4c370daae0f2d952217ca6aeb16383b23e27e7b1e44b6a6b32dad3d62
+raw/15-post-build-anchor.txt       2645  d867b8ee3e2a36644205cc3129c367dbb53ae99712e293ee35378d492a24ec8b
+raw/16-drift.txt       1016  3928b31c753acc8fcea6a4f7bc7b3988fbbafbe3e7eff316b967aa2736d33357
+raw/17-npm-0.5.0.txt       3711  25311b7bc3636ea7a7aa7e98625678540fc67ca2559ef882b5990d44b76f2aa1
+raw/18-upstream-anchor.txt        601  24cc89d1f91e8ab693c14154f279fb1c7f4b2e8db99da94a074013f05043879d
+raw/19-live-profile.txt        780  623d32d8fe714b37f5c54e8267ba21c63c4ea05dddbc4da42086c9e6c841299f
+raw/20-dedupe.txt       4390  4aa1bda57b54f02e58b9af027f6a6978c4211620a4e9b06cbc443cc9c0ae34e7
+raw/21-pnpm-test.txt       3858  efb22cd27cfdcb0d14255945d17b6d3096b5a7b632313cdfccb72cab580027f7
+raw/artifacts/anchor/lib__client.js      28210  935f693ff58e593c1133b48c4e9672401f6db2a93115ad6deffd98f6de6310a4
+raw/artifacts/anchor/lib__index.js       1978  9908211b77d7b8b83d9d5d6be1c072f8bb8ea11cbb57573f83926eb53773fdec
+raw/artifacts/anchor/package.json       1829  8655d0ac7242e5b664c50136ba393dad64666dee15715a2e2a19ea874015c656
+raw/artifacts/anchor/scripts__build-client.mjs        130  fa3ea08492c75dedbaec165680ead7b4033b5273b6cb6b6f71352fd6e53ad045
+raw/artifacts/anchor/templates__client.js      23426  e4466f4bb7a2b1fec0ab7a00b8705242757ae7946a7c471cc5e7a23a7c1788bd
+raw/artifacts/github-commit-files.txt        343  ea9b60fceb6f05735a772a40b43bf9b9e92559c9f86b7ad7780c3506d58768e6
+raw/artifacts/github-commit.json      15691  24bfb4a0357a5abead8b06acbce95dc1494ea5d51a293d014fd6cc7b82521a44
+raw/artifacts/tools/pnpm.cmd        257  6664c89d2166a14fe648fa70e82aa7377e8cda3c2a770bbf960dccc1380e807b
