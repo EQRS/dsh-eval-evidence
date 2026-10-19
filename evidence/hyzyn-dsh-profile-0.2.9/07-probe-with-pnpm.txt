@@ -1,0 +1,95 @@
+# command: <node> probes/probe_hyzyn_profile.mjs（PATH 前置 pnpm 垫片）
+# exit: 0
+# seconds: 1.53
+
+## stdout
+[dsh-profile-manager] mounted, profiles root: C:\Users\30951\AppData\Local\Temp\profile-probe-KasYEV\profiles
+{
+ "total": 16,
+ "failed": 0,
+ "results": [
+  {
+   "name": "apply 挂载 6 条路由",
+   "pass": true,
+   "detail": "/api/dsh-profile/list,/api/dsh-profile/create,/api/dsh-profile/duplicate,/api/dsh-profile/rename,/api/dsh-profile/port,/api/dsh-profile/delete"
+  },
+  {
+   "name": "list 初始返回空 profiles",
+   "pass": true,
+   "detail": "{\"ok\":true,\"home\":\"C:\\\\Users\\\\30951\\\\AppData\\\\Local\\\\Temp\\\\profile-probe-KasYEV\",\"profilesRoot\":\"C:\\\\Users\\\\30951\\\\AppData\\\\Local\\\\Temp\\\\profile-probe-KasYEV\\\\p"
+  },
+  {
+   "name": "create alpha 返回 200",
+   "pass": true,
+   "detail": "{\"ok\":true,\"profile\":{\"name\":\"alpha\",\"initialized\":true,\"packageJson\":true,\"patchExists\":true,\"bundles\":[\"@deepseek-ai/dsh-base\"],\"dependencies\":{},\"port\":null,"
+  },
+  {
+   "name": "create 写出 package.json 且 name 正确",
+   "pass": true,
+   "detail": "{\"name\":\"dsh-profile-alpha\",\"private\":true,\"dependencies\":{},\"dsh\":{\"profile\":{\"bundles\":[\"@deepseek-ai/dsh-base\"]}}}"
+  },
+  {
+   "name": "create 写出 cordis.patch.yml",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "list 含 alpha",
+   "pass": true,
+   "detail": "[\"alpha\"]"
+  },
+  {
+   "name": "duplicate alpha→beta",
+   "pass": true,
+   "detail": "{\"ok\":true,\"profile\":{\"name\":\"beta\",\"initialized\":true,\"packageJson\":true,\"patchExists\":true,\"bundles\":[\"@deepseek-ai/dsh-base\"],\"dependencies\":{},\"port\":null,\""
+  },
+  {
+   "name": "duplicate 后 beta 存在",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "rename beta→gamma",
+   "pass": true,
+   "detail": "{\"ok\":true,\"profile\":{\"name\":\"gamma\",\"initialized\":true,\"packageJson\":true,\"patchExists\":true,\"bundles\":[\"@deepseek-ai/dsh-base\"],\"dependencies\":{},\"port\":null,\"dir\":\"C:\\\\Users\\\\30951\\\\AppData\\\\Local\\"
+  },
+  {
+   "name": "rename 同步目录与 manifest",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "port 写入 profile 端口",
+   "pass": true,
+   "detail": "{\"ok\":true,\"profile\":{\"name\":\"gamma\",\"initialized\":true,\"packageJson\":true,\"patchExists\":true,\"bundles\":[\"@deepseek-ai/dsh-base\"],\"dependencies\":{},\"port\":50888"
+  },
+  {
+   "name": "delete gamma",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "非法名称被拒（400）",
+   "pass": true,
+   "detail": "{\"error\":\"非法 profile 名称: \\\"../evil\\\"\"}"
+  },
+  {
+   "name": "非 loopback 请求被拒（403）",
+   "pass": true,
+   "detail": "{\"error\":\"forbidden: loopback-only\"}"
+  },
+  {
+   "name": "方法不匹配被拒（405）",
+   "pass": true,
+   "detail": "{\"error\":\"method not allowed: GET\"}"
+  },
+  {
+   "name": "受保护名 web 不可删除（400）",
+   "pass": true,
+   "detail": "{\"error\":\"默认 profile 不能删除: web\"}"
+  }
+ ]
+}
+
+## stderr
+
