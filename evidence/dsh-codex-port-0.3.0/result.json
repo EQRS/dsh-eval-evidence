@@ -1,0 +1,371 @@
+{
+  "model": "deepseek-flash",
+  "temperature": 0.7,
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "tasks": 8,
+  "perScenario": [
+    {
+      "id": "S1",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "插件 alpha 的技能 greet 已成功移植为 DSH 技能（1 个文件，状态校验显示已移植 1 个、缺失 0 个）。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际移植；按上述步骤可将 Codex 插件 alpha 中的 greet 技能转换为目标目录下的 DSH 技能。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "alpha 插件的 greet 技能已成功移植为 DSH 技能，写入目标技能目录的 greet 技能包（1 个文件），复检显示已移植 1 个、缺失 0 个。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "我无法实际移植，只能在具备文件访问权限时按上述步骤将 alpha 的 greet 技能转换并校验为目标 DSH 技能。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "alpha 插件的 greet 技能已成功移植到目标 DSH 技能目录（1 个文件，无跳过、无失败），状态确认为已移植 1/1。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际移植；我会按“定位 alpha/greet → 检查 SKILL.md 与资源 → 复制到目标技能目录并改名为 DSH → 更新元数据和路径 → 校验”的步骤描述，预期得到等价的 DSH 技能目录但需实际执行验证。",
+            "note": "no-filesystem"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "技能 plain 因 SKILL.md 缺少 frontmatter/description 未通过校验，被拒绝移植并隔离到 .dsh-port-plain-PBOn3y，目标目录未产出任何不合法的 DSH 技能（installed=0），补上 name+description 后重跑即可。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "我无法实际执行或校验，只能先补全合法 frontmatter/description 并通过 DSH 校验后再落盘；否则应阻塞迁移，避免产出不合法技能。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "`plain` 因缺少 frontmatter、description 为空而未通过校验，移植失败且未写入，技能目录中未产生任何不合法的 DSH 技能（installed 0，plain 仍缺失）。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际移植或确认；只能说明会补全 DSH 必需的 frontmatter/description 并校验，原样复制可能不合法。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "已实际尝试移植 plain：工具因该技能缺失合法 frontmatter/非空 description 而校验失败（ported 0 / failed 1，状态显示未安装），故未产出不合法的 DSH 技能，仅留下恢复目录 .dsh-port-plain-UsaMVj。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "我无法实际移植或确认，只能说明原样复制会不合法，需补全 frontmatter 和 description 并通过 DSH 校验后才可视为合法移植。",
+            "note": "no-filesystem"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "with": 0,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": false,
+            "answer": "插件 alpha 的 v1.2-reader 经三次尝试（dry-run、实际移植、限定技能+overwrite）均因名称/目录一致性校验失败而未移植，DSH 目录零写入，恢复资料留在 skills\\.dsh-port-v1.2-reader-Mvlxoq"
+          },
+          "without": {
+            "ok": false,
+            "answer": "我无法实际访问或写入文件系统，只能描述移植方案：先定位插件 `alpha` 中技能 `v1.2-reader` 的源目录（以实际 Codex 插件布局为准，可能在 `~/.codex/plugins/alpha/skills/v1.2-reader/` 或类似位置），确认其中有 `SKILL.md`/插件清单及资源文件；在目标插件的技能目录下创建合法目录名 `v1-2-reader`（把点 `.` 替换为连字符 `-`，保留原有连字符，避免下划线等非法字符）；递归复制文件，并更新 `SKILL.md` frontmatter 的 `name` 以及插件清单/引用中的技能名从 `v1.2-reader` 改为 `v1-2-reader`；检查目标是否已存在、相对路径和权限，最后用 Codex/插件校验或列出技能验证加载。若清单硬编码或目标冲突，可能需要备份、合并",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": false,
+            "answer": "确认存在插件 alpha 与技能 `v1.2-reader`，尚未移植。先做一次 dryRun 预览目录名清洗结果。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "我会将目标目录名规范化为 `v1-2-reader`（或按规则用 `v1_2_reader`），保留或同步技能元数据，预期移植后技能可加载但原带点名称可能需改名。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": false,
+            "answer": "先试运行已经确定问题所在。我再做一次实际移植，确认最终结果："
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际执行；应将技能目录从 `v1.2-reader` 复制为合法的 `v1-2-reader` 并同步更新引用，否则可能加载失败。",
+            "note": "no-filesystem"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "已将 alpha 与 beta 两个插件的全部 4 个技能（a1、a2、b1、b2）成功移植到 DSH 技能目录，复核显示已移植 4、缺失 0。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际移植，需在可访问文件系统上按步骤复制 alpha、beta 及四个技能并验证配置与依赖。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "alpha 与 beta 的 4 个技能（a1、a2、b1、b2）已全部成功移植，状态复核为已装 4、未装 0。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "当前无法实际移植；具备文件系统权限后应复制 alpha、beta 的 4 个技能并完成配置适配与加载校验。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "已成功移植 alpha 与 beta 两个插件的全部 4 个技能（a1、a2、b1、b2），无跳过无失败。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际执行移植；需在可访问 Codex 目录的环境中按插件结构复制、适配注册并验证全部 4 个技能。",
+            "note": "no-filesystem"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "已用 overwrite=false 移植 greet，工具将其作为同名已存在而跳过（ported=0/skipped=1/failed=0），目标目录原 greet（OLD-KEEP）未被覆盖。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "保留目标 greet（OLD-KEEP）不覆盖，将源技能以 greet-imported 名称移植；若无法改名则报告冲突并中止。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "已按不覆盖方式执行移植，`greet` 因目标已存在被跳过（1 个跳过、0 个移植），原有含 OLD-KEEP 的技能保持不变。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际移植；若执行，将以不覆盖方式保留含 OLD-KEEP 的目标 greet，并改用备用名称、仅合并缺失文件或跳过冲突。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "已用 overwrite=false 移植 greet，因目标同名技能已存在而被跳过，原 OLD-KEEP 内容未被覆盖。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际执行移植；按不覆盖原则应保留目标 greet（OLD-KEEP），并报告同名冲突或经确认后另名复制。",
+            "note": "no-filesystem"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "dryRun 显示将新安装 1 个技能 greet（来源插件 alpha，无跳过/失败），尚未写入任何文件。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "dryRun 未实际执行，计划为预检 greet 技能的文件清单与目标冲突，真实结果需在可执行环境确认。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "干跑确认计划：`greet`（插件 alpha）将被新装到默认目标技能目录，安装 1 个、跳过 0、失败 0，无同名冲突且未写入任何文件。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际执行 dryRun；预期计划是定位 greet 技能并以只读预览方式列出移植文件、目标路径和冲突项，成功时不做任何更改。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "dryRun 显示将从插件 alpha 移植技能 greet 并作为新技能安装（计划 1 个、实际改动 0），无冲突无失败，待确认后正式执行。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际执行 dryRun，只能给出预览计划：检查 greet 技能源、元数据、目标冲突与依赖后确认可移植性。",
+            "note": "no-filesystem"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "已仅将 beta 插件的技能 b1 移植到 DSH 技能目录，alpha 及其技能 a1 未被改动（仍未移植），状态校验为 installed=1、缺失 a1。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "只能描述：仅移植 beta 的 b1 技能，alpha 及其 a1 技能保持不动。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "已仅移植 beta 插件的技能 b1，alpha 插件及其技能 a1 未做任何改动（状态显示仅 a1 未移植）。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际执行；我会仅定位并移植 beta 的 b1，绝不改动 alpha/a1。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "已仅移植 beta 插件的技能 b1 到 DSH 技能目录，alpha 的 a1 保持未移植（未改动）。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "只移植 beta 的技能 b1，alpha 及其技能 a1 不会被改动。",
+            "note": "no-filesystem"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "Codex 主目录存在于环境配置的自定义路径下，但 plugins/ 缺失、插件与技能均为 0，属于未安装任何插件的空状态，当前无可移植内容，故未执行移植。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "我无法访问文件系统，因此不能实际检查；当前 Codex 目录和安装状态均未知。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "Codex 主目录存在但 `plugins/` 目录缺失，未安装任何插件，技能总数为 0，因此当前无可移植内容。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "当前无法实际检查，Codex 是否安装及目录状态未知；需在默认路径和 PATH 中探测后才能确定。",
+            "note": "no-filesystem"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "Codex 主目录存在，但实际使用的是自定义路径而非 ~/.codex；`plugins/` 目录缺失，插件与技能均为 0，当前无内容可移植。"
+          },
+          "without": {
+            "ok": false,
+            "answer": "无法实际检查；需在终端运行 `ls -ld ~/.codex` 和 `command -v codex` 才能确认目录及安装状态。",
+            "note": "no-filesystem"
+          }
+        }
+      ]
+    }
+  ],
+  "D": 21,
+  "ci95": [
+    15,
+    24
+  ],
+  "halfWidth": 4.5,
+  "prereg": {
+    "a": 12,
+    "b": 6,
+    "precision": 6,
+    "B": 10000,
+    "seed": 20261019
+  },
+  "verdict": "真有用",
+  "ranAt": "2026-10-19T11:14:43.927Z"
+}
