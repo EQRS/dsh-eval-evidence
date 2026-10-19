@@ -1,0 +1,86 @@
+# probe-anchor · @hyzyn/dsh-prompt 0.2.9（monorepo packages/prompt）
+measured_at=2026-10-18T14:54:07.630Z
+repo=D:\natnat\lingshu\外部插件\hyzyn-dsh-plugin-kit\dsh-plugin-kit-main
+commit_given=7363332f595b8112cb4b601f8723e6453043eb62
+git_dir_exists=false
+git_in_path=NO
+npm_in_path=NO
+
+## 包版本
+root_package_name=@hyzyn/dsh-plugin-kit
+root_package_version=0.1.57
+root_package_sha256=283a5fc901a740d826e9d3e2003c7121ab419bb7dc296c270a0186826ccc484b
+root_package_bytes=4216
+prompt_package_name=@hyzyn/dsh-prompt
+prompt_package_version=0.2.9
+prompt_package_sha256=9675bc81efb9a1b08e87c7e6a94e9ba6e87fc5e53236be3a0d4eab4882adc1d6
+prompt_package_bytes=1979
+prompt_main=lib/index.js
+prompt_bundle_patch="./cordis.patch.yml"
+prompt_peer_dsh="^0.1.7-rc.2 || ^0.2.0-rc.1 || ^0.2.0-rc.2 || ^0.2.1-alpha.1 || ^0.2.1-alpha.2 || ^0.2.1-alpha.5 || ^0.2.1-rc.1"
+prompt_dependencies={"@deepseek-ai/schemastery":"^3.18.4","js-yaml":"^4.1.0","@hyzyn/dsh-kit":"0.5.3"}
+
+## 关键文件 sha256
+file[pnpm-lock.yaml]=114994B sha256=d54abb9c6c43004931b537ccfeb16a4443dcc125b4d608efd95bb0838e034003 mtime=2026-10-18T13:46:13.000Z
+file[pnpm-workspace.yaml]=25B sha256=d115dc6c83ba283a7d17146ad456056f3f70b003edb8c312a52880b48b034001 mtime=2026-10-18T13:46:13.000Z
+file[vitest.config.ts]=8971B sha256=91e080ee6d94cde197f585efea8fa2b102fe3dd06a2c0e5351a871083f708c90 mtime=2026-10-18T13:46:13.000Z
+file[tsconfig.base.json]=466B sha256=72d0b08265e8fcc2ca43d79dac1661b51da3d3f0085ae5f0fe0c29077c340585 mtime=2026-10-18T13:46:13.000Z
+file[.npmrc]=1283B sha256=cc5d3433e7b177f920b7ea2be3b1609fce5d02daa7fe6ff1bfbf1eaff2f3dc88 mtime=2026-10-18T13:46:13.000Z
+file[cordis.patch.yml]=1162B sha256=9bc99f444a037b07a7fc3e1a9f5483cdf023ab51e299bbe1fac8fdb34ddd9e01 mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/package.json]=1979B sha256=9675bc81efb9a1b08e87c7e6a94e9ba6e87fc5e53236be3a0d4eab4882adc1d6 mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/src/index.ts]=33171B sha256=c3c33d8465375dc725ad296cf726a1ba3b570ea9944ae0d8aa9d3cebbc3f7971 mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/src/js-yaml.d.ts]=772B sha256=12e4e2524daf39acc756a1a2632d8d4695484830b49f88467244638f7908652e mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/test/managed-prompt.test.ts]=7154B sha256=e47fb1f859c214719eb50bf9fa8054da28cd3c43263ce06c77e35edc67bae576 mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/lib/index.js]=34483B sha256=b22f828c44c50754eebf6d8b02799b606a6cce05663e5da31b83b251b98c82bb mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/lib/index.d.ts]=1519B sha256=d6088bdcd1d3df2b9d7e3d10cd77ce27838146b5c017c2990e3d1afe2a6331db mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/lib/index.js.map]=32465B sha256=232b87f50ba48c0b08e7d926fabdf24b1dfe9ddacf0d2ecbaa31cc0132595a2a mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/client.js]=56958B sha256=e39c036120a5e3f5eb381817c25f298cd54e7743e783c7ac3256c15a90c34132 mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/cordis.patch.yml]=225B sha256=b005e51d1acb1a2e8031617e0cc94d32e9eae85ab8d75c39e0042381e096cde0 mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/README.md]=2962B sha256=dd2427a421bd4d3cfb536435accce18f99c3d324df99ff5664727669be92b3e9 mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/README.en.md]=3402B sha256=420af9f29aeb6020873cd51851618f6bfd46be4b43059993c696b01d288aeb15 mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/tsconfig.json]=167B sha256=57374229e141a2d55e9b76de252d14602f85cec36e9484806b2fbecc3c6be946 mtime=2026-10-18T13:46:13.000Z
+file[packages/prompt/tsconfig.base.json]=MISSING
+
+## 树指纹（排除 node_modules/.git/.codegraph）
+tree[packages/prompt]=files=12 bytes=175257 sha256=0848832fe51499a188ef5e3e623df7c6583f1cd03aeae15cbde262fa04a199ce
+tree[packages/prompt/src]=files=2 bytes=33943 sha256=1244193de453b3e666fff897ff2a4a283e5de90c3e4a00c2e98592fc6092827f
+tree[packages/prompt/test]=files=1 bytes=7154 sha256=405caf9279eab2fb2133355ca6395b13dfb31a2a030f3b6c42e25db30f5c9533
+tree[packages/prompt/lib]=files=3 bytes=68467 sha256=60ed3c6ecab59a595f517795f8e8258a1484da74b55d60e905ddef4b6b7a8a37
+tree[packages/kit]=files=61 bytes=457131 sha256=f422e3cee569cb974d7adc087d07b829fa83a5957c9ab8cd97e8b77b1e5651a0
+tree[repo-without-node_modules]=files=711 bytes=26783926 sha256=f4fd279ced46acc8382797d722c46197dee2e52e423ba175f9d9b770bbb31f46
+
+## 既有依赖态（上一件 dsh-env 测评已装；本件不重装）
+root_node_modules_exists=true
+root_node_modules_top_entries=12
+pnpm_store_packages=204
+prompt_node_modules_exists=true
+prompt_node_modules_entries=.bin,@deepseek-ai/cordis+dsh+schemastery,@hyzyn/dsh-kit,@types/node,js-yaml,react,typescript
+dep[vitest/package.json]=3.2.7
+dep[typescript/package.json]=5.9.3
+dep[js-yaml/package.json]=MISSING
+pnpm_lock_bytes=114994
+modules_yaml_exists=true
+
+## 工具链
+node_version=v24.21.0
+node_path=C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe
+pnpm_version=11.28.5
+pnpm_path=C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\pnpm\bin\pnpm.cjs
+python_version=Python 3.12.10
+platform=win32 x64
+os_release=Microsoft Windows [Version 10.0.26200.9711]
+dsh_profile=desktop
+dsh_profile_dir=C:\Users\30951\.dsh\profiles\desktop
+dsh_cli_exists=true
+dsh_cli_version=ERR(rc=null) 
+note=commit hash 由任务下发，本机无 .git 且未联网，无法独立验证该 commit；锚定以文件 sha256/树指纹为准
+# run_cmd evidence
+command: "C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe" probes\probe-anchor.mjs --repo D:\natnat\lingshu\外部插件\hyzyn-dsh-plugin-kit\dsh-plugin-kit-main --commit 7363332f595b8112cb4b601f8723e6453043eb62 --node "C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe" --pnpm "C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\pnpm\bin\pnpm.cjs"
+cwd: D:\natnat\lingshu\测试\hyzyn-dsh-prompt
+env_overrides: (none)
+started: 2026-10-18T22:54:07+08:00
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+exit_code: 0
+elapsed_ms: 6645
