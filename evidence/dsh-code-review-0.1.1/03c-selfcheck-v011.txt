@@ -1,0 +1,173 @@
+cmd : npm notice run dsh-code-review@0.1.1 selfcheck
+所在位置 行:1 字符: 638
++ ... ::StartNew(); cmd /c "C:\Users\30951\tools\run.cmd $cmd" 2>&1 | Out-F ...
++                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm notice run ...0.1.1 selfcheck:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+npm notice run node scripts/cordis-entry-smoke.mjs && node scripts/client-bundle-smoke.mjs && node scripts/unit-smoke.m
+js && node scripts/file-config-smoke.mjs && node scripts/task-api-smoke.mjs
+✔ src/index.js 可被导入（Cordis 入口模块）
+✔ 导出 apply 为函数
+✔ 导出 name = dsh-code-review
+✔ inject 声明含 'tools'（Cordis 服务注入，缺失即启用失败）
+✔ inject 声明含 'settings'（宿主设置服务，设置面板依赖）
+✔ src/config.js 可导入
+✔ src/settings-schema.js 可导入
+✔ src/plugin-config.js 可导入
+✔ src/runner.js 可导入
+✔ src/report.js 可导入
+✔ src/sensitive-list.js 可导入
+✔ src/index.js 导出 0.2.0 Config schema（四键齐全）
+✔ apply(ctx, undefined) 不抛异常（挂载成功前提）
+✔ 注册了 code_review / code_review_status / code_review_set_config 三个工具（后台任务形态 + 配置入口）
+✔ 注册了 /review 与 /review-status 斜杠命令（0.2.x 复数 commands 服务，register 形态）
+✔ apply 返回的卸载函数可执行且不抛
+✔ package.json: main = src/index.js
+✔ package.json: exports['.'] = ./src/index.js
+✔ package.json: dsh.bundle.patch = ./cordis.patch.yml
+✔ package.json: files 含 src
+✔ package.json: files 含 cordis.patch.yml
+✔ package.json: files 含 dsh-plugin.json
+✔ package.json: files 含 std-facet.js
+✔ package.json: files 含 client.js
+✔ package.json: files 含 README.md
+✔ package.json: files 含 LICENSE
+✔ cordis.patch.yml 存在
+✔ cordis.patch.yml 顶层含 insert
+✔ cordis.patch.yml id/name = dsh-code-review
+✔ code_review 工具有 name
+✔ code_review 工具有 description（微调模型可见）
+✔ code_review 工具有 parameters JSON Schema（必填项合理）
+✔ code_review 工具 parameters 含 exclude_paths（后台扫描排除位）
+✔ code_review 工具 execute 为异步函数（后台投递入口）
+✔ code_review 工具 output schema（结果渲染位）
+✔ code_review_status 工具（参数 task_id 查询/省略列最近）
+
+✔ 全部通过：Cordis 入口冒烟自检 OK
+✔ client.js 调用了 __ModuleLoader__.load
+✔ 注册 id 等于包名 dsh-code-review
+✔ factory 是函数
+✔ factory 返回 { inject, apply } 契约
+✔ inject 声明了 slots（插件页服务）
+✔ inject 声明了 configForms（0.2.0 设置域服务）
+✔ apply 执行不抛（slots + configForms 注册成功）
+✔ configForms.get 收到了插件条目 id
+✔ 注册了 plugins.item 设置卡
+✔ 注册了 .tasks 任务卡（第二层 GUI 实时刷新）
+✔ 设置卡 summary/full 两种视图渲染不抛（React stub 契约）
+✔ summary 视图产出非空
+✔ 全卡渲染产出非空
+✔ 全卡含保存操作（保存按钮文案在产物中）
+✔ 任务卡渲染不抛（轮询降级路径安全）
+✔ 任务卡产物含「后台任务」标题
+✔ 组件函数真实被调用（渲染痕迹非空）
+✔ 设置卡渲染订阅了表单（subscribe 真实消费）
+✔ 并发开关开启：并发广度数字输入已渲染
+✔ 并发开关关闭（默认单线）：并发广度数字输入不渲染
+✔ client.js 导出 __fields__（字段真源，非正则抽取）
+✔ client FIELDS 键与插件 Config（configForms 真源）键完全一致（双向）
+✔ settings 命名空间 schema 键与插件 Config 键一致（防双源漂移）
+✔ useEffect 副作用无异常（订阅/轮询回调不抛）
+✔ useState 槽位可写（setter 真实更新，非空函数）
+
+✔ 全部通过：客户端模块协议自检 OK
+✔ review/uncommitted 默认：不带 diff 定位参数；未开并发 = 显式单线 --concurrency 1
+✔ review/branch：--from + --to（head 缺省回退 HEAD）
+✔ review/commit：--commit
+✔ focus → --background；repo_path → --repo
+✔ scan：--repo + --audience（未开并发 = 单线）
+✔ 并发开启：默认广度 8（与引擎默认对齐）
+✔ 并发开启：指定广度 4
+✔ 并发开启：越界广度钳制（100→32，0→1，非数→8）
+✔ 并发关闭/缺省：一律显式 --concurrency 1（防引擎默认 8 漂移）
+✔ 敏感命中：.env / .env.production
+✔ 敏感命中：.ssh/id_rsa、credentials.json、app.pem、token.txt
+✔ 敏感命中：token 带分隔符 + 凭据扩展名形态
+✔ 敏感命中：pass 词段 + 凭据扩展名/结尾
+✔ 敏感不命中：业务命名不误伤
+✔ 敏感不命中：.gitignore、README.md、src/main.go
+✔ listSensitiveFiles 混合清单只点名命中项
+✔ repoNameOf：剥 .git 尾巴
+✔ repoNameOf：纯点/空路径回落 repo
+✔ reportFilePath：~ 展开 + 日期分目录 + 仓库名前缀
+✔ normalizeConfig：默认值全部兜底
+✔ normalizeConfig：类型清洗与未知键剔除
+✔ normalizeConfig：volatile 解包（{value} 形态）
+✔ normalizeConfig：并发开关类型清洗 + 广度钳制 1..32
+✔ runEngine：stdout 收集 + 退出码
+✔ runEngine：stderr 收集 + 非零退出
+✔ runEngine：超时中（sleep 长于 timeout）
+✔ createSettingsSchema() 默认 schema 可构造
+✔ createSettingsSchema(带模型列表) 接收选项（步骤5 动态选项位）
+✔ createModelSource()：session 无会话上下文 → 表首回退；无路由 → null（绝不落官方付费端点·红线）
+✔ createModelSource()：未知模型回退表首；无路由 → null（官方兜底已禁用）
+✔ createModelSource()：listCandidates 首项为 session
+✔ parseCredentialsText：refs 段与顶层键均可提取
+✔ parseCredentialsText：深缩进（records 段）不误读
+✔ parseCredentialsText：= 与引号变体
+✔ parseCredentialsText：键不存在 → null；显式空值 → 空串（两者可区分）
+✔ prepareEngineEnv：端点和 key 齐备时注入 5 个 OCR_LLM_* 键
+✔ prepareEngineEnv：缺 key 不注入（引擎回退自身配置）
+✔ prepareEngineEnv：timeoutMs 折算为秒（下限 30s）
+✔ collectPendingPaths：untracked+modified 并集（步骤6 待提交清单）
+[dsh-code-review] 待提交清单收集失败：git exit 128（该仓库按无待提交文件处理，评审继续）
+[dsh-code-review] 待提交清单收集失败：git exit 128（该仓库按无待提交文件处理，评审继续）
+[dsh-code-review] 待提交清单收集失败：git exit 128（该仓库按无待提交文件处理，评审继续）
+✔ collectPendingPaths：空路径/非 git 目录 → []（点名层静默跳过）
+✔ buildReviewArgs：excludePaths → 单个 --exclude 逗号分隔（引擎 --exclude 是单值多模式，重复传只有最后一个生效）
+✔ DEFAULT_CONFIG.review_timeout_ms：进程级兜底放宽到 6 小时（2026-10-13 用户拍板取消严格超时，只防挂死）
+✔ task-book：入队/读/更新/列表 状态机 + 原子落盘（隔离目录，不碰生产任务簿）
+✔ review-exec：模块可加载，executeReview 为异步执行函数（后台 serve 与工具共用同一执行体）
+
+44 项单元自检通过，全部 OK
+  ✓ 缺失文件读空
+  ✓ 写入过滤未知键
+  ✓ 值 trim 后落盘
+  ✓ 回读一致
+  ✓ 原子写无 tmp 残留
+  ✓ 读回含合法覆盖
+  ✓ 读回无非法字段
+  ✓ 清空后读含 null 占位
+  ✓ sanitize 空入 { }
+  ✓ sanitize 类型拒绝
+[dsh-code-review] 读取插件配置文件失败，已回落默认配置（C:\Users\30951\AppData\Local\Temp\dsh-code-review-fc-PHmV94\plugin-config.json）：Ex
+pected property name or '}' in JSON at position 2 (line 1 column 3)
+  ✓ 损坏 JSON 读空
+  ✓ 查询模式 ok 且列出生效配置
+  ✓ 查询模式不写盘（无副作用）
+[dsh-code-review] 读取插件配置文件失败，已回落默认配置（C:\Users\30951\AppData\Local\Temp\dsh-code-review-fc-PHmV94\plugin-config.json）：Ex
+pected property name or '}' in JSON at position 2 (line 1 column 3)
+  ✓ 写入模式返回生效值
+  ✓ 写入模式恰好一次落盘
+  ✓ 写入后文件回读即新值（持久化生效）
+
+file-config smoke 全过：16 项。
+✔ requestor 随任务落盘
+✔ sessionController 通道探测成功
+✔ apiProxy 通道探测成功（兜底）
+✔ 双通道都无 → null（推送跳过）
+✔ 完成任务被推送给发起会话（1 条）
+✔ push 标记落盘（ok/channel）
+✔ 已推送任务不重复推（防刷屏）
+✔ 无发起会话的任务不推送（callLog 零新增）
+✔ 无发起会话的任务标 no-requestor（防反复试探）
+✔ 完成文本含 ✅ 标题与报告路径
+✔ 超时文本含 ⏱ 标题
+✔ 失败文本含 ❌ 标题与退出码
+✔ 路由数组 4 条（3 精确 + 1 前缀）
+✔ 精确路由含 /tasks、/events 与 /config
+✔ 前缀路由 /api/code-review/tasks/
+✔ GET /tasks 200 + JSON
+✔ 列表按 id 降序且含最新任务
+✔ 列表摘要不含 result.text 大字段
+✔ GET /tasks/:id 返回详情（found + resultText）
+✔ 任务簿指纹稳定（未变化时相同）
+✔ POST /config 超 64KB → 413
+✔ POST /config 小 body → 200
+✔ SSE 挂满 10 个连接全部 200（名额逐个占用）
+✔ 超限的第 11 个连接 → 503（连接数上限兜底）
+✔ 关闭一个连接后新连接恢复 200（名额归还）
+
+task-api 冒烟全部通过。
+exit=0 elapsed_s=11.52
