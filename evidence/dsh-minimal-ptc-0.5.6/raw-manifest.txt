@@ -1,0 +1,12 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-19T05:14:47.769Z
+label = dsh-minimal-ptc 0.5.6
+generator = tools/make_manifest.mjs
+
+raw/00-anchor.txt        726  8f0690db607d2fadf77e27e456d57aaae44fd0c8029021c5b4986c0643c72318
+raw/01-self-test.txt       3481  e08403caa14132aed4571106aae2499726b0e6b671c63731c4378f6d595cdada
+raw/02-install.txt       1262  c214360addbc54c94b5b36377320573d00ee6e1a15fecda5992dc5a2b151e9c7
+raw/03-self-test-after-install.txt       2281  ec927947ad945a455722b1224eaae34e281a00179eabb979a8ac3ccbf1b64e1a
+raw/04-probe.txt       1440  bb190325d620293126c1a4065c338bc5eaae00d6b65a24c27a83ab3e99de8b40
+raw/05-probe-fixed.txt       1988  ef42e4b12eddb2c82395fa9e965664daac378bf99ff1bc7955182baa261241a4
+raw/09-dedupe-grep.txt        134  e189f1632a3afd4b4d45f88b7ac5f94b3f600bb7820af165448c21dbf6df5548
