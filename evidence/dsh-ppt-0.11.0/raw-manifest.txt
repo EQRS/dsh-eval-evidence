@@ -1,0 +1,15 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-19T07:08:16.561Z
+label = dsh-ppt 0.11.0
+generator = tools/make_manifest.mjs
+
+raw/00-anchor.txt        583  5f3185fe2d98720eb33e5885f5dd841afe21552d459609ae42a0b54ad43684dd
+raw/02-install.txt       1060  d042ed0b1831e287b1a43e2d8a5202c1d0c3c08ea9cf1a44ec9c3cf5ec4809e9
+raw/02b-install-allow-build.txt        378  69f85da377fe9aa173019a2fd754a270d0a1ea4a7ec2782d9d7b070aedef34ca
+raw/02c-install-only-built.txt        610  a2e2c42359344d8df7f71ab9c7797f2524d29f7a88c178958b41a5369a775b44
+raw/03-build.txt       2937  6e700aee210789da86ea8a4cf78679c81854d9029d010f426d3ac973e59aa84c
+raw/03b-build-after-approve.txt       2938  71908c46428193d766d009faf35faa36821d48dd38db52b1ce8d2c3334c16ef7
+raw/03c-build-verify-off.txt       2976  34a479f87b4b0516b1dc6ea4d56609d365d79d64004af4fe420147cbcd0e5c7a
+raw/03d-build-direct-tsc.txt        223  79ce0ac3ef0de758afb89aa9c2ca3bd05149aeb7b5aa5a0067ff9e6b2ba550c7
+raw/04-self-test.txt      10435  3f54b5e1b4ba54d8d322c283933e17d19e30b400cdd7e55a8387951b9dc3fa27
+raw/05-probe.txt       1737  5975e2946c0731e1ad527df5b0c29c22b50631d71bf184262a319fc2268c48e0
