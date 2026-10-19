@@ -1,0 +1,830 @@
+cmd : google.golang.org/protobuf/internal/detrand: C:\Users\30951\tools\go\go\pkg\tool\windows_amd64\vet.exe: fork/exec
+ C:\Users\30951\tools\go\go\pkg\tool\windows_amd64\vet.exe: Insufficient system resources exist to complete the request
+ed service.
+所在位置 行:1 字符: 268
++ ... .1\engine'; cmd /c "C:\Users\30951\tools\run.cmd go test -short ./... ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (google.golang.o...uested service.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+go.opentelemetry.io/otel/exporters/stdout/stdouttrace/internal/x: C:\Users\30951\tools\go\go\pkg\tool\windows_amd64\vet
+.exe: fork/exec C:\Users\30951\tools\go\go\pkg\tool\windows_amd64\vet.exe: Insufficient system resources exist to compl
+ete the requested service.
+--- FAIL: TestArgCountErrors_AreActionable (0.54s)
+    --- FAIL: TestArgCountErrors_AreActionable/config_set_with_no_args (0.03s)
+        arg_errors_test.go:156: error message missing "\"ocr config set\" requires exactly 2 argument(s) (<key> <value>)"
+            --- full message ---
+            "codecheck config set" requires exactly 2 argument(s) (<key> <value>)
+            
+            Usage:
+              codecheck config set <key> <value> [flags]
+            
+            Example:
+              ocr config set llm.model claude-opus-4-6
+              ocr config set provider anthropic
+            
+            Run 'codecheck config set --help' for more information.
+        arg_errors_test.go:156: error message missing "Usage:\n  ocr config set <key> <value>"
+            --- full message ---
+            "codecheck config set" requires exactly 2 argument(s) (<key> <value>)
+            
+            Usage:
+              codecheck config set <key> <value> [flags]
+            
+            Example:
+              ocr config set llm.model claude-opus-4-6
+              ocr config set provider anthropic
+            
+            Run 'codecheck config set --help' for more information.
+        arg_errors_test.go:156: error message missing "Run 'ocr config set --help' for more information."
+            --- full message ---
+            "codecheck config set" requires exactly 2 argument(s) (<key> <value>)
+            
+            Usage:
+              codecheck config set <key> <value> [flags]
+            
+            Example:
+              ocr config set llm.model claude-opus-4-6
+              ocr config set provider anthropic
+            
+            Run 'codecheck config set --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/config_set_missing_value (0.04s)
+        arg_errors_test.go:156: error message missing "Usage:\n  ocr config set <key> <value>"
+            --- full message ---
+            "codecheck config set" requires exactly 2 argument(s) (<key> <value>)
+            
+            Usage:
+              codecheck config set <key> <value> [flags]
+            
+            Example:
+              ocr config set llm.model claude-opus-4-6
+              ocr config set provider anthropic
+            
+            Run 'codecheck config set --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/config_set_with_too_many_args (0.04s)
+        arg_errors_test.go:156: error message missing "Usage:\n  ocr config set <key> <value>"
+            --- full message ---
+            "codecheck config set" requires exactly 2 argument(s) (<key> <value>)
+            
+            Usage:
+              codecheck config set <key> <value> [flags]
+            
+            Example:
+              ocr config set llm.model claude-opus-4-6
+              ocr config set provider anthropic
+            
+            Run 'codecheck config set --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/session_export_with_too_many_args (0.04s)
+        arg_errors_test.go:156: error message missing "\"ocr session export\" accepts at most 1 argument(s)"
+            --- full message ---
+            "codecheck session export" accepts at most 1 argument(s)
+            
+            Usage:
+              codecheck session export [flags] [session-id]
+            
+            Example:
+              ocr session export -o review.html
+              ocr session export 20250601-100000-abc123 -o review.html
+            
+            Run 'codecheck session export --help' for more information.
+        arg_errors_test.go:156: error message missing "Usage:\n  ocr session export [flags] [session-id]"
+            --- full message ---
+            "codecheck session export" accepts at most 1 argument(s)
+            
+            Usage:
+              codecheck session export [flags] [session-id]
+            
+            Example:
+              ocr session export -o review.html
+              ocr session export 20250601-100000-abc123 -o review.html
+            
+            Run 'codecheck session export --help' for more information.
+        arg_errors_test.go:156: error message missing "Run 'ocr session export --help' for more information."
+            --- full message ---
+            "codecheck session export" accepts at most 1 argument(s)
+            
+            Usage:
+              codecheck session export [flags] [session-id]
+            
+            Example:
+              ocr session export -o review.html
+              ocr session export 20250601-100000-abc123 -o review.html
+            
+            Run 'codecheck session export --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/config_unset_with_no_args (0.08s)
+        arg_errors_test.go:156: error message missing "\"ocr config unset\" requires exactly 1 argument(s) (<key>)"
+            --- full message ---
+            "codecheck config unset" requires exactly 1 argument(s) (<key>)
+            
+            Usage:
+              codecheck config unset <key> [flags]
+            
+            Example:
+              ocr config unset provider
+              ocr config unset custom_providers.my-provider
+              ocr config unset mcp_servers.github
+            
+            Run 'codecheck config unset --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/rules_check_with_no_args (0.04s)
+        arg_errors_test.go:156: error message missing "\"ocr rules check\" requires exactly 1 argument(s) (<file-path>)"
+            --- full message ---
+            "codecheck rules check" requires exactly 1 argument(s) (<file-path>)
+            
+            Usage:
+              codecheck rules check [flags] <file-path>
+            
+            Example:
+              ocr rules check src/main/java/com/example/Foo.java
+              ocr rules check --rule custom.json src/main/resources/mapper/UserMapper.xml
+            
+            Run 'codecheck rules check --help' for more information.
+        arg_errors_test.go:156: error message missing "Usage:\n  ocr rules check"
+            --- full message ---
+            "codecheck rules check" requires exactly 1 argument(s) (<file-path>)
+            
+            Usage:
+              codecheck rules check [flags] <file-path>
+            
+            Example:
+              ocr rules check src/main/java/com/example/Foo.java
+              ocr rules check --rule custom.json src/main/resources/mapper/UserMapper.xml
+            
+            Run 'codecheck rules check --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/session_show_with_no_args (0.04s)
+        arg_errors_test.go:156: error message missing "\"ocr session show\" requires exactly 1 argument(s) (<session-id>)"
+            --- full message ---
+            "codecheck session show" requires exactly 1 argument(s) (<session-id>)
+            
+            Usage:
+              codecheck session show [flags] <session-id>
+            
+            Run 'codecheck session show --help' for more information.
+        arg_errors_test.go:156: error message missing "Run 'ocr session show --help' for more information."
+            --- full message ---
+            "codecheck session show" requires exactly 1 argument(s) (<session-id>)
+            
+            Usage:
+              codecheck session show [flags] <session-id>
+            
+            Run 'codecheck session show --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/session_comments_with_no_args (0.03s)
+        arg_errors_test.go:156: error message missing "\"ocr session comments\" requires exactly 1 argument(s) (<session-id>)"
+            --- full message ---
+            "codecheck session comments" requires exactly 1 argument(s) (<session-id>)
+            
+            Usage:
+              codecheck session comments [flags] <session-id>
+            
+            Run 'codecheck session comments --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/delegate_rule_with_no_args (0.04s)
+        arg_errors_test.go:156: error message missing "\"ocr delegate rule\" requires at least 1 argument(s) (<path...>)"
+            --- full message ---
+            "codecheck delegate rule" requires at least 1 argument(s) (<path...>)
+            
+            Usage:
+              codecheck delegate rule [flags] <path...>
+            
+            Run 'codecheck delegate rule --help' for more information.
+        arg_errors_test.go:156: error message missing "Usage:\n  ocr delegate rule"
+            --- full message ---
+            "codecheck delegate rule" requires at least 1 argument(s) (<path...>)
+            
+            Usage:
+              codecheck delegate rule [flags] <path...>
+            
+            Run 'codecheck delegate rule --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/completion_with_no_args_lists_valid_values (0.04s)
+        arg_errors_test.go:156: error message missing "\"ocr completion\" requires exactly 1 argument(s)"
+            --- full message ---
+            "codecheck completion" requires exactly 1 argument(s)
+            
+            Valid values: bash, zsh, fish, powershell
+            
+            Usage:
+              codecheck completion [bash|zsh|fish|powershell] [flags]
+            
+            Run 'codecheck completion --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/flags_do_not_satisfy_the_positional_requirement (0.03s)
+        arg_errors_test.go:156: error message missing "\"ocr rules check\" requires exactly 1 argument(s) (<file-path>)"
+            --- full message ---
+            "codecheck rules check" requires exactly 1 argument(s) (<file-path>)
+            
+            Usage:
+              codecheck rules check [flags] <file-path>
+            
+            Example:
+              ocr rules check src/main/java/com/example/Foo.java
+              ocr rules check --rule custom.json src/main/resources/mapper/UserMapper.xml
+            
+            Run 'codecheck rules check --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/alias_reports_the_canonical_command_path (0.04s)
+        arg_errors_test.go:156: error message missing "\"ocr delegate rule\" requires at least 1 argument(s) (<path...>)"
+            --- full message ---
+            "codecheck delegate rule" requires at least 1 argument(s) (<path...>)
+            
+            Usage:
+              codecheck delegate rule [flags] <path...>
+            
+            Run 'codecheck delegate rule --help' for more information.
+        arg_errors_test.go:156: error message missing "Usage:\n  ocr delegate rule"
+            --- full message ---
+            "codecheck delegate rule" requires at least 1 argument(s) (<path...>)
+            
+            Usage:
+              codecheck delegate rule [flags] <path...>
+            
+            Run 'codecheck delegate rule --help' for more information.
+    --- FAIL: TestArgCountErrors_AreActionable/sessions_alias_reports_the_canonical_command_path (0.05s)
+        arg_errors_test.go:156: error message missing "\"ocr session show\" requires exactly 1 argument(s) (<session-id>)"
+            --- full message ---
+            "codecheck session show" requires exactly 1 argument(s) (<session-id>)
+            
+            Usage:
+              codecheck session show [flags] <session-id>
+            
+            Run 'codecheck session show --help' for more information.
+[codecheck] both --background and --background-file were provided; --background-file takes precedence and --background is ignored
+[codecheck] --background-file content is 2100 characters, exceeding the recommended 2000 (continuing but review quality might be impacted)
+[codecheck] --background-file content is 8000 characters, exceeding the recommended 2000 (continuing but review quality might be impacted)
+[codecheck] --background-file content is 8000 characters, exceeding the recommended 2000 (continuing but review quality might be impacted)
+[codecheck] both --background and --background-file were provided; --background-file takes precedence and --background is ignored
+--- FAIL: TestCLIReferenceDocumentsSessionCompare (0.00s)
+    --- FAIL: TestCLIReferenceDocumentsSessionCompare/en (0.00s)
+        cli_reference_compare_docs_test.go:19: read ..\..\pages\src\content\docs\en\cli-reference.md: open ..\..\pages\src\content\docs\en\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceDocumentsSessionCompare/zh (0.00s)
+        cli_reference_compare_docs_test.go:19: read ..\..\pages\src\content\docs\zh\cli-reference.md: open ..\..\pages\src\content\docs\zh\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceDocumentsSessionCompare/ja (0.00s)
+        cli_reference_compare_docs_test.go:19: read ..\..\pages\src\content\docs\ja\cli-reference.md: open ..\..\pages\src\content\docs\ja\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceDocumentsSessionCompare/ru (0.00s)
+        cli_reference_compare_docs_test.go:19: read ..\..\pages\src\content\docs\ru\cli-reference.md: open ..\..\pages\src\content\docs\ru\cli-reference.md: The system cannot find the path specified.
+--- FAIL: TestCLIReferenceDocumentsSessionExport (0.00s)
+    --- FAIL: TestCLIReferenceDocumentsSessionExport/en (0.00s)
+        cli_reference_compare_docs_test.go:41: read ..\..\pages\src\content\docs\en\cli-reference.md: open ..\..\pages\src\content\docs\en\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceDocumentsSessionExport/zh (0.00s)
+        cli_reference_compare_docs_test.go:41: read ..\..\pages\src\content\docs\zh\cli-reference.md: open ..\..\pages\src\content\docs\zh\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceDocumentsSessionExport/ja (0.00s)
+        cli_reference_compare_docs_test.go:41: read ..\..\pages\src\content\docs\ja\cli-reference.md: open ..\..\pages\src\content\docs\ja\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceDocumentsSessionExport/ru (0.00s)
+        cli_reference_compare_docs_test.go:41: read ..\..\pages\src\content\docs\ru\cli-reference.md: open ..\..\pages\src\content\docs\ru\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceDocumentsSessionExport/ko (0.00s)
+        cli_reference_compare_docs_test.go:41: read ..\..\pages\src\content\docs\ko\cli-reference.md: open ..\..\pages\src\content\docs\ko\cli-reference.md: The system cannot find the path specified.
+--- FAIL: TestCLIReferenceUsesSubtaskUnit (0.00s)
+    --- FAIL: TestCLIReferenceUsesSubtaskUnit/en (0.00s)
+        cli_reference_compare_docs_test.go:89: read ..\..\pages\src\content\docs\en\cli-reference.md: open ..\..\pages\src\content\docs\en\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceUsesSubtaskUnit/zh (0.00s)
+        cli_reference_compare_docs_test.go:89: read ..\..\pages\src\content\docs\zh\cli-reference.md: open ..\..\pages\src\content\docs\zh\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceUsesSubtaskUnit/ja (0.00s)
+        cli_reference_compare_docs_test.go:89: read ..\..\pages\src\content\docs\ja\cli-reference.md: open ..\..\pages\src\content\docs\ja\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceUsesSubtaskUnit/ko (0.00s)
+        cli_reference_compare_docs_test.go:89: read ..\..\pages\src\content\docs\ko\cli-reference.md: open ..\..\pages\src\content\docs\ko\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceUsesSubtaskUnit/ru (0.00s)
+        cli_reference_compare_docs_test.go:89: read ..\..\pages\src\content\docs\ru\cli-reference.md: open ..\..\pages\src\content\docs\ru\cli-reference.md: The system cannot find the path specified.
+--- FAIL: TestCLIReferenceDocumentsSessionRm (0.00s)
+    --- FAIL: TestCLIReferenceDocumentsSessionRm/en (0.00s)
+        cli_reference_compare_docs_test.go:128: read ..\..\pages\src\content\docs\en\cli-reference.md: open ..\..\pages\src\content\docs\en\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceDocumentsSessionRm/zh (0.00s)
+        cli_reference_compare_docs_test.go:128: read ..\..\pages\src\content\docs\zh\cli-reference.md: open ..\..\pages\src\content\docs\zh\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceDocumentsSessionRm/ja (0.00s)
+        cli_reference_compare_docs_test.go:128: read ..\..\pages\src\content\docs\ja\cli-reference.md: open ..\..\pages\src\content\docs\ja\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceDocumentsSessionRm/ru (0.00s)
+        cli_reference_compare_docs_test.go:128: read ..\..\pages\src\content\docs\ru\cli-reference.md: open ..\..\pages\src\content\docs\ru\cli-reference.md: The system cannot find the path specified.
+    --- FAIL: TestCLIReferenceDocumentsSessionRm/ko (0.00s)
+        cli_reference_compare_docs_test.go:128: read ..\..\pages\src\content\docs\ko\cli-reference.md: open ..\..\pages\src\content\docs\ko\cli-reference.md: The system cannot find the path specified.
+Cleared max_tokens; using the embedded template default.
+Deleted custom provider "my-gateway".
+Deleted custom provider "my-gateway".
+[codecheck] WARNING: active provider was deleted; 'provider' and 'model' have been cleared.
+[codecheck] Run 'ocr config provider' to select a new provider.
+Deleted custom provider "my-gateway".
+Deleted MCP server "srv1".
+Deleted MCP server "only".
+Set llm.url = https://gateway.example/v1
+Cleared active provider and model.
+Usage:
+  config [command]
+
+Available Commands:
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  model       
+  provider    
+  set         
+  unset       
+
+Flags:
+  -h, --help   help for config
+
+Use "config [command] --help" for more information about a command.
+[codecheck] both --background and --background-file were provided; --background-file takes precedence and --background is ignored
+[codecheck] Summary: 2 file(s) reviewed, 0 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] Summary: 2 file(s) reviewed, 0 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] Summary: 2 file(s) reviewed, 1 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] Summary: 2 file(s) reviewed, 0 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] Session: session-123
+[codecheck] Summary: 1 file(s) reviewed, 1 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] Summary: 5 file(s) reviewed, 0 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] Summary: 1 file(s) reviewed, 0 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] Summary: 1 file(s) reviewed, 0 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] Summary: 2 file(s) reviewed, 0 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] Summary: 2 file(s) reviewed, 0 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] Summary: 1 file(s) reviewed, 0 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] --max-tools 30 is below minimum 50, using 50
+[codecheck] Results written to C:\Users\30951\AppData\Local\Temp\TestLazyFileWriter_ReplacesExistingFileOnlyOnClose3131297605\001\out.json
+[codecheck] Results written to C:\Users\30951\AppData\Local\Temp\TestLazyFileWriter_NewFileUsesCreatePermissions615849441\001\out.json
+[codecheck] Results written to C:\Users\30951\AppData\Local\Temp\TestLazyFileWriter_TextStripsAnsi1583438804\001\out.txt
+[codecheck] Results written to C:\Users\30951\AppData\Local\Temp\TestLazyFileWriter_JSONKeepsBytesUnchanged1979729081\001\out.json
+[codecheck] Results written to C:\Users\30951\AppData\Local\Temp\TestWriteOutError_NilAfterSuccessfulWrite3690127519\001\out.json
+[codecheck] Summary: 2 file(s) reviewed, 0 comment(s), ~0 token(s) used, 0s elapsed
+[codecheck] WARNING [warning] x.go: slow
+[codecheck] WARNING [info] b.go: note
+List review sessions previously persisted to ~/.opencodereview/sessions/.
+The session id printed here can be passed to 'ocr review --resume <id>'.
+
+Usage:
+  codecheck session list [flags]
+
+Aliases:
+  list, ls
+
+Flags:
+  -h, --help          help for list
+      --json          emit JSON instead of a table
+      --limit int     cap the number of listed sessions (0 = unlimited) (default 20)
+      --repo string   root directory of the git repository (default: current dir)
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+Show one session's metadata and per-file items
+
+Usage:
+  codecheck session show [flags] <session-id>
+
+Flags:
+  -h, --help          help for show
+      --json          emit JSON instead of a table
+      --repo string   root directory of the git repository (default: current dir)
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+Set a configuration value
+
+Usage:
+  codecheck config set <key> <value> [flags]
+
+Examples:
+  ocr config set llm.model claude-opus-4-6
+  ocr config set provider anthropic
+
+Flags:
+  -h, --help   help for set
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+Interactive provider setup
+
+Usage:
+  codecheck config provider [flags]
+
+Flags:
+  -h, --help   help for provider
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+Outputs reviewable file list with mode/ref metadata for the host agent to construct git commands.
+
+Usage:
+  codecheck delegate preview [flags]
+
+Flags:
+  -b, --background string        optional requirement/business context for the review
+  -B, --background-file string   path to a Markdown file used as review background (takes precedence over --background)
+  -c, --commit string            single commit hash or tag to review (vs its parent)
+      --exclude string           comma-separated gitignore-style patterns to exclude; merged with rule.json excludes
+  -f, --format string            output format: text or json (sarif is not supported by delegate mode) (default "text")
+      --from string              source ref to start diff from (e.g., 'main')
+  -h, --help                     help for preview
+      --max-git-procs int        max concurrent git subprocesses (default 16)
+      --repo string              root directory of the git repository (default: current dir)
+      --rule string              path to JSON file with system review rules
+      --to string                target ref to end diff at (e.g., 'feature-branch')
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+Outputs resolved review rules grouped by content. Accepts multiple paths.
+
+Usage:
+  codecheck delegate rule [flags] <path...>
+
+Flags:
+  -b, --background string        optional requirement/business context for the review
+  -B, --background-file string   path to a Markdown file used as review background (takes precedence over --background)
+  -c, --commit string            single commit hash or tag to review (vs its parent)
+      --exclude string           comma-separated gitignore-style patterns to exclude; merged with rule.json excludes
+  -f, --format string            output format: text or json (sarif is not supported by delegate mode) (default "text")
+      --from string              source ref to start diff from (e.g., 'main')
+  -h, --help                     help for rule
+      --max-git-procs int        max concurrent git subprocesses (default 16)
+      --repo string              root directory of the git repository (default: current dir)
+      --rule string              path to JSON file with system review rules
+      --to string                target ref to end diff at (e.g., 'feature-branch')
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+Send a test conversation to the configured LLM model
+
+Usage:
+  codecheck llm test [flags]
+
+Flags:
+  -h, --help   help for test
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+List all built-in LLM providers
+
+Usage:
+  codecheck llm providers [flags]
+
+Flags:
+  -h, --help   help for providers
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+Show which review rule applies to the given file path, including its source layer and matched pattern.
+
+Usage:
+  codecheck rules check [flags] <file-path>
+
+Examples:
+  ocr rules check src/main/java/com/example/Foo.java
+  ocr rules check --rule custom.json src/main/resources/mapper/UserMapper.xml
+
+Flags:
+  -h, --help          help for check
+      --repo string   root directory of the git repository (default: current dir)
+      --rule string   path to a custom rule JSON file
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+List and inspect saved review sessions
+
+Usage:
+  codecheck session [flags]
+  codecheck session [command]
+
+Aliases:
+  session, sessions
+
+Available Commands:
+  comments    Show the review comments recorded in one session
+  compare     Compare the findings of two sessions
+  export      Export one session as a self-contained HTML file
+  list        List recent review sessions for the current repo
+  rm          Delete one saved review session
+  show        Show one session's metadata and per-file items
+
+Flags:
+  -h, --help   help for session
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+
+Use "codecheck session [command] --help" for more information about a command.
+Configuration management.
+
+Examples:
+  # Provider setup (interactive)
+  ocr config provider
+  ocr config model
+
+  # Provider setup (non-interactive)
+  ocr config set provider anthropic
+  ocr config set model claude-opus-4-6
+  ocr config set providers.anthropic.api_key "$ANTHROPIC_API_KEY"
+
+  # Custom provider
+  ocr config set provider my-gateway
+  ocr config set custom_providers.my-gateway.url https://gateway.internal.com/v1
+  ocr config set custom_providers.my-gateway.protocol openai
+
+Usage:
+  codecheck config [flags]
+  codecheck config [command]
+
+Available Commands:
+  model       Interactive model selection
+  provider    Interactive provider setup
+  set         Set a configuration value
+  unset       Remove a configuration value
+
+Flags:
+  -h, --help   help for config
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+
+Use "codecheck config [command] --help" for more information about a command.
+OpenCodeReview - Delegation Mode
+
+Output review spec for host-agent delegation (no LLM required).
+
+Usage:
+  codecheck delegate [flags]
+  codecheck delegate [command]
+
+Aliases:
+  delegate, d
+
+Examples:
+  # Preview which files will be reviewed
+  ocr delegate preview --from main --to feature
+
+  # Preview workspace changes
+  ocr delegate preview
+
+  # Get rules for multiple files (grouped by content)
+  ocr delegate rule internal/agent/agent.go internal/llm/client.go
+
+Available Commands:
+  preview     Preview reviewable files with mode/ref metadata
+  rule        Output resolved review rules grouped by content
+
+Flags:
+  -h, --help   help for delegate
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+
+Use "codecheck delegate [command] --help" for more information about a command.
+LLM utility commands.
+
+Usage:
+  codecheck llm [flags]
+  codecheck llm [command]
+
+Examples:
+  ocr llm test                   Verify LLM connectivity and configuration
+  ocr llm providers              List available built-in providers
+
+Available Commands:
+  providers   List all built-in LLM providers
+  test        Send a test conversation to the configured LLM model
+
+Flags:
+  -h, --help   help for llm
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+
+Use "codecheck llm [command] --help" for more information about a command.
+Inspect and debug review rules.
+
+Usage:
+  codecheck rules [flags]
+  codecheck rules [command]
+
+Available Commands:
+  check       Show which review rule applies to a given file path
+
+Flags:
+  -h, --help   help for rules
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+
+Use "codecheck rules [command] --help" for more information about a command.
+Deleted custom provider "del1".
+Deleted custom provider "del2".
+Deleted custom provider "active-one".
+[codecheck] skip delete "nonexistent": custom provider "nonexistent" not found
+
+Manual configuration saved.
+URL: https://example.com/v1
+Protocol: openai
+Model: saved-model
+
+Testing connection...
+
+Provider set to: test-provider (custom)
+Model: saved-model
+
+Testing connection...
+
+Tip: run 'ocr config model' to switch model later.
+
+Provider set to: openai
+Model: saved-model
+
+Testing connection...
+
+Tip: run 'ocr config model' to switch model later.
+
+Provider set to: deepseek
+Model: deepseek-v4-flash
+
+Testing connection...
+
+Tip: run 'ocr config model' to switch model later.
+
+Provider set to: deepseek
+Model: deepseek-v4-flash
+
+Testing connection...
+
+Tip: run 'ocr config model' to switch model later.
+
+Provider set to: aaa (custom)
+Model: test
+
+Testing connection...
+
+Tip: run 'ocr config model' to switch model later.
+
+Provider set to: baidu-qianfan
+Model: glm-5
+
+Testing connection...
+
+Tip: run 'ocr config model' to switch model later.
+
+Provider set to: litellm
+Model: openai/gpt-5.4
+
+Testing connection...
+
+Tip: run 'ocr config model' to switch model later.
+
+Provider set to: litellm
+Model: openai/gpt-5.4
+
+Testing connection...
+
+Tip: run 'ocr config model' to switch model later.
+
+Active provider "test-provider" updated.
+Model: test-model-3
+
+Tip: run 'ocr config model' to switch model later.
+
+Manual configuration saved.
+URL: https://example.com/v1
+Protocol: anthropic
+Model: test-model
+
+Testing connection...
+
+Custom provider "test-provider" updated (not currently active).
+Model: m
+
+Tip: run 'ocr config model' to switch model later.
+
+Manual configuration saved.
+URL: https://example.com/v1
+Protocol: openai-responses
+Model: gpt-5.4
+
+Testing connection...
+
+Manual configuration saved.
+URL: https://example.com/v1
+Protocol: openai-responses
+Model: gpt-5.4
+
+Testing connection...
+
+Manual configuration saved.
+URL: https://example.com/v1
+Protocol: anthropic
+Model: claude
+
+Testing connection...
+
+Manual configuration saved.
+URL: https://example.com/v1
+Protocol: openai
+Model: gpt-4o
+
+Testing connection...
+[codecheck] 4 file(s) changed, reviewing 4 in C:/Users/30951/AppData/Local/Temp/TestReviewE2E_RetryReportReachesTextExit757176484/001
+[codecheck] LLM grouping failed (parse grouping JSON: json: cannot unmarshal string into .0.files.0 of type int), falling back to per-file dispatch
+[codecheck] Skipping plan phase for group "d.go" (1 file(s), max 5 lines, total 5 lines)
+[codecheck] Skipping plan phase for group "b.go" (1 file(s), max 5 lines, total 5 lines)
+[codecheck] Skipping plan phase for group "c.go" (1 file(s), max 5 lines, total 5 lines)
+[codecheck] Skipping plan phase for group "a.go" (1 file(s), max 5 lines, total 5 lines)
+[codecheck] Round 1/2 added no new findings for group "c.go"; stopping early
+[codecheck] Round 1/2 added no new findings for group "d.go"; stopping early
+[codecheck] Subtask error for group "b.go": LLM completion error: POST "http://127.0.0.1:53201/v1/messages": 402 Payment Required (Request-ID: req_b_1) {"type":"error","error":{"type":"invalid_request_error","message":"payment required"}}
+[codecheck] Round 1/2 added no new findings for group "a.go"; stopping early
+[codecheck] Summary: 4 file(s) reviewed, 0 comment(s), ~60 token(s) used (input: ~40, output: ~20), 2s elapsed
+[codecheck] Session: 9acb8f7f-5830-4779-9467-711846a4bc70
+[codecheck] 4 file(s) changed, reviewing 4 in C:/Users/30951/AppData/Local/Temp/TestReviewE2E_AllFilesFailTextPublishesReportOnce361865965/001
+[codecheck] LLM grouping failed (parse grouping JSON: json: cannot unmarshal string into .0.files.0 of type int), falling back to per-file dispatch
+[codecheck] Skipping plan phase for group "d.go" (1 file(s), max 5 lines, total 5 lines)
+[codecheck] Skipping plan phase for group "c.go" (1 file(s), max 5 lines, total 5 lines)
+[codecheck] Skipping plan phase for group "b.go" (1 file(s), max 5 lines, total 5 lines)
+[codecheck] Skipping plan phase for group "a.go" (1 file(s), max 5 lines, total 5 lines)
+[codecheck] Subtask error for group "a.go": LLM completion error: POST "http://127.0.0.1:53225/v1/messages": 402 Payment Required (Request-ID: req_a_1) {"type":"error","error":{"type":"invalid_request_error","message":"payment required"}}
+[codecheck] Subtask error for group "d.go": LLM completion error: POST "http://127.0.0.1:53225/v1/messages": 402 Payment Required (Request-ID: req_d_1) {"type":"error","error":{"type":"invalid_request_error","message":"payment required"}}
+[codecheck] Subtask error for group "c.go": LLM completion error: POST "http://127.0.0.1:53225/v1/messages": 402 Payment Required (Request-ID: req_c_1) {"type":"error","error":{"type":"invalid_request_error","message":"payment required"}}
+[codecheck] Subtask error for group "b.go": LLM completion error: POST "http://127.0.0.1:53225/v1/messages": 402 Payment Required (Request-ID: req_b_1) {"type":"error","error":{"type":"invalid_request_error","message":"payment required"}}
+[codecheck] Summary: 4 file(s) reviewed, 0 comment(s), ~15 token(s) used (input: ~10, output: ~5), 1s elapsed
+[codecheck] Session: 9f6602f1-ad95-4f6f-b776-497c3cbb4d37
+[codecheck] WARNING: remote MCP server "r" has no URL configured, skipping
+[codecheck] WARNING: MCP server "s" has no command configured, skipping
+[codecheck] Results written to C:\Users\30951\AppData\Local\Temp\TestReviewOutputCommittedBeforeMCPShutdown4252250557\003\review.json
+[codecheck] full-scan: 8 file(s) discovered, reviewing 8 in C:\Users\30951\AppData\Local\Temp\TestScanBudgetJSONbudget_stop_sets_budget_exceeded4172178188\002
+[codecheck] estimated cost: ~8 file(s), est. 112K input + 39K output ≈ 151K total tokens (rough; actual reported after run)
+[codecheck] token budget: 120K (dispatch stops once exceeded)
+[codecheck] WARNING: estimate (151K) exceeds budget (120K); scan will stop partway
+[codecheck] scan dispatch: 8 batch(es) by none strategy
+[codecheck] token budget reached (used 150K + next-file est ≈ 169K > budget 120K) — skipping f04.go and remaining files
+[codecheck] full-scan: 8 file(s) discovered, reviewing 8 in C:\Users\30951\AppData\Local\Temp\TestScanBudgetJSONunlimited_budget_omits_the_key737820191\002
+[codecheck] estimated cost: ~8 file(s), est. 112K input + 39K output ≈ 151K total tokens (rough; actual reported after run)
+[codecheck] scan dispatch: 8 batch(es) by none strategy
+Group the findings of two review sessions into new, persisting, resolved and not-reviewed.
+Findings are matched on path, category and the offending snippet, so a finding that only moved down the file still counts as persisting.
+Use --json for machine-readable output.
+
+Usage:
+  codecheck session compare [flags] <before-session-id> <after-session-id>
+
+Aliases:
+  compare, diff
+
+Flags:
+  -h, --help          help for compare
+      --json          emit the comparison as JSON
+      --repo string   root directory of the git repository (default: current dir)
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+Group the findings of two review sessions into new, persisting, resolved and not-reviewed.
+Findings are matched on path, category and the offending snippet, so a finding that only moved down the file still counts as persisting.
+Use --json for machine-readable output.
+
+Usage:
+  codecheck session compare [flags] <before-session-id> <after-session-id>
+
+Aliases:
+  compare, diff
+
+Flags:
+  -h, --help          help for compare
+      --json          emit the comparison as JSON
+      --repo string   root directory of the git repository (default: current dir)
+
+Global Flags:
+      --color string   when to emit ANSI color: auto (only when stdout is a terminal), always, or never (default "auto")
+[codecheck] Results written to C:\Users\30951\AppData\Local\Temp\TestRunSessionExport_WritesFile4140310774\003\session.html
+[codecheck] Results written to C:\Users\30951\AppData\Local\Temp\TestRunSessionExport_DefaultsToNewest3827016630\003\session.html
+[codecheck] WARNING: raw logging disabled for this run: create raw dir: mkdir C:\Users\30951\AppData\Local\Temp\TestBindRawWriter_OpenFailureIsNoop2978941752\001\notadir: The system cannot find the path specified.
+--- FAIL: TestZeroArgumentCommands_RejectUnexpectedArgs (0.00s)
+    --- FAIL: TestZeroArgumentCommands_RejectUnexpectedArgs/version (0.00s)
+        zero_args_test.go:39: error = "unknown command \"unexpected\" for \"codecheck version\"", want it to contain "unknown command \"unexpected\" for \"ocr version\""
+    --- FAIL: TestZeroArgumentCommands_RejectUnexpectedArgs/llm_test (0.00s)
+        zero_args_test.go:39: error = "unknown command \"unexpected\" for \"codecheck llm test\"", want it to contain "unknown command \"unexpected\" for \"ocr llm test\""
+    --- FAIL: TestZeroArgumentCommands_RejectUnexpectedArgs/llm_providers (0.00s)
+        zero_args_test.go:39: error = "unknown command \"unexpected\" for \"codecheck llm providers\"", want it to contain "unknown command \"unexpected\" for \"ocr llm providers\""
+    --- FAIL: TestZeroArgumentCommands_RejectUnexpectedArgs/session_list (0.00s)
+        zero_args_test.go:39: error = "unknown command \"unexpected\" for \"codecheck session list\"", want it to contain "unknown command \"unexpected\" for \"ocr session list\""
+    --- FAIL: TestZeroArgumentCommands_RejectUnexpectedArgs/delegate_preview (0.00s)
+        zero_args_test.go:39: error = "unknown command \"unexpected\" for \"codecheck delegate preview\"", want it to contain "unknown command \"unexpected\" for \"ocr delegate preview\""
+FAIL
+FAIL	github.com/alibaba/open-code-review/cmd/opencodereview	163.925s
+ok  	github.com/alibaba/open-code-review/internal/agent	89.309s
+ok  	github.com/alibaba/open-code-review/internal/config/allowlist	0.179s
+ok  	github.com/alibaba/open-code-review/internal/config/rules	18.991s
+ok  	github.com/alibaba/open-code-review/internal/config/template	0.174s
+ok  	github.com/alibaba/open-code-review/internal/config/testconnection	5.969s
+ok  	github.com/alibaba/open-code-review/internal/config/toolsconfig	0.187s
+--- FAIL: TestDelegateDiffExamples (0.00s)
+    instructions_test.go:205: skills/open-code-review-delegate/SKILL.md: open skills/open-code-review-delegate/SKILL.md: The system cannot find the path specified.
+--- FAIL: TestDelegatePagerPTY (0.00s)
+    instructions_test.go:378: skills/open-code-review-delegate/SKILL.md: open skills/open-code-review-delegate/SKILL.md: The system cannot find the path specified.
+FAIL
+FAIL	github.com/alibaba/open-code-review/internal/delegate	12.431s
+ok  	github.com/alibaba/open-code-review/internal/diff	90.302s
+ok  	github.com/alibaba/open-code-review/internal/gitcmd	33.876s
+ok  	github.com/alibaba/open-code-review/internal/llm	35.582s
+--- FAIL: TestGeneratedProvidersUpToDate (0.00s)
+    main_test.go:22: read provider presets: open ..\..\..\extensions\frontend\src\shared\providers.generated.ts: The system cannot find the path specified.
+FAIL
+FAIL	github.com/alibaba/open-code-review/internal/llm/gen	30.452s
+ok  	github.com/alibaba/open-code-review/internal/llmloop	30.942s
+ok  	github.com/alibaba/open-code-review/internal/mcp	37.371s
+ok  	github.com/alibaba/open-code-review/internal/model	0.172s
+ok  	github.com/alibaba/open-code-review/internal/pathutil	0.249s
+--- FAIL: TestReleaseYmlMatchesURLPattern (0.00s)
+    asset_naming_test.go:93: read .github/workflows/release.yml: open D:\natnat\lingshu\测试\dsh-code-review\.work\repo-0.1.1\engine\.github\workflows\release.yml: The system cannot find the path specified.
+FAIL
+FAIL	github.com/alibaba/open-code-review/internal/release	7.458s
+ok  	github.com/alibaba/open-code-review/internal/scan	68.252s
+ok  	github.com/alibaba/open-code-review/internal/session	18.344s
+ok  	github.com/alibaba/open-code-review/internal/stdout	5.969s
+ok  	github.com/alibaba/open-code-review/internal/suggestdiff	0.155s
+?   	github.com/alibaba/open-code-review/internal/sysproc	[no test files]
+ok  	github.com/alibaba/open-code-review/internal/telemetry	56.551s
+ok  	github.com/alibaba/open-code-review/internal/tool	123.426s
+ok  	github.com/alibaba/open-code-review/internal/viewer	23.121s
+FAIL
+exit=1
