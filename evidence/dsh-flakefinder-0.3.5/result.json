@@ -1,0 +1,51 @@
+{
+  "perScenario": [
+    {
+      "id": "S1",
+      "with": 0,
+      "without": 0
+    },
+    {
+      "id": "S2",
+      "with": 0,
+      "without": 3
+    },
+    {
+      "id": "S3",
+      "with": 3,
+      "without": 3
+    },
+    {
+      "id": "S4",
+      "with": 3,
+      "without": 3
+    },
+    {
+      "id": "S5",
+      "with": 0,
+      "without": 0
+    },
+    {
+      "id": "S6",
+      "with": 0,
+      "without": 3
+    },
+    {
+      "id": "S7",
+      "with": 0,
+      "without": 3
+    },
+    {
+      "id": "S8",
+      "with": 3,
+      "without": 2
+    }
+  ],
+  "D": -8,
+  "ci95": [
+    -18,
+    1
+  ],
+  "halfWidth": 9.5,
+  "verdict": "还说不准（精度不足）"
+}
