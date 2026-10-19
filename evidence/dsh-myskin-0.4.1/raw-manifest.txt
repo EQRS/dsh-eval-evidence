@@ -1,0 +1,20 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-18T15:16:17.869Z
+label = dsh-myskin 0.4.1 source
+generator = tools/make_manifest.mjs
+
+raw/00-env.txt       3238  51cf5eabe222f5a6cbd77ef82d599be47656cc309666e63e01b20c44e57995b8
+raw/10-anchor.txt      14784  b7b41ba497a52420dd3fcb7969af89bea9e97a7cf13be1369a4bf41e3cddb552
+raw/11-upstream.txt       3463  f02da95f556bae4b3b23e6c07f0b9e2387e199b8d5554f286ca64290cf2b245e
+raw/12-version.txt       3241  59e86716e333c5992707ca93b6a5196e88cbe2f0e5d0d78cff73bdb693f43ee8
+raw/20-install.txt      20894  be500f2f674f5014ccece5d3856862e30501e536789e7f753a8251c11db24e42
+raw/21-build.txt       3552  3e74e48ba28ed726e4124600927afe9e8adceb363745ff88a2f87b35e3fa50f3
+raw/22-dsh-asar.txt      13371  39b701e9cc4f037b1e06d866f8b42e90787740a496c20a36eab122cf03f74008
+raw/30-tests.txt     145230  a371707ddb43c217ee8717ac4234cf09ce913b48f2515eae421c5aabb2106d79
+raw/31-skin-engine.txt       4632  f112bee3cc7c2e8f706778c49dc26d38c363ec77de79128053e98d822706511f
+raw/33-framework.txt       2900  198612a1025b9128e77e5af98f2d4fe594c32e246cb71baf547b6e647e0aa756
+raw/34-schema.txt       2903  aacbeea68db1c1b68048e13c7f4194b33e5d71e607ed65cb5d2113f54cb6c425
+raw/35-gates.txt       7004  3d66be232d7e40bb3bfd13dae37fce95b4c1605fa9bd6cd4b497bc3f201ed4c8
+raw/36-typecheck.txt      33911  b0e1d0168ebc3d7fd151919c6038f4ba19dc1ea05a3e1adbadd2fb799081d064
+raw/40-host-compat.txt      15808  b1e517c6e25fc0021a5d827d5ef1d13dec21361d8c1bf4f7d708a955933fffa4
+raw/50-dedupe.txt       3792  91845456cc550d78e94f4e219f685a4c0dd21f9742e8ba494503dd834ebbf415
