@@ -1,107 +1,145 @@
+[intake 输入] 【测评报告】dsh-sql 0.4.5 体验快测（本地数据库 / SQL 工具 · 方法试验）
 
-# dsh-sql 标准测评 v0.1（能力五状态 · 首个示范）
+<!-- intake:v1 {"project":"bench","difficulty":"medium","impact":"B","target":"STARDUSTLC666/dsh-sql","form":"intake"} -->
 
-> 依据：工程协议手册 v1.1 §2（五状态）、§3（任务契约）、§6（快测/标准边界）、§13（证据）；
-> 判定与证据链规范 v1：\`测试/协议/判定与证据链规范-v1.md\`。
-> 本件**不是**体验快测，是标准测评示范：有任务集、配对对照、预注册、区间与判定。
+<!-- 协议对齐：工程协议手册 v1.1（r2）§6 体验快测档；协议文件 sha256 8dd51cbf75b259c5dabfdb928eb112364231b5d8f9f580759534e5d78a34d849 -->
+> **协议对齐（v1.1 · r2 · 体验快测档）**：本件是**体验快测**（手册 §6），只记录安装/功能点/卸载残留类检查结果；
+> **不生成五种能力状态标签、不进入能力榜、不以「通过/合格」作为插件结论**；未覆盖项见「诚实边界」。
+> - **协议绑定**：`工程协议手册-v1.1`（修订标识 r2），文件 sha256 `8dd51cbf75b259c5dabfdb928eb112364231b5d8f9f580759534e5d78a34d849`（快照 `测试/协议/`）。
+> - **插件身份**：源码版（commit + 逐文件树指纹），见「锚定提交」。
+> - **环境配置 ID**：dsh 0.2.1-rc.2 / win32-x64 / Windows 10.0.26200 / node v24.21.0 / model=n/a（本快测未调用模型）。
+> - **安全口径（§4 三分法）**：本件**未做**六威胁安全审计 ⇒ 安全结论 = **未测**。
+> - **时效（§13.7）**：测评完成后 90 个自然日内有效；版本/权限/数据流/依赖/宿主变化触发复核。
 
-## 一、结论
+## 性质声明
 
-**真有用**（区间下界 21 > 正向门槛 12）。
+本件是**给主创测评站 <https://review.lingshulab.com> 的投稿测评**（intake 输入，外部贡献申报），不是悬赏：
+**不 /claim、不自行加 bounty 标签**；计分、档位与是否归并均由维护者裁定（marker 的 difficulty/impact 仅为 intake 格式字段）。
+
+- 被测对象：站点「dsh-sql」详情页（清单版本 **0.4.5**）；源码取上游默认分支 `master` commit `6ed1199c` 的 tarball 解包快照。
+- **未把插件装进任何正在使用的 DSH profile**：全部读数来自源码快照 + 仓库自带测试 + 直接 `import lib/*.js` 的独立探针。
+- **仅 Windows**（10.0.26200 x64）：WSL / Linux / macOS 未跑，不对其它平台下任何结论。
+- 不排名、不给总分、不用星级；不改被测源码、不提 PR、不做安全渗透。
+
+## 锚定提交
+
+- 仓库：`STARDUSTLC666/dsh-sql`，默认分支 `master`
+- commit：`6ed1199c77d5ff856088cd45a6cbfe32b445dc78`（2026-10-08T12:00:01Z）
+- 逐文件树指纹：**39 文件 / 2,033,620 B / sha256 `4354b22ea1c27076`**
+- tarball：`外部插件/dsh-sql/dsh-sql.tgz`，sha256 `472c6793e939…`（tarball gzip 字节不保证可复现，内容锚定以 commit + 树指纹为准）
+- 快照目录：`外部插件/dsh-sql/dsh-sql-master`
+
+## 环境与基线
 
 | 项 | 值 |
 |---|---|
-| 主要指标 D（配对正确差） | **23**（范围 [-24, 24]） |
-| 95% bootstrap 区间 | **[21, 24]** |
-| 区间半宽 | **1.5**（预注册门槛 ≤ 6，满足） |
-| 判定 | **真有用** |
-| 模型 | \`deepseek-flash\`，temperature=0.7，seeds=[101,202,303] |
-| 样本量 | 8 场景 × 3 轮 × 2 组 = 48 次基础运行（实际 HTTP 调用 146 次，装组多轮工具往返） |
-| 成本 | 130,317 tokens（输入 113,984 / 输出 16,333），约 ¥0.1 量级 |
+| 宿主 | DSH desktop **0.2.1-rc.2** |
+| 平台 | Windows 11 10.0.26200 x64 |
+| Node / pnpm | v24.21.0 / 11.7.0 |
+| 运行依赖 | `mysql2` 3.23.3、`pg` 8.23.0（SQLite 走 `node:sqlite`，零第三方驱动） |
+| 基线 | 纯 Node 内存 SQLite（`node:sqlite` `DatabaseSync`），无插件 |
 
+## 结果速览
 
-## 一之一、证据链索引（https，可点击）
+| 面 | 结果 |
+|---|---|
+| 依赖安装（`pnpm install --frozen-lockfile`） | **exit 0**，28 包，16.6 s |
+| 构建（`pnpm run build`） | **exit 0**，4.7 s |
+| 自带测试（`node --test test/*.test.mjs`） | **56 / 56 通过，0 失败**，0.9 s |
+| 独立探针（不经插件自带断言） | **25 / 25 通过** |
+| 端到端（临时 SQLite 建表/插入/查询/列结构/limit） | 通过 |
 
-| # | 环节 | 证据 | 链接 |
-|---|---|---|---|
-| 1 | 锚定（被测插件） | dsh-sql @ `6ed1199c` | [6ed1199c77d5ff856088cd45a6cbfe32b445dc78](https://github.com/STARDUSTLC666/dsh-sql/commit/6ed1199c77d5ff856088cd45a6cbfe32b445dc78) |
-| 2 | 预注册（跑前冻结） | a=12 / b=6 / 精度≤6 / B=10000 | [00-preregistration.txt](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/00-preregistration.txt) |
-| 3 | 任务与判分器 | 8 题 + 判分逻辑 | [experiment_toolcall.mjs](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/experiment_toolcall.mjs) |
-| 4 | 原始调用记录 | 146 次调用 / 130,317 tokens | [calls.jsonl](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/calls.jsonl) |
-| 5 | 区间与判定结果 | D=23，CI [21,24] | [result.json](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/result.json) |
-| 6 | 任务数据库（可重建） | 建表/插入 SQL | [eval.sql](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/eval.sql) |
-| 7 | 插件源码（工具面） | buildSqlTools 导出 | [tools.js](https://github.com/STARDUSTLC666/dsh-sql/blob/6ed1199c77d5ff856088cd45a6cbfe32b445dc78/lib/tools.js) |
-| 8 | 本报告归档 | 同一份报告 | [report.md](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/report.md) |
-| 9 | 证据仓库 | 全部证据 | [dsh-eval-evidence](https://github.com/EQRS/dsh-eval-evidence) |
+## 逐项读数
 
-> 证据仓库发布时 HEAD：`453da67d63fca2b15e4485a380534bba588d0cfc`。链接用 `main` 分支，内容只追加不覆盖。
+### 1. 安装（`raw/02-install.txt`）
 
-## 二、任务契约
+```
+command: <node> <pnpm.cjs> install --frozen-lockfile
+exit: 0    seconds: 16.6
+dependencies: + mysql2 3.23.3  + pg 8.23.0
+devDependencies: + @types/node 24.13.3  + @types/pg 8.21.0  + typescript 5.9.3
+```
 
-- **数据库**：单文件 SQLite（\`raw/11-eval/eval.db\`），含 \`users\`（5 行）与 \`orders\`（8 行）。
-- **8 个事实问题**（T1–T8）：表数量、users 行数、订单总额最高用户、金额>100 的订单数、
-  订单总额、Beijing 用户 id 集合、orders 列名顺序、平均订单金额（一位小数）。
-- **判分器**：数字容差 0.001（T8 为 0.06）、文本包含、集合包含、列名包含；答案取最后一行 \`ANSWER:\`。
-- **对照组**：
-  - 装：把 \`buildSqlTools\` 的 \`sql_list/sql_schema/sql_query\` 转成 function-calling tools，真实执行；
-  - 不装：不传 tools，系统提示明确告知"无法读取二进制数据库"。
-- **恢复**：每题独立对话、独立 seed；装组每次从新进程状态开始（工具适配器按次创建）。
+### 2. 构建（`raw/03-build.txt`）
 
-## 三、预注册（跑前冻结）
+```
+command: pnpm run build     # tsc -p tsconfig.json
+exit: 0    seconds: 4.7
+```
 
-见 \`raw/11-eval/00-preregistration.txt\`：
+### 3. 自带测试（`raw/04-self-test.txt`）
 
-- 主要指标 D = Σ(T_i 装组正确数 − 不装组正确数)；
-- a = 12、b = 6；精度门槛：区间半宽 ≤ 6；
-- bootstrap 按场景重采样 B=10000，seed=20261019；
-- 反作弊：不中途改 a/b/样本量，不在看到结果后加场景。
+```
+command: node --test test/*.test.mjs
+exit: 0    seconds: 0.9
+tests 56 / pass 56 / fail 0 / skipped 0
+```
+覆盖：只读守卫（`assertReadQuery` 的 data-modifying CTE、INTO OUTFILE、行锁、PRAGMA 赋值）、
+行数/超时限制、配置解析、SQLite 适配器、注册形状。
 
-## 四、读数
+### 4. 独立探针（`raw/05-probe.txt`、`raw/06-probe-fixed.txt`）
 
-| 场景 | 装组正确 | 不装组正确 | 配对差 |
-|---|---|---|---|
-| T1 表数量 | 2/3 | 0/3 | +2 |
-| T2 users 行数 | 3/3 | 0/3 | +3 |
-| T3 最高消费用户 | 3/3 | 0/3 | +3 |
-| T4 金额>100 订单数 | 3/3 | 0/3 | +3 |
-| T5 订单总额 | 3/3 | 0/3 | +3 |
-| T6 Beijing 用户 id | 3/3 | 0/3 | +3 |
-| T7 orders 列名 | 3/3 | 0/3 | +3 |
-| T8 平均订单金额 | 3/3 | 0/3 | +3 |
-| **合计** | **23/24** | **0/24** | **+23** |
+探针脚本：`probes/probe_dsh_sql.mjs`（25 断言，**25/25 通过**）。分组：
 
-- 不装组 24 次全部回答"无法确定"——符合"无工具时不能读取二进制数据库"的预期。
-- 装组 119 次工具调用往返，工具真实执行（\`raw/11-eval/calls.jsonl\` 记录每次 token）。
+- **只读守卫拒绝矩阵（9 条）**：DELETE / UPDATE / INSERT / DROP / `PRAGMA journal_mode=WAL` / 多语句 /
+  `SELECT … INTO OUTFILE` / `FOR UPDATE` / data-modifying CTE —— 全部被拒。
+- **放行矩阵（6 条）**：`SELECT`、`SHOW CREATE TABLE`、`EXPLAIN`、读取型 `PRAGMA`、只读 CTE、尾部分号规范化 —— 全部放行。
+- **SQLite 端到端（7 条）**：建表 → 5 行插入 → `listTables` → `describeTable`（主键标记正确）→ 全量查询 →
+  `limit=2` 生效 → `ping`/`close` 正常。
+- **其它（3 条）**：CSV 引号/逗号/换行转义；`resolveConfig` 默认 `:memory:` 且拒绝非法 engine；已 abort 的 signal 让 `query` 立即失败。
 
-## 五、遗留问题（必须与结论一起读）
+> 方法学说明：首轮探针把适配器方法名写成 `columns()`，实际契约为 `describeTable()`；
+> 首轮失败读数保留在 `raw/05-probe.txt`（exit 1），修正后 `raw/06-probe-fixed.txt` 为 25/25。这是探针错误，不是插件缺陷。
 
-1. **T1 题干有歧义**：本意是"一共有几张表（2 张）"，但写成"几张用户表"，有一轮模型答"1 张（users）"
-   被判错。判分按预注册执行（该轮不计分）；若按无歧义表述，D 可能为 24。**未事后改判据。**
-2. **不装组的系统提示是我写的**：明确告知"不能读数据库"，这会强化"无法确定"。若给出更中性的提示，
-   不装组可能尝试猜测（仍有错），对 D 影响方向不变但幅度可能不同。
-3. **单模型、单温度、单轮任务集**：结论只对 \`deepseek-flash\`、temperature=0.7、这 8 题成立；
-   换模型/温度/题集需重测（协议 §10）。
-4. **未做独立复核**：本件由执行者自测，按协议 §2.5，正式进榜还需独立复核人签字。
-5. **任务集小**：8 场景刚达协议建议下限（≥8），扩到 20+ 场景可提高精度。
+## 发现
 
-## 六、判定为何成立（对照协议 §2.2）
+### P3-1 · data-modifying CTE 被拒，但错误信息指向 `SELECT INTO`（误导）
 
-- 精度门槛：区间半宽 1.5 ≤ 6，满足；
-- 正向：L = 21 > a = 12，满足「真有用」；
-- 未出现 \`U < −b\`（−6）；
-- 因此不是「还说不准」——证据链齐（任务契约、对照、预注册、原始读数、区间、成本）。
+- **现象**：`sql_query` 对 `WITH x AS (INSERT INTO t … RETURNING *) SELECT * FROM x` 返回
+  `sql_query 不接受 SELECT INTO（写表或 OUTFILE），请用 sql_exec。`（`raw/06-probe-fixed.txt`）
+- **根因**：`assertReadQuery` 先命中 `/\binto\b/i` 分支（INSERT 语句里含 `INTO`），未走到写关键字扫描；
+  行为上**拒绝是正确的**，但提示把用户引向 `SELECT INTO`，而实际是写 CTE。
+- **影响**：仅错误提示可读性；不影响只读保证。
+- **建议**：`INTO` 检查前先判定语句是否含写关键字，或在提示中列出同时命中的关键字。
 
-## 七、复现
+### 未发现 P0 / P1 / P2
 
-\`\`\`bash
-# 预注册已冻结在 raw/11-eval/00-preregistration.txt
-<node> 测试/dsh-sql/probes/experiment_toolcall.mjs
-# 产出：raw/11-eval/result.json、calls.jsonl
-\`\`\`
+- 只读守卫在 9 类危险语句上均拒绝，且未发现可绕过的注释/字符串拼接路径（本件未做穷举 fuzz）。
+- SQLite 路径完全离线，无外部服务依赖。
 
-## 八、不适用条件
+## 诚实边界
 
-- 不适用于其它模型、其它温度、其它任务集；
-- 不适用于 MySQL/PostgreSQL 连接路径（本件只测 SQLite）；
-- 不适用于宿主内 \`sql_*\` 工具的 UI 交互与写审批流程（本件只测只读查询能力）；
-- 不能据此宣称 dsh-sql 的**安全性**（未做六威胁专项）。
+- **已验**：安装、构建、自带 56 项测试、25 条独立探针、SQLite 端到端（含 limit 与 abort）、只读守卫矩阵。
+- **未验**：真实 DSH 会话内工具注册与 UI；MySQL/PostgreSQL 连接（本机无服务，未启动容器）；
+  官方安装通道（插件面板/npm 安装）；卸载残留；并发访问与长时间运行；非 Windows 平台。
+- **不确定**：只读守卫面对极端编码/巨大 SQL 文本的行为未测；`node:sqlite` 在其它 Node 版本的行为未测。
+- **不做**：不排名、不给总分、不用星级；不做安全渗透/利用；不改被测源码、不提 PR；不把插件装进 live profile；
+  不对非 Windows 平台下任何结论。
+
+## 查重
+
+- 账本 `dsh-bounty-main/docs/bounty/ledger.json`（595 事件）：`dsh-sql` **0 命中**。
+- 全仓 md 文本（3,048 个，排除 `node_modules`/`外部插件`/本件目录）：**0 命中**（`raw/09-dedupe-grep.txt`）。
+- 站点：`plugins.json` 中 `dsh-sql` **reviewed=false（暂无评测）**。
+- 结论：对照「账本 / 全仓文本 / 站点列表」三处，未见同件。
+
+## 复现步骤（第三方原样可跑）
+
+```bash
+# 0) 记锚定（在 install/build 之前）
+#    repo STARDUSTLC666/dsh-sql @ 6ed1199c77d5ff856088cd45a6cbfe32b445dc78
+# 1) 装依赖（本机 node 不在 PATH，需显式指定）
+pnpm install --frozen-lockfile
+pnpm run build
+node --test test/*.test.mjs
+# 2) 离线探针
+node probes/probe_dsh_sql.mjs
+# 3) 证据
+node ../tools/make_manifest.mjs --raw raw --label "dsh-sql 0.4.5"
+```
+
+## 一句话总结
+
+**dsh-sql 0.4.5 在本机（Windows 11 / DSH 0.2.1-rc.2 / Node 24.21.0）离线可装、可构建、自带 56 项测试全绿；
+只读守卫在 9 类危险语句上均正确拒绝，SQLite 端到端（含行数限制与 abort）25 条独立探针全部符合预期；
+唯一发现是 P3 级错误提示误导（写 CTE 被提示成 SELECT INTO）。MySQL/PostgreSQL 与真实宿主 UI 未验。**
