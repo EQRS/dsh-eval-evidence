@@ -1,0 +1,9 @@
+# 运行副本指纹（v0.2 实验用）
+
+- 来源：外部插件/dsh-codex-port/dsh-codex-port-master（lib/ + src/ + package.json）
+- 副本：%TEMP%/cp-runtime（lib/ + src/ + package.json + node_modules/yaml）
+- 原因：插件的 yaml 依赖在 pnpm 结构里，不在插件顶层 node_modules；ESM 解析需要顶层 node_modules。
+- 副本 lib 与源 lib 逐字节一致（校验）：
+  - src/lib 指纹：96a13655c6b504ed / 12 文件
+  - dst/lib 指纹：96a13655c6b504ed / 12 文件
+- yaml 依赖：2.9.0（来自 dsh-agent-teams-fish 的 pnpm store 副本），树指纹 e74048e8481cecba / 233 文件
