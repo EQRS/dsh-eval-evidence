@@ -1,0 +1,35 @@
+{
+ "injections": {
+  "claude/CLAUDE.md": {
+   "bytes": 24932,
+   "sha256": "9039a95195ee1bf4",
+   "first_line": "#"
+  },
+  "codex/AGENTS.md": {
+   "bytes": 24932,
+   "sha256": "9039a95195ee1bf4",
+   "first_line": "#"
+  },
+  "codebuddy/CODEBUDDY.md": {
+   "bytes": 24932,
+   "sha256": "9039a95195ee1bf4",
+   "first_line": "#"
+  },
+  "zcode/AGENTS.md": {
+   "bytes": 24932,
+   "sha256": "9039a95195ee1bf4",
+   "first_line": "#"
+  }
+ },
+ "discipline": {
+  "bytes": 27544,
+  "sha256": "9486668b0dadac39",
+  "type": "dict",
+  "count": 0,
+  "keys": null
+ },
+ "bench_p0": {
+  "exit": 0,
+  "log": "C:\\Users\\30951\\AppData\\Local\\Temp\\lingshu_bench_p0.log"
+ }
+}
