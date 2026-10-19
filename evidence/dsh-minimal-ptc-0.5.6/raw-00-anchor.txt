@@ -1,0 +1,19 @@
+# 锚定与环境基线
+
+repo: STARDUSTLC666/dsh-minimal-ptc
+ref: main
+commit: cf35c1a3a655a397e2a2f1f9cf87bd5535dc8eb7
+commit_date: 2026-10-16T16:22:26Z
+version: 0.5.6
+tarball: 外部插件/dsh-minimal-ptc/dsh-minimal-ptc.tgz
+tarball_sha256: 947c953abe6f6c916d453737fc845328e460245c44cf163e6c63c31df7294295
+tree: 36 files / 2027138 B / dd13ec12bd7d62e8
+snapshot: 外部插件/dsh-minimal-ptc/dsh-minimal-ptc-main
+
+host_dsh: 0.2.1-rc.2
+platform: win32-x64 / Windows 10.0.26200
+node: v24.21.0
+pnpm: 11.7.0
+python: 3.12.14
+anchored_at: 2026-10-19T13:03:38+0800
+notes: tarball gzip 字节不保证可复现（见 测试/README.md 锚定方法学修正）；内容锚定以 commit + 逐文件树指纹为准。
