@@ -1,0 +1,1795 @@
+== run_cmd.py ==
+label   = repo test suite (node --test)
+cwd     = D:\natnat\lingshu\测试\dsh-review\worktree\pkg
+cmd     = C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe --test test/*.test.mjs
+exit    = 1
+elapsed = 4.5s
+lines   = 1787
+---- full output ----
+✖ external task book cannot create a passing automatic gate (9.5017ms)
+✖ reports reject missing identity, wrong identity, duplicate and native overwrites (5.3161ms)
+✖ malformed and missing outputs stop review instead of becoming empty findings (5.8769ms)
+✖ old artifacts cannot satisfy a new run nonce (5.4579ms)
+✖ actual call budget is enforced before workers are launched (5.9234ms)
+✖ independent majority can reject a false candidate; disagreement is not acceptance (6.768ms)
+✖ arbiter cannot silently remove a confirmed finding (7.063ms)
+✖ sensitive paths force deep despite skip rules or a requested quick mode (6.6329ms)
+✖ second risk classifier can require another human (6.1445ms)
+✖ third round accepts a newly changed file and scopes old files by actual incremental lines (6.5993ms)
+✖ same-file incremental comparison ignores a newly rediscovered old line (6.8252ms)
+✖ corrupt ledger is preserved and gate fails closed (6.9136ms)
+✖ cancellation reaches every worker and no run can pass after cancellation (5.372ms)
+✖ the check tool requires the host runner, preserves quoting and denies out-of-root cwd (7.6541ms)
+✖ cancellation before an evidence command prevents execution (4.7432ms)
+✖ source witnesses must actually exist; fabricated side and same-task receipts are rejected (5.322ms)
+✖ native pending results cannot be replaced with files from earlier stages (4.589ms)
+✖ issue triage is an unexecuted draft; it never posts a comment (4.621ms)
+✖ resuming a completed old run checks the current source instead of returning a stale pass (6.3146ms)
+✖ published nits still need a reasoned disposition before passing (5.1258ms)
+✖ CLI requires explicit AI-only scope locally; full gating never assumes missing GitHub evidence (8.7902ms)
+✔ 解析出文件、状态与行号 (3.1871ms)
+✔ 新增行拿到正确的新行号，删除行没有新行号 (1.4736ms)
+✔ 上下文能按行号取回 (1.7927ms)
+✔ 二进制与重命名被识别 (0.2777ms)
+✔ dispatcher uses the actual service receiver, parent, prompt blocks and result lifecycle (2.9108ms)
+✔ forked context, partial errors and missing live parents never count as reviews (0.6495ms)
+✖ evaluation matches curated defects, separates unrun cases and measures clean-case noise (6.9871ms)
+✖ correctly matched findings score independently of later ledger dispositions (3.5576ms)
+✖ historical labels require real immutable commits and native commit/base runs (3.6454ms)
+✔ 轮次累加与持久化 (15.8144ms)
+✔ 处置与噪音率 (12.643ms)
+✔ 未答复不计入噪音率分母 (9.561ms)
+✔ 坏状态文件不致命 (1.7798ms)
+✔ concurrent instances cannot silently overwrite one another (22.5806ms)
+✔ v1 migration preserves its original evidence but never inherits a clean approval (17.2468ms)
+✔ an intentionally relocated DSH_HOME works while state-child junctions remain forbidden (20.0638ms)
+✔ 三档模式的镜头与预算递增 (4.7667ms)
+✔ 风险分级：文档=低、普通代码=中、敏感路径=高 (2.8774ms)
+✔ 模式由风险与规模决定，批准人数只由风险决定 (2.4802ms)
+✔ registered tools are disposed with the plugin, so reloading does not leak duplicates (2.9524ms)
+✔ invalid configuration is reported, never silently replaced with permissive defaults (0.7594ms)
+✔ lighter rules only apply to trusted human authors (3.9504ms)
+✔ bot, author and stale-commit approvals do not fill human slots (0.5647ms)
+✔ each required person must approve this exact current head (0.4435ms)
+✔ open threads, changed requests and non-success checks block (0.9619ms)
+✔ a later comment does not erase a valid approval, while latest change requests do (0.9854ms)
+✔ missing check identities and malformed policy fail closed (0.7941ms)
+✔ two unrelated public accounts cannot fill the required reviewer slots (1.1181ms)
+✔ GitHub adapter gathers read-only exact-head evidence without accepting partial inventories (41.2093ms)
+✖ plan captures target, files and independent review stages without recording a pass (9.5866ms)
+✖ a real pipeline dispatches finders and separate verifier votes before accepting (5.5251ms)
+✖ clean native review passes only the AI layer and discloses human requirements (5.1374ms)
+✖ style is dropped; invented evidence cannot replace missing verification (4.3571ms)
+✖ same defect across finders is merged at the highest severity (4.1201ms)
+✖ pre-existing judgement needs independent base evidence, not a reused source line (4.3932ms)
+✖ deep mode dispatches majority verification and a final arbiter (4.1517ms)
+✖ new snapshots invalidate prior review and manually claiming fixed cannot clear it (3.5751ms)
+✖ reasoned exceptions are audited but never human approvals (4.0531ms)
+✖ completed rounds are capped; no silent infinite review loop (4.1543ms)
+✖ re-review suppresses repeated posted findings but re-verifies unresolved ones (4.5239ms)
+✖ fixes clear only after independent source re-verification (4.0489ms)
+✖ unresolved findings retain their defect class and lens on a changed target (4.6222ms)
+✖ repeated verified findings escalate severity without posting a duplicate (5.1999ms)
+✔ REVIEW.md 解析：跳过、上限、严重度、模式、判据 (11.1049ms)
+✔ 没有 REVIEW.md 时返回空规则 (2.014ms)
+✔ glob 支持 ** 与 * (0.9258ms)
+✖ Chinese and escaped filenames are included in source snapshots (7.6503ms)
+✖ staged target reads the index, not newer working-tree changes (4.9493ms)
+✖ oversized diffs fail with an explicit coverage error instead of silently dropping files (3.5033ms)
+✖ a skipped file changing still invalidates the target identity (3.3459ms)
+✖ untracked source is included by default and state files are excluded (3.2503ms)
+✖ historical source cache is isolated by actual repository and immutable base (3.5276ms)
+✖ committed changes cannot relax their own review rules (3.6389ms)
+✖ guidance may not follow a directory junction outside the workspace (3.4237ms)
+ℹ tests 75
+ℹ suites 0
+ℹ pass 29
+ℹ fail 46
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4267.5739
+
+✖ failing tests:
+
+test at test\advanced.test.mjs:11:1
+✖ external task book cannot create a passing automatic gate (9.5017ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:12:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:12:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.start (node:internal/test_runner/test:1262:17)
+        at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:21:1
+✖ reports reject missing identity, wrong identity, duplicate and native overwrites (5.3161ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:22:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:22:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:32:1
+✖ malformed and missing outputs stop review instead of becoming empty findings (5.8769ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:34:13)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:34:13)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:40:1
+✖ old artifacts cannot satisfy a new run nonce (5.4579ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:41:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:41:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:49:1
+✖ actual call budget is enforced before workers are launched (5.9234ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:50:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:50:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:55:1
+✖ independent majority can reject a false candidate; disagreement is not acceptance (6.768ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:56:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:56:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:60:1
+✖ arbiter cannot silently remove a confirmed finding (7.063ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:61:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:61:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:65:1
+✖ sensitive paths force deep despite skip rules or a requested quick mode (6.6329ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:66:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:66:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:72:1
+✖ second risk classifier can require another human (6.1445ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:73:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:73:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:77:1
+✖ third round accepts a newly changed file and scopes old files by actual incremental lines (6.5993ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:78:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:78:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:87:1
+✖ same-file incremental comparison ignores a newly rediscovered old line (6.8252ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:88:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:88:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:97:1
+✖ corrupt ledger is preserved and gate fails closed (6.9136ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:98:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:98:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:103:1
+✖ cancellation reaches every worker and no run can pass after cancellation (5.372ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:104:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:104:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:110:1
+✖ the check tool requires the host runner, preserves quoting and denies out-of-root cwd (7.6541ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:111:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:111:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:121:1
+✖ cancellation before an evidence command prevents execution (4.7432ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:122:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:122:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:125:1
+✖ source witnesses must actually exist; fabricated side and same-task receipts are rejected (5.322ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:126:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:126:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:131:1
+✖ native pending results cannot be replaced with files from earlier stages (4.589ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:132:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:132:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:136:1
+✖ issue triage is an unexecuted draft; it never posts a comment (4.621ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:137:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:137:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:141:1
+✖ resuming a completed old run checks the current source instead of returning a stale pass (6.3146ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:142:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:142:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\advanced.test.mjs:147:1
+✖ published nits still need a reasoned disposition before passing (5.1258ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:148:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/advanced.test.mjs:148:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\cli.test.mjs:5:1
+✖ CLI requires explicit AI-only scope locally; full gating never assumes missing GitHub evidence (8.7902ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/cli.test.mjs:6:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/cli.test.mjs:6:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.start (node:internal/test_runner/test:1262:17)
+        at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\eval.test.mjs:4:1
+✖ evaluation matches curated defects, separates unrun cases and measures clean-case noise (6.9871ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/eval.test.mjs:5:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/eval.test.mjs:5:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.start (node:internal/test_runner/test:1262:17)
+        at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\eval.test.mjs:27:1
+✖ correctly matched findings score independently of later ledger dispositions (3.5576ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/eval.test.mjs:28:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/eval.test.mjs:28:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\eval.test.mjs:37:1
+✖ historical labels require real immutable commits and native commit/base runs (3.6454ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/eval.test.mjs:38:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/eval.test.mjs:38:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:4:1
+✖ plan captures target, files and independent review stages without recording a pass (9.5866ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:5:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:5:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.start (node:internal/test_runner/test:1262:17)
+        at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:10:1
+✖ a real pipeline dispatches finders and separate verifier votes before accepting (5.5251ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:11:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:11:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:19:1
+✖ clean native review passes only the AI layer and discloses human requirements (5.1374ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:20:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:20:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:25:1
+✖ style is dropped; invented evidence cannot replace missing verification (4.3571ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:26:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:26:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:32:1
+✖ same defect across finders is merged at the highest severity (4.1201ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:33:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:33:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:37:1
+✖ pre-existing judgement needs independent base evidence, not a reused source line (4.3932ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:38:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:38:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:42:1
+✖ deep mode dispatches majority verification and a final arbiter (4.1517ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:43:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:43:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:48:1
+✖ new snapshots invalidate prior review and manually claiming fixed cannot clear it (3.5751ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:49:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:49:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:55:1
+✖ reasoned exceptions are audited but never human approvals (4.0531ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:56:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:56:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:63:1
+✖ completed rounds are capped; no silent infinite review loop (4.1543ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:64:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:64:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:68:1
+✖ re-review suppresses repeated posted findings but re-verifies unresolved ones (4.5239ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:69:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:69:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:76:1
+✖ fixes clear only after independent source re-verification (4.0489ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:77:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:77:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:86:1
+✖ unresolved findings retain their defect class and lens on a changed target (4.6222ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:87:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:87:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\review-flow.test.mjs:94:1
+✖ repeated verified findings escalate severity without posting a duplicate (5.1999ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:95:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/review-flow.test.mjs:95:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\target.test.mjs:11:1
+✖ Chinese and escaped filenames are included in source snapshots (7.6503ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:12:35)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:12:35)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.start (node:internal/test_runner/test:1262:17)
+        at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\target.test.mjs:16:1
+✖ staged target reads the index, not newer working-tree changes (4.9493ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:17:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:17:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\target.test.mjs:24:1
+✖ oversized diffs fail with an explicit coverage error instead of silently dropping files (3.5033ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:25:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:25:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\target.test.mjs:29:1
+✖ a skipped file changing still invalidates the target identity (3.3459ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:30:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:30:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\target.test.mjs:35:1
+✖ untracked source is included by default and state files are excluded (3.2503ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:36:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:36:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\target.test.mjs:42:1
+✖ historical source cache is isolated by actual repository and immutable base (3.5276ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:43:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:43:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\target.test.mjs:47:1
+✖ committed changes cannot relax their own review rules (3.6389ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:48:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:48:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
+
+test at test\target.test.mjs:54:1
+✖ guidance may not follow a directory junction outside the workspace (3.4237ms)
+  Error: spawnSync git ENOENT
+      at Object.spawnSync (node:internal/child_process:1160:20)
+      at spawnSync (node:child_process:928:24)
+      at execFileSync (node:child_process:971:15)
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+      at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:55:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawnSync git',
+    path: 'git',
+    spawnargs: [ '-c', 'core.autocrlf=false', 'init', '-q' ],
+    error: Error: spawnSync git ENOENT
+        at Object.spawnSync (node:internal/child_process:1160:20)
+        at spawnSync (node:child_process:928:24)
+        at execFileSync (node:child_process:971:15)
+        at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:10:27)
+        at repo (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/helpers.mjs:12:2)
+        at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-review/worktree/pkg/test/target.test.mjs:55:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19),
+    status: null,
+    signal: null,
+    output: null,
+    pid: 0,
+    stdout: undefined,
+    stderr: undefined
+  }
