@@ -1,0 +1,347 @@
+{
+  "model": "deepseek-flash",
+  "temperature": 0.7,
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "tasks": 8,
+  "perScenario": [
+    {
+      "id": "S1",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "hardcoded secret, sql injection, runtime bug (db.query not a function), breaking API change/renamed export"
+          },
+          "without": {
+            "ok": true,
+            "answer": "hardcoded secret, sql injection"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "hardcoded secret, sql injection"
+          },
+          "without": {
+            "ok": true,
+            "answer": "sql injection, hardcoded secret"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "hardcoded secret, sql injection, runtime type/method mismatch bug"
+          },
+          "without": {
+            "ok": true,
+            "answer": "hardcoded secret, sql injection"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "sql injection, bug (db.query 不存在/驱动 API 误用)"
+          },
+          "without": {
+            "ok": true,
+            "answer": "sql injection"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "sql injection, driver API / return contract regression"
+          },
+          "without": {
+            "ok": true,
+            "answer": "sql injection"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "sql injection, breaking api change"
+          },
+          "without": {
+            "ok": true,
+            "answer": "sql injection"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "path traversal"
+          },
+          "without": {
+            "ok": true,
+            "answer": "path traversal, arbitrary file read"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "path traversal"
+          },
+          "without": {
+            "ok": true,
+            "answer": "path traversal"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "path traversal"
+          },
+          "without": {
+            "ok": true,
+            "answer": "path traversal, arbitrary file read"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "command injection"
+          },
+          "without": {
+            "ok": true,
+            "answer": "command injection"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "command injection"
+          },
+          "without": {
+            "ok": true,
+            "answer": "command injection"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "command injection (shell injection)"
+          },
+          "without": {
+            "ok": true,
+            "answer": "command injection"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "null pointer dereference / regression"
+          },
+          "without": {
+            "ok": true,
+            "answer": "null dereference, missing fallback"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "null pointer dereference / missing null check"
+          },
+          "without": {
+            "ok": true,
+            "answer": "null pointer dereference, missing null check, 行为回归"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "null pointer dereference, regression"
+          },
+          "without": {
+            "ok": true,
+            "answer": "missing null check, null pointer dereference"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "off-by-one bug"
+          },
+          "without": {
+            "ok": true,
+            "answer": "off-by-one error, out-of-bounds array access"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "off-by-one / out-of-bounds array access"
+          },
+          "without": {
+            "ok": true,
+            "answer": "off-by-one error, out-of-bounds read"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "off-by-one 边界错误 / 循环条件逻辑缺陷"
+          },
+          "without": {
+            "ok": true,
+            "answer": "off-by-one error"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "race condition / lost update, missing input validation, missing error handling, magic number"
+          },
+          "without": {
+            "ok": true,
+            "answer": "race condition / lost update"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "lost-update race condition,missing input validation,breaking API change,misleading function signature"
+          },
+          "without": {
+            "ok": true,
+            "answer": "race condition, lost update"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "race condition / lost update, missing input validation, unhandled async error (partial state inconsistency)"
+          },
+          "without": {
+            "ok": true,
+            "answer": "race condition, lost update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "with": 1,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": false,
+            "answer": "bug（重构非等价导致空值解引用 TypeError）"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": false,
+            "answer": "bug / 逻辑回归（稀疏数组处理导致 NaN）"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        }
+      ]
+    }
+  ],
+  "D": -2,
+  "ci95": [
+    -6,
+    0
+  ],
+  "halfWidth": 3,
+  "prereg": {
+    "a": 12,
+    "b": 6,
+    "precision": 6,
+    "B": 10000,
+    "seed": 20261019
+  },
+  "verdict": "还说不准",
+  "ranAt": "2026-10-19T10:45:38.619Z"
+}
