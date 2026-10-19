@@ -1,0 +1,639 @@
+==============================================================================
+dsh-locale-es-419 1.0.0 测评 · 24 locale 键对等 / 占位符 / 复数（宿主 en 基准）
+sampled_at = 2026-10-19T02:39:49.501Z
+workdir    = D:\natnat\lingshu\测试\dsh-locale-es-419
+node       = v24.21.0 (C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe)
+platform   = win32 x64
+==============================================================================
+
+## 0) 数据源
+宿主 asar = C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\app.asar
+插件 es-419 命名空间（不含 packageMeta）= 59；键数 = 2745
+packageMeta 翻译对 = 174
+宿主 client bundle 扫描包数 = 53；提取到 en 字典的 namespace = 63；未能解析 = 0
+
+## 1) 命名空间覆盖
+插件 59；宿主 en 63；匹配 57；仅插件 2；仅宿主 6
+
+### 仅插件有的 namespace（宿主 0.2.1-rc.2 已无此注册 ⇒ 可能过期）
+  claude-code-mods             keys=4  宿主路径里出现该名字 = false
+  inspector                    keys=4  宿主路径里出现该名字 = true
+
+### 仅宿主有的 namespace（插件未提供 ⇒ 这些界面回退英文）
+  pluginMarket                     keys=  78  package=dsh-client-ui-plugin-market
+  cotTranslation                   keys=  32  package=dsh-experimental-client-ui-cot-translation
+  directory-browser                keys=  13  package=dsh-client-ui-directory-picker-browse
+  secretMask                       keys=   2  package=dsh-client-ui-secret-mask
+  deepseek-model-label-1017        keys=   1  package=dsh-client-ui-deepseek-model-label-1017
+  shortcuts.layout                 keys=   1  package=dsh-client-ui-layout
+
+## 2) 键对等（匹配 namespace = 57）
+匹配部分宿主键 = 2764；两边共有 = 2582；es 缺失 = 182；es 多余 = 155
+宿主全部 en 键 = 2891；键级覆盖率 = 89.3%
+
+### 缺失/多余最多的 namespace（前 15）
+| namespace | host en | es-419 | 缺失 | 多余 | 覆盖% |
+|---|---:|---:|---:|---:|---:|
+| open-in-app | 45 | 15 | 30 | 0 | 33.3 |
+| settings.models | 134 | 113 | 24 | 3 | 82.1 |
+| job | 40 | 23 | 17 | 0 | 57.5 |
+| pluginManager | 221 | 205 | 17 | 1 | 92.3 |
+| schedule.catalog | 70 | 181 | 16 | 127 | 77.1 |
+| schedule.manager | 188 | 181 | 14 | 7 | 92.6 |
+| session-inspector | 52 | 43 | 9 | 0 | 82.7 |
+| settings.webSearch | 27 | 18 | 9 | 0 | 66.7 |
+| voice-input | 109 | 101 | 8 | 0 | 92.7 |
+| settings | 41 | 34 | 7 | 0 | 82.9 |
+| sidebarImage | 11 | 5 | 6 | 0 | 45.5 |
+| sidebarPdf | 15 | 9 | 6 | 0 | 60 |
+| workspace | 119 | 114 | 5 | 0 | 95.8 |
+| conversation | 371 | 367 | 4 | 0 | 98.9 |
+| reference | 15 | 11 | 4 | 0 | 73.3 |
+
+### 完整 namespace 表
+| namespace | host en 键 | es-419 键 | 缺失 | 多余 | host package |
+|---|---:|---:|---:|---:|---|
+| conversation | 371 | 367 | 4 | 0 | dsh-client-ui-conversation |
+| pluginManager | 221 | 205 | 17 | 1 | dsh-client-ui-plugin-manager |
+| trajectory | 192 | 192 | 1 | 1 | dsh-client-ui-trajectory |
+| chat | 191 | 192 | 0 | 1 | dsh-client-ui-chat |
+| schedule.manager | 188 | 181 | 14 | 7 | dsh-client-ui-schedule |
+| settings.models | 134 | 113 | 24 | 3 | dsh-client-ui-settings-models |
+| workspace | 119 | 114 | 5 | 0 | dsh-client-ui-workspace |
+| voice-input | 109 | 101 | 8 | 0 | dsh-experimental-client-ui-voice-input |
+| settings.account | 94 | 94 | 0 | 0 | dsh-client-ui-settings-account |
+| schedule.catalog | 70 | 181 | 16 | 127 | dsh-client-ui-schedule |
+| deliverables | 60 | 60 | 0 | 0 | dsh-client-ui-deliverables |
+| shortcuts | 56 | 56 | 0 | 0 | dsh-client-ui-shortcuts |
+| session-inspector | 52 | 43 | 9 | 0 | dsh-experimental-session-inspector |
+| cordis | 51 | 51 | 0 | 0 | dsh-client-ui-cordis |
+| open-in-app | 45 | 15 | 30 | 0 | dsh-client-ui-open-in-app |
+| common | 41 | 41 | 0 | 0 | dsh-client-locale |
+| settings | 41 | 34 | 7 | 0 | dsh-client-ui-settings-general |
+| subagent | 41 | 39 | 2 | 0 | dsh-client-ui-subagent |
+| job | 40 | 23 | 17 | 0 | dsh-client-ui-jobs |
+| settings.agentPreset | 39 | 47 | 0 | 8 | dsh-client-ui-agent-preset |
+| settings.pluginInventory | 37 | 40 | 0 | 3 | dsh-client-ui-settings-plugin-inventory |
+| settings.subagent | 35 | 35 | 0 | 0 | dsh-client-ui-settings-subagent |
+| sidebarRight | 34 | 34 | 0 | 0 | dsh-client-ui-sidebar-right |
+| question | 31 | 31 | 0 | 0 | dsh-client-ui-user-questions |
+| command | 28 | 28 | 0 | 0 | dsh-client-ui-commands |
+| sidebarTerminal | 28 | 28 | 0 | 0 | dsh-client-ui-sidebar-terminal |
+| settings.webSearch | 27 | 18 | 9 | 0 | dsh-client-ui-settings-web-search |
+| sidebarBrowser | 26 | 26 | 0 | 0 | dsh-client-ui-sidebar-browser |
+| agent-team | 25 | 25 | 0 | 0 | dsh-experimental-client-ui-agent-team |
+| settings.theme | 25 | 29 | 0 | 4 | dsh-client-ui-theme |
+| model | 23 | 23 | 0 | 0 | dsh-client-ui-model-selection |
+| sidebarDocumentPreview | 22 | 22 | 0 | 0 | dsh-client-ui-sidebar-documentpreview |
+| feedback | 20 | 20 | 0 | 0 | dsh-client-ui-message-feedback |
+| workflowRun | 18 | 18 | 0 | 0 | dsh-client-ui-workflow-run |
+| permission.access | 17 | 17 | 0 | 0 | dsh-client-ui-permission-presets |
+| plan | 17 | 17 | 0 | 0 | dsh-client-ui-plan |
+| sidebarFiles | 17 | 17 | 0 | 0 | dsh-client-ui-sidebar-files |
+| reference | 15 | 11 | 4 | 0 | dsh-client-ui-reference |
+| sidebarExcel | 15 | 15 | 0 | 0 | dsh-client-ui-sidebar-documentpreview |
+| sidebarOffice | 15 | 15 | 0 | 0 | dsh-client-ui-sidebar-documentpreview |
+| sidebarPdf | 15 | 9 | 6 | 0 | dsh-client-ui-sidebar-documentpreview |
+| settings.shell | 14 | 14 | 0 | 0 | dsh-client-ui-settings-shell |
+| goal | 12 | 12 | 0 | 0 | dsh-client-ui-goal |
+| settings.agentLoop | 12 | 12 | 0 | 0 | dsh-client-ui-settings-agent-loop |
+| settings.permission | 12 | 12 | 0 | 0 | dsh-client-ui-permission-presets |
+| sidebarImage | 11 | 5 | 6 | 0 | dsh-client-ui-sidebar-documentpreview |
+| session-log-download | 10 | 10 | 0 | 0 | dsh-session-log-export |
+| slash.menu | 9 | 6 | 3 | 0 | dsh-client-ui-input-trigger |
+| skill | 8 | 8 | 0 | 0 | dsh-client-ui-skill |
+| approval | 5 | 5 | 0 | 0 | dsh-client-ui-approval |
+| settings.plugins | 5 | 5 | 0 | 0 | dsh-client-ui-settings-plugins |
+| sidebar | 5 | 5 | 0 | 0 | dsh-client-ui-sidebar |
+| documentHtml | 4 | 4 | 0 | 0 | dsh-client-ui-sidebar-documentpreview |
+| documentMarkdown | 4 | 4 | 0 | 0 | dsh-client-ui-sidebar-documentpreview |
+| settings.sessionLog | 4 | 4 | 0 | 0 | dsh-client-ui-settings-session-log |
+| sidebarCodePreview | 3 | 3 | 0 | 0 | dsh-client-ui-sidebar-documentpreview |
+| settings.locale | 1 | 1 | 0 | 0 | dsh-client-locale |
+
+### es 缺失键（宿主有、es 没有 ⇒ 回退英文）逐条（最多 220）
+  MISSING conversation :: row.commandArguments  en="Command arguments"
+  MISSING conversation :: row.imageSize  en="{width}x{height}px, {bytes} bytes"
+  MISSING conversation :: row.imageSizeDownscaled  en="{width}x{height}px (downscaled from {originalWidth}x{originalHeight}px), {bytes} bytes"
+  MISSING conversation :: terminal.commandLine  en="Command line {n}"
+  MISSING job :: count.idle.other  en="{count} background jobs"
+  MISSING job :: section.live  en="Running"
+  MISSING job :: status.running  en="running"
+  MISSING job :: status.completed  en="completed"
+  MISSING job :: status.killed  en="cancelled"
+  MISSING job :: status.failed  en="failed"
+  MISSING job :: duration.seconds  en="{seconds}s"
+  MISSING job :: duration.minutes  en="{minutes}m {seconds}s"
+  MISSING job :: terminal.signal  en="signal {signal}"
+  MISSING job :: terminal.noExitCode  en="no exit code"
+  MISSING job :: terminal.commandLine  en="Command line {n}"
+  MISSING job :: terminal.running  en="running"
+  MISSING job :: terminal.failed  en="failed"
+  MISSING job :: terminal.copy  en="Copy"
+  MISSING job :: terminal.copied  en="Copied"
+  MISSING job :: terminal.collapse  en="Collapse"
+  MISSING job :: terminal.collapseAria  en="Collapse output"
+  MISSING open-in-app :: app.cursor  en="Cursor"
+  MISSING open-in-app :: app.vscode  en="VS Code"
+  MISSING open-in-app :: app.vscodeinsiders  en="VS Code Insiders"
+  MISSING open-in-app :: app.windsurf  en="Windsurf"
+  MISSING open-in-app :: app.zed  en="Zed"
+  MISSING open-in-app :: app.sublimetext  en="Sublime Text"
+  MISSING open-in-app :: app.xcode  en="Xcode"
+  MISSING open-in-app :: app.androidstudio  en="Android Studio"
+  MISSING open-in-app :: app.intellij  en="IntelliJ IDEA"
+  MISSING open-in-app :: app.pycharm  en="PyCharm"
+  MISSING open-in-app :: app.webstorm  en="WebStorm"
+  MISSING open-in-app :: app.phpstorm  en="PhpStorm"
+  MISSING open-in-app :: app.goland  en="GoLand"
+  MISSING open-in-app :: app.rider  en="Rider"
+  MISSING open-in-app :: app.rustrover  en="RustRover"
+  MISSING open-in-app :: app.fork  en="Fork"
+  MISSING open-in-app :: app.sourcetree  en="Sourcetree"
+  MISSING open-in-app :: app.github  en="GitHub Desktop"
+  MISSING open-in-app :: app.tower  en="Tower"
+  MISSING open-in-app :: app.gitkraken  en="GitKraken"
+  MISSING open-in-app :: app.smartgit  en="SmartGit"
+  MISSING open-in-app :: app.sublimemerge  en="Sublime Merge"
+  MISSING open-in-app :: app.ghostty  en="Ghostty"
+  MISSING open-in-app :: app.warp  en="Warp"
+  MISSING open-in-app :: app.iterm  en="iTerm2"
+  MISSING open-in-app :: app.kitty  en="kitty"
+  MISSING open-in-app :: app.windowsterminal  en="Windows Terminal"
+  MISSING open-in-app :: app.gitbash  en="Git Bash"
+  MISSING open-in-app :: app.gnometerminal  en="GNOME Terminal"
+  MISSING open-in-app :: app.konsole  en="Konsole"
+  MISSING pluginManager :: restartReasonNoHmr  en="This profile applies changes only at startup."
+  MISSING pluginManager :: restartReasonPackageMoved  en="An installed package now resolves to another directory, or the change replaces a package the DSH installation provides. "
+  MISSING pluginManager :: restartReasonHostModule  en="The change reaches modules DSH itself loaded."
+  MISSING pluginManager :: restartReasonUnmanagedPlugin  en="The change reaches a plugin running outside the plugin list."
+  MISSING pluginManager :: restartReasonModuleComparison  en="DSH could not compare the loaded plugins with their files."
+  MISSING pluginManager :: installConfirmedTitle  en="Install plugin"
+  MISSING pluginManager :: installConfirmedRefused  en="This plugin cannot be installed"
+  MISSING pluginManager :: statusNotInstalled  en="Not installed"
+  MISSING pluginManager :: statusMissingFiles  en="Package unavailable"
+  MISSING pluginManager :: statusUpdateAvailable  en="Update available"
+  MISSING pluginManager :: sourceNotInstalled  en="Not installed"
+  MISSING pluginManager :: sourceTargetSpec  en="Source for this DSH"
+  MISSING pluginManager :: sourceTargetVersion  en="Version for this DSH"
+  MISSING pluginManager :: update  en="Update"
+  MISSING pluginManager :: updateLabel  en="Update {name}"
+  MISSING pluginManager :: terminalCommandLine  en="Command line {n}"
+  MISSING pluginManager :: reasonAlreadyInstalled  en="This package is already installed; uninstall it before installing another version."
+  MISSING reference :: fileOpen.title  en="Couldn’t open file"
+  MISSING reference :: fileOpen.failed  en="Couldn’t open “{path}”. Try again or close this message."
+  MISSING reference :: fileOpen.close  en="Close"
+  MISSING reference :: fileOpen.retry  en="Retry"
+  MISSING schedule.catalog :: time.locale  en="en"
+  MISSING schedule.catalog :: cron.list.join  en=", "
+  MISSING schedule.catalog :: cron.part.join  en=" "
+  MISSING schedule.catalog :: frequency.weekday.join  en=", "
+  MISSING schedule.catalog :: frequency.weekday.1  en="Mon"
+  MISSING schedule.catalog :: frequency.weekday.2  en="Tue"
+  MISSING schedule.catalog :: frequency.weekday.3  en="Wed"
+  MISSING schedule.catalog :: frequency.weekday.4  en="Thu"
+  MISSING schedule.catalog :: frequency.weekday.5  en="Fri"
+  MISSING schedule.catalog :: frequency.weekday.6  en="Sat"
+  MISSING schedule.catalog :: frequency.weekday.7  en="Sun"
+  MISSING schedule.catalog :: unit.hour.other  en="hours"
+  MISSING schedule.catalog :: unit.minute.other  en="minutes"
+  MISSING schedule.catalog :: unit.second.other  en="seconds"
+  MISSING schedule.catalog :: trigger.other  en="{count} reminders"
+  MISSING schedule.catalog :: list.nextRun  en="Next run"
+  MISSING schedule.manager :: time.locale  en="en"
+  MISSING schedule.manager :: cron.list.join  en=", "
+  MISSING schedule.manager :: cron.part.join  en=" "
+  MISSING schedule.manager :: frequency.weekday.join  en=", "
+  MISSING schedule.manager :: frequency.weekday.1  en="Mon"
+  MISSING schedule.manager :: frequency.weekday.2  en="Tue"
+  MISSING schedule.manager :: frequency.weekday.3  en="Wed"
+  MISSING schedule.manager :: frequency.weekday.4  en="Thu"
+  MISSING schedule.manager :: frequency.weekday.5  en="Fri"
+  MISSING schedule.manager :: frequency.weekday.6  en="Sat"
+  MISSING schedule.manager :: frequency.weekday.7  en="Sun"
+  MISSING schedule.manager :: unit.hour.other  en="hours"
+  MISSING schedule.manager :: unit.minute.other  en="minutes"
+  MISSING schedule.manager :: unit.second.other  en="seconds"
+  MISSING session-inspector :: table.type  en="Type"
+  MISSING session-inspector :: filter.cancel  en="Cancel"
+  MISSING session-inspector :: table.data  en="Data"
+  MISSING session-inspector :: table.older  en="Load earlier"
+  MISSING session-inspector :: table.loading  en="Loading…"
+  MISSING session-inspector :: table.close  en="Close"
+  MISSING session-inspector :: object.turn  en="Turn"
+  MISSING session-inspector :: object.step  en="Step"
+  MISSING session-inspector :: object.more  en="Show more"
+  MISSING settings :: hostRelease.title  en="Service version changed"
+  MISSING settings :: hostRelease.description  en="The service version changed. This page paused live updates; reload to load the new version."
+  MISSING settings :: hostRelease.service  en="Service"
+  MISSING settings :: hostRelease.page  en="Page"
+  MISSING settings :: hostRelease.unknown  en="Unknown"
+  MISSING settings :: hostRelease.reload  en="Reload to load the new version"
+  MISSING settings :: hostRelease.later  en="Not now"
+  MISSING settings.models :: accountSignedIn  en="Signed in"
+  MISSING settings.models :: keyReveal  en="Show secret"
+  MISSING settings.models :: keyHide  en="Hide secret"
+  MISSING settings.models :: keyPlaceholderFallback  en="Leave blank to use env as auth ({hint})"
+  MISSING settings.models :: keyPlaceholderSaved  en="Leave blank to use saved credentials"
+  MISSING settings.models :: keyFallbackMissing  en="Env var not detected. Enter an API key, or configure {hint} in your env."
+  MISSING settings.models :: keyFallbackDetected  en="Env var detected. ({hint})"
+  MISSING settings.models :: keyFallbackDetectedHidden  en="Env var detected."
+  MISSING settings.models :: keyFallbackUnchecked  en="Environment credential status has not been confirmed."
+  MISSING settings.models :: keyHelp  en="Saved credentials are used first. Environment fallbacks shown here, in order: {env}. Sources are launch environment, $cw"
+  MISSING settings.models :: authHelp  en="Authentication details"
+  MISSING settings.models :: baseUrlEnvironment  en="Provider endpoint configuration: {env}"
+  MISSING settings.models :: baseUrlConfigured  en="Provider-configured endpoint"
+  MISSING settings.models :: baseUrlPlaceholder  en="{url}"
+  MISSING settings.models :: modelReasoning  en="Reasoning levels"
+  MISSING settings.models :: modelReasoningLevel  en="Level"
+  MISSING settings.models :: modelReasoningValue  en="API value"
+  MISSING settings.models :: modelReasoningHelp  en="About reasoning levels"
+  MISSING settings.models :: modelReasoningHelpText  en="The API value is sent in the request's reasoning-effort field, such as OpenAI's reasoning_effort. It defaults to the lev"
+  MISSING settings.models :: modelReasoningNeedsLevel  en="Add at least one level besides Off, or turn reasoning levels off."
+  MISSING settings.models :: modelReasoningValueRequired  en="Every level besides Off needs an API value, and no value can be empty."
+  MISSING settings.models :: modelReasoningAdd  en="Add level"
+  MISSING settings.models :: modelReasoningRemove  en="Delete level"
+  MISSING settings.models :: modelReasoningOffValuePlaceholder  en="Turns reasoning off"
+  MISSING settings.webSearch :: useSearchApi  en="Use the new Web Search API"
+  MISSING settings.webSearch :: useSearchApiHint  en="Off by default: search runs through DeepSeek Messages. For the new Web Search API's features and pricing, see the "
+  MISSING settings.webSearch :: searchGuide  en="Search & Fetch guide"
+  MISSING settings.webSearch :: searchGuideUrl  en="https://api-docs.deepseek.com/guides/search"
+  MISSING settings.webSearch :: searchApiBaseUrl  en="Search / Fetch API base URL"
+  MISSING settings.webSearch :: searchApiBaseUrlHint  en="Include the API prefix, such as https://api.deepseek.com/v1/tools. The provider appends /search or /fetch. Leave blank t"
+  MISSING settings.webSearch :: count  en="Results per search"
+  MISSING settings.webSearch :: countHint  en="Results returned per query: an integer from 1 to 50, default 10. This controls result count, not search calls. web_searc"
+  MISSING settings.webSearch :: invalidCount  en="Enter an integer from 1 to 50, or leave blank to use the default."
+  MISSING sidebarImage :: zoomControls  en="Zoom controls"
+  MISSING sidebarImage :: zoomMenu  en="Choose zoom"
+  MISSING sidebarImage :: zoomOut  en="Zoom out"
+  MISSING sidebarImage :: zoomIn  en="Zoom in"
+  MISSING sidebarImage :: zoomFitWidth  en="Fit width"
+  MISSING sidebarImage :: zoomValue  en="{percent}%"
+  MISSING sidebarPdf :: zoomControls  en="Zoom controls"
+  MISSING sidebarPdf :: zoomMenu  en="Choose zoom"
+  MISSING sidebarPdf :: zoomOut  en="Zoom out"
+  MISSING sidebarPdf :: zoomIn  en="Zoom in"
+  MISSING sidebarPdf :: zoomFitWidth  en="Fit width"
+  MISSING sidebarPdf :: zoomValue  en="{percent}%"
+  MISSING slash.menu :: command  en="Commands"
+  MISSING slash.menu :: subagent  en="Subagents"
+  MISSING slash.menu :: loading  en="Loading…"
+  MISSING subagent :: catalog.migrationRequired  en="Migration required"
+  MISSING subagent :: mode.external  en="External task"
+  MISSING trajectory :: details.lastAttemptError  en="Last attempt error"
+  MISSING voice-input :: inputDevice  en="Input device"
+  MISSING voice-input :: systemMicrophone  en="System default"
+  MISSING voice-input :: systemMicrophoneNamed  en="System default ({name})"
+  MISSING voice-input :: unnamedSelectedMicrophone  en="Microphone"
+  MISSING voice-input :: unnamedMicrophone  en="Microphone {number}"
+  MISSING voice-input :: inputLevel  en="Microphone input level"
+  MISSING voice-input :: deviceUnavailable  en="Unavailable"
+  MISSING voice-input :: deviceMissing  en="Microphone unavailable. Choose another input device."
+  MISSING workspace :: menu.sessionId  en="Copy Session ID"
+  MISSING workspace :: toast.sessionIdCopied  en="Session ID copied"
+  MISSING workspace :: toast.sessionIdCopyFailed  en="Copy failed. Try again."
+  MISSING workspace :: toast.forkRequiresOpen  en="Open the original session to complete migration before creating a branch."
+  MISSING workspace :: toast.openForkSource  en="Open original session"
+
+### es 多余键（es 有、宿主 en 没有 ⇒ 可能过期或改名）逐条（最多 220）
+  EXTRA chat :: message.accountStopped
+  EXTRA pluginManager :: officialTitle
+  EXTRA schedule.catalog :: card.deleted
+  EXTRA schedule.catalog :: card.open
+  EXTRA schedule.catalog :: card.openLabel
+  EXTRA schedule.catalog :: cronForm.atMinute
+  EXTRA schedule.catalog :: cronForm.daily
+  EXTRA schedule.catalog :: cronForm.dateOption
+  EXTRA schedule.catalog :: cronForm.dates
+  EXTRA schedule.catalog :: cronForm.frequency
+  EXTRA schedule.catalog :: cronForm.minuteDecrease
+  EXTRA schedule.catalog :: cronForm.minuteIncrease
+  EXTRA schedule.catalog :: cronForm.monthly
+  EXTRA schedule.catalog :: cronForm.weekly
+  EXTRA schedule.catalog :: delete.cancel
+  EXTRA schedule.catalog :: delete.close
+  EXTRA schedule.catalog :: delete.confirm
+  EXTRA schedule.catalog :: delete.description
+  EXTRA schedule.catalog :: delete.title
+  EXTRA schedule.catalog :: delivery.collapse
+  EXTRA schedule.catalog :: delivery.cursorError
+  EXTRA schedule.catalog :: delivery.empty
+  EXTRA schedule.catalog :: delivery.error
+  EXTRA schedule.catalog :: delivery.expand
+  EXTRA schedule.catalog :: delivery.label
+  EXTRA schedule.catalog :: delivery.loadMore
+  EXTRA schedule.catalog :: delivery.loading
+  EXTRA schedule.catalog :: delivery.notFound
+  EXTRA schedule.catalog :: delivery.pruned
+  EXTRA schedule.catalog :: delivery.refresh
+  EXTRA schedule.catalog :: delivery.retention
+  EXTRA schedule.catalog :: delivery.retentionBounds
+  EXTRA schedule.catalog :: delivery.retentionExplanation
+  EXTRA schedule.catalog :: delivery.retry
+  EXTRA schedule.catalog :: detail.close
+  EXTRA schedule.catalog :: detail.frequency
+  EXTRA schedule.catalog :: detail.id
+  EXTRA schedule.catalog :: detail.instruction
+  EXTRA schedule.catalog :: detail.label
+  EXTRA schedule.catalog :: detail.missing
+  EXTRA schedule.catalog :: detail.more
+  EXTRA schedule.catalog :: detail.name
+  EXTRA schedule.catalog :: detail.next
+  EXTRA schedule.catalog :: detail.nextRun
+  EXTRA schedule.catalog :: detail.openSession
+  EXTRA schedule.catalog :: detail.openSessionTitle
+  EXTRA schedule.catalog :: detail.records
+  EXTRA schedule.catalog :: detail.rule
+  EXTRA schedule.catalog :: detail.session
+  EXTRA schedule.catalog :: detail.sessionArchived
+  EXTRA schedule.catalog :: detail.sessionLoading
+  EXTRA schedule.catalog :: detail.sessionUnavailable
+  EXTRA schedule.catalog :: detail.status
+  EXTRA schedule.catalog :: detail.tabs
+  EXTRA schedule.catalog :: empty.action
+  EXTRA schedule.catalog :: list.empty
+  EXTRA schedule.catalog :: list.emptyInactive
+  EXTRA schedule.catalog :: list.label
+  EXTRA schedule.catalog :: list.nextPrefix
+  EXTRA schedule.catalog :: list.noMatches
+  EXTRA schedule.catalog :: new.action
+  EXTRA schedule.catalog :: panel
+  EXTRA schedule.catalog :: rule.cancel
+  EXTRA schedule.catalog :: rule.cron
+  EXTRA schedule.catalog :: rule.cronInvalid
+  EXTRA schedule.catalog :: rule.cronLabel
+  EXTRA schedule.catalog :: rule.daily
+  EXTRA schedule.catalog :: rule.error.conflict
+  EXTRA schedule.catalog :: rule.error.notFound
+  EXTRA schedule.catalog :: rule.error.unknown
+  EXTRA schedule.catalog :: rule.everyHours
+  EXTRA schedule.catalog :: rule.everyMinutes
+  EXTRA schedule.catalog :: rule.everySeconds
+  EXTRA schedule.catalog :: rule.invalidPrompt
+  EXTRA schedule.catalog :: rule.invalidTitle
+  EXTRA schedule.catalog :: rule.once
+  EXTRA schedule.catalog :: rule.repeat
+  EXTRA schedule.catalog :: rule.save
+  EXTRA schedule.catalog :: rule.saving
+  EXTRA schedule.catalog :: rule.title
+  EXTRA schedule.catalog :: rule.unsaved
+  EXTRA schedule.catalog :: rule.weekday
+  EXTRA schedule.catalog :: rule.weekdayOption
+  EXTRA schedule.catalog :: rule.weekdays
+  EXTRA schedule.catalog :: rule.weekly
+  EXTRA schedule.catalog :: rule.zone.system
+  EXTRA schedule.catalog :: search.clear
+  EXTRA schedule.catalog :: search.label
+  EXTRA schedule.catalog :: search.placeholder
+  EXTRA schedule.catalog :: status.active
+  EXTRA schedule.catalog :: status.inactive
+  EXTRA schedule.catalog :: statusFilter.all
+  EXTRA schedule.catalog :: statusFilter.label
+  EXTRA schedule.catalog :: timing.conflict
+  EXTRA schedule.catalog :: timing.date
+  EXTRA schedule.catalog :: timing.error
+  EXTRA schedule.catalog :: timing.hour
+  EXTRA schedule.catalog :: timing.inactive
+  EXTRA schedule.catalog :: timing.interval
+  EXTRA schedule.catalog :: timing.intervalDecrease
+  EXTRA schedule.catalog :: timing.intervalHint.hour
+  EXTRA schedule.catalog :: timing.intervalHint.minute
+  EXTRA schedule.catalog :: timing.intervalHint.second
+  EXTRA schedule.catalog :: timing.intervalIncrease
+  EXTRA schedule.catalog :: timing.invalid
+  EXTRA schedule.catalog :: timing.invalidInterval
+  EXTRA schedule.catalog :: timing.invalidInterval.hour
+  EXTRA schedule.catalog :: timing.invalidInterval.minute
+  EXTRA schedule.catalog :: timing.invalidInterval.second
+  EXTRA schedule.catalog :: timing.invalidZone
+  EXTRA schedule.catalog :: timing.minute
+  EXTRA schedule.catalog :: timing.nextMonth
+  EXTRA schedule.catalog :: timing.notFound
+  EXTRA schedule.catalog :: timing.notFuture
+  EXTRA schedule.catalog :: timing.prevMonth
+  EXTRA schedule.catalog :: timing.second
+  EXTRA schedule.catalog :: timing.subagentSession
+  EXTRA schedule.catalog :: timing.time
+  EXTRA schedule.catalog :: timing.unit.hour
+  EXTRA schedule.catalog :: timing.unit.minute
+  EXTRA schedule.catalog :: timing.unit.second
+  EXTRA schedule.catalog :: timing.zone
+  EXTRA schedule.catalog :: timing.zoneNoResults
+  EXTRA schedule.catalog :: timing.zoneNoStored
+  EXTRA schedule.catalog :: timing.zoneSearch
+  EXTRA schedule.catalog :: title
+  EXTRA schedule.catalog :: toast.deleteFailed
+  EXTRA schedule.catalog :: toast.deleted
+  EXTRA schedule.catalog :: tool.invoked
+  EXTRA schedule.manager :: delete.label
+  EXTRA schedule.manager :: hover.more
+  EXTRA schedule.manager :: list.aria
+  EXTRA schedule.manager :: list.open
+  EXTRA schedule.manager :: mark.aria
+  EXTRA schedule.manager :: trigger.label
+  EXTRA schedule.manager :: trigger.one
+  EXTRA settings.agentPreset :: guideCordisExplanation
+  EXTRA settings.agentPreset :: guideCordisUsage
+  EXTRA settings.agentPreset :: guideMinimalExplanation
+  EXTRA settings.agentPreset :: guideMinimalUsage
+  EXTRA settings.agentPreset :: guidePtcExplanation
+  EXTRA settings.agentPreset :: guidePtcUsage
+  EXTRA settings.agentPreset :: guideStandardExplanation
+  EXTRA settings.agentPreset :: guideStandardUsage
+  EXTRA settings.models :: keyEnvLocked
+  EXTRA settings.models :: keyPlaceholderNative
+  EXTRA settings.models :: keyStored
+  EXTRA settings.pluginInventory :: countUnit
+  EXTRA settings.pluginInventory :: failedCountLabel
+  EXTRA settings.pluginInventory :: viewInPreset
+  EXTRA settings.theme :: fontSize.decrease
+  EXTRA settings.theme :: fontSize.description
+  EXTRA settings.theme :: fontSize.increase
+  EXTRA settings.theme :: fontSize.title
+  EXTRA trajectory :: details.scheduled
+
+## 3) schedule.* 交叉核对（plugin 两个文件内容是否与宿主两个 namespace 对应）
+plugin schedule.catalog keys=181；plugin schedule.manager keys=181
+host   schedule.catalog keys=70；host   schedule.manager keys=188
+overlap(plugin.catalog, host.catalog)  = 54
+overlap(plugin.catalog, host.manager)  = 174
+overlap(plugin.manager, host.catalog)  = 54
+overlap(plugin.manager, host.manager)  = 174
+overlap(plugin.catalog, plugin.manager) = 181
+host.catalog 键样例 = ["time.locale","time.utcPrefix","frequency.daily","frequency.dailyLocal","frequency.weekly","frequency.weeklyLocal","frequency.cron","frequency.cronLocal"]
+plugin.catalog 键样例 = ["card.deleted","card.open","card.openLabel","cron.day.both","cron.day.bothStarred","cron.day.every","cron.day.monthDays","cron.day.weekdays"]
+plugin.manager 键样例 = ["card.deleted","card.open","card.openLabel","cron.day.both","cron.day.bothStarred","cron.day.every","cron.day.monthDays","cron.day.weekdays"]
+插件两个文件键集完全相同 = true
+同键不同值的数量 = 23 ["detail.instruction","detail.missing","detail.more","detail.name","detail.next","detail.openSession","detail.openSessionTitle","detail.records","detail.sessionLoading","empty.action"]
+插件两个文件 JSON 完全相同 = false
+
+## 4) 占位符 / 插值一致性
+占位符集合不一致 = 2；es 花括号不配对 = 0
+  PH pluginManager :: installDoneRestart
+     en (reason) = "Installed; restart DSH to load it. {reason}"
+     es () = "Instalado; se carga en el próximo inicio."
+  PH pluginManager :: reasonIncompatibleVersion
+     en (plugin,requirements,runtime) = "{plugin} is incompatible with DSH {runtime} (requires {requirements}); running it may cause crashes or data loss."
+     es (peers,plugin,runtime) = "{plugin} es incompatible con DSH {runtime} (requiere {peers}); ejecutarlo puede causar fallos o pérdida de datos."
+
+## 5) 复数键（后缀 .one/.other）
+es-419 复数键 = 46；宿主 en 复数键 = 53；es 缺失的复数键 = 8
+  PL-MISSING job :: count.idle.other  en="{count} background jobs"
+  PL-MISSING schedule.catalog :: unit.hour.other  en="hours"
+  PL-MISSING schedule.catalog :: unit.minute.other  en="minutes"
+  PL-MISSING schedule.catalog :: unit.second.other  en="seconds"
+  PL-MISSING schedule.catalog :: trigger.other  en="{count} reminders"
+  PL-MISSING schedule.manager :: unit.hour.other  en="hours"
+  PL-MISSING schedule.manager :: unit.minute.other  en="minutes"
+  PL-MISSING schedule.manager :: unit.second.other  en="seconds"
+
+## 6) 未翻译 / 异常值（匹配键）
+es 字面空串 = 0 []
+es 纯空白值 = 1
+es 与 en 完全相同（trim 后）= 144；其中纯符号/格式 = 26；技术/专有名词白名单 = 38；**候选未翻译 = 80**
+  SAME chat :: duration.compactMinutes = "{minutes}m{seconds}s"
+  SAME chat :: duration.compactSeconds = "{seconds}s"
+  SAME chat :: duration.hourUnit = "h "
+  SAME chat :: duration.milliseconds = "{milliseconds}ms"
+  SAME chat :: duration.minuteUnit = "m "
+  SAME chat :: duration.secondUnit = "s"
+  SAME chat :: message.compaction.commandTitle = "compact"
+  SAME chat :: message.retry.status = "{label} ({retry}/{maximum}) · {seconds}s"
+  SAME chat :: message.stepProcess.more = "{title}, etc."
+  SAME command :: token.compact = "compact"
+  SAME command :: token.export = "export"
+  SAME command :: token.feedback = "feedback"
+  SAME command :: token.goal = "goal"
+  SAME command :: token.permission = "permission"
+  SAME command :: token.plan = "plan"
+  SAME common :: number.million = "{value}M"
+  SAME common :: number.thousand = "{value}K"
+  SAME conversation :: detail.days = "{count} d"
+  SAME conversation :: detail.hours = "{count} h"
+  SAME conversation :: detail.minutes = "{count} min"
+  SAME conversation :: detail.no = "No"
+  SAME conversation :: detail.schedule.cron = "Cron {expression} ({zone})"
+  SAME conversation :: detail.seconds = "{count} s"
+  SAME job :: duration.hours = "{hours}h {minutes}m"
+  SAME plan :: preview.document = "Plan · Markdown"
+  SAME pluginManager :: installGuideIdExample = "dsh-plugin-whale-pet"
+  SAME pluginManager :: registryCustomPlaceholder = "https://npm.example.com/"
+  SAME pluginManager :: versionTag = "v{version}"
+  SAME reference :: time.days = "{n}d"
+  SAME reference :: time.hours = "{n}h"
+  SAME reference :: time.minutes = "{n}min"
+  SAME reference :: time.months = "{n}mo"
+  SAME reference :: time.years = "{n}y"
+  SAME schedule.catalog :: frequency.cron = "Cron {expression} ({timeZone})"
+  SAME schedule.manager :: frequency.cron = "Cron {expression} ({timeZone})"
+  SAME session-inspector :: object.node = "Node"
+  SAME session-inspector :: table.location = "T/S"
+  SAME settings :: general.nav = "General"
+  SAME settings.account :: onboardingArtworkLocale = "en"
+  SAME settings.account :: onboardingBrand = "DeepSeek Harness"
+  SAME settings.models :: customAnthropicBaseUrlPlaceholder = "https://gateway.example"
+  SAME settings.models :: customBaseUrlPlaceholder = "https://gateway.example/v1"
+  SAME settings.models :: protocolAnthropicMessages = "Anthropic Messages"
+  SAME settings.models :: protocolOpenAiCompletions = "OpenAI Chat Completions"
+  SAME settings.models :: protocolOpenAiResponses = "OpenAI Responses"
+  SAME settings.shell :: title = "Shell"
+  SAME settings.theme :: fontSize.unit = "px"
+  SAME shortcuts :: desktop-document = "userData/keybindings.json"
+  SAME sidebarExcel :: language = "en"
+  SAME slash.menu :: drill.key = "Tab"
+  SAME subagent :: duration.days = "{days}d"
+  SAME subagent :: duration.daysHours = "{days}d {hours}h"
+  SAME subagent :: duration.exactDays = "{days}d {hours}h {minutes}m {seconds}s"
+  SAME subagent :: duration.hours = "{hours}h {minutes}m {seconds}s"
+  SAME subagent :: duration.minutes = "{minutes}m {seconds}s"
+  SAME subagent :: duration.months = "~{months}mo"
+  SAME subagent :: duration.monthsDays = "~{months}mo {days}d"
+  SAME subagent :: duration.seconds = "{seconds}s"
+  SAME subagent :: duration.years = "~{years}y"
+  SAME subagent :: duration.yearsMonths = "~{years}y {months}mo"
+  SAME subagent :: mode.continuable = "continuable"
+  SAME subagent :: tokens.million = "{value}M"
+  SAME subagent :: tokens.thousand = "{value}K"
+  SAME subagent :: tokens.total = "{value} tok"
+  SAME trajectory :: details.error = "Error"
+  SAME trajectory :: kind.sub = "Sub"
+  SAME trajectory :: layout.fileAttachments = "Files ×{count}"
+  SAME trajectory :: tab.diff = "Diff"
+  SAME trajectory :: timeline.total = "Total {duration}"
+  SAME trajectory :: timing.ttft = "TTFT"
+  SAME trajectory :: unit.milliseconds = "{value} ms"
+  SAME trajectory :: unit.seconds = "{value} s"
+  SAME trajectory :: usage.tokens = "Tokens"
+  SAME voice-input :: sourceHuggingFace = "Hugging Face"
+  SAME workspace :: orderBy.manual = "Manual"
+  SAME workspace :: time.days = "{n}d"
+  SAME workspace :: time.hours = "{n}h"
+  SAME workspace :: time.minutes = "{n}min"
+  SAME workspace :: time.months = "{n}mo"
+  SAME workspace :: time.years = "{n}y"
+
+## 6b) 与 en 同形的值里，“英文 UI 常用词但西语应当不同”的强候选
+强候选数 = 9
+  STRONG-EN command :: token.export = "export"
+  STRONG-EN command :: token.feedback = "feedback"
+  STRONG-EN command :: token.goal = "goal"
+  STRONG-EN command :: token.permission = "permission"
+  STRONG-EN common :: edit = "Edit"
+  STRONG-EN conversation :: tool.title.edit = "Edit"
+  STRONG-EN open-in-app :: app.filemanager = "Files"
+  STRONG-EN pluginManager :: installEdit = "Edit"
+  STRONG-EN settings.models :: edit = "Edit"
+
+## 6c) 所有与 en 同形的值里，值为单个英文单词的（人工复核用）
+单个英文单词值 = 44
+  WORD chat::view.chat = Chat
+  WORD command::label.plan = Plan
+  WORD common::edit = Edit
+  WORD common::json.label = JSON
+  WORD common::ok = OK
+  WORD conversation::detail.field.id = ID
+  WORD conversation::detail.no = No
+  WORD conversation::row.input = IN
+  WORD conversation::row.output = OUT
+  WORD conversation::tool.title.bash = Bash
+  WORD conversation::tool.title.edit = Edit
+  WORD conversation::tool.title.glob = Glob
+  WORD conversation::tool.title.grep = Grep
+  WORD conversation::tool.title.pwsh = Pwsh
+  WORD conversation::tool.title.read = Read
+  WORD conversation::tool.title.write = Write
+  WORD conversation::web.http = HTTP
+  WORD documentHtml::title = HTML
+  WORD documentMarkdown::viewer.label = Markdown
+  WORD open-in-app::app.filemanager = Files
+  WORD open-in-app::app.finder = Finder
+  WORD open-in-app::app.terminal = Terminal
+  WORD permission.access::auto.badge = EXP
+  WORD plan::chip.label = Plan
+  WORD plan::preview.title = Plan
+  WORD pluginManager::installEdit = Edit
+  WORD pluginManager::statusBeta = Experimental
+  WORD schedule.catalog::time.utcPrefix = UTC
+  WORD schedule.manager::time.utcPrefix = UTC
+  WORD session-inspector::object.node = Node
+  WORD settings::general.nav = General
+  WORD settings.models::edit = Edit
+  WORD settings.shell::title = Shell
+  WORD sidebarPdf::title = PDF
+  WORD sidebarTerminal::title = Terminal
+  WORD slash.menu::drill.key = Tab
+  WORD subagent::sidebar.chat = Chat
+  WORD trajectory::details.error = Error
+  WORD trajectory::kind.sub = Sub
+  WORD trajectory::record.json = JSON
+  WORD trajectory::tab.diff = Diff
+  WORD trajectory::timing.ttft = TTFT
+  WORD trajectory::usage.tokens = Tokens
+  WORD workspace::orderBy.manual = Manual
+
+## 7) 结论摘要
+- 命名空间：插件 59 / 宿主 63；匹配 57；仅插件 2（过期 claude-code-mods(4), inspector(4)）；仅宿主 6（未覆盖：pluginMarket(78), cotTranslation(32), directory-browser(13), secretMask(2), deepseek-model-label-1017(1), shortcuts.layout(1)）
+- 键：共有 2582；es 缺失 182；es 多余 155；键级覆盖率 89.3%
+- 占位符不一致 2；花括号不配对 0；复数键缺失 8
+- 疑似未翻译（字母型且非白名单）80 条
+
