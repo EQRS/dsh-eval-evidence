@@ -1,0 +1,14 @@
+# 锚定与环境（dsh-memory 0.9.6 组件测评）
+
+repo: FuRongJun-1999/dsh-memory
+commit: dcac0e795cd03923b2159e4218c76f7578b84efd
+commit_date: 2026-10-19T12:56:24Z
+version: 0.9.6
+tarball: lingshu-dcac0e795c.tgz
+tarball_bytes: 38623919
+tarball_sha256: 4004935364bb5ce665e0410f2c13cb6f2bf413c892f98065947d223d21687e6b
+tarball_source: gh-proxy.com codeload
+unpacked_files: 3784
+host: Windows 10.0.26200 x64 / node v24.21.0 / Python 3.12 (DSH runtime) / cargo 1.97.1
+test_runner: python -m md_cg.run_tests --jobs 4
+note: 直接 python md_cg/test_*.py 会 ImportError（包内相对导入），首轮 76 假失败已作废。
