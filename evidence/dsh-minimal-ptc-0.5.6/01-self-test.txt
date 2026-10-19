@@ -1,0 +1,68 @@
+# command: <node> --test
+# cwd: D:\natnat\lingshu\外部插件\dsh-minimal-ptc\dsh-minimal-ptc-main
+# exit: 1
+# seconds: 0.84
+
+## stdout
+✔ toWindowsPath converts MSYS drive paths on win32 (3.5407ms)
+✔ detectShellPath explicit config wins (0.3539ms)
+✔ detectShellPath honors GIT_BASH env on win32 (0.5932ms)
+﹣ detectShellPath on POSIX returns bash regardless of GIT_BASH (0.1761ms) # SKIP
+✔ resolveConfig defaults (0.3772ms)
+✔ start() applies the request timeout to background shells (89.2111ms)
+✔ resolveConfig rejects invalid timer values (2.0453ms)
+✔ schedulerKeyStatus: Symbol.for-keyed registry reads as global (1.6678ms)
+✔ schedulerKeyStatus: module-local same-description symbol reads as module-local (0.3435ms)
+✔ schedulerKeyStatus: missing registry or scheduler reads as absent (0.4105ms)
+✔ schedulerKeyStatus: the 0.1.6 dual-instance failure is visible (0.4076ms)
+✔ findProfileCoreCopies: flags @deepseek-ai copies inside profiles only (29.4068ms)
+✔ materialization honors version marker and user-created directories (60.2436ms)
+node:internal/modules/package_json_reader:331
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'js-yaml' imported from D:\natnat\lingshu\外部插件\dsh-minimal-ptc\dsh-minimal-ptc-main\test\official-capabilities.test.mjs
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:331:9)
+    at packageResolve (node:internal/modules/esm/resolve:784:25)
+    at moduleResolve (node:internal/modules/esm/resolve:873:18)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+
+Node.js v24.21.0
+✖ test\official-capabilities.test.mjs (277.5206ms)
+✔ complete minimal prompt retains the Host SDK and literal descriptions (3.8358ms)
+✔ each assembly follows visible tools and the current runtime format (0.8001ms)
+✔ unavailable language or output contracts fail visibly (3.0191ms)
+✔ selects the workflow provider after startup and refreshes managed presets when the host changes (33.4049ms)
+✔ old hosts without schedule never import the absent official module (2.3475ms)
+✔ a schedule service arriving after preset startup activates official tools (0.4006ms)
+✔ an available service with a broken official module is not silently ignored (1.0372ms)
+✔ plugin exposes the preset materializer shape (1.3723ms)
+✔ materializes all preset files including the git-bash executor (17.0687ms)
+✔ ships a ptc-minimal preset composition (1.37ms)
+✔ 0.1.7 registration preserves a retired user-customized preset directory (6.8803ms)
+✔ matches the dsh-v0.1.2-alpha.4 PTC tool surface (0.9329ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 24
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 636.5835
+
+✖ failing tests:
+
+test at test\official-capabilities.test.mjs:1:1
+✖ test\official-capabilities.test.mjs (277.5206ms)
+  'test failed'
+
+## stderr
+
