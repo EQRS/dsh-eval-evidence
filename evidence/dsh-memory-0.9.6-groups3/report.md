@@ -1,3 +1,5 @@
+> **更正（复测，2026-10-19）**：本报告「TS 27 tests / 23 pass / 4 fail」已作废——4 个失败全是缺 8 个 `@deepseek-ai/*` peer，装齐后 **40 tests / 40 pass / 0 fail**；`bridge.test.ts` 的 dispose 断言通过，P3 候选撤回。`hive/test_h3_h7_scheduler.py` 无需 LLM 桩、离线可跑，**27 passed / 0 failed**。证据见同目录 `correction.md`、`ts-final.log`、`h3h7.log`。
+
 # 灵枢大脑区第三批 5 组报告 · dsh-memory 0.9.6（TS 桥接 / hive 全量 / 注入件 / 纪律 JSON / bench）
 
 > 依据：工程协议手册 v1.1 §2/§3/§6/§13；`测试/协议/判定与证据链规范-v1.md`。
