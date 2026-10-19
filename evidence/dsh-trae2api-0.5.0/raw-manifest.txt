@@ -1,0 +1,33 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-18T15:10:04.621Z
+label = dsh-trae2api 0.5.0
+generator = tools/make_manifest.mjs
+
+raw/00-anchor.txt       3068  1cac1e0eae6d6e84ba294fcc15a43e145b971abad198f3ea6c944cf50c045455
+raw/01-env.txt       1605  5b2c5d10767afd41a9ff698046e27f02d9c71021a0c2d73c6c92242e58528e44
+raw/02-tarball-verify.txt       2840  ea3f053d754f9ccd83442dc943b19baf05c00c3dbdbe25b8a3cee12c463e4c01
+raw/03-install.txt        811  9b7548bdee25caa74eb54b9bd241a7952b18432636e244cca766c76164f4d675
+raw/03a-install-attempt1.txt       2543  da2621ac300368ccdbd7c2bc3c8387fdcee9688e2830641d1f60d8a8273e8c56
+raw/04-typecheck.txt        434  94a6c88d8781600cfd017f9948af85635666d5f46354b4bc7d1b81d8115e3b34
+raw/05-build.txt        720  914c8a8026d8bb5f26b175859d9132a9a663cb722162ee422feb3522871ced36
+raw/06a-test-without-buildtest.txt       3375  772445a3b6946feda4b03f4ddb9fc1b94278940d3c9920d2b32e160437c80c03
+raw/07-build-test.txt        594  169a6f8248c312e5c9de644e8ce766ee2eb53c3ea378d23c7b76772a9f284f64
+raw/08-self-test.txt       5596  d44b6d9f44e126f2144098fde725e1181f60629005b4042e59abae3240242e2c
+raw/09-esbuild-version.txt        398  0a924d868321abfb232b2366990f0dc56eaa072b91eead0256c1f2c63d15818a
+raw/10-probe-wire.txt       8645  cc2a70a87c873ab9485bb6adb31af889c8f6c4f4e36fc53bf5e341a20b832392
+raw/11-probe-parsers.txt       6244  47bf00a4428a049614a3905fe88a479b129ecf7ec1e6843a4bf72b16ad8f2600
+raw/12-probe-adapter.txt       8067  8c81100a192233d65ad7d5084923b93b4c76618777448cb23d987130418a2a26
+raw/13-probe-plugin.txt       4350  22d3787712a0496a98425e9db7c83049821dbdf8e21f6ec87b1ed562fd0ac7ec
+raw/14-probe-auth.txt       3145  23cd0dd93c68a33bf0bf5b18af54a8ca52184a304e2dfa29c69be4303cfcfccd
+raw/15-probe-suggest-cue.txt       6997  e2569fec93424057758dff0051a9b1e219877be7b63dc42513a17cffed6a6126
+raw/16-probe-client.txt       3048  7a3a8153e3ee27a280c0c37ccd7251fc2190b27e74f9c60445b50a285f015957
+raw/17-npm-channel.txt       1399  5896dd4a9c9ab064bd8d832525e57f8cd12db45533059871cc91af4aa05684c0
+raw/18-upstream-anchor.txt       1799  c1051c8186de6bc0ee2ce6c0eb5651b5ba1f15178f12aba39946c5c15d9ac2ef
+raw/19-post-build-anchor.txt       2900  6041cb564ce42347673c49959552269d8b0cab4792e41586c652a81bcafa2a3f
+raw/20-dedupe.txt       3535  18fc88cb5e087861d5e3fb3b2b4fff5c6a16d96d789dc6f1b0864f4693a26a85
+raw/21-drift.txt       1174  fa0d87b4d8962c909f6dcd26c27d4f2f15050f7ed6dc24dd2b1567a024ac3471
+raw/22-live-profile.txt        798  77e6b6ea38702e5b8bf15028aed95b3d0ec2f8d2ecb71bd25ea10940eba5c5b6
+raw/artifacts/anchor/client__client.js      65586  530086eba0405bdbe66a25f2e31178a43588bc8d35c9ebed6d0b0ec6996eb5f2
+raw/artifacts/anchor/lib__client.js      65586  530086eba0405bdbe66a25f2e31178a43588bc8d35c9ebed6d0b0ec6996eb5f2
+raw/artifacts/anchor/lib__index.js      98440  292cda61b286ade8357a53c9fa5aba7d1748207ecd35d86986125c8f678b7bc2
+raw/artifacts/anchor/package.json       2258  0843cb297666e1799135706614423ce6469b0315043f9548d6b85d18118607d6
