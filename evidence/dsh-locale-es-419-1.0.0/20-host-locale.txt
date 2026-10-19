@@ -1,0 +1,295 @@
+==============================================================================
+dsh-locale-es-419 1.0.0 测评 · 20 宿主 asar 的 en 基准探明
+sampled_at = 2026-10-19T02:29:14.404Z
+workdir    = D:\natnat\lingshu\测试\dsh-locale-es-419
+node       = v24.21.0 (C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe)
+platform   = win32 x64
+==============================================================================
+
+## 1) 宿主 asar
+
+DSH_ASAR = C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\app.asar exists=true
+size = 182794869 bytes
+sha256 = 47874618bf5b3011fcaac10cd4c85f69da333e70d4f99b921207c78d0999512a
+dsh/package.json = @deepseek-ai/dsh-desktop-runtime 0.2.1-rc.2
+
+## 2) 路径里带 locale/i18n 的文件
+
+asar 文件总数 = 16726
+含 locale/i18n 的文件数 = 2508
+  dsh/node_modules/@deepseek-ai/cordis-plugin-timer/locale/en.json
+  dsh/node_modules/@deepseek-ai/cordis-plugin-timer/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-acp-app/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-acp/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-agent-default-model/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-agent-default-model/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-default-model/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-instructions/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-agent-instructions/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-instructions/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-loop/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-agent-loop/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-loop/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset-registry/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset-registry/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset-registry/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/skills/cordis-plugin-development/templates/decoration/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/skills/cordis-plugin-development/templates/mcp/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-tool-presentation/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-agent-tool-presentation/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-tool-presentation/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-agent/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-anonymous-user-id/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-api-account-controller/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-api-account-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-account-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-gateway/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-api-gateway/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-gateway/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-job-controller/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-api-job-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-job-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-remote-access/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-api-remotes/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-api-remotes/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-remotes/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-session-controller/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-api-session-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-session-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-settings-controller/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-api-settings-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-settings-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-terminal-controller/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-api-terminal-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-terminal-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-controller/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-files/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-files/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-files/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-app-boot/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-atomic-write/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-attachment-local/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-attachment-local/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-attachment-local/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-attachment/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-authorization/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-authorization/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-authorization/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-base/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-bash-local/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-bash-sandbox/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-bash-sandbox/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-bash-sandbox/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-brand/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-chunked-list/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-connection/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-connection/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-connection/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-file-upload/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-file-upload/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-file-upload/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-hmr/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-hmr/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-hmr/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-locale/LICENSE
+  dsh/node_modules/@deepseek-ai/dsh-client-locale/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-locale/README.md
+  dsh/node_modules/@deepseek-ai/dsh-client-locale/README.zh.md
+  dsh/node_modules/@deepseek-ai/dsh-client-locale/lib/client.js
+  dsh/node_modules/@deepseek-ai/dsh-client-locale/lib/index.js
+  dsh/node_modules/@deepseek-ai/dsh-client-locale/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-locale/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-locale/package.json
+  dsh/node_modules/@deepseek-ai/dsh-client-modules/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-modules/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-modules/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-product-analytics/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-product-analytics/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-product-analytics/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-resources/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-resources/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-resources/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-shortcuts/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-shortcuts/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-shortcuts/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-agent-preset/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-agent-preset/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-agent-preset/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-approval/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-approval/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-approval/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-attachment/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-attachment/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-attachment/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-brand-official/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-brand-official/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-brand-official/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-chat/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-chat/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-chat/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-commands/README.i18n.yaml
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-commands/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-ui-commands/locale/zh.json
+  ... 另有 2388 个
+
+## 3) 所有 .json 文件（前 120）
+
+.json 文件数 = 1233
+  dsh/desktop-runtime.json
+  dsh/package.json
+  dsh/node_modules/@agentclientprotocol/sdk/package.json
+  dsh/node_modules/@agentclientprotocol/sdk/schema/schema.json
+  dsh/node_modules/@agentclientprotocol/sdk/schema/v2/schema.unstable.json
+  dsh/node_modules/@anthropic-ai/sdk/bin/migration-config.json
+  dsh/node_modules/@anthropic-ai/sdk/package.json
+  dsh/node_modules/@anthropic-ai/sdk/src/tsconfig.json
+  dsh/node_modules/@aws-sdk/client-bedrock-runtime/node_modules/@aws-sdk/token-providers/package.json
+  dsh/node_modules/@aws-sdk/client-bedrock-runtime/package.json
+  dsh/node_modules/@aws-sdk/core/package.json
+  dsh/node_modules/@aws-sdk/credential-provider-env/package.json
+  dsh/node_modules/@aws-sdk/credential-provider-http/package.json
+  dsh/node_modules/@aws-sdk/credential-provider-ini/package.json
+  dsh/node_modules/@aws-sdk/credential-provider-login/package.json
+  dsh/node_modules/@aws-sdk/credential-provider-node/package.json
+  dsh/node_modules/@aws-sdk/credential-provider-process/package.json
+  dsh/node_modules/@aws-sdk/credential-provider-sso/package.json
+  dsh/node_modules/@aws-sdk/credential-provider-web-identity/package.json
+  dsh/node_modules/@aws-sdk/eventstream-handler-node/package.json
+  dsh/node_modules/@aws-sdk/middleware-eventstream/package.json
+  dsh/node_modules/@aws-sdk/middleware-websocket/package.json
+  dsh/node_modules/@aws-sdk/nested-clients/package.json
+  dsh/node_modules/@aws-sdk/signature-v4-multi-region/package.json
+  dsh/node_modules/@aws-sdk/token-providers/package.json
+  dsh/node_modules/@aws-sdk/types/package.json
+  dsh/node_modules/@aws-sdk/xml-builder/package.json
+  dsh/node_modules/@aws/lambda-invoke-store/package.json
+  dsh/node_modules/@babel/code-frame/package.json
+  dsh/node_modules/@babel/helper-validator-identifier/package.json
+  dsh/node_modules/@babel/runtime/helpers/esm/package.json
+  dsh/node_modules/@babel/runtime/package.json
+  dsh/node_modules/@deepseek-ai/cordis-plugin-group/package.json
+  dsh/node_modules/@deepseek-ai/cordis-plugin-include/package.json
+  dsh/node_modules/@deepseek-ai/cordis-plugin-loader/package.json
+  dsh/node_modules/@deepseek-ai/cordis-plugin-timer/locale/en.json
+  dsh/node_modules/@deepseek-ai/cordis-plugin-timer/locale/zh.json
+  dsh/node_modules/@deepseek-ai/cordis-plugin-timer/package.json
+  dsh/node_modules/@deepseek-ai/cordis/package.json
+  dsh/node_modules/@deepseek-ai/cosmokit/package.json
+  dsh/node_modules/@deepseek-ai/dsh-acp-app/package.json
+  dsh/node_modules/@deepseek-ai/dsh-acp/package.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-default-model/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-default-model/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-default-model/package.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-instructions/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-instructions/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-instructions/package.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-loop/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-loop/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-loop/package.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset-registry/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset-registry/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset-registry/package.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/package.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/skills/cordis-plugin-development/templates/decoration/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/skills/cordis-plugin-development/templates/decoration/package.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/skills/cordis-plugin-development/templates/mcp/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-preset/skills/cordis-plugin-development/templates/mcp/package.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-tool-presentation/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-tool-presentation/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent-tool-presentation/package.json
+  dsh/node_modules/@deepseek-ai/dsh-agent/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-agent/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-agent/package.json
+  dsh/node_modules/@deepseek-ai/dsh-anonymous-user-id/package.json
+  dsh/node_modules/@deepseek-ai/dsh-api-account-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-account-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-account-controller/package.json
+  dsh/node_modules/@deepseek-ai/dsh-api-gateway/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-gateway/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-gateway/package.json
+  dsh/node_modules/@deepseek-ai/dsh-api-job-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-job-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-job-controller/package.json
+  dsh/node_modules/@deepseek-ai/dsh-api-remote-access/package.json
+  dsh/node_modules/@deepseek-ai/dsh-api-remotes/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-remotes/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-remotes/package.json
+  dsh/node_modules/@deepseek-ai/dsh-api-session-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-session-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-session-controller/package.json
+  dsh/node_modules/@deepseek-ai/dsh-api-settings-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-settings-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-settings-controller/package.json
+  dsh/node_modules/@deepseek-ai/dsh-api-terminal-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-terminal-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-terminal-controller/package.json
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-controller/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-controller/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-controller/package.json
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-files/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-files/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-api-workspace-files/package.json
+  dsh/node_modules/@deepseek-ai/dsh-app-boot/package.json
+  dsh/node_modules/@deepseek-ai/dsh-atomic-write/package.json
+  dsh/node_modules/@deepseek-ai/dsh-attachment-local/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-attachment-local/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-attachment-local/package.json
+  dsh/node_modules/@deepseek-ai/dsh-attachment/package.json
+  dsh/node_modules/@deepseek-ai/dsh-authorization/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-authorization/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-authorization/package.json
+  dsh/node_modules/@deepseek-ai/dsh-base/package.json
+  dsh/node_modules/@deepseek-ai/dsh-bash-local/package.json
+  dsh/node_modules/@deepseek-ai/dsh-bash-sandbox/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-bash-sandbox/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-bash-sandbox/package.json
+  dsh/node_modules/@deepseek-ai/dsh-brand/package.json
+  dsh/node_modules/@deepseek-ai/dsh-chunked-list/package.json
+  dsh/node_modules/@deepseek-ai/dsh-client-connection/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-connection/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-connection/package.json
+  dsh/node_modules/@deepseek-ai/dsh-client-file-upload/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-file-upload/locale/zh.json
+  dsh/node_modules/@deepseek-ai/dsh-client-file-upload/package.json
+  dsh/node_modules/@deepseek-ai/dsh-client-hmr/locale/en.json
+  dsh/node_modules/@deepseek-ai/dsh-client-hmr/locale/zh.json
+
+## 4) dsh-client-locale 包内容
+
+包内文件 9 个：
+  LICENSE (1065 B)
+  README.i18n.yaml (2478 B)
+  README.md (9119 B)
+  README.zh.md (8392 B)
+  lib/client.js (62936 B)
+  lib/index.js (1419 B)
+  locale/en.json (42 B)
+  locale/zh.json (125 B)
+  package.json (2008 B)
+
+## 5) 已知键 "language.title" 在宿主里的出现（找 en 字典的载体）
+
+  language.title               occurrences=3
+    ctx: //#endregion //#region lib/types/locales/settings.js /** `settings.locale` namespace dictionaries (the Language row's copy). */ /** Simplified Chinese dictionary (the key-set source of truth). */ const zh = { "language.title": "è¯­è¨" }; /** English dictionary, checked complete against the zh key set. */ const en = { "language.title": "Language" }; //#endregion //#region \0dsh-css:D:\develop\dsh-harness-windows-x64\packages\client\locale\src\client\Langua
+    ctx: ge row's copy). */ /** Simplified Chinese dictionary (the key-set source of truth). */ const zh = { "language.title": "è¯­è¨" }; /** English dictionary, checked complete against the zh key set. */ const en = { "language.title": "Language" }; //#endregion //#region \0dsh-css:D:\develop\dsh-harness-windows-x64\packages\client\locale\src\client\LanguageRow.module.css.mjs const css = ".Hefa_q_row{border-bottom:.5px solid var(--dsw-alias-border-l2);align-items
+  common.back                  occurrences=0
+  "back"                       occurrences=19
+    ctx: zod.z.literal("onboarding_recharge"), zod.z.literal("onboarding_use_case"), zod.z.literal("onboarding_process") ]), "button_name": zod.z.union([ zod.z.literal("next"), zod.z.literal("back"), zod.z.literal("skip"), zod.z.literal("charge"), zod.z.literal("later"), zod.z.literal("continue") ]), "selected_content": zod.z.union([ zod.z.literal("office"), zod.z.literal("code"), zod.z.literal("
+    ctx: zod.z.literal("onboarding_recharge"), zod.z.literal("onboarding_use_case"), zod.z.literal("onboarding_process") ]), "button_name": zod.z.union([ zod.z.literal("next"), zod.z.literal("back"), zod.z.literal("skip"), zod.z.literal("charge"), zod.z.literal("later"), zod.z.literal("continue") ]), "selected_content": zod.z.union([ zod.z.literal("office"), zod.z.literal("code"), zod.z.literal("
+  settings.locale              occurrences=4
+    ctx: ootnotes", "markdown.truncatedCharacters": "â¦ truncated at {total} characters", "number.thousand": "{value}K", "number.million": "{value}M" }; //#endregion //#region lib/types/locales/settings.js /** `settings.locale` namespace dictionaries (the Language row's copy). */ /** Simplified Chinese dictionary (the key-set source of truth). */ const zh = { "language.title": "è¯­è¨" }; /** English dictionary, checked complete against the zh key set. */ con
+    ctx: ely to read Chinese. */ const FALLBACK_LOCALE = "en"; /** Shared namespace for shell-level texts. */ const COMMON_NS = "common"; /** Namespace owning this feature's settings-row copy. */ const SETTINGS_NS = "settings.locale"; /** The two locales and dictionaries shipped by this package. */ const BUILT_IN_LOCALE_METADATA = { zh: { label: "ä¸­æ", fallback: "en" }, en: { label: "English" } }; const BUILT_IN_LOCALES = Object.freeze(LOCALE_ID
+  register("settings.locale"   occurrences=0
+  addLanguage                  occurrences=11
+    ctx: inition and each translated namespace as owned effects; definitions and dictionaries may register in either order: ```js export const inject = ['locale'] export function apply(ctx) { ctx.effect( () => ctx.locale.addLanguage({ id: 'ja', label: 'æ¥æ¬èª', fallback: 'en' }), 'my-locale: language', ) ctx.effect( () => ctx.locale.register('common', 'ja', { cancel: 'ã­ã£ã³ã»ã«', close: 'éãã', }), 'my-locale: common dictionary',
+    ctx: ®ä¹åæ¯ä¸ªå·²ç¿»è¯å½åç©ºé´æ³¨åä¸ºèªèº«æ¥æç effectï¼å®ä¹ä¸å­å¸å¯ä»¥æä»»æé¡ºåºæ³¨åï¼ ```js export const inject = ['locale'] export function apply(ctx) { ctx.effect( () => ctx.locale.addLanguage({ id: 'ja', label: 'æ¥æ¬èª', fallback: 'en' }), 'my-locale: language', ) ctx.effect( () => ctx.locale.register('common', 'ja', { cancel: 'ã­ã£ã³ã»ã«', close: 'éãã', }), 'my-locale: common dictionary',
+
