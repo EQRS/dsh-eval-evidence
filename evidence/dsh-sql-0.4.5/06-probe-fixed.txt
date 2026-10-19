@@ -1,0 +1,139 @@
+# command: <node> probes/probe_dsh_sql.mjs（改 describeTable 后）
+# exit: 0
+# seconds: 0.39
+
+## stdout
+{
+ "total": 25,
+ "failed": 0,
+ "results": [
+  {
+   "name": "拒绝 DELETE",
+   "pass": true,
+   "detail": "sql_query 只接受只读语句（SELECT / PRAGMA / EXPLAIN / SHOW / DESCRIBE / WITH）。写操作请用 sql_"
+  },
+  {
+   "name": "拒绝 UPDATE",
+   "pass": true,
+   "detail": "sql_query 只接受只读语句（SELECT / PRAGMA / EXPLAIN / SHOW / DESCRIBE / WITH）。写操作请用 sql_"
+  },
+  {
+   "name": "拒绝 INSERT",
+   "pass": true,
+   "detail": "sql_query 只接受只读语句（SELECT / PRAGMA / EXPLAIN / SHOW / DESCRIBE / WITH）。写操作请用 sql_"
+  },
+  {
+   "name": "拒绝 DROP",
+   "pass": true,
+   "detail": "sql_query 只接受只读语句（SELECT / PRAGMA / EXPLAIN / SHOW / DESCRIBE / WITH）。写操作请用 sql_"
+  },
+  {
+   "name": "拒绝 PRAGMA 赋值",
+   "pass": true,
+   "detail": "sql_query 不接受带赋值参数的 PRAGMA 写操作（如 PRAGMA journal_mode=WAL），请用 sql_exec。"
+  },
+  {
+   "name": "拒绝多语句",
+   "pass": true,
+   "detail": "sql_query 一次只允许一条语句。"
+  },
+  {
+   "name": "拒绝 SELECT INTO OUTFILE",
+   "pass": true,
+   "detail": "sql_query 不接受 SELECT INTO（写表或 OUTFILE），请用 sql_exec。"
+  },
+  {
+   "name": "拒绝 FOR UPDATE",
+   "pass": true,
+   "detail": "sql_query 不接受 FOR UPDATE/FOR SHARE 行锁查询，请用 sql_exec。"
+  },
+  {
+   "name": "拒绝 data-modifying CTE",
+   "pass": true,
+   "detail": "sql_query 不接受 SELECT INTO（写表或 OUTFILE），请用 sql_exec。"
+  },
+  {
+   "name": "放行 SELECT",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "放行 SHOW CREATE TABLE",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "放行 EXPLAIN",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "放行 PRAGMA 读取",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "放行只读 CTE",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "尾部分号被规范化",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "listTables 返回 items",
+   "pass": true,
+   "detail": "[\"items\"]"
+  },
+  {
+   "name": "describeTable 返回 3 列且主键标记正确",
+   "pass": true,
+   "detail": "[{\"name\":\"id\",\"type\":\"INTEGER\",\"notNull\":false,\"primaryKey\":true},{\"name\":\"name\",\"type\":\"TEXT\",\"notNull\":false,\"primaryKey\":false},{\"name\":\"price\",\"type\":\"REAL\",\"notNull\":false,\"primaryKey\":false}]"
+  },
+  {
+   "name": "query 全量 5 行",
+   "pass": true,
+   "detail": "rows=5"
+  },
+  {
+   "name": "query limit=2 生效",
+   "pass": true,
+   "detail": "rows=2"
+  },
+  {
+   "name": "ping 不抛异常",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "close 后 DB 文件存在",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "CSV 引号/逗号/换行转义",
+   "pass": true,
+   "detail": "\"a,b\\n\\\"x,y\\\",\\\"he said \\\"\\\"hi\\\"\\\"\\\"\\n\\\"line\\nbreak\\\",\""
+  },
+  {
+   "name": "resolveConfig 默认 sqlite :memory:",
+   "pass": true,
+   "detail": "{\"connections\":[{\"name\":\"default\",\"engine\":\"sqlite\",\"file\":\":memory:\"}],\"maxRows\":1000,\"readOnly\":false,\"writeApproval\":true,\"queryTimeoutMs\":60000,\"execTimeout"
+  },
+  {
+   "name": "resolveConfig 拒绝非法 engine",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "已 abort 的 signal 让 query 立即失败",
+   "pass": true,
+   "detail": ""
+  }
+ ]
+}
+
+## stderr
+
