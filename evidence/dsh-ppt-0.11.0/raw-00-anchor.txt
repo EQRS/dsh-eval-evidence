@@ -1,0 +1,19 @@
+# 锚定与环境基线
+
+repo: STARDUSTLC666/dsh-ppt
+ref: master
+commit: 46bb52724ba17253818ece75ebf4ef1ad4cab9e3
+commit_date: 2026-10-17T15:15:31Z
+version: 0.11.0
+tarball: 外部插件/dsh-ppt/dsh-ppt.tgz
+tarball_sha256_prefix: 5d755d3dde8955fc
+tree: 83 files / 2488890 B / 851931c7b60245d0
+snapshot: 外部插件/dsh-ppt/dsh-ppt-master
+
+host_dsh: 0.2.1-rc.2
+platform: win32-x64 / Windows 10.0.26200
+node: v24.21.0
+pnpm: 11.7.0
+python: 3.12.14
+anchored_at: 2026-10-19T07:08:10.924Z
+notes: tarball gzip 字节不保证可复现；内容锚定以 commit + 逐文件树指纹为准。
