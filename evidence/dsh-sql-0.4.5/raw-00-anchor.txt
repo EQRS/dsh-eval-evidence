@@ -1,0 +1,19 @@
+# 锚定与环境基线
+
+repo: STARDUSTLC666/dsh-sql
+ref: master
+commit: 6ed1199c77d5ff856088cd45a6cbfe32b445dc78
+commit_date: 2026-10-08T12:00:01Z
+version: 0.4.5
+tarball: 外部插件/dsh-sql/dsh-sql.tgz
+tarball_sha256: 472c6793e93989dcca0db8a258652b306ad4e6f50b8f011693d5faa690806b43
+tree: 39 files / 2033620 B / 4354b22ea1c27076
+snapshot: 外部插件/dsh-sql/dsh-sql-master
+
+host_dsh: 0.2.1-rc.2
+platform: win32-x64 / Windows 10.0.26200
+node: v24.21.0
+pnpm: 11.7.0
+python: 3.12.14
+anchored_at: 2026-10-19T13:03:38+0800
+notes: tarball gzip 字节不保证可复现（见 测试/README.md 锚定方法学修正）；内容锚定以 commit + 逐文件树指纹为准。
