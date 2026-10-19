@@ -1,0 +1,347 @@
+{
+  "model": "deepseek-flash",
+  "temperature": 0.7,
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "tasks": 8,
+  "perScenario": [
+    {
+      "id": "S1",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "Wang Xiaomeng, Abraham Sabu, McKenzie Jenny A. G., 等. LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling[J]. Nature, 2013, 499(7458): 306-311."
+          },
+          "without": {
+            "ok": false,
+            "answer": "VASWANI A, SHAZEER N, PARMAR N. Attention is all you need[C]//Advances in Neural Information Processing Systems. 2017, 30(1): 5998-6008. DOI:10.1038/nature12345."
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "Wang Xiaomeng, Abraham Sabu, McKenzie Jenny A. G., 等. LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling[J]. Nature, 2013, 499(7458): 306-311."
+          },
+          "without": {
+            "ok": false,
+            "answer": "VASWANI A, SHAZEER N, PARMAR N. Attention is all you need[C]//Advances in Neural Information Processing Systems. 2017, 30(1): 5998-6008. DOI:10.1038/nature12345."
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "Wang Xiaomeng, Abraham Sabu, McKenzie Jenny A. G., et al. LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling[J]. Nature, 2013, 499(7458): 306-311."
+          },
+          "without": {
+            "ok": false,
+            "answer": "VASWANI A, SHAZEER N, PARMAR N. Attention is all you need[C]//Advances in Neural Information Processing Systems. 2017, 30(1): 5998-6008. DOI:10.1038/nature12345."
+          }
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "Wang, X., Abraham, S., McKenzie, J. A. G., Jeffs, N., Swire, M., Tripathi, V. B., Luhmann, U. F. O., Lange, C. A. K., Zhai, Z., Arthur, H. M., Bainbridge, J. W. B., Moss, S. E., & Greenwood, J. (2013). LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling. Nature, 499(7458), 306-311."
+          },
+          "without": {
+            "ok": true,
+            "answer": "Vaswani, A., Shazeer, N., & Parmar, N. (2017). Attention is all you need. *Advances in Neural Information Processing Systems, 30*(1), 5998–6008. https://doi.org/10.1038/nature12345"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "Wang, X., Abraham, S., McKenzie, J. A. G., Jeffs, N., Swire, M., Tripathi, V. B., Luhmann, U. F. O., Lange, C. A. K., Zhai, Z., Arthur, H. M., Bainbridge, J. W. B., Moss, S. E., & Greenwood, J. (2013). LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling. Nature, 499(7458), 306–311."
+          },
+          "without": {
+            "ok": true,
+            "answer": "Vaswani, A., Shazeer, N., & Parmar, N. (2017). Attention is all you need. *Advances in Neural Information Processing Systems*, *30*(1), 5998–6008. https://doi.org/10.1038/nature12345"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "Wang, X., Abraham, S., McKenzie, J. A. G., Jeffs, N., Swire, M., Tripathi, V. B., Luhmann, U. F. O., Lange, C. A. K., Zhai, Z., Arthur, H. M., Bainbridge, J. W. B., Moss, S. E., & Greenwood, J. (2013). LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling. Nature, 499(7458), 306-311."
+          },
+          "without": {
+            "ok": true,
+            "answer": "Vaswani, A., Shazeer, N., & Parmar, N. (2017). Attention is all you need. Advances in Neural Information Processing Systems, 30(1), 5998–6008. https://doi.org/10.1038/nature12345"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "Wang, Xiaomeng, et al. \"LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling.\" Nature, vol. 499, no. 7458, 2013, pp. 306-311. https://doi.org/10.1038/nature12345"
+          },
+          "without": {
+            "ok": true,
+            "answer": "Vaswani, Ashish, et al. “Attention Is All You Need.” Advances in Neural Information Processing Systems, vol. 30, no. 1, 2017, pp. 5998–6008, https://doi.org/10.1038/nature12345."
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "Wang, Xiaomeng, et al. \"LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling.\" Nature, vol. 499, no. 7458, 2013, pp. 306-311. https://doi.org/10.1038/nature12345"
+          },
+          "without": {
+            "ok": true,
+            "answer": "Vaswani, Ashish, et al. “Attention Is All You Need.” *Advances in Neural Information Processing Systems*, vol. 30, no. 1, 2017, pp. 5998–6008. https://doi.org/10.1038/nature12345."
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "Wang, Xiaomeng, et al. “LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling.” Nature, vol. 499, no. 7458, 2013, pp. 306-311. https://doi.org/10.1038/nature12345"
+          },
+          "without": {
+            "ok": true,
+            "answer": "Vaswani, Ashish, et al. “Attention Is All You Need.” *Advances in Neural Information Processing Systems*, vol. 30, no. 1, 2017, pp. 5998–6008. https://doi.org/10.1038/nature12345."
+          }
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "Xiaomeng Wang, et al., \"LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling,\" Nature 499, no. 7458 (2013): 306-311. https://doi.org/10.1038/nature12345"
+          },
+          "without": {
+            "ok": true,
+            "answer": "Vaswani, Ashish, Noam Shazeer, and Niki Parmar. “Attention Is All You Need.” *Advances in Neural Information Processing Systems* 30, no. 1 (2017): 5998–6008. https://doi.org/10.1038/nature12345."
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "Xiaomeng Wang, et al., \"LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling\", Nature 499, no. 7458 (2013): 306-311. https://doi.org/10.1038/nature12345"
+          },
+          "without": {
+            "ok": true,
+            "answer": "Vaswani, Ashish, Noam Shazeer, and Niki Parmar. “Attention Is All You Need.” *Advances in Neural Information Processing Systems* 30, no. 1 (2017): 5998–6008. https://doi.org/10.1038/nature12345."
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "Xiaomeng Wang, et al., \"LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling,\" Nature 499, no. 7458 (2013): 306-311. https://doi.org/10.1038/nature12345"
+          },
+          "without": {
+            "ok": true,
+            "answer": "Vaswani, Ashish, Noam Shazeer, and Niki Parmar. “Attention Is All You Need.” *Advances in Neural Information Processing Systems* 30, no. 1 (2017): 5998–6008. https://doi.org/10.1038/nature12345."
+          }
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "with": 1,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": false,
+            "answer": "Crossref 查不到该论文原始记录（只返回 2025 年第三方重复挂载的 10.65215/… 假 DOI，不可用）；原文为 NIPS 2017 论文集文章无 Crossref DOI，通用标识是 arXiv DOI 10.48550/arXiv.1706.03762（DataCite 注册，故 Crossref 校验报不存在属正常）。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "10.1038/nature12345"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": false,
+            "answer": "Crossref 中没有该论文的权威出版 DOI——仅在作者+出处检索下返回了 2025 年第三方转载条目（如 10.65215/r5bs2d54，非规范，不建议引用），且同内容重复注册多个 DOI；原文规范标识为 arXiv:1706.03762（10.48550 前缀属 DataCite 而非 Crossref，故 Crossref 校验为\"不存在\"），权威出处应为 NeurIPS 30 (2017) pp. 5998–6008。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "10.1038/nature12345"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "未找到 —— 《Attention is all you need》(Vaswani et al., NeurIPS 2017) 在 Crossref 中无 DOI（该会议论文集未注册 DOI）；检索到的 7 条 10.65215/* 同名记录是第三方重复登记，不可采用，其正式标识为 arXiv DOI 10.48550/arXiv.1706.03762（DataCite 注册，Crossref 校验会报不存在）。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "10.1038/nature12345"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "with": 2,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "已生成 BibTeX 条目 @article{wang2013lrg1}（Wang 等，*Nature* 2013, 499(7458):306-311, doi:10.1038/nature12345），并经 Crossref 校验一致。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "@inproceedings{vaswani2017attention, author={VASWANI, Ashish and SHAZEER, Noam and PARMAR, Niki}, title={{Attention is all you need}}, booktitle={Advances in Neural Information Processing Systems}, year={2017}, volume={30}, number={1}, pages={5998--6008}, doi={10.1038/nature12345} }"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": false,
+            "answer": "已生成 BibTeX（键 wang2013lrg1）：Wang X, Abraham S, McKenzie J A G, 等. LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling. Nature, 2013, 499(7458): 306-311. DOI: 10.1038/nature12345（Crossref 校验有效）。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "@inproceedings{vaswani2017attention, author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki}, title = {Attention Is All You Need}, booktitle = {Advances in Neural Information Processing Systems}, year = {2017}, volume = {30}, number = {1}, pages = {5998--6008}, doi = {10.1038/nature12345}}"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "已生成 BibTeX：@article{wang2013lrg1, ... title={LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling}, journal={Nature}, year={2013}, volume={499}, number={7458}, pages={306-311}, doi={10.1038/nature12345}}"
+          },
+          "without": {
+            "ok": true,
+            "answer": "@article{vaswani2017attention, author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki}, title = {Attention is all you need}, journal = {Advances in Neural Information Processing Systems}, year = {2017}, volume = {30}, number = {1}, pages = {5998--6008}, doi = {10.1038/nature12345} }"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "with": 1,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": false,
+            "answer": "仅 1 条可用：Wang Xiaomeng, Abraham Sabu, McKenzie Jenny A. G., 等. LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling[J]. Nature, 2013, 499(7458): 306-311.；10.1126/science.169.3946.1079 在 Crossref 不存在（疑为 10.1126/science.169.3950.1079，Kvenvolden 等，Science, 1970, 169(3950): 1079-1082），未生"
+          },
+          "without": {
+            "ok": false,
+            "answer": ""
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "第1条已生成：Wang Xiaomeng等. LRG1 promotes angiogenesis by modulating endothelial TGF-β signalling[J]. Nature, 2013, 499(7458): 306-311.；第2条 DOI 10.1126/science.169.3946.1079 在 Crossref 中不存在，无法生成，需核对 DOI 或提供题录。"
+          },
+          "without": {
+            "ok": false,
+            "answer": ""
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": false,
+            "answer": "已生成 1 条规范参考文献（10.1038/nature12345 → Nature, 2013, 499(7458): 306-311）；10.1126/science.169.3946.1079 经三次校验在 Crossref 中不存在，未能生成，需补充标题/作者或更正 DOI。"
+          },
+          "without": {
+            "ok": false,
+            "answer": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "DOI 10.9999/invalid-xyz 在 Crossref 中不存在（自检显示 Crossref 连通正常），无法查询元数据或生成引文格式，需核对 DOI 或提供标题/作者等题录信息以反查。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "无法查询 DOI 10.9999/invalid-xyz 对应的文献；所给元数据 DOI 为 10.1038/nature12345，与查询 DOI 不匹配。"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "DOI 10.9999/invalid-xyz 在 Crossref 中不存在（连通性正常，属 DOI 本身无效/虚构），无法查询元数据或生成任何格式的参考文献条目，请提供有效 DOI 或题录线索。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "未找到 DOI 10.9999/invalid-xyz 对应的文献，无法格式化。"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "DOI 10.9999/invalid-xyz 在 Crossref 中不存在（服务连通正常，非网络问题），无法生成规范引文；请提供正确 DOI 或题录信息以便重新检索。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "未找到 DOI 10.9999/invalid-xyz 的文献；给定元数据对应 DOI 10.1038/nature12345（VASWANI, Ashish; SHAZEER, Noam; PARMAR, Niki. Attention is all you need. Advances in Neural Information Processing Systems, 2017, 30(1): 5998-6008.）"
+          }
+        }
+      ]
+    }
+  ],
+  "D": 1,
+  "ci95": [
+    -6,
+    9
+  ],
+  "halfWidth": 7.5,
+  "prereg": {
+    "a": 12,
+    "b": 6,
+    "precision": 6,
+    "B": 10000,
+    "seed": 20261019
+  },
+  "verdict": "还说不准（精度不足）",
+  "ranAt": "2026-10-19T12:45:14.240Z"
+}
