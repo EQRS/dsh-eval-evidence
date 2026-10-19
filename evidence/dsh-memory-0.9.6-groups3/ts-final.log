@@ -1,0 +1,70 @@
+INSTALL exit=0
+
+added 7 packages in 3s
+
+
+TESTS exit=0
+d6a0152dd66
+✔ 错误处理：调用不存在的工具以 isError 软错误返回（不抛异常） (4458.6304ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 5s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-NyNwXz\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\32724.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 5s）
+✔ dispose：进程优雅退出 (5044.6551ms)
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-host-oXGYRh\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\10016.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ 插件激活：cg/stg 工具注册进 ctx.tools（core = cg/stg 两基元） (6075.6042ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 7s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-host-imXMoZ\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\34376.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 5s）
+✔ 插件卸载：工具注销且进程退出 (6295.0442ms)
+✔ 非交互端到端：四端各自产出含 MDCG_ROOT/MDCG_PYTHON/命令形态的片段，snippet 落盘可解析 (24.841ms)
+✔ 幂等：同参数重跑 stdout 与片段文件逐字节一致 (5.974ms)
+✔ 交互形态（mock stdin）：选 1=DSH 分支走通，片段与文件均落盘 (105.6208ms)
+✔ 交互形态：回车走缺省（记忆根=<home>/.lingshu/memory，解释器按平台） (109.3439ms)
+✔ 非交互环境缺参：报错而非挂死（错误信息点名缺失的 flag） (4.9163ms)
+✔ N167 回归：根入口波浪线展开——--root 与交互手输的 ~/x、裸 ~ 均落到注入 home (103.6871ms)
+✔ 缺省记忆根口径：<home>/.lingshu/memory（home 可注入，缺省 os.homedir()） (0.4443ms)
+✔ auto-recall：身份证跨 160 预算边界时不出残片 (2.2692ms)
+✔ auto-recall：手机号跨衰减档位（第二档 144）边界时不出残片 (0.3683ms)
+✔ session-window：身份证跨 120 边界时不出残片 (0.4223ms)
+✔ session-window：手机号跨 120 边界时不出残片 (0.2323ms)
+✔ 对照：不截断（短文本）时凭据同样被替换 (0.2624ms)
+✔ 对照：无凭据的普通文本不被改动（不误伤） (0.1842ms)
+✔ ① 六种闭合形态全部被打断（< 后插空格） (1.8269ms)
+✔ ② 幂等：打断后再打断不变 (0.3793ms)
+✔ ③ 真实边界块不受影响（非记忆载荷里的标签照常工作） (0.3291ms)
+✔ ④ 插件级兜底上限为 64KiB (0.1761ms)
+✔ ① 复现：裸 {{ 让宿主 renderContextSections 抛错 (2.2857ms)
+✔ ② 修复：escapePromptBraces 后宿主渲染不抛错且内容可辨 (0.7542ms)
+✔ ③ 保真与典型形态逐值断言 (0.2716ms)
+✔ ④ 幂等：escape(escape(x)) === escape(x) (0.2455ms)
+✔ ⑤ 对照：孤立 {{ / }} 本身不触发宿主 throw（转义面比报错面更宽，属刻意） (0.3852ms)
+✔ ⑥ 端到端：含 {{ 的记忆经注入后，宿主真函数可渲染 (3.0627ms)
+✔ ① 注入文本 = 声明句 + 显式边界，且二者取自常量（单点） (4.7381ms)
+✔ ② 提前闭合不可行：伪标记一律被打断，注入文本中标记形态恰为 2（开+闭） (2.2092ms)
+✔ ③ 保真：打断只插空格、不删改字符；记忆真源（载荷）本身不被改写 (0.5467ms)
+✔ ④ 端到端：宿主真函数可渲染该注入面，且边界对模型可见 (0.8279ms)
+✔ ⑤ 稳定性：同一 payload 连续两步注入逐字节相同（不破坏每步 push 契约） (0.8384ms)
+✔ ⑥ 对照：不经边界的裸拼接会让伪标记直达提示词（证明边界+打断是必需的） (0.3012ms)
+✔ ⑦ 单点扫描：边界标记与声明句字面量只出现在 prompt_safety.ts (9.7727ms)
+✔ ⑧ issue #94：全角斜杠与零宽字符形态同样被打断（含幂等与已知残留） (0.5505ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32725.8289
+
