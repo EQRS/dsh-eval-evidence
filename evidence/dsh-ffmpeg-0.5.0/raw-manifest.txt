@@ -1,0 +1,46 @@
+# Raw evidence index (sha256; every file under dsh-ffmpeg\raw/, excluding this manifest)
+generated_at = 2026-10-19T02:48:33.723Z
+label = dsh-ffmpeg 0.5.0
+generator = tools/make_manifest.mjs
+
+dsh-ffmpeg/raw/00-anchor-upstream.txt       1232  0e821c67ac045daf34bc2c13e1b58fd4ab073e4d677f3dfeba28396a2ce9321c
+dsh-ffmpeg/raw/00-upstream-commit.json      47387  04dab7d842dbaf6fe1cd2bffbf6941134c84792418fd6830f8be96a96498efa3
+dsh-ffmpeg/raw/01-anchor.stderr.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/01-anchor.stdout.txt       1805  cd0d046e9f46a393d36ea1a18e9a45f0a682fce5797636d8b02a4ee8aafc11d2
+dsh-ffmpeg/raw/01-anchor.txt       2179  faf7072137c75c6b9d5f0f57975da1662c59bb4bc4c4bdba7300c3420d87a162
+dsh-ffmpeg/raw/02-env-baseline.stderr.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/02-env-baseline.stdout.txt       2580  7d7b8e892aa82b1a7c65db32f186cf755284165ce82dbc782c9131f51b659674
+dsh-ffmpeg/raw/02-env-baseline.txt       2853  ec382e6c13fff4e7e666a1fd3fb843e6623f7ead6d1fdc935691a5480a7fa441
+dsh-ffmpeg/raw/03-install.stderr.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/03-install.stdout.txt        510  1cf49dfd77d0bf56fd675f317332a9febe30b47423b24349f86c1aefb3e86588
+dsh-ffmpeg/raw/03-install.txt        788  53baa9494ebb9fb3e06ca469a9e5733d8455bc2bcbfc8c71f6469f050bc69764
+dsh-ffmpeg/raw/04-typecheck.stderr.txt         32  38ac890c60e7f38d59ddfb410325cdfb5fca83c9411765c5481754e01c021630
+dsh-ffmpeg/raw/04-typecheck.stdout.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/04-typecheck.txt        280  49a1be4a25f31eab3a012eaeef6f06c8ec3ef9a7db18d87c1d3d91dd6e26e213
+dsh-ffmpeg/raw/05-build.stderr.txt         23  29c5ee0f6b0b20dbb259b99d01276198c3d28190090706394608d4deda6d2c0b
+dsh-ffmpeg/raw/05-build.stdout.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/05-build.txt        267  ebf4767f3e59b88ccc36af81e1a75195a9b3f8d0c55194d98cd89f59c0162a50
+dsh-ffmpeg/raw/06-self-test.stderr.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/06-self-test.stdout.txt       7733  12a248fb442fcdea05f2925d98382726ef6d6e5a6bc6cc7ce6662b7cdf5121c8
+dsh-ffmpeg/raw/06-self-test.txt       7993  77a00e77b31c2766d23850694420a94f63904e1351cd8bbf20e643453ad78fca
+dsh-ffmpeg/raw/07-lib-reproducibility.stderr.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/07-lib-reproducibility.stdout.txt        413  bec14249f3091d4556327ed4bbaec173ce973e5e3369891c1d804fa008a9627e
+dsh-ffmpeg/raw/07-lib-reproducibility.txt        852  853501edea1e4bbbd555582a681e6bfdc9ab5d816afc0c1bd48e66a0880ee3c5
+dsh-ffmpeg/raw/08-probe01-fixtures-health.stderr.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/08-probe01-fixtures-health.stdout.txt       7872  35997dade60652c3914698327f349d206143a616b65bc1a254b164a35ac7b9da
+dsh-ffmpeg/raw/08-probe01-fixtures-health.txt       8312  9cfc39dd6cea3ead3797eb8fad8faaf334918ec4db1889ffb38ad67cfb4b0836
+dsh-ffmpeg/raw/09-probe02-transforms.stderr.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/09-probe02-transforms.stdout.txt       8786  fe9b8e4e14701b1584a850c5a1a5365dd49a416bbf540e17924a6b22f52606fe
+dsh-ffmpeg/raw/09-probe02-transforms.txt       9221  8378a733f4612c83b00f78b3fc0260c03237c8fd5adcf85f2767228364e8614e
+dsh-ffmpeg/raw/10-probe03-concat-failures.stderr.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/10-probe03-concat-failures.stdout.txt       8057  0f75a7fb4cbff2a8f31fa8dfa8d15fb8f9a974e838d3a1697ec3e6c122722975
+dsh-ffmpeg/raw/10-probe03-concat-failures.txt       8496  cef2139603fed0de3af83c286bc9b04adaef3d6a52f23c459d2b5ea9c869da1c
+dsh-ffmpeg/raw/11-probe04-prior-review.stderr.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/11-probe04-prior-review.stdout.txt       7316  db4810914d308c27a9da1a9b85b6897a2f12e0dc6b3e974e6fc370fdb957cc68
+dsh-ffmpeg/raw/11-probe04-prior-review.txt       7752  e896422cd53bd99624115854b884bd4364fe64a10f7e87e9d358205bae59d2a5
+dsh-ffmpeg/raw/12-version-surface.stderr.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/12-version-surface.stdout.txt       2083  5f84608f9d72fb9a20c637e0a4b90ca95f9d9f81821696591a1b46c1ed6fc60b
+dsh-ffmpeg/raw/12-version-surface.txt       2463  7ddba6d061317a80b74e8c9fd7382db2bc80cb36f21955617d9eb7519e2b999a
+dsh-ffmpeg/raw/20-dedupe.stderr.txt          0  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+dsh-ffmpeg/raw/20-dedupe.stdout.txt       1715  7eebd9be8953d87e5e9439c1627a575d9a2b707a72a0ae7044c80d7694f5bf9c
+dsh-ffmpeg/raw/20-dedupe.txt       2030  91163eceaeee7ad8a600444922cae0b615eb792900d1ff9dfda5174573f0b8d0
