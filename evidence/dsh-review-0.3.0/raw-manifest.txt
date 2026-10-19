@@ -1,0 +1,21 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-18T15:01:34.483Z
+label = dsh-review 0.3.0
+generator = tools/make_manifest.mjs
+
+raw/00-env-baseline.txt       2951  8e02c64aacc54c6b4467d15eeb285e6cf9120fe8cb05bcf5decf5dfb0118fe86
+raw/20-anchor-local.txt       1959  1b23d75035765659cfa1522631223438fa5a4d6355c4f656103e46f4d4ac12e5
+raw/21-anchor-compare.txt       4083  a0ceab36469b55748939b6a423839086a2551921406f7e3bdc35fd4c1b932b8e
+raw/22-anchor-copy.txt       5396  f8a16a66b7e5c32d7b9c20c956d6d18d520cf4fbfe61953dc85e02242bd8fe2a
+raw/23-upstream-tarball.txt       3696  54fe6e7717a1bc368ab8d1613cf3831969dd869dbfd528a5cd5c038de8ff8c65
+raw/24-npm-package.txt       1803  259e7727cd1c5a81adbb45952c665f365da9102500dbcdb966607b17d3f5685b
+raw/30-self-test.txt      98659  d4219be263da348615dee60d0d71f4531899a841f4806bae9a3c6db35fdfe767
+raw/31-host-acceptance.txt        958  182a3c62fe11ddff436aa1109a53241c74353dcdf1959b63ebb5f1d3e7dd7fc8
+raw/32-build.txt        348  b484addeed3b00e5bb41ea1912eaa0def9df8412bf09a37c75895e7a2115375d
+raw/33-test-failure-attribution.txt       2034  9a451b241d342bdca7ab673a9347999928347a388701c18a92c9a00eb9e948c1
+raw/40-probe-gate-rules.txt      11759  aaf35ac8725798564cb00b39971ec4da9c8f064b0669442c4137c2b344e2652f
+raw/41-probe-diff-edges.txt       4483  8dce7645af31d14113b69292e5991410d3ca5f6616e7e8f6b5559cbd50f36ec9
+raw/42-probe-failure-contract.txt       8619  7d32f30c1b2aa5884edd4518ef021ec8ea798e0e81ce7dd1f48b277503452e1f
+raw/dsh-review-0.3.0.npm.tgz      56501  f899830413e2e96dba051d2e9ecefa047fa71d0f0e04838458b0266e9baf783c
+raw/upstream-dsh-review-53a30cf.gh-proxy.org.tgz      72092  ba77f1b81651d1a003c66c2c7c0355cfe642a622afcd9d7d5e66e36e8bfc1585
+raw/upstream-dsh-review-53a30cf.tgz      72092  ba77f1b81651d1a003c66c2c7c0355cfe642a622afcd9d7d5e66e36e8bfc1585
