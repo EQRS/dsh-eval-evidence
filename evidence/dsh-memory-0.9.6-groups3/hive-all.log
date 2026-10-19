@@ -1,0 +1,12 @@
+PASS hive.test_chat
+PASS hive.test_console_window
+PASS hive.test_exec_cmd
+PASS hive.test_exec_empty_response
+PASS hive.test_exec_tools
+PASS hive.test_h3_h7_scheduler
+PASS hive.test_h4_llm_retry
+FAIL hive.test_h6_mcp_depends_on
+FAIL hive.test_id_contract_v2
+PASS hive.test_issue155_156_rust
+PASS hive.test_issue158_scoreboard_settle
+PASS hive.test_issue464_pool_spec_gate
