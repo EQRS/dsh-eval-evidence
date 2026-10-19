@@ -1,0 +1,954 @@
+CMD: python -m md_cg.run_tests --jobs 4
+SKIP  md_cg.test_md_access_parity  （依赖白箱库 whitebox_kb/wisdom/wisdom-book-cloud.db（.gitignore 忽略，需本地生成））
+SKIP  md_cg.test_p44_md_whitebox  （依赖白箱库 whitebox_kb/wisdom/wisdom-book-cloud.db（.gitignore 忽略，需本地生成））
+SKIP  md_cg.test_wisdom_md_store  （依赖 md 语料真源 _md_cg_wisdom_graph/（.gitignore 忽略，组 D 需本地真源））
+PASS  md_cg.test_action_derive
+PASS  md_cg.test_audit_heartbeat_20261015
+PASS  md_cg.test_audit_protection_20261015
+PASS  md_cg.test_audit_state_20261015
+PASS  md_cg.test_audit_rotate_parity
+PASS  md_cg.test_audit_rotate
+PASS  md_cg.test_audit_write_20261015
+PASS  md_cg.test_auto_defaults
+PASS  md_cg.test_access_hints
+PASS  md_cg.test_auditview
+PASS  md_cg.test_autonomy
+PASS  md_cg.test_autonomy_emotion
+PASS  md_cg.test_b1_foreign_read
+PASS  md_cg.test_b1b2_write_face
+PASS  md_cg.test_autonomy_admission
+PASS  md_cg.test_b2_sensitivity_landing
+PASS  md_cg.test_b3_merge_keeps_content
+PASS  md_cg.test_autonomy_modes
+PASS  md_cg.test_b4_shard_dir_selfheal_guard
+PASS  md_cg.test_bench_governance
+PASS  md_cg.test_blindspot_tickets
+PASS  md_cg.test_b1_auto_id_multiproc
+PASS  md_cg.test_b4_shard_dir_selfheal
+PASS  md_cg.test_bm25_hydration_refill
+PASS  md_cg.test_bm25
+PASS  md_cg.test_bm25_pool_view
+PASS  md_cg.test_boot_openblas_guard
+PASS  md_cg.test_boundary_hit
+PASS  md_cg.test_branch_discard_tombstone
+PASS  md_cg.test_branches
+PASS  md_cg.test_branches_sensitivity
+PASS  md_cg.test_c3_transient_read_negative
+PASS  md_cg.test_c8_search_rrf_gates
+PASS  md_cg.test_canonical_timezones
+FAIL  md_cg.test_ccg_form_parity
+        [PASS] ⑦裸标题后紧跟另一标题：不吞下一要素（取值口径同 ccg_field_value）
+        [PASS] ⑦普通句子不误伤（只剥 CCG 行）
+        [PASS] ⑦只声明该要素时：positive_body 与 consistency._body_text 同口径（同一剥除算法单点）
+        [PASS] ⑦消费点 _like：无冒号形态的反例词不作召回键（旧码残留值行 ⇒ 会被召回）
+        [PASS] ⑦消费点 _like：正条件行照常命中（判别力未削弱）
+      -- ⑦红基线自证：HEAD 版 nodefile 对无冒号形态必须失手 --
+PASS  md_cg.test_ccg_heading_parser
+PASS  md_cg.test_ccg_perturb
+PASS  md_cg.test_bm25_incremental
+PASS  md_cg.test_census_prune
+PASS  md_cg.test_chain_best_first
+PASS  md_cg.test_ccgc
+PASS  md_cg.test_chain_candidate_scope
+PASS  md_cg.test_chain_read_isolate
+PASS  md_cg.test_cn_recall_grams
+PASS  md_cg.test_codeindex
+PASS  md_cg.test_coldverify_drain
+PASS  md_cg.test_comment_gate
+PASS  md_cg.test_cond_compose_anchors
+PASS  md_cg.test_cond_match
+PASS  md_cg.test_condaccept
+PASS  md_cg.test_condgate
+PASS  md_cg.test_condition_anchor
+PASS  md_cg.test_conformance
+PASS  md_cg.test_cons200_scan_selection
+PASS  md_cg.test_corrupt_utf8_read_surfaces
+PASS  md_cg.test_crypto_rotate
+PASS  md_cg.test_csre_correctness
+PASS  md_cg.test_csre_index_import_guard
+PASS  md_cg.test_csre_mutations
+PASS  md_cg.test_csre_session
+PASS  md_cg.test_curiosity_budget
+PASS  md_cg.test_d17_autostart_toolface
+PASS  md_cg.test_d_meta
+PASS  md_cg.test_datapath_device_name
+PASS  md_cg.test_datapath_root
+PASS  md_cg.test_bm25_incremental_mutations
+PASS  md_cg.test_datapath_tilde_home
+PASS  md_cg.test_derived_cache_generations
+PASS  md_cg.test_en_pipeline
+PASS  md_cg.test_emit_negtail_cache
+PASS  md_cg.test_evidence_delivery_compact
+PASS  md_cg.test_exact_text_cache
+PASS  md_cg.test_experience_consolidation
+PASS  md_cg.test_export_default_collision
+PASS  md_cg.test_export_snapshots
+PASS  md_cg.test_excerpt_budget
+PASS  md_cg.test_fuzzy_substring_equivalence
+PASS  md_cg.test_gain_gate
+PASS  md_cg.test_ghostref
+PASS  md_cg.test_goal_gen
+PASS  md_cg.test_govern_directread
+PASS  md_cg.test_h2_session_view_norm
+PASS  md_cg.test_generation_guard
+PASS  md_cg.test_health_corrupt_utf8
+PASS  md_cg.test_health_scale
+FAIL  md_cg.test_heartbeat_ledger
+      == L5 心跳调度源唯一（开关开 => 转移，不叠加）==
+        PASS L5a 前置：关态窗口内确有 beat 行（否则比较空转）实际 6
+        FAIL L5b 开态**不叠加**：开=10 关=6（倍率 1.67x，>1.6x 即两路各调度一次）  ← (10, 6)
+        PASS L5c 开态心跳**仍在推进**（未被误关掉）：开=10 关=6
+      
+      心跳台账守卫：37 通过，1 失败
+PASS  md_cg.test_hierarchy_audit_graph
+PASS  md_cg.test_hive_ingest
+PASS  md_cg.test_hot_cold
+PASS  md_cg.test_hyperedge
+PASS  md_cg.test_i26_empty_first_write
+PASS  md_cg.test_i27_e041_identity
+PASS  md_cg.test_i28_hotcache_prodpath
+PASS  md_cg.test_i32_hotcache_env_key
+PASS  md_cg.test_i50a_half_dup_defer
+PASS  md_cg.test_i50b_defer_to_review_queue
+PASS  md_cg.test_i50c_meta_passthrough
+PASS  md_cg.test_i50d_importance_source
+PASS  md_cg.test_config_registry
+PASS  md_cg.test_identity_attribution
+PASS  md_cg.test_identity_contract
+PASS  md_cg.test_i50e_readside_protection
+PASS  md_cg.test_index_crossprocess_reload
+PASS  md_cg.test_bm25_mutations
+PASS  md_cg.test_index_durability
+PASS  md_cg.test_index_snapshot_shape
+PASS  md_cg.test_interop
+PASS  md_cg.test_issue111_gate_order
+PASS  md_cg.test_issue111_scoring_contract
+PASS  md_cg.test_imgskill
+PASS  md_cg.test_issue128_session_env_authority
+PASS  md_cg.test_issue121_calibration_bounds
+PASS  md_cg.test_issue131_postings_content_staleness
+FAIL  md_cg.test_issue145_sleep_no_silent_rollback
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1026, in __init__
+          self._execute_child(args, executable, preexec_fn, close_fds,
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1538, in _execute_child
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+PASS  md_cg.test_issue130_rrf_rank_credibility
+PASS  md_cg.test_issue146_frontmatter_quarantine
+PASS  md_cg.test_issue147_pack_id_escape
+PASS  md_cg.test_issue148_merge_downgrade_leak
+FAIL  md_cg.test_issue150_empty_query_terms
+        [PASS] A4 空词项/全标点 query 不再把负记忆算作「覆盖本查询」  · covered_neg=[]
+        [PASS] A4b 正向对照：真正命中负记忆的问句仍照旧覆盖（零误伤）  · covered_neg=['rejected/neg_probe.md']
+      [B] 跨侧面
+        [FAIL] B0 Rust 二进制在位（缺失即 fail-closed）  · 缺 D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\rust\target\release\mdcg-eval.exe —— 请先 `cargo build --release --manifest-path rust/Cargo.toml`（在 <仓根> 内；CI 的 python-tests 已有该步，见 .github/workflows/python-tests.yml）
+      
+      SUMMARY: #150 空查询词项跨侧守卫：10 通过，1 失败；失败项=B0 Rust 二进制在位（缺失即 fail-closed）
+PASS  md_cg.test_issue149_accel_default_face
+PASS  md_cg.test_issue151b_base_add_importance_guard
+PASS  md_cg.test_issue151_153_157_write_cache_index
+PASS  md_cg.test_issue152_sealed_postings
+PASS  md_cg.test_issue152b_decrypt_cache
+PASS  md_cg.test_issue153b_cache_alias_and_canon
+PASS  md_cg.test_interop_judgment
+PASS  md_cg.test_issue153b_index_generation_invalidation
+PASS  md_cg.test_issue189_conclusion_bidirectional
+PASS  md_cg.test_issue157b_index_remainder
+FAIL  md_cg.test_issue190_tidy_idempotent
+        ok   S10.2
+        ok   S10.3
+        ok   S10.4
+      
+      ANCHOR-MISS：S2（取不到修复前源，判别力无法自证）
+      整理巡检幂等守卫（issue #190）：通过 35 / 失败 5
+PASS  md_cg.test_issue192_move_layer_indices_guard
+PASS  md_cg.test_issue191_import_trust
+PASS  md_cg.test_issue193_write_scope
+PASS  md_cg.test_issue193_consistency_knowledge_guard
+PASS  md_cg.test_issue197_rank_credibility_property
+PASS  md_cg.test_issue211_export_target
+PASS  md_cg.test_issue214_reject_sensitivity
+PASS  md_cg.test_issue212_writeface_gaps
+PASS  md_cg.test_issue217_slot_routes
+PASS  md_cg.test_issue215_condition_source_gap
+PASS  md_cg.test_issue218_postcondition_value_blind
+PASS  md_cg.test_issue225_consistency_torn_log
+PASS  md_cg.test_issue216_clash_routes
+FAIL  md_cg.test_issue245_swarm_traversal
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+      
+      
+      swarm 路径闸守卫：33 通过，1 失败
+FAIL  md_cg.test_issue258_pack_sensitivity
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+      
+      
+      证据包密级通路守卫：47 通过，1 失败
+PASS  md_cg.test_issue275_layer_param
+FAIL  md_cg.test_issue265_coldverify_multiproc
+        ok   S9e ★ dry_run 前后队列文件**逐字节不变**（#72 G2）
+      == S10 墓碑：_done 条目加载时跳过 ==
+        ok   S10a _done 条目不恢复
+        ok   S10b 未消费条目照常恢复
+      
+      冷路径跨实例守卫：32 通过，1 失败
+FAIL  md_cg.test_issue277_node_id_traversal
+      == P11 汇点纵深防御：两道独立防线都在场 ==
+        PASS P11a 第一道：汇点白名单（同 add() 判据）
+        PASS P11b 第二道：realpath 包含性判定
+            注：单去任一道 P8 仍绿（另一道兜住）——V2 故须同时去掉两道
+      
+      证据层 node_id 穿越守卫：39 通过，1 失败
+PASS  md_cg.test_issue278_neg_separated_tension
+PASS  md_cg.test_issue278_neg_window
+PASS  md_cg.test_issue278_negative_layering
+PASS  md_cg.test_issue279_signers_path_guard
+PASS  md_cg.test_issue274_read_node_id_none
+FAIL  md_cg.test_issue294_flywheel_sensitivity
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+      
+      
+      冲突闸飞轮密级透传守卫：46 通过，1 失败
+FAIL  md_cg.test_issue295_sleep_root_binding
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+      
+      
+      睡眠根绑定守卫：27 通过，8 失败
+FAIL  md_cg.test_issue297_rewrite_sensitivity
+      == S9 既有语义不破 ==
+        ok   S9a B2「声明↔落盘」一致性闸仍在位
+        ok   S9b 未声明（declared=None）不触发一致性闸
+        ok   S9c 继承 private 后层闸仍拒 internal 身份覆写
+      
+      写面密级继承守卫：33 通过，1 失败
+PASS  md_cg.test_issue298_consistency_ledger_sensitivity
+PASS  md_cg.test_issue301_baseline_corpus_gate
+PASS  md_cg.test_issue303_design_boundaries
+PASS  md_cg.test_issue313_writelimit_sensitivity
+PASS  md_cg.test_issue315_merge_branch_sensitivity
+PASS  md_cg.test_issue315_sensitivity_passthrough_guard
+PASS  md_cg.test_issue320_vstate_requires_verify
+PASS  md_cg.test_issue284_skip_not_pass
+PASS  md_cg.test_issue319_tenant_unregistered_bypass
+PASS  md_cg.test_issue323_aggregate_segment_boundary
+PASS  md_cg.test_issue324_write_size_fields
+PASS  md_cg.test_issue325_audit_poison
+PASS  md_cg.test_issue326_append_jsonl_oserror
+PASS  md_cg.test_issue321_mcp_deep_json
+PASS  md_cg.test_issue322_node_write_lock
+PASS  md_cg.test_issue326_ingest_auto_whitelist
+PASS  md_cg.test_issue326_key_perms
+PASS  md_cg.test_issue326_twin_parser_parity
+PASS  md_cg.test_issue326_vm_call_frame
+PASS  md_cg.test_issue345_writelimit_effective_sens
+PASS  md_cg.test_issue346_overwrite_sensitivity_gate
+PASS  md_cg.test_issue348_insight_verify_op
+PASS  md_cg.test_issue350_casefold_collision
+PASS  md_cg.test_issue346_review_overwrite_guard
+PASS  md_cg.test_issue351_ingest_root_fallback
+PASS  md_cg.test_issue352_imgaudit
+PASS  md_cg.test_issue352_refindex
+PASS  md_cg.test_issue352_rollback
+PASS  md_cg.test_issue352_vstateinherit
+PASS  md_cg.test_issue354_p1_writelimit_type
+FAIL  md_cg.test_issue354_p2_datapath_clock
+        PASS K4 对照：<tmp>\cone 任何平台都不抛（判据非恒真）
+        PASS K5 普通路径仍走 abspath 归一（恒等语义未变）
+      
+      断言总数 65（PASS 64 / FAIL 1 / SKIP 0），FLOOR=40
+      issue #354 [P2-16] 结果：1 失败
+         - A6 对照：\\.\aux / \\.\nul / \\.\conin$ 都打得开（判据非恒假）
+PASS  md_cg.test_issue348_merge_rmw_lock
+PASS  md_cg.test_issue352_pathsjson
+PASS  md_cg.test_issue354_p2_writelimit_toctou
+PASS  md_cg.test_issue354_rust_wal_containment
+PASS  md_cg.test_issue358_truncation_observable
+PASS  md_cg.test_issue360_tidy_private_excerpt
+PASS  md_cg.test_issue361_blindspot_not_silent_drop
+PASS  md_cg.test_issue362_neg_condition
+PASS  md_cg.test_issue363_lexical_idf
+PASS  md_cg.test_issue375_state_slot_retire
+PASS  md_cg.test_issue376_heartbeat_failed
+PASS  md_cg.test_issue377_layer_protect_stamp
+PASS  md_cg.test_issue378_protected_floor
+PASS  md_cg.test_issue383_state_event_write_gate
+PASS  md_cg.test_issue397_sens_eff_wiring
+PASS  md_cg.test_issue398_toolface_op_parity
+PASS  md_cg.test_issue399_hive_json_shape
+PASS  md_cg.test_issue370_readcache_assembly
+PASS  md_cg.test_issue400_hive_dirty_args
+PASS  md_cg.test_issue354_rust_index_containment
+PASS  md_cg.test_issue401_wisdom_codegen
+PASS  md_cg.test_issue404_heal_receipt
+FAIL  md_cg.test_issue405_git_pathspec
+          self._execute_child(args, executable, preexec_fn, close_fds,
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1538, in _execute_child
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+      == A 组：层目录内非 .md / 临时件不得进入 git 索引（站点 1） ==
+PASS  md_cg.test_issue409_compact_index_completeness
+PASS  md_cg.test_issue410_verify_demote_write
+PASS  md_cg.test_issue408_eface_registry
+PASS  md_cg.test_issue39_utf8_stdio
+FAIL  md_cg.test_issue412_discipline_producer_parity
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\discipline_nodes.py", line 50, in <module>
+          import render_discipline as R  # noqa: E402
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\render_discipline.py", line 28, in <module>
+          import yaml
+      ModuleNotFoundError: No module named 'yaml'
+PASS  md_cg.test_issue411_scrub_idempotence
+PASS  md_cg.test_issue413_preimage_failclosed
+PASS  md_cg.test_issue413_preimage_twin
+PASS  md_cg.test_issue414_write_args_parity
+PASS  md_cg.test_issue415_deps_gate_probe
+PASS  md_cg.test_issue417_twophase_merge_landed
+PASS  md_cg.test_issue418_identity_role_type_gate
+PASS  md_cg.test_issue418_role_type_gate
+PASS  md_cg.test_issue419_pii_redaction
+PASS  md_cg.test_issue424_merge_confirm_sensitivity
+PASS  md_cg.test_issue425_ingest_library_path
+PASS  md_cg.test_issue426a_dedup_receipt
+PASS  md_cg.test_issue426b_root_clash_invisible
+PASS  md_cg.test_issue426e_restore_overwrite_live
+PASS  md_cg.test_issue416_entry_key_subset
+PASS  md_cg.test_issue427_serve_status_shape
+PASS  md_cg.test_issue431_432_468_protect_single_point
+PASS  md_cg.test_issue426f_paths_gbk_failclosed
+PASS  md_cg.test_issue433_outlook_threshold_single_point
+PASS  md_cg.test_issue434_435_float_gate
+PASS  md_cg.test_issue439_sibling_sensitivity_inherit
+PASS  md_cg.test_issue443a_state_event_length_gate
+PASS  md_cg.test_issue426c_enqueue_not_silent
+PASS  md_cg.test_issue443b_audit_record_length_gate
+PASS  md_cg.test_issue443c_self_state_imgskill_length_gate
+PASS  md_cg.test_issue444_scrub_evidence_plaintext
+PASS  md_cg.test_issue445_metacognition_ledger_gate
+PASS  md_cg.test_issue446_is_encrypted_envelope
+PASS  md_cg.test_issue446_453_403_verified_evidence
+PASS  md_cg.test_issue447_recent_sens_failclosed
+PASS  md_cg.test_issue450_sensitivity_fallback_reason
+PASS  md_cg.test_issue450_writegate_unknown_sens
+PASS  md_cg.test_issue451_audit_actor
+PASS  md_cg.test_issue452_ingest_root_hint
+PASS  md_cg.test_issue463_ghost_prune_guard
+PASS  md_cg.test_issue452_ingest_root_sensitivity
+PASS  md_cg.test_issue467_identity_sensitivity
+PASS  md_cg.test_issue467_identity_sensitivity_parity
+PASS  md_cg.test_issue469_scrub_override_passthrough
+PASS  md_cg.test_issue470_wal_event_durable
+PASS  md_cg.test_issue471_identity_readable
+PASS  md_cg.test_issue472_audit_chain
+PASS  md_cg.test_issue43_default_policy
+PASS  md_cg.test_issue466_basis_registry
+PASS  md_cg.test_issue472_prune_ledger
+PASS  md_cg.test_issue472_rollback_degraded
+PASS  md_cg.test_issue492_dup_readout_opt_in
+PASS  md_cg.test_issue511_scoreboard_bad_files
+PASS  md_cg.test_issue498_merge_trace_stale_index
+PASS  md_cg.test_issue521_rotate_lock_suffix
+PASS  md_cg.test_issue522_review_record_sensitivity
+PASS  md_cg.test_issue524_orphan_noise_no_demote
+PASS  md_cg.test_issue525_read_null_semantics
+PASS  md_cg.test_issue538_hook_condition_space
+PASS  md_cg.test_issue52_scan_condition_first
+PASS  md_cg.test_issue540_path_guard_whitespace
+PASS  md_cg.test_issue53_cipher_health_hash
+PASS  md_cg.test_issue541_tidy_protect_gate
+PASS  md_cg.test_h4_sustain_snapshot
+PASS  md_cg.test_issue543_issue_authorization
+PASS  md_cg.test_issue542_tenant_root_same
+PASS  md_cg.test_issue545_charset_vs_size_diagnostic
+PASS  md_cg.test_issue546_ledger_concurrency
+FAIL  md_cg.test_issue491_compose_sandbox
+      [PASS] S2 单点：L2 经 verifier.run_guarded（不新建第二套沙箱）  · run_guarded@[('run_guarded', 774)] subprocess_import=[] verifier委托=[('_run_guarded', 869)]
+      
+      ================================================================
+      通过 8 ／ 失败 1
+      失败项：S9 语义保留：首可调用 / 多参 / call 标记
+      ================================================================
+PASS  md_cg.test_issue547_append_jsonl_whitelist
+PASS  md_cg.test_issue547_audit_durable
+PASS  md_cg.test_issue557_r1_credential_value_forms
+PASS  md_cg.test_issue557_r2_write_entries_size_gate
+PASS  md_cg.test_issue559_refine_prefix
+PASS  md_cg.test_issue557_r3_pem_block_redaction
+PASS  md_cg.test_issue544_sandbox_reflection_gate
+PASS  md_cg.test_issue561_pending_review
+PASS  md_cg.test_issue562_retired_faces
+PASS  md_cg.test_issue67_scrub_control_pool
+PASS  md_cg.test_issue66_scrub_semantics
+PASS  md_cg.test_issue69_audit_boundary
+PASS  md_cg.test_issue72_coldverify_controlled_drain
+FAIL  md_cg.test_issue73_doc_chapter_refs
+        [PASS] B2 links.py 正向点名真源文档（docs/swarm/蜂群互联_v0.1.md）
+        [PASS] B3 links.py 四个真章节号仍在场（正向：不许靠「删干净」过关）
+        [PASS] B4 引文对拍：§3.2 含「长时间无观测则向初值回归」（decay 的 clause 依据）
+        [PASS] B5 引文对拍：§4.2 含「跨节点时主体 id 需全局唯一」
+        [PASS] B7 引文对拍：§4.3 含「只声明结构，不宣称权重数值」（诚实边界引文出处）
+        [PASS] B6 引文对拍：§5.1 五步表 ①–⑤ 齐（声明/校验/建档/观察期/转正）
+PASS  md_cg.test_issue549_durable_append
+PASS  md_cg.test_issue75_neural_failure
+PASS  md_cg.test_issue78_export_concurrency
+PASS  md_cg.test_issue80_residual_flush
+PASS  md_cg.test_issue71_queue_backlog
+PASS  md_cg.test_issue82_credential_rules
+PASS  md_cg.test_issue82_layer_and_size
+PASS  md_cg.test_issue87_default_sensitivity_single
+PASS  md_cg.test_issue85_export_overwrite
+PASS  md_cg.test_issue86_runtime_revoke
+PASS  md_cg.test_issue88_conclusion_face
+PASS  md_cg.test_issue89a_score_cap_tiebreak
+PASS  md_cg.test_issue89_zero_score
+PASS  md_cg.test_issue88_execution_conflicts
+PASS  md_cg.test_issue93_remember_redaction
+PASS  md_cg.test_issue96_key_fallback
+PASS  md_cg.test_issue98_tenant_root
+PASS  md_cg.test_issue91_verifier_sandbox
+PASS  md_cg.test_jsonl_commit_watermark
+PASS  md_cg.test_lifecycle
+PASS  md_cg.test_lifecycle_retire_leak
+PASS  md_cg.test_legacy_p3_node_id_type
+PASS  md_cg.test_linkref
+PASS  md_cg.test_issue84_portability
+PASS  md_cg.test_live_validity_cache
+PASS  md_cg.test_logref
+PASS  md_cg.test_m3_h9_bucket_health_protect_mark
+PASS  md_cg.test_links_concurrent_write
+PASS  md_cg.test_lock
+FAIL  md_cg.test_issue91_verifier_timeout
+      [PASS] T6c 时限可注入（Verifier(exec_timeout=…)）且默认取模块常量 EXEC_TIMEOUT_S
+      
+      ================================================================
+      通过 6 ／ 失败 3
+      失败项：T1a 模块级死循环 ⇒ 有界返回失败（不挂死），T1b 函数级死循环 ⇒ 有界返回失败（不挂死），T3d 子进程整体墙钟有界（外层守护未触发强杀）
+      ================================================================
+PASS  md_cg.test_m3_h9_semantic_guard
+PASS  md_cg.test_md_writepath
+PASS  md_cg.test_memory_rsi
+PASS  md_cg.test_mcp_call_argument_types
+PASS  md_cg.test_mdstore_search_parity
+PASS  md_cg.test_memory_rsi_adversarial
+PASS  md_cg.test_merge_upsert
+FAIL  md_cg.test_mode_parity
+        PASS P2 weights 读数：confirm 档与 full 档**逐位相等**（E 分数类不阻塞——设计 §三 confirm/full 列 E=允许）
+        PASS P2 weights 落盘 fm（剔除时钟面）：confirm 档与 full 档逐位相等
+      == Q 组：与改动前基线的 oracle 对拍（git archive HEAD 只读导出）==
+        ORACLE-MISS git 不可用：[WinError 2] 系统找不到指定的文件。
+      
+      oracle 自检：FAIL（fail-closed，exit 2）
+PASS  md_cg.test_mr_m3
+PASS  md_cg.test_mr_m2
+PASS  md_cg.test_mr_m1
+PASS  md_cg.test_md_cg_no_hive_dep
+PASS  md_cg.test_mr_m4
+PASS  md_cg.test_n130_verify_falsified_protect
+PASS  md_cg.test_mutation_residue
+PASS  md_cg.test_n123_derive_expiry_chain
+PASS  md_cg.test_n131_merge_gate
+PASS  md_cg.test_n139_dek_provision_failclosed
+PASS  md_cg.test_n178_units_jobid_gate
+PASS  md_cg.test_n176_link_trust
+PASS  md_cg.test_n195_writepath_reload
+PASS  md_cg.test_n196_stale_gate_skip
+PASS  md_cg.test_n197_n208_write_face_gates
+PASS  md_cg.test_mutation_rollback
+PASS  md_cg.test_n198_tokens_corrupt_failclosed
+PASS  md_cg.test_n184_keys_concurrent_provision
+PASS  md_cg.test_n201_proposal_visibility
+PASS  md_cg.test_n204_n205_n226_n227_n228_n229_exit_gates
+PASS  md_cg.test_n202_session_notes_visibility
+PASS  md_cg.test_n209_verify_write_face_gates
+PASS  md_cg.test_n214_n215_n221_n222_write_face_gates
+PASS  md_cg.test_n212_n213_n224_generation_gates
+PASS  md_cg.test_n230_dirty_replay
+PASS  md_cg.test_n238_body_text_parity
+PASS  md_cg.test_n276_probe_hoist
+PASS  md_cg.test_n62_tenant_bind_failclosed
+PASS  md_cg.test_n199_tokens_concurrent_write
+PASS  md_cg.test_n225_nonobject_load
+PASS  md_cg.test_neg_condition_hits
+PASS  md_cg.test_none_id_write_guard
+PASS  md_cg.test_neg_coverage_budget
+PASS  md_cg.test_neg_tail_honesty
+PASS  md_cg.test_opt_batch1_md_cg
+PASS  md_cg.test_n206_stdio_jsonrpc_type
+PASS  md_cg.test_p10_identity
+PASS  md_cg.test_p11_consistency
+PASS  md_cg.test_p1
+PASS  md_cg.test_p12_metacognition
+PASS  md_cg.test_p14_root_fallback
+PASS  md_cg.test_p13_encryption
+PASS  md_cg.test_p15_scrub
+PASS  md_cg.test_p14_sustain
+PASS  md_cg.test_p18_whitebox
+PASS  md_cg.test_p17_predict
+PASS  md_cg.test_p16_self_state
+PASS  md_cg.test_p1x_ref_root
+PASS  md_cg.test_p2
+PASS  md_cg.test_p19_migrate_roleplay
+PASS  md_cg.test_p20_evolution
+PASS  md_cg.test_p22_theory
+PASS  md_cg.test_p23_links
+PASS  md_cg.test_p24_evidence
+PASS  md_cg.test_p25_weights
+PASS  md_cg.test_p26_refindex
+PASS  md_cg.test_p28_refcheck
+PASS  md_cg.test_p0
+PASS  md_cg.test_p29_session_ingest_export
+PASS  md_cg.test_p21_tokens
+PASS  md_cg.test_p2_six_elements
+PASS  md_cg.test_p3
+PASS  md_cg.test_p30_maintain
+PASS  md_cg.test_p31_insight
+PASS  md_cg.test_p32_backfill
+PASS  md_cg.test_p33_ccg_wiring
+PASS  md_cg.test_p34_crosscheck
+PASS  md_cg.test_p35_conditioned_claim
+PASS  md_cg.test_p36_kp_align
+PASS  md_cg.test_p37_condition_space
+PASS  md_cg.test_p38_concurrent_flush
+PASS  md_cg.test_p38_contextualize
+PASS  md_cg.test_p39_vision_evidence
+PASS  md_cg.test_p3_legacy_closure
+PASS  md_cg.test_p39_verify_flow
+PASS  md_cg.test_p40_refine_worklist
+PASS  md_cg.test_p42_provenance
+PASS  md_cg.test_p41_evolve_patrol
+PASS  md_cg.test_p43_pooling
+PASS  md_cg.test_p46_unit_scope
+PASS  md_cg.test_p45_session_identity
+PASS  md_cg.test_p47_session_view
+PASS  md_cg.test_p4_freshness
+PASS  md_cg.test_p4_fuzzy
+PASS  md_cg.test_p5_semantic
+PASS  md_cg.test_p2_mcp
+PASS  md_cg.test_p7_goals_recent
+PASS  md_cg.test_p8_subgraph_chain
+PASS  md_cg.test_p6_consolidate
+PASS  md_cg.test_p9_forget_protect
+PASS  md_cg.test_policy_required_ccg
+PASS  md_cg.test_p9c_dedup_hints
+PASS  md_cg.test_predict_beta
+PASS  md_cg.test_postings_digest_memo
+PASS  md_cg.test_p83_jsonrpc_parse_error
+PASS  md_cg.test_preflight_failclosed
+PASS  md_cg.test_progressive
+PASS  md_cg.test_protocol
+PASS  md_cg.test_propose_tail_index
+PASS  md_cg.test_query_excerpt
+PASS  md_cg.test_qmd
+PASS  md_cg.test_reach_keys
+PASS  md_cg.test_reach
+PASS  md_cg.test_rank_parity_score_mode
+PASS  md_cg.test_reach_meta_exits
+PASS  md_cg.test_reach_snapshot_admission
+PASS  md_cg.test_read_clip
+PASS  md_cg.test_read_face_input_gates
+PASS  md_cg.test_read_scope_b27
+PASS  md_cg.test_read_face_semantics
+PASS  md_cg.test_readcache_default_on
+PASS  md_cg.test_readcache_precise_inval
+PASS  md_cg.test_recall_metadata
+PASS  md_cg.test_readcache_prodpath
+PASS  md_cg.test_recall_face_guards
+PASS  md_cg.test_reconcile_v0
+PASS  md_cg.test_rejected_redact
+PASS  md_cg.test_rejected_credential_forms
+PASS  md_cg.test_retr_s1b
+PASS  md_cg.test_retr_s1
+PASS  md_cg.test_retr_gates_prodpath
+PASS  md_cg.test_retr_s3
+PASS  md_cg.test_retr_s4
+PASS  md_cg.test_retr_s5
+PASS  md_cg.test_retr_s6
+PASS  md_cg.test_retr_s9_edges
+PASS  md_cg.test_retr_s8_time
+PASS  md_cg.test_retr_s7
+PASS  md_cg.test_retr_s9_entity_ctx
+PASS  md_cg.test_review_cli_visibility
+PASS  md_cg.test_retr_score_once
+PASS  md_cg.test_review_cli_attribution
+PASS  md_cg.test_review_onepass
+PASS  md_cg.test_review_queue_index
+PASS  md_cg.test_role_views
+PASS  md_cg.test_review_queue_batch
+PASS  md_cg.test_rrf_graph_seed_cache
+PASS  md_cg.test_rrf_candidates
+PASS  md_cg.test_rrf_qualified_topk
+PASS  md_cg.test_review_conformance
+PASS  md_cg.test_rrf_unique_votes
+PASS  md_cg.test_security_audit
+PASS  md_cg.test_scrub_ledger
+PASS  md_cg.test_s1_ast_judge
+PASS  md_cg.test_security_audit_b26
+PASS  md_cg.test_sem_noise
+PASS  md_cg.test_security_audit_v21
+PASS  md_cg.test_server_version
+PASS  md_cg.test_semantic_canonical
+PASS  md_cg.test_session5_identity
+PASS  md_cg.test_session_attribution_consistency
+PASS  md_cg.test_session_identity_tristate
+PASS  md_cg.test_sensitivity_predicate_single_point
+PASS  md_cg.test_session_isolation
+FAIL  md_cg.test_sleep_gitlock
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+      [ok] S1 无锁 → absent
+      [ok] S2 新锁未超龄 → left 且保持在场（防一刀切）
+      [ok] S3 超龄锁 → cleared 且文件删除
+      [ok] S4 force 对新锁立清（超时 kill 后时机）
+      [ok] S5 台账两行 git_lock_cleared（age_s/force 在场）
+FAIL  md_cg.test_sleep_p1
+        PASS G11b ②③④ 记「物化未完成：…」——与门拦 gate_reason **可区分**
+        PASS G11c 四道门全过 ⇒ rec['skipped'] 为空：两类未迭代原因不混同
+        PASS G11d 「本轮未迭代原因」== 台账 ②③④ 的同一文案（CLI 与台账同源）
+        PASS G11e 物化未完成的一轮同样落台账（可回看）
+      
+      P1 睡眠周期引擎守卫：73 通过，9 失败，0 跳过
+PASS  md_cg.test_snapshot_autoclose
+PASS  md_cg.test_srcindex
+FAIL  md_cg.test_sleep
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+      
+      
+      睡眠 git 机制守卫：22 通过，6 失败，0 跳过
+PASS  md_cg.test_spatial_coords3d
+PASS  md_cg.test_state_event_op
+PASS  md_cg.test_state_projection_streaming
+PASS  md_cg.test_state_events
+PASS  md_cg.test_state_slots
+PASS  md_cg.test_stg_interval_candidates
+PASS  md_cg.test_stg_time_blocks
+PASS  md_cg.test_subgraph_bounded_bfs
+PASS  md_cg.test_subproc_encoding
+PASS  md_cg.test_p27_docindex
+PASS  md_cg.test_tail_watermark_race
+PASS  md_cg.test_sustain_bounded
+PASS  md_cg.test_tasks
+PASS  md_cg.test_sustain_mutual
+PASS  md_cg.test_tenant_env_override_warn
+PASS  md_cg.test_tenant_registry_corrupt_warn
+PASS  md_cg.test_text_projection_mutations
+PASS  md_cg.test_time_anchor
+PASS  md_cg.test_token_lowercase_form
+PASS  md_cg.test_tool_face
+PASS  md_cg.test_transfer
+PASS  md_cg.test_task_memory
+PASS  md_cg.test_trust
+PASS  md_cg.test_trust_edge_reachability
+PASS  md_cg.test_trust_bounded_frontier
+PASS  md_cg.test_twophase
+PASS  md_cg.test_unify_scope
+PASS  md_cg.test_unify_default_off
+PASS  md_cg.test_units_poll
+PASS  md_cg.test_v14_fixes
+PASS  md_cg.test_validity_filter
+PASS  md_cg.test_verify_answer
+PASS  md_cg.test_verify_dirty_reconcile
+PASS  md_cg.test_w5_path_fingerprint
+PASS  md_cg.test_w7_redlines
+PASS  md_cg.test_write_return_shape
+PASS  md_cg.test_writelimit
+PASS  md_cg.test_writepipe
+PASS  compiler.tests.test_builtin_write_guard_n272
+PASS  compiler.tests.test_c4_tooling
+PASS  compiler.tests.test_call_arity_n237
+PASS  compiler.tests.test_compile_entry_n102_recursion
+PASS  compiler.tests.test_compiler_c2
+PASS  compiler.tests.test_condition_space_alias_n270
+PASS  compiler.tests.test_condition_vm
+PASS  compiler.tests.test_defect_regression
+PASS  compiler.tests.test_expr_operand_missing_n240
+PASS  compiler.tests.test_full_pipeline
+PASS  compiler.tests.test_func_compile
+PASS  compiler.tests.test_issue127_negated_comparison
+PASS  compiler.tests.test_issue402_pbc_truncation
+PASS  compiler.tests.test_issue434_zhizu_numeric
+PASS  compiler.tests.test_issue434_zhizu_operand
+PASS  compiler.tests.test_issue435_finite_trust
+PASS  compiler.tests.test_issue436_unterminated_string
+PASS  compiler.tests.test_jump_target_guard_n239
+PASS  compiler.tests.test_lexer_v3n6
+PASS  compiler.tests.test_loop_compile
+PASS  compiler.tests.test_name_checker_space_assign
+PASS  compiler.tests.test_parser_n148_stepnum_overflow
+PASS  compiler.tests.test_parser_n3_numeric
+PASS  compiler.tests.test_parser_n4_semicolon_scope
+PASS  compiler.tests.test_parser_weight_value_forms
+PASS  compiler.tests.test_pbc
+PASS  compiler.tests.test_read_position_undeclared_n271
+PASS  compiler.tests.test_undefined_call_n236
+PASS  compiler.tests.test_verdict_product_compile
+PASS  md_cg.test_v21r1_package_version
+PASS  compiler.tests.test_vm_resource_guard
+PASS  compiler.tests.test_weight_cap_string_missing
+PASS  md_cg.test_stgidx_index_parity
+PASS  swarm.tests.test_bench_estimator
+PASS  swarm.tests.bench_swarm_parallel
+PASS  swarm.tests.test_isolation_imports
+PASS  swarm.tests.test_issue81_secret_fail_closed
+PASS  swarm.tests.test_issue99_wal_boundary
+PASS  swarm.tests.test_issue156_max_depth
+PASS  swarm.tests.bench_swarm_scale
+PASS  swarm.tests.test_rust_escape_parity
+PASS  swarm.tests.test_rust_swarm
+PASS  swarm.tests.test_rust_swarm_resume
+PASS  swarm.tests.test_rust_swarm_kill
+PASS  swarm.tests.test_rust_vm_jump_guard
+PASS  swarm.tests.test_swarm_cli
+PASS  swarm.tests.test_swarm_cli_report_atomic
+PASS  swarm.tests.test_swarm_cli_usage_json
+PASS  swarm.tests.test_rust_codegen
+PASS  swarm.tests.test_rust_vm_builtin_guard_n272
+PASS  swarm.tests.test_swarm_gossip
+PASS  swarm.tests.test_swarm_condition_space
+PASS  swarm.tests.test_swarm_health
+PASS  swarm.tests.test_swarm_inbox_delivery
+PASS  swarm.tests.test_swarm_protocol
+PASS  swarm.tests.test_swarm_reflect_signal
+PASS  swarm.tests.test_swarm_fault
+PASS  scripts.test_axis_declaration
+PASS  swarm.tests.test_swarm_topology
+PASS  scripts.test_bench_chain_reader
+PASS  scripts.test_bench_chain_retrieval_diag
+PASS  scripts.test_bootstrap_channel_b
+PASS  scripts.test_bootstrap_channel_b_state
+PASS  scripts.test_bootstrap_persist_gate
+PASS  scripts.test_bootstrap_selfmod_gate
+PASS  swarm.tests.test_swarm_watermark
+PASS  scripts.test_check_guard_coverage
+PASS  scripts.test_check_local_paths
+PASS  scripts.test_check_config_env_registry
+FAIL  scripts.test_check_placeholder_leak
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1026, in __init__
+          self._execute_child(args, executable, preexec_fn, close_fds,
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1538, in _execute_child
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+PASS  scripts.test_check_publish_artifact_boundary
+PASS  scripts.test_check_duplicate_keys
+PASS  scripts.test_check_publish_artifact_coverage
+PASS  scripts.test_check_publish_artifact_scan
+FAIL  scripts.test_check_push_scope
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1026, in __init__
+          self._execute_child(args, executable, preexec_fn, close_fds,
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1538, in _execute_child
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+PASS  scripts.test_check_publish_artifact_manifest
+PASS  scripts.test_cogmap_cross_primitive
+FAIL  scripts.test_check_unreachable_decode
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1026, in __init__
+          self._execute_child(args, executable, preexec_fn, close_fds,
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1538, in _execute_child
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+FAIL  scripts.test_discipline_fingerprint_eol
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\test_discipline_fingerprint_eol.py", line 28, in <module>
+          import render_discipline as R  # noqa: E402
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\render_discipline.py", line 28, in <module>
+          import yaml
+      ModuleNotFoundError: No module named 'yaml'
+FAIL  scripts.test_discipline_fingerprint_required
+          import render_discipline as R  # noqa: E402
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\render_discipline.py", line 28, in <module>
+          import yaml
+      ModuleNotFoundError: No module named 'yaml'
+      
+FAIL  scripts.test_discipline_nodes_drift
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\discipline_nodes.py", line 50, in <module>
+          import render_discipline as R  # noqa: E402
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\render_discipline.py", line 28, in <module>
+          import yaml
+      ModuleNotFoundError: No module named 'yaml'
+PASS  scripts.test_dsh_log_index_shape
+FAIL  scripts.test_discipline_cg_root_failclosed
+          raise SystemExit(main())
+                           ^^^^^^
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\test_discipline_cg_root_failclosed.py", line 171, in main
+          os.path.isdir(os.path.join(lib, "structural")), os.listdir(lib))
+                                                          ^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\30951\\AppData\\Local\\Temp\\tmp1pe20jn8\\cg-lib'
+PASS  scripts.test_dsh_log_index_token
+PASS  scripts.test_check_op_table_parity
+FAIL  scripts.test_ignore_face
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1026, in __init__
+          self._execute_child(args, executable, preexec_fn, close_fds,
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1538, in _execute_child
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+FAIL  scripts.test_injection_chain
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\test_injection_chain.py", line 27, in <module>
+          import render_discipline as R      # noqa: E402
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\render_discipline.py", line 28, in <module>
+          import yaml
+      ModuleNotFoundError: No module named 'yaml'
+PASS  scripts.test_gate_json_shape
+FAIL  scripts.test_issue406_bidirectional_fields
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\verify_discipline.py", line 46, in <module>
+          import render_discipline as R  # noqa: E402
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\render_discipline.py", line 28, in <module>
+          import yaml
+      ModuleNotFoundError: No module named 'yaml'
+PASS  scripts.test_judgment_manifest
+FAIL  scripts.test_link_check_fence_aware
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1026, in __init__
+          self._execute_child(args, executable, preexec_fn, close_fds,
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1538, in _execute_child
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+PASS  scripts.test_linux_verify_exit_code
+FAIL  scripts.test_gate_rust_legs
+        PASS G5e 订正后的事实写在注释里：Rust 缺省与 Python 缺省不一致，后者是 legacy（跨行唯一锚点）
+        PASS G5c2 订正后的结论明确：Rust 缺省「与 Python 缺省不一致」
+        PASS G5f 失实片段「SCORE_MODE 缺省一致」在 main.rs **全文件**已清零（:99 与头注释 :13-14 两处）
+        PASS G5g 头注释已订正为事实：Rust 侧缺省 jaccard 与 Python 侧产品缺省 legacy 不一致（跨行唯一锚点）
+      
+      R-7 守卫（rust 门禁腿接线）：50 通过，3 失败，0 跳过
+PASS  scripts.test_migrate_restricted
+PASS  scripts.test_migrate_restricted_ids
+PASS  scripts.test_p70_pack_manifest_shape
+PASS  scripts.test_precommit_gate
+PASS  scripts.test_publish_smoke_guard
+PASS  scripts.test_interop_gate_release
+FAIL  scripts.test_registry_tarball
+                 ^^^^^^^^^^
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\test_registry_tarball.py", line 86, in _run_all
+          assert got.returncode == 1, got.stdout + got.stderr
+                 ^^^^^^^^^^^^^^^^^^^
+      AssertionError: REGISTRY_TARBALL ERROR | 读取失败：环境缺 PyYAML，无法解析条目 YAML（fail-closed：不按「未声明」放行）
+      
+PASS  scripts.test_receipt_and_state
+PASS  scripts.test_state_extract
+FAIL  scripts.test_verify_discipline_semantic
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\test_verify_discipline_semantic.py", line 44, in <module>
+          import render_discipline as R  # noqa: E402
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\render_discipline.py", line 28, in <module>
+          import yaml
+      ModuleNotFoundError: No module named 'yaml'
+PASS  scripts.test_mdcg_stale_servers_scan
+FAIL  scripts.test_zcode_user_embed
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\test_zcode_user_embed.py", line 58, in <module>
+          import render_discipline as R  # noqa: E402
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\scripts\render_discipline.py", line 28, in <module>
+          import yaml
+      ModuleNotFoundError: No module named 'yaml'
+PASS  hive.test_chat
+PASS  hive.test_console_window
+PASS  hive.test_exec_cmd
+PASS  hive.test_exec_empty_response
+PASS  hive.test_exec_tools
+PASS  hive.test_h3_h7_scheduler
+PASS  hive.test_h4_llm_retry
+FAIL  hive.test_h6_mcp_depends_on
+        [ok] B7·格式非法被拒 'h.%.txt'
+        [ok] B8·格式非法被拒 'h1_a '
+        [ok] B9·格式非法被拒 ''
+        [ok] B10·格式非法被拒 'h..'
+        [ok] C1·不存在的依赖被拒 h1999999999999_zz
+        [ok] C2·不存在的依赖被拒 h_notadir_x
+FAIL  hive.test_id_contract_v2
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+      
+      == [A] 四槽必填（CLI/MCP 两路实跑）+ _submit 退场 + orch 透传 ==
+        [FAIL] A0 前置：hive 二进制在盘（真 exe 对照面）  未找到 D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\hive/target/release/hive.exe——先 cargo build --release（hive/ 下）
+PASS  hive.test_issue155_156_rust
+PASS  hive.test_issue158_scoreboard_settle
+PASS  hive.test_issue464_pool_spec_gate
+PASS  hive.test_issue465_append_concurrency
+PASS  hive.test_issue557_r4_sensitive_read_families
+PASS  hive.test_issue95_context_files_creds
+FAIL  hive.test_job_id_segment_dot
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+      
+      == A 组 段级 `..` 判据（c7：按 `_` 分段，任一段等于 `.`/`..` 即拒；三处同判） ==
+        [FAIL] A0 前置：真 hive.exe 在盘（Rust 面的 live oracle）  ← 未找到 D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\hive\target\release\hive.exe
+PASS  hive.test_llm_key_resolution
+PASS  scripts.test_verify_open_encoding
+PASS  hive.test_mcp_jobs_pool
+PASS  hive.test_mcp_entry_guard
+PASS  hive.test_mdcg_units_charset_parity
+PASS  hive.test_n144_exec_cmd_terminal_race
+PASS  hive.test_n145_orch_pool_derive
+FAIL  hive.test_n232_anchor_expectation
+        [ok] D 无密钥 serve + 旧格式任务 → done（锚判据整体未启用，行为零变更）
+        [ok] F 前置：submit 走锚预期面（result_anchor=on 且 status 落 nonce）
+        [ok] F 前置：status 带 result_nonce
+        [FAIL] F 诚实执行器（回写锚）照常采信 done（正常链路零回归）  state=error error=第 1 步 可执行文件根闸：C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\python.exe 不在允许根内（C:\Users\30951\AppData\Local\Programs\Python\Python312, C:\Users\30951\AppData\Local\Temp）——池内 spec 不得执行任意路径的程序
+      
+      结果: 1 fail
+FAIL  hive.test_orch
+        [ok] B3 显式 tools 仍补编排三工具且不重复
+        [ok] B4 缺 user_prompt 诚实拒
+        [ok] B5 无可用 model 诚实拒
+        [ok] B6 子代理不可用编排工具（防递归第一道）
+        [ok] B7 缺 context 文件诚实拒
+        [FAIL] B8 派发成功（毫秒即返，带 job_id）  {'ok': False, 'error': 'HIVE_EXE 不可用：D:\\natnat\\lingshu\\外部插件\\lingshu-latest\\repo\\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\\hive\\target\\release\\hive.exe 不存在——id 分配器的唯一实现是 Rust 侧 `hive alloc-id`（契约 §五 裁决 3），本面**不自造 id**（旧 `h{毫秒}_{uuid6}` 形态已退场）。先 `cargo build --release`（hive/ 下），或用 HIVE_EXE 指向可用二进制。'}
+PASS  hive.test_orch_int_args
+PASS  hive.test_orch_poll_cache
+PASS  hive.test_reconcile
+FAIL  hive.test_result_anchor_chain
+        OK   H2
+        OK   H3
+        OK   H4
+      
+      结果：17 pass / 5 fail（红项：A2, A4, B2, C2, C4）
+      FAILED：A2、A4、B2、C2、C4
+PASS  hive.test_scoreboard
+PASS  hive.test_sensitive_read_names
+PASS  hive.test_serve_entry
+PASS  hive.test_n233_status_write_fail
+PASS  hive.test_serve_show_config
+PASS  hive.test_stop_tree_kill
+FAIL  hive.test_wm_conflict
+          self._execute_child(args, executable, preexec_fn, close_fds,
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1538, in _execute_child
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+      [G] 矛盾态拒绝（state=error + result.ok=true → 拒放行，须人工裁决）
+PASS  hive.test_verify_runner_counts
+FAIL  hive.test_wm_progress
+      [A] 跨面契约（exec 写入面 ↔ wm 读取面）
+        [ok] A1 wm.PROGRESS_FILE == ex.PROGRESS_FILE == progress.jsonl
+        [ok] A2 ex.progress 写的条目 wm 可解析（格式互认）
+        [ok] A3 条目带时间戳（ts，观测面）
+        [ok] A4 ex.progress 对非目录 no-op 不炸
+      [B] 快照白名单（progress.jsonl 纳入）
+FAIL  hive.test_wm_traversal
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1026, in __init__
+          self._execute_child(args, executable, preexec_fn, close_fds,
+        File "C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\Lib\subprocess.py", line 1538, in _execute_child
+          hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+PASS  hive.test_worker_scope
+PASS  md_cg.test_time_core_lint
