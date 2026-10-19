@@ -1,0 +1,235 @@
+==============================================================================
+dsh-myskin 0.4.1 测评 · 36 真实宿主包上的类型检查
+sampled_at = 2026-10-18T15:11:53.850Z
+workdir    = D:\natnat\lingshu\测试\dsh-myskin
+node       = v24.21.0 (C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe)
+platform   = win32 x64
+==============================================================================
+
+## 0) 前提
+
+fake-full-install exists = true
+tsc = node_modules\typescript\bin\tsc
+
+## 1) settings.section 字面量落在哪个包（解释 check:compat 的第 3 条 FAIL）
+
+含 'settings.section' 的 @deepseek-ai 包（每个包只列首个文件）= [
+  "dsh-client-ui-agent-preset :: lib\\client.js",
+  "dsh-client-ui-settings-account :: lib\\client.js",
+  "dsh-client-ui-settings-general :: lib\\client.js",
+  "dsh-client-ui-settings-models :: lib\\client.js",
+  "dsh-client-ui-settings-plugins :: lib\\client.js",
+  "dsh-cordis-client-runner :: lib\\client.js"
+]
+check:compat 只在 @deepseek-ai/dsh-client-ui-settings 包里找这个字面量；若它实际在别的包里，
+Desktop asar 布局下（两个客户端包不落成 package 目录）该检查就无法通过 —— 不等于插件不兼容。
+
+## 2) 复刻 check-types：junction 版 shim + 同款 tsconfig
+
+shim = D:\natnat\lingshu\测试\dsh-myskin\sandbox\repo\.tmp\typecheck-real\0.2.1-rc.2
+junction 链接的包数 = 304
+缺失的客户端包（Desktop 布局不落目录）= ["dsh-client-ui-primitives","dsh-client-ui-slots"]
+tsconfig = .tmp\typecheck-real\0.2.1-rc.2\tsconfig.json  include = ["../../../src/**/*.ts","../../../src/**/*.tsx","../../../tests/types/**/*.ts"]
+
+### node node_modules/typescript/bin/tsc -p <shim>/tsconfig.json
+$ "C:\\Users\\30951\\AppData\\Local\\Programs\\DeepSeek Harness\\resources\\runtime\\primary-runtime\\dependencies\\node\\bin\\node.exe" D:\natnat\lingshu\测试\dsh-myskin\sandbox\repo\node_modules\typescript\bin\tsc -p D:\natnat\lingshu\测试\dsh-myskin\sandbox\repo\.tmp\typecheck-real\0.2.1-rc.2\tsconfig.json --pretty false
+exit=2
+--- stdout ---
+src/client/icons.ts(12,29): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-primitives' or its corresponding type declarations.
+src/client/index.ts(12,21): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-settings/client' or its corresponding type declarations.
+src/client/index.ts(13,21): error TS2307: Cannot find module '@deepseek-ai/dsh-client-locale/client' or its corresponding type declarations.
+src/client/index.ts(14,21): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-theme/client' or its corresponding type declarations.
+src/client/index.ts(18,21): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-renderer/client' or its corresponding type declarations.
+src/client/index.ts(19,35): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-theme/client' or its corresponding type declarations.
+src/client/index.ts(52,16): error TS2664: Invalid module name in augmentation, module '@deepseek-ai/dsh-client-ui-slots' cannot be found.
+src/client/index.ts(65,24): error TS2339: Property 'locale' does not exist on type 'Context'.
+src/client/index.ts(67,21): error TS2339: Property 'theme' does not exist on type 'Context'.
+src/client/index.ts(68,17): error TS2339: Property 'locale' does not exist on type 'Context'.
+src/client/index.ts(70,24): error TS2339: Property 'configForms' does not exist on type 'Context'.
+src/client/index.ts(70,71): error TS7006: Parameter 'served' implicitly has an 'any' type.
+src/client/index.ts(73,23): error TS2339: Property 'configForms' does not exist on type 'Context'.
+src/client/index.ts(95,25): error TS2339: Property 'slots' does not exist on type 'Context'.
+src/client/index.ts(95,68): error TS2339: Property 'slots' does not exist on type 'Context'.
+src/client/MySkinSection.tsx(15,44): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-primitives' or its corresponding type declarations.
+src/client/MySkinSection.tsx(17,33): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-settings/client' or its corresponding type declarations.
+src/client/MySkinSection.tsx(18,33): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-slots' or its corresponding type declarations.
+src/client/MySkinSection.tsx(19,35): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-theme/client' or its corresponding type declarations.
+src/client/skin-engine.ts(14,35): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-theme/client' or its corresponding type declarations.
+tests/types/inject-services.ts(20,21): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-settings/client' or its corresponding type declarations.
+tests/types/inject-services.ts(22,21): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-renderer/client' or its corresponding type declarations.
+tests/types/inject-services.ts(24,21): error TS2307: Cannot find module '@deepseek-ai/dsh-client-locale/client' or its corresponding type declarations.
+tests/types/inject-services.ts(26,21): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-theme/client' or its corresponding type declarations.
+tests/types/inject-services.ts(32,14): error TS2339: Property 'slots' does not exist on type 'Context'.
+tests/types/inject-services.ts(33,15): error TS2339: Property 'locale' does not exist on type 'Context'.
+tests/types/inject-services.ts(34,20): error TS2339: Property 'configForms' does not exist on type 'Context'.
+tests/types/inject-services.ts(35,14): error TS2339: Property 'theme' does not exist on type 'Context'.
+exit = 2
+诊断总数 = 28  Cannot find module = 15  其它 = 13
+缺失模块名 = ["@deepseek-ai/dsh-client-ui-primitives","@deepseek-ai/dsh-client-ui-settings/client","@deepseek-ai/dsh-client-locale/client","@deepseek-ai/dsh-client-ui-theme/client","@deepseek-ai/dsh-client-ui-renderer/client","@deepseek-ai/dsh-client-ui-slots"]
+  OTHER: src/client/index.ts(52,16): error TS2664: Invalid module name in augmentation, module '@deepseek-ai/dsh-client-ui-slots' cannot be found.
+  OTHER: src/client/index.ts(65,24): error TS2339: Property 'locale' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(67,21): error TS2339: Property 'theme' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(68,17): error TS2339: Property 'locale' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(70,24): error TS2339: Property 'configForms' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(70,71): error TS7006: Parameter 'served' implicitly has an 'any' type.
+  OTHER: src/client/index.ts(73,23): error TS2339: Property 'configForms' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(95,25): error TS2339: Property 'slots' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(95,68): error TS2339: Property 'slots' does not exist on type 'Context'.
+  OTHER: tests/types/inject-services.ts(32,14): error TS2339: Property 'slots' does not exist on type 'Context'.
+  OTHER: tests/types/inject-services.ts(33,15): error TS2339: Property 'locale' does not exist on type 'Context'.
+  OTHER: tests/types/inject-services.ts(34,20): error TS2339: Property 'configForms' does not exist on type 'Context'.
+  OTHER: tests/types/inject-services.ts(35,14): error TS2339: Property 'theme' does not exist on type 'Context'.
+
+## 3) 解释
+- 若“其它 = 0”，说明 src/ 在**真实 0.2.1-rc.2 的 .d.ts**下没有签名级不兼容；
+  报错只剩 Desktop asar 不落成 package 目录的两个客户端包（由宿主模块表在运行时提供）。
+- 若“其它 > 0”，逐条列在上，属于需要进一步判断的真实类型漂移。
+
+## 4) 原生 node_modules 解析下的类型检查（无 paths 映射伪影）
+
+native project = .tmp\typecheck-native（node_modules 全是 junction 到宿主包）
+### tsc -p <native>/tsconfig.json（无 paths，真实 exports 解析）
+$ "C:\\Users\\30951\\AppData\\Local\\Programs\\DeepSeek Harness\\resources\\runtime\\primary-runtime\\dependencies\\node\\bin\\node.exe" D:\natnat\lingshu\测试\dsh-myskin\sandbox\repo\node_modules\typescript\bin\tsc -p D:\natnat\lingshu\测试\dsh-myskin\sandbox\repo\.tmp\typecheck-native\tsconfig.json --pretty false
+exit=2
+--- stdout ---
+src/client/icons.ts(12,29): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-primitives' or its corresponding type declarations.
+src/client/index.ts(12,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-settings` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-settings/client';`
+src/client/index.ts(13,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-locale/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-locale/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-locale` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-locale/client';`
+src/client/index.ts(14,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-theme` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-theme/client';`
+src/client/index.ts(18,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-renderer/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-renderer/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-renderer` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-renderer/client';`
+src/client/index.ts(19,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-theme` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-theme/client';`
+src/client/index.ts(52,16): error TS2664: Invalid module name in augmentation, module '@deepseek-ai/dsh-client-ui-slots' cannot be found.
+src/client/index.ts(65,24): error TS2339: Property 'locale' does not exist on type 'Context'.
+src/client/index.ts(67,21): error TS2339: Property 'theme' does not exist on type 'Context'.
+src/client/index.ts(68,17): error TS2339: Property 'locale' does not exist on type 'Context'.
+src/client/index.ts(70,24): error TS2339: Property 'configForms' does not exist on type 'Context'.
+src/client/index.ts(70,71): error TS7006: Parameter 'served' implicitly has an 'any' type.
+src/client/index.ts(73,23): error TS2339: Property 'configForms' does not exist on type 'Context'.
+src/client/index.ts(95,25): error TS2339: Property 'slots' does not exist on type 'Context'.
+src/client/index.ts(95,68): error TS2339: Property 'slots' does not exist on type 'Context'.
+src/client/MySkinSection.tsx(15,44): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-primitives' or its corresponding type declarations.
+src/client/MySkinSection.tsx(17,33): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-settings` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-settings/client';`
+src/client/MySkinSection.tsx(18,33): error TS2307: Cannot find module '@deepseek-ai/dsh-client-ui-slots' or its corresponding type declarations.
+src/client/MySkinSection.tsx(19,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-theme` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-theme/client';`
+src/client/skin-engine.ts(14,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-theme` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-theme/client';`
+tests/types/inject-services.ts(20,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-settings` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-settings/client';`
+tests/types/inject-services.ts(22,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-renderer/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-renderer/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-renderer` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-renderer/client';`
+tests/types/inject-services.ts(24,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-locale/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-locale/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-locale` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-locale/client';`
+tests/types/inject-services.ts(26,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-theme` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-theme/client';`
+tests/types/inject-services.ts(32,14): error TS2339: Property 'slots' does not exist on type 'Context'.
+tests/types/inject-services.ts(33,15): error TS2339: Property 'locale' does not exist on type 'Context'.
+tests/types/inject-services.ts(34,20): error TS2339: Property 'configForms' does not exist on type 'Context'.
+tests/types/inject-services.ts(35,14): error TS2339: Property 'theme' does not exist on type 'Context'.
+原生解析诊断 = 28  Cannot find module = 3  其它 = 25
+缺失模块 = ["@deepseek-ai/dsh-client-ui-primitives","@deepseek-ai/dsh-client-ui-slots"]
+  OTHER: src/client/index.ts(12,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  OTHER: src/client/index.ts(13,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-locale/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-locale/lib/client.js' implicitly has an 'any' type.
+  OTHER: src/client/index.ts(14,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  OTHER: src/client/index.ts(18,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-renderer/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-renderer/lib/client.js' implicitly has an 'any' type.
+  OTHER: src/client/index.ts(19,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  OTHER: src/client/index.ts(52,16): error TS2664: Invalid module name in augmentation, module '@deepseek-ai/dsh-client-ui-slots' cannot be found.
+  OTHER: src/client/index.ts(65,24): error TS2339: Property 'locale' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(67,21): error TS2339: Property 'theme' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(68,17): error TS2339: Property 'locale' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(70,24): error TS2339: Property 'configForms' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(70,71): error TS7006: Parameter 'served' implicitly has an 'any' type.
+  OTHER: src/client/index.ts(73,23): error TS2339: Property 'configForms' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(95,25): error TS2339: Property 'slots' does not exist on type 'Context'.
+  OTHER: src/client/index.ts(95,68): error TS2339: Property 'slots' does not exist on type 'Context'.
+  OTHER: src/client/MySkinSection.tsx(17,33): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  OTHER: src/client/MySkinSection.tsx(19,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  OTHER: src/client/skin-engine.ts(14,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  OTHER: tests/types/inject-services.ts(20,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  OTHER: tests/types/inject-services.ts(22,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-renderer/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-renderer/lib/client.js' implicitly has an 'any' type.
+  OTHER: tests/types/inject-services.ts(24,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-locale/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-locale/lib/client.js' implicitly has an 'any' type.
+  OTHER: tests/types/inject-services.ts(26,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  OTHER: tests/types/inject-services.ts(32,14): error TS2339: Property 'slots' does not exist on type 'Context'.
+  OTHER: tests/types/inject-services.ts(33,15): error TS2339: Property 'locale' does not exist on type 'Context'.
+  OTHER: tests/types/inject-services.ts(34,20): error TS2339: Property 'configForms' does not exist on type 'Context'.
+  OTHER: tests/types/inject-services.ts(35,14): error TS2339: Property 'theme' does not exist on type 'Context'.
+  已给 dsh-client-ui-primitives / dsh-client-ui-slots 放最小 type stub（仅补齐 Desktop 布局缺的两个模块）
+### tsc -p <native>/tsconfig.json（+ 两个 stub）
+$ "C:\\Users\\30951\\AppData\\Local\\Programs\\DeepSeek Harness\\resources\\runtime\\primary-runtime\\dependencies\\node\\bin\\node.exe" D:\natnat\lingshu\测试\dsh-myskin\sandbox\repo\node_modules\typescript\bin\tsc -p D:\natnat\lingshu\测试\dsh-myskin\sandbox\repo\.tmp\typecheck-native\tsconfig.json --pretty false
+exit=2
+--- stdout ---
+src/client/index.ts(12,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-settings` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-settings/client';`
+src/client/index.ts(13,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-locale/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-locale/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-locale` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-locale/client';`
+src/client/index.ts(14,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-theme` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-theme/client';`
+src/client/index.ts(18,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-renderer/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-renderer/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-renderer` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-renderer/client';`
+src/client/index.ts(19,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-theme` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-theme/client';`
+src/client/index.ts(65,24): error TS2339: Property 'locale' does not exist on type 'Context'.
+src/client/index.ts(67,21): error TS2339: Property 'theme' does not exist on type 'Context'.
+src/client/index.ts(68,17): error TS2339: Property 'locale' does not exist on type 'Context'.
+src/client/index.ts(70,24): error TS2339: Property 'configForms' does not exist on type 'Context'.
+src/client/index.ts(70,71): error TS7006: Parameter 'served' implicitly has an 'any' type.
+src/client/index.ts(73,23): error TS2339: Property 'configForms' does not exist on type 'Context'.
+src/client/index.ts(95,25): error TS2339: Property 'slots' does not exist on type 'Context'.
+src/client/index.ts(95,68): error TS2339: Property 'slots' does not exist on type 'Context'.
+src/client/MySkinSection.tsx(17,33): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-settings` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-settings/client';`
+src/client/MySkinSection.tsx(19,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-theme` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-theme/client';`
+src/client/MySkinSection.tsx(324,42): error TS2315: Type 'InjectFace' is not generic.
+src/client/skin-engine.ts(14,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-theme` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-theme/client';`
+tests/types/inject-services.ts(20,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-settings` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-settings/client';`
+tests/types/inject-services.ts(22,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-renderer/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-renderer/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-renderer` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-renderer/client';`
+tests/types/inject-services.ts(24,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-locale/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-locale/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-locale` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-locale/client';`
+tests/types/inject-services.ts(26,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/deepseek-ai__dsh-client-ui-theme` if it exists or add a new declaration (.d.ts) file containing `declare module '@deepseek-ai/dsh-client-ui-theme/client';`
+tests/types/inject-services.ts(32,14): error TS2339: Property 'slots' does not exist on type 'Context'.
+tests/types/inject-services.ts(33,15): error TS2339: Property 'locale' does not exist on type 'Context'.
+tests/types/inject-services.ts(34,20): error TS2339: Property 'configForms' does not exist on type 'Context'.
+tests/types/inject-services.ts(35,14): error TS2339: Property 'theme' does not exist on type 'Context'.
+stub 后诊断 = 25  exit = 2
+  src/client/index.ts(12,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  src/client/index.ts(13,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-locale/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-locale/lib/client.js' implicitly has an 'any' type.
+  src/client/index.ts(14,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  src/client/index.ts(18,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-renderer/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-renderer/lib/client.js' implicitly has an 'any' type.
+  src/client/index.ts(19,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  src/client/index.ts(65,24): error TS2339: Property 'locale' does not exist on type 'Context'.
+  src/client/index.ts(67,21): error TS2339: Property 'theme' does not exist on type 'Context'.
+  src/client/index.ts(68,17): error TS2339: Property 'locale' does not exist on type 'Context'.
+  src/client/index.ts(70,24): error TS2339: Property 'configForms' does not exist on type 'Context'.
+  src/client/index.ts(70,71): error TS7006: Parameter 'served' implicitly has an 'any' type.
+  src/client/index.ts(73,23): error TS2339: Property 'configForms' does not exist on type 'Context'.
+  src/client/index.ts(95,25): error TS2339: Property 'slots' does not exist on type 'Context'.
+  src/client/index.ts(95,68): error TS2339: Property 'slots' does not exist on type 'Context'.
+  src/client/MySkinSection.tsx(17,33): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  src/client/MySkinSection.tsx(19,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  src/client/MySkinSection.tsx(324,42): error TS2315: Type 'InjectFace' is not generic.
+  src/client/skin-engine.ts(14,35): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  tests/types/inject-services.ts(20,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-settings/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js' implicitly has an 'any' type.
+  tests/types/inject-services.ts(22,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-renderer/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-renderer/lib/client.js' implicitly has an 'any' type.
+  tests/types/inject-services.ts(24,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-locale/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-locale/lib/client.js' implicitly has an 'any' type.
+  tests/types/inject-services.ts(26,21): error TS7016: Could not find a declaration file for module '@deepseek-ai/dsh-client-ui-theme/client'. 'D:/natnat/lingshu/测试/dsh-myskin/sandbox/fake-full-install/node_modules/@deepseek-ai/dsh-client-ui-theme/lib/client.js' implicitly has an 'any' type.
+  tests/types/inject-services.ts(32,14): error TS2339: Property 'slots' does not exist on type 'Context'.
+  tests/types/inject-services.ts(33,15): error TS2339: Property 'locale' does not exist on type 'Context'.
+  tests/types/inject-services.ts(34,20): error TS2339: Property 'configForms' does not exist on type 'Context'.
+  tests/types/inject-services.ts(35,14): error TS2339: Property 'theme' does not exist on type 'Context'.
+
+## 5) 类型检查结论
+- 真实 0.2.1-rc.2 包 + 原生解析：28 条诊断；其中 Cannot find module 3 条、其它 25 条。
+- 只补 Desktop 布局缺失的两个模块后：25 条诊断。
+- ⇒ 仍有诊断，逐条见上，需要按真实类型漂移处理。
+
