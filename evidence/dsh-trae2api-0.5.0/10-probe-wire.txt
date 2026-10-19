@@ -1,0 +1,88 @@
+# 独立探针：协议转换与流式解码（离线）
+generated_at = 2026-10-18T14:58:57.703Z
+repo = D:\natnat\lingshu\外部插件\dsh-trae2api\deepseek-harness-trae-main
+
+## A. 内置模型目录
+CASE models_count | TRAE_MODELS 数 | observed=20 | expected=20 | PASS
+CASE routes_count | TRAE_ROUTES 数 | observed=20 | expected=20 | PASS
+CASE max_routes | maxMode 路由数 | observed=14 | expected=14 | PASS
+CASE max_windows | maxMode 路由窗口均为 1M | observed=[1000000] | expected=[1000000] | PASS
+CASE multimodal_count | multimodal 路由数 | observed=15 | expected=15 | PASS
+CASE no_marker_currently | 当前内置路由无 max marker | observed=0 | expected=0 | PASS
+CASE find_glm-5.3 | findModel 别名 | observed="GLM-5.3" | expected="GLM-5.3" | PASS
+CASE find_GLM-5.3 | findModel 别名 | observed="GLM-5.3" | expected="GLM-5.3" | PASS
+CASE find_glm-5.3__dev | findModel 别名 | observed="GLM-5.3" | expected="GLM-5.3" | PASS
+CASE find_glm-5.3__max | findModel 别名 | observed="GLM-5.3" | expected="GLM-5.3" | PASS
+CASE find_DEEPSEEK-V4-PRO-OFFICIAL | findModel 别名 | observed="DeepSeek-V4-Pro 正式版" | expected="DeepSeek-V4-Pro 正式版" | PASS
+CASE find_deepseek_v4_flash_official__dev | findModel 别名 | observed="DeepSeek-V4-Flash 正式版" | expected="DeepSeek-V4-Flash 正式版" | PASS
+CASE find_unknown | findModel(未知) | observed=undefined | expected=undefined | PASS
+CASE doubao_turbo_window | Doubao-Seed-2.1-Turbo contextWindow | observed=200000 | expected=200000 | PASS
+CASE kimi_k3_efforts | Kimi-K3 efforts | observed=["light","high","extra_high"] | expected=["light","high","extra_high"] | PASS
+CASE minimax_m3_no_efforts | MiniMax-M3 efforts | observed=[] | expected=[] | PASS
+CASE doubao_evolving_output | Doubao-Seed-Evolving outputTokens | observed=16000 | expected=16000 | PASS
+CASE marker_route_key | 无 max_key 时保留标准 key | observed="marker-only__dev" | expected="marker-only__dev" | PASS
+CASE marker_route_flag | maxMarker=true | observed=true | expected=true | PASS
+CASE marker_route_window | 窗口取 Max | observed=1000000 | expected=1000000 | PASS
+CASE maxkey_route | 有 max_key 时 maxMarker=false 且 key 换成 __max | observed=["k__max",false] | expected=["k__max",false] | PASS
+
+## B. 消息转换 / 工具历史修复
+CASE msg_roles | 角色序列 | observed=["system","system","user","assistant","tool","assistant"] | expected=["system","system","user","assistant","tool","assistant"] | PASS
+CASE msg_tool_call_shape | tool_call 形状 | observed={"id":"c1","index":0,"type":"function","name":"bash","args":"{}{}"} | expected={"id":"c1","index":0,"type":"function","name":"bash","args":"{}{}"} | PASS
+CASE msg_tool_result_id | tool 消息 tool_call_id | observed="c1" | expected="c1" | PASS
+CASE repair_orphan_demoted | 孤儿 tool 结果降级 | observed=["user","[result of an earlier tool call]\norphan"] | expected=["user","[result of an earlier tool call]\norphan"] | PASS
+CASE repair_unanswered_folded | 未应答 call 折进正文 | observed=["thinking\n[called tool write with {\"p\":1}]",1] | expected=["thinking\n[called tool write with {\"p\":1}]",1] | PASS
+CASE repair_kept_call_index | 保留的 call 重编号 | observed=0 | expected=0 | PASS
+CASE repair_result_kept | 应答结果保留 | observed="A ok" | expected="A ok" | PASS
+CASE image_data_uri | 多模态路由图片走 image_url | observed="[{\"type\":\"image_url\",\"image_url\":{\"url\":\"data:image/png;base64,AAA\"}}]" | expected=[{"type":"image_url","image_url":{"url":"data:image/png;base64,AAA"}}] | PASS
+CASE image_no_placeholder | 有图时正文不插占位 | observed="look" | expected="look" | PASS
+CASE tool_image_placeholder | tool 结果图片→占位文本（孤儿 tool 结果按修复规则降级为 user） | observed="[result of an earlier tool call]\n[image omitted]" | expected="[result of an earlier tool call]\n[image omitted]" | PASS
+CASE image_unknown_placeholder | 无图数据时用户图片→占位 | observed="[image omitted]" | expected="[image omitted]" | PASS
+CASE empty_assistant_dropped | 空 assistant 被丢弃 | observed=0 | expected=0 | PASS
+
+## C. SSE 解码
+CASE sse_chunk_boundary | 跨 chunk 的 JSON 仍可解码 | observed=[["output","你好"],["token_usage",5]] | expected=[["output","你好"],["token_usage",5]] | PASS
+CASE sse_specials | DONE/坏 JSON/标量/CRLF 处理（标准 SSE：无 event 字段的块默认 message） | observed=[["error",{"value":42}],["done",{"finish_reason":"length"}]] | expected=[["message",{"value":42}],["done",{"finish_reason":"length"}]] | FAIL(FINDING) | FINDING: 空行不重置 event 类型，data-only 块沿用上一块的 event 名
+CASE sse_no_trailing_newline | 末尾无换行仍解码 | observed=1 | expected=1 | PASS
+
+## D. 错误分类
+CASE error_4023 | classify | observed={"code":"MODEL_NOT_FOUND","retryable":false} | expected={"code":"MODEL_NOT_FOUND","retryable":false} | PASS
+CASE error_4001 | classify | observed={"code":"INVALID_REQUEST","retryable":false} | expected={"code":"INVALID_REQUEST","retryable":false} | PASS
+CASE error_3003 | classify | observed={"code":"PROVIDER_UNAVAILABLE","retryable":true} | expected={"code":"PROVIDER_UNAVAILABLE","retryable":true} | PASS
+CASE error_rate | classify | observed={"code":"RATE_LIMIT","retryable":true} | expected={"code":"RATE_LIMIT","retryable":true} | PASS
+CASE error_500 | classify | observed={"code":"PROVIDER_UNAVAILABLE","retryable":true} | expected={"code":"PROVIDER_UNAVAILABLE","retryable":true} | PASS
+CASE error_404 | classify | observed={"code":"INVALID_REQUEST","retryable":false} | expected={"code":"INVALID_REQUEST","retryable":false} | PASS
+CASE error_timeout | classify | observed={"code":"PROVIDER_UNAVAILABLE","retryable":true} | expected={"code":"PROVIDER_UNAVAILABLE","retryable":true} | PASS
+CASE error_other | classify | observed={"code":"PROVIDER_ERROR","retryable":false} | expected={"code":"PROVIDER_ERROR","retryable":false} | PASS
+
+## E. 重复守卫 / 文本工具调用 / session id / token 估算
+CASE loop_normal_prose | 正常长文本不触发 | observed=false | expected=false | PASS
+CASE loop_repeat_trips | 重复单元触发 | observed=true | expected=true | PASS
+CASE loop_disabled | span=0 关闭 | observed=false | expected=false | PASS
+CASE loop_cjk_trips | 中文重复触发 | observed=true | expected=true | PASS
+CASE sniff_calls | 恢复出 1 个调用 | observed=1 | expected=1 | PASS
+CASE sniff_coerce | 参数按 schema 强类型 | observed={"cmd":"ls & dir","timeout":30,"force":true,"tags":["a","b"]} | expected={"cmd":"ls & dir","timeout":30,"force":true,"tags":["a","b"]} | PASS
+CASE sniff_visible_stripped | 标记文本被剥离 | observed="" | expected="" | PASS
+CASE sniff_split | 跨 feed 拆分仍恢复 | observed=1 | expected=1 | PASS
+CASE sniff_unknown_left_visible | 未提供的工具名不转换 | observed=[0,true] | expected=[0,true] | PASS
+CASE sniff_flush_partial | 未闭合的 invoke 在 flush 时原样吐出 | observed=true | expected=true | PASS
+CASE sniff_no_schemas | 无工具时原样透传 | observed=true | expected=true | PASS
+CASE uuid_passthrough | 真 UUID 原样（小写） | observed="123e4567-e89b-42d3-a456-426614174000" | expected="123e4567-e89b-42d3-a456-426614174000" | PASS
+CASE uuid_deterministic | 非 UUID 确定性 | observed=true | expected=true | PASS
+CASE uuid_shape | 版本位=5 / variant=8-b | observed=["5",true] | expected=["5",true] | PASS
+CASE uuid_random | undefined 生成 UUID v4 形态 | observed=true | expected=true | PASS
+CASE tokens_latin | approxTokens("hello world") | observed=3 | expected=3 | PASS
+CASE tokens_cjk | approxTokens("你好世界") | observed=4 | expected=4 | PASS
+CASE tokens_mixed | approxTokens("a你b好") | observed=3 | expected=3 | PASS
+
+## F. JWT / 过期解析
+CASE jwt_data_parsed | data 字符串被解析为对象 | observed="a@b.c" | expected="a@b.c" | PASS
+CASE jwt_exp | exp 读取 | observed=1800000000 | expected=1800000000 | PASS
+CASE jwt_bad | 非法 token 返回 undefined | observed=undefined | expected=undefined | PASS
+CASE expiry_seconds | parseExpiry | observed=1800000000000 | expected=1800000000000 | PASS
+CASE expiry_ms | parseExpiry | observed=1800000000000 | expected=1800000000000 | PASS
+CASE expiry_numeric_string | parseExpiry | observed=1800000000000 | expected=1800000000000 | PASS
+CASE expiry_iso | parseExpiry | observed=1800000000000 | expected=1800000000000 | PASS
+CASE expiry_invalid | parseExpiry | observed=undefined | expected=undefined | PASS
+CASE expiry_zero | parseExpiry | observed=undefined | expected=undefined | PASS
+
+## 汇总：70/71 通过，1 不符
