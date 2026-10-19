@@ -1,0 +1,25 @@
+# command: C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\pnpm\bin\pnpm.cjs install --filter @hyzyn/dsh-kit-settings... --frozen-lockfile
+# cwd: D:\natnat\lingshu\外部插件\hyzyn-dsh-kit-settings\dsh-plugin-kit-main
+# exit: 0
+# seconds: 4.22
+
+## stdout
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+.                                        | +202 ++++++++++++++++++++
+Progress: resolved 202, reused 202, downloaded 0, added 134
+Progress: resolved 202, reused 202, downloaded 0, added 202, done
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: @deepseek-ai/dsh-subprocess-local@0.1.2-rc.1,       │
+│   cpu-features@0.0.10, esbuild@0.28.2, koffi@3.2.1,                          │
+│   node-pty@1.2.0-beta.15, ssh2@1.17.0.                                       │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Done in 3s using pnpm v10.30.3
+
+## stderr
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.overrides". See https://pnpm.io/settings for the new home of each setting.
+
