@@ -1,0 +1,47 @@
+# 独立探针：引文格式 / BibTeX 导出 / 完整备份（离线）
+generated_at = 2026-10-18T14:06:17.784Z
+repo = D:\natnat\lingshu\外部插件\dsh-cite\dsh-cite-master
+
+## A. 四种基本引文格式（纯函数，同一 Work）
+OBSERVED citation_gb-t-7714: Lovelace Ada, Hopper Grace. Deep learning for citation[J]. Nature, 2024, 600(12): 1-9.
+OBSERVED citation_apa: Lovelace, A., & Hopper, G. (2024). Deep learning for citation. Nature, 600(12), 1-9. https://doi.org/10.1038/nature12345
+OBSERVED citation_mla: Lovelace, Ada, and Grace Hopper. "Deep learning for citation." Nature, vol. 600, no. 12, 2024, pp. 1-9. https://doi.org/10.1038/nature12345
+OBSERVED citation_chicago: Ada Lovelace, Grace Hopper, "Deep learning for citation", Nature 600, no. 12 (2024): 1-9. https://doi.org/10.1038/nature12345
+CASE citation_four_styles_distinct | 去重后条数 | observed=4 | expected=4 | PASS
+CASE citation_gbt_shape | GB/T 形态 | observed="Lovelace Ada, Hopper Grace. Deep learning for citation[J]. Nature, 2024, 600(12): 1-9." | expected="含 “Lovelace Ada” 与 “[J]” 与 “Nature, 2024, 600(12): 1-9”" | PASS
+CASE readStyle_default | readStyle(undefined) | observed="gb-t-7714" | expected="gb-t-7714" | PASS
+CASE readStyle_invalid | 错误文本 | observed="style 只支持 gb-t-7714 / apa / mla / chicago，收到：harvard" | expected="含 “style 只支持”" | PASS
+OBSERVED chapter_gbt: Smith Jane. A chapter[Z]. (2021)[cited 2026-10-18].
+OBSERVED chapter_bibtex: @misc{smith2021a,
+CASE chapter_gbt_label | GB/T 章节类型标记 | observed="[Z" | expected="[M]" | FAIL(FINDING) | FINDING: chapter 未进入 GB/T 的专著/析出文献分支
+CASE chapter_bibtex_type | BibTeX 条目类型 | observed="@misc" | expected="@incollection 或 @inbook" | FAIL(FINDING) | FINDING: chapter 导出降级为 @misc
+CASE untitled_citation_en | 英文占位 | observed=true | expected=true | PASS
+CASE untitled_citation_zh | 中文占位 | observed=true | expected=true | PASS
+OBSERVED untitled_bibtex: "@misc{authorn.d.,\n  title={(无标题)}\n}"
+CASE untitled_bibtex_placeholder | BibTeX title 字段是否为中文占位符 | observed=true | expected=false | FAIL(FINDING) | FINDING: 机器可读导出被写入中文占位符 (无标题)
+
+## B. BibTeX 键与转义（纯函数）
+CASE key_sanitize | 自定义 key 清洗 | observed=true | expected=true | PASS
+CASE key_auto | 自动 key | observed="@article{lovelace2024deep," | expected="@article{lovelace2024deep," | PASS
+CASE org_author_bibtex | 机构作者 | observed=true | expected=true | PASS
+OBSERVED latex_escape_bibtex:   author={Lovelace, Ada and Hopper, Grace}, |   title={A \& B \% \$ \# \_ \textasciitilde{} \textasciicircum{} \textbackslash{} \{x\}},
+
+## C. workbench 导出（临时库；fetch 桩禁止联网）
+CASE imported_entries | 导入条数 | observed=3 | expected=3 | PASS
+OBSERVED export_references_gb-t-7714: filename=references-gb-t-7714.txt first_line="[1] Smith Jane. Style example[J]. Reference Review, 2024."
+OBSERVED export_references_apa: filename=references-apa.txt first_line="[1] Smith, J. (2024). Style example. Reference Review. https://doi.org/10.1000/roundtrip"
+OBSERVED export_references_mla: filename=references-mla.txt first_line="[1] Smith, Jane. \"Style example.\" Reference Review, 2024. https://doi.org/10.1000/roundtrip"
+OBSERVED export_references_chicago: filename=references-chicago.txt first_line="[1] Jane Smith, \"Style example\", Reference Review (2024). https://doi.org/10.1000/roundtrip"
+CASE export_references_distinct | 四份内容去重 | observed=4 | expected=4 | PASS
+CASE export_references_numbering | 条目编号 [1]/[2]/[3] | observed=true | expected=true | PASS
+OBSERVED export_bibtex_keys: ["one","chap","blank"]
+CASE export_bibtex_unique_keys | 键唯一数/条目数 | observed="3/3" | expected="3/3" | PASS
+OBSERVED export_bibtex_single: "@misc{chap,"
+CASE export_bibtex_subset_key_stable | 子集导出键与全库一致 | observed="@misc{chap," | expected="@misc{chap," | PASS
+CASE backup_revision | revision | observed=1 | expected=1 | PASS
+CASE backup_entries | entries | observed=3 | expected=3 | PASS
+CASE backup_sources_original | sources[0].text === 原始输入 | observed=true | expected=true | PASS
+CASE backup_rejects_selection | 错误文本 | observed="完整备份包含全库及原始来源，请不要附带条目选择。" | expected="含 “完整备份”" | PASS
+CASE export_all_default_scope | 不传 ids 导出条目数 | observed=3 | expected=3 | PASS
+
+## 汇总：19/22 通过，3 不符（不符项已在上面标 FAIL/FINDING）
