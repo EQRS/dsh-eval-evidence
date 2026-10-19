@@ -1,0 +1,19 @@
+# 锚定与环境基线
+
+repo: hyzyn/dsh-plugin-kit
+ref: main
+commit: 7363332f595b8112cb4b601f8723e6453043eb62
+commit_date: 2026-10-18T13:46:13Z
+version: 0.2.6
+tarball: 外部插件/hyzyn-dsh-kit-settings/hyzyn-dsh-kit-settings.tgz
+tarball_sha256_prefix: 83211d61a3480138
+tree: packages/kit-settings 9 files / 17027 B / b3ccca6109b46427；整仓 712 files / 26784155 B / 2857f54b4c02eb62
+snapshot: 外部插件/hyzyn-dsh-kit-settings/dsh-plugin-kit-main/packages/kit-settings
+
+host_dsh: 0.2.1-rc.2
+platform: win32-x64 / Windows 10.0.26200
+node: v24.21.0
+pnpm: 11.7.0
+python: 3.12.14
+anchored_at: 2026-10-19T07:08:10.925Z
+notes: tarball gzip 字节不保证可复现；内容锚定以 commit + 逐文件树指纹为准。
