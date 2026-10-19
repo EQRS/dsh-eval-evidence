@@ -1,135 +1,94 @@
-[intake 输入] 【测评报告】dsh-agent-teams-fish 0.7.3 体验快测（多智能体团队协作 · 方法试验）
+# 标准测评报告 · dsh-agent-teams-fish 0.7.3（能力五状态：不适用；功能验证：通过）
 
-<!-- intake:v1 {"project":"bench","difficulty":"medium","impact":"B","target":"Fish-under-sea/dsh-agent-teams-fish","form":"intake"} -->
+> 依据：工程协议手册 v1.1 §2/§3/§6/§13；`测试/协议/判定与证据链规范-v1.md`。
+> 本件不是配对实验（没有装/不装 D），而是**真实宿主功能验证**：用插件官方 `scripts/harness-runtime-verify.mjs` 在真实 DSH 0.2.1-rc.2 运行时上跑 8 类场景。
 
-<!-- 协议对齐：工程协议手册 v1.1（r2）§6 体验快测档；协议文件 sha256 8dd51cbf75b259c5dabfdb928eb112364231b5d8f9f580759534e5d78a34d849 -->
-> **协议对齐（v1.1 · r2 · 体验快测档）**：本件是**体验快测**（手册 §6），只记录安装/功能点/卸载残留类检查结果；
-> **不生成五种能力状态标签、不进入能力榜、不以「通过/合格」作为插件结论**；未覆盖项见「诚实边界」。
-> - **协议绑定**：`工程协议手册-v1.1⟧（r2），sha256 `8dd51cbf…d849⟧（快照 `测试/协议/⟧）。
-> - **插件身份**：源码版（commit + 逐文件树指纹），见「锚定提交」。
-> - **环境配置 ID**：dsh 0.2.1-rc.2 / win32-x64 / Windows 10.0.26200 / node v24.21.0 / model=n/a。
-> - **安全口径（§4 三分法）**：本件**未做**六威胁安全审计 ⇒ 安全结论 = **未测**。
-> - **时效（§13.7）**：测评完成后 90 个自然日内有效。
+## 一、结论
 
-## 性质声明
-
-本件是**给主创测评站 <https://review.lingshulab.com> 的投稿测评**（intake 输入，外部贡献申报），不是悬赏：
-**不 /claim、不自行加 bounty 标签**；计分、档位与是否归并均由维护者裁定（marker 的 difficulty/impact 仅为 intake 格式字段）。
-
-- 被测对象：站点「dsh-agent-teams-fish」详情页（清单版本 **0.7.3**）；源码取默认分支 `main⟧ commit `b5490e94⟧ 的 tarball 解包快照。
-- **未把插件装进任何正在使用的 DSH profile**：读数来自源码快照 + 构建/类型检查 + 仓库自带离线验证 + 直接 `import lib/*.js⟧ 的探针（临时目录）。
-- **仅 Windows**（10.0.26200 x64）：不对其它平台下结论。
-- 不排名、不给总分、不用星级；不改被测源码、不提 PR、不做安全渗透。
-## 锚定提交
-
-- 仓库：`Fish-under-sea/dsh-agent-teams-fish⟧，默认分支 `main⟧
-- commit：`b5490e945a85c3906368b351c0be2f64ea38c6d4⟧（2026-10-18T06:21:36Z）
-- 逐文件树指纹：**1,218 文件 / 49,771,469 B / sha256 `7398113882047610⟧**
-- tarball：`外部插件/dsh-agent-teams-fish/dsh-agent-teams-fish.tgz⟧，sha256 `a2b83de63399…⟧
-- 快照目录：`外部插件/dsh-agent-teams-fish/dsh-agent-teams-fish-main⟧
-
-## 环境与基线
+**能力五状态：不适用**（宿主平面插件，配对任务的「不装组」无法组队）；**功能验证：通过**。
 
 | 项 | 值 |
 |---|---|
-| 宿主 | DSH desktop **0.2.1-rc.2** |
-| 平台 | Windows 11 10.0.26200 x64 |
-| Node / pnpm | v24.21.0 / 11.28.5 |
-| 运行依赖 | **0**；devDependencies 35 个（`@deepseek-ai/dsh-*⟧ 0.2.0-rc.2 全家桶、React、tsdown、TypeScript） |
-| 基线 | 临时目录 + 仓库自带 `scripts/verify.mjs⟧ 离线 smoke |
+| 功能验证 | **通过**（10 runs / 81 条断言全 true，全部 exit 0、无超时） |
+| 宿主 | @deepseek-ai/dsh **0.2.1-rc.2**（exact cohort **295** 个 @deepseek-ai/dsh* 包，registry 快照在证据里） |
+| 插件 | dsh-agent-teams-fish **0.7.3**（npm pack tgz，sha256 前缀 2f4c34ad） |
+| 平台 | win32 / node v24.21.0 |
+| 模型 | 插件自带夹具（`fixtures/harness-runtime-llm.mjs`，确定性） |
 
-## 结果速览
+## 二、为什么不是五状态
 
-| 面 | 结果 |
-|---|---|
-| 依赖安装 | **exit 0**，66.1 s（35 包） |
-| 构建（`build⟧） | **exit 0**，10.2 s |
-| 类型检查（host + client） | **exit 0**，7.9 s |
-| 仓库自带离线验证（`scripts/verify.mjs⟧） | **exit 0**，5.9 s，全部 PASS |
-| 独立探针（15 断言） | **15 / 15 通过** |
+- 本插件 `inject = [tools, llm, subagents, systemPrompt, agents]`，工具（14 个 `agent_teams_*`）的执行依赖真实宿主服务。
+- 「不装组」没有 agent 服务，无法创建团队 → 配对差测不出「插件让模型多做了什么」，只会得到「不装=0」的天花板，属错问题。
+- 按规范，本件输出「功能验证 + 可用性」，不套五状态、不进入能力榜。
 
-## 逐项读数
+## 三、验证方法（官方脚本，可复现）
 
-### 1. 安装 / 构建 / 类型检查（`raw/02-install.txt⟧、`raw/03-build.txt⟧、`raw/05-typecheck.txt⟧）
+1. `npm pack` 插件 → tgz（32.3 MB，418 文件）。
+2. `node scripts/harness-runtime-verify.mjs --host-version 0.2.1-rc.2 --artifact <tgz> --report-dir <dir>`：脚本从 npm 拉精确 cohort、`npm install` 出隔离 runtime、把插件装进 headless profile，逐场景起 `dsh --profile headless` 会话，断言读 `trace.jsonl`。
+3. Windows 兼容补丁（**只动测试脚本，不动 lib/ 与被测代码**）：
+   - `spawn-shim.cjs`：脚本用 `spawn("npm", ...)`（无 shell），Windows 解析不到 npm → 用 `cmd /c` 包装（NODE_OPTIONS=--require 注入）。
+   - `symlinkSync(..., "dir")` → `"junction"`（2 处）：Windows 目录符号链接需开发者模式/管理员权限（EPERM）。
+   补丁文件与 diff 随证据保存。
 
-```
-install:   exit 0  66.1 s   + @deepseek-ai/dsh-* 0.2.0-rc.2（22 个）、react 18.3.1、tsdown 0.22.2、typescript 5.9.3
-build:     exit 0  10.2 s   clean-build → tsc(host) → tsc(client) → tsdown → git-artifacts
-typecheck: exit 0   7.9 s   tsc -p tsconfig.json --noEmit && tsc -p tsconfig.client.json --noEmit
-```
+## 四、读数（10 runs / 81 断言）
 
-### 2. 仓库自带离线验证（`raw/04-verify.txt⟧）
+| 场景 | 断言 | 结果 |
+|---|---|---|
+| lifecycle | 9 | 全 true |
+| lifecycle-cold-restore | 5 | 全 true |
+| fallback | 9 | 全 true |
+| fallback-cold-restore | 5 | 全 true |
+| failure | 6 | 全 true |
+| captain-idle-wakeup | 8 | 全 true |
+| progressive-entry | 5 | 全 true |
+| web-approval | 13 | 全 true |
+| protocol-compatibility | 9 | 全 true |
+| stability | 12 | 全 true |
 
-```
-command: node scripts/verify.mjs
-exit: 0    seconds: 5.9
-… PASS  approval model preflight rejects an unlisted typo before spawn
-… PASS  cold-resumed child restores provider, model, and reasoning from team.json
-8/8 state-file atomic write hardening (Windows EPERM fallback)
-… all checks passed
-```
-### 3. 独立探针（`raw/06-probe.txt⟧ → `raw/10-probe-final.txt⟧）
+关键断言举例（stability）：lazy-start / running-plan-correction / steering / read-receipt-continuation / reassign / archive / batch-plan / terminal-evidence / report-retry / settlement-dedup 全通过；web-approval 的「审批前 idle、审批后唤醒、成员输出释放、重复审批 409、无效团队 404」全通过。
 
-探针：`probes/probe_agent_teams_fish.mjs⟧，**15/15 通过**（内部模块探针，非插件公开 API）：
+## 五、预注册
 
-- **键名归一**：`sanitizeKey⟧ 处理空白/大小写、保留中文、纯符号回落 `k-<hash>⟧。
-- **状态往返**：`createTeamDir⟧ → `readTeam⟧ 字段一致；缺失团队返回 `undefined⟧。
-- **信箱**：串行 3 条顺序正确；**持 `withTeamLock⟧ 并发 10 条全部保留**；
-  无锁直接并发 10 条只保留 1 条（记录内部函数契约：调用方须持锁）。
-- **状态机**：同态无错；`completed⟧ 回退被拒；未知状态抛 `TypeError⟧（内部函数，调用方类型约束）。
-- **依赖判定**：`unsatisfiedDependencies⟧ 正确指出未完成项。
-- **诊断与归档**：`describeTeamStateDefect⟧ 能指出缺失字段；`archiveTeamDir⟧ 后原目录消失、`readArchivedTeam⟧ 可读回。
+本件没有配对预注册：场景与断言由插件官方 verify 脚本内置（跑前固定），本次未改断言。可复现命令见第九节。
 
-> 方法学说明：探针经三轮修正（补 `name/captainSessionId/createdAt/taskSeq⟧ 必填字段、区分合法状态、
-> 把并发用例改为持锁调用），失败读数全部保留（`raw/06-probe.txt⟧、`raw/07-probe-fixed.txt⟧、`raw/08-probe-fixed2.txt⟧、`raw/09-probe-fixed3.txt⟧）。
-## 发现
+## 六、证据链（https，已上传并实测 200）
 
-### P3-1 · transitionError 对表外状态抛 TypeError，而不是返回错误串
+站点提交文本：`证据链_提交文本.txt`（8 行）。
 
-- **现象**：调用 transitionError 传入表外状态（如 done → claimed）时抛
-  Cannot read properties of undefined (reading includes)（`raw/09-probe-fixed3.txt⟧）。
-- **根因**：TASK_TRANSITIONS 只覆盖 pending/claimed/in_progress/completed/failed/cancelled，
-  函数直接读 TASK_TRANSITIONS[current].includes(...)，未做键存在性检查。
-- **影响**：内部函数，两处调用点的 task.status 由类型约束保证在表内，正常路径不触发；
-  但若外部状态文件含历史/非法状态，诊断会退化为 TypeError 而非可读错误。
-- **建议**：加一行键存在性判断，返回 unknown task status 的可读错误。
+- 被测 commit：https://github.com/Fish-under-sea/dsh-agent-teams-fish/commit/b5490e945a85c3906368b351c0be2f64ea38c6d4
+- 全部证据：https://github.com/EQRS/dsh-eval-evidence/tree/main/evidence/dsh-agent-teams-fish-0.7.3
+- 报告本体：https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-agent-teams-fish-0.7.3/report.md
+- 结果：https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-agent-teams-fish-0.7.3/result.json
+- 验证脚本流水（补丁说明）：https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-agent-teams-fish-0.7.3/windows-compat.diff
+- 关键场景 trace（stability）：https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-agent-teams-fish-0.7.3/trace-stability.jsonl
+- 关键场景 trace（web-approval）：https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-agent-teams-fish-0.7.3/trace-web-approval.jsonl
+- 安装日志：https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-agent-teams-fish-0.7.3/install.stdout.log
 
-### 已验的正面结论
+## 七、遗留问题
 
-- **Windows 落盘加固**：自带 verify 覆盖 8 条状态文件原子写/EPERM 回退断言，全部通过。
-- **锁语义**：withTeamLock 下 10 条并发信箱写入零丢失（探针实测）。
-- **状态诊断**：describeTeamStateDefect 能指出具体缺失字段（tasks is missing），不是笼统报错。
+1. **锚定**：上游 Fish-under-sea/dsh-agent-teams-fish @ `b5490e945a85c3906368b351c0be2f64ea38c6d4`（2026-10-18T06:21:36Z），tree 1218 files / 49,771,469 B，见 `raw/00-anchor.txt`。
+2. 两个 Windows 兼容补丁改变了**测试脚本**的行为（spawn/symlink），已记录；未改断言逻辑。
+3. 模型是夹具：本件验证的是「插件在真实宿主里按协议工作」，不是「模型用它的效果」。
+4. 未验（官方脚本自述）：真实 provider API 与凭据、浏览器交互、其它操作系统、原生终端执行、真实用户数据迁移。
+5. 证据目录本地 1.3 GB（含 runtime node_modules）；上传只含结果、trace 样本与补丁，不含 node_modules。
 
-## 诚实边界
+## 八、不适用条件
 
-- **已验**：依赖安装、构建、host/client 类型检查、仓库自带 scripts/verify.mjs（离线 smoke）、
-  15 条独立探针（键名/状态/信箱/锁/状态机/归档）。
-- **未验**：真实 DSH 会话内多智能体组队与模型调用；`pnpm verify⟧ 全链（26 个子验证，只跑了第一个 verify.mjs）；
-  client 界面（React 侧栏/头像）；真实子代理 spawn 与模型路由；卸载残留；非 Windows 平台；长时压测。
-- **不确定**：@deepseek-ai/dsh-* 版本与宿主 0.2.1-rc.2 的兼容面（devDeps 为 0.2.0-rc.2）；
-  多实例并发下的锁竞争。
-- **不做**：不排名、不给总分、不用星级；不做安全渗透；不改被测源码、不提 PR；不装进 live profile。
-## 查重
+- 不能用于评价：模型实际使用 AgentTeams 完成任务的效率/质量（需配对实验，另立预注册）。
+- 不能用于评价：非 Windows 平台、真实模型 provider、浏览器 UI。
+- 本件不进入能力榜、不排名、不给总分。
 
-- 账本（595 事件）：`dsh-agent-teams-fish⟧ **0 命中**。
-- 全仓 md（3,048 个，排除 `node_modules⟧/`外部插件⟧/本件目录）：**0 命中**（`raw/09-dedupe-grep.txt⟧）。
-- 站点：`plugins.json⟧ 中 **reviewed=false**。
-- 结论：未见同件。
-
-## 复现步骤
+## 九、复现
 
 ```bash
-# 锚定：Fish-under-sea/dsh-agent-teams-fish @ b5490e945a85c3906368b351c0be2f64ea38c6d4
-pnpm install --frozen-lockfile
-pnpm run build
-pnpm run typecheck
-node scripts/verify.mjs
-node probes/probe_agent_teams_fish.mjs
-node ../tools/make_manifest.mjs --raw raw --label "dsh-agent-teams-fish 0.7.3"
+cd 外部插件/dsh-agent-teams-fish/dsh-agent-teams-fish-main
+npm pack --pack-destination %TEMP%/at-pack
+node scripts/harness-runtime-verify.mjs --host-version 0.2.1-rc.2 \
+  --artifact %TEMP%/at-pack/dsh-agent-teams-fish-0.7.3.tgz \
+  --report-dir 测试/dsh-agent-teams-fish/raw/60-eval-runtime
 ```
 
-## 一句话总结
+## 十、附录
 
-**dsh-agent-teams-fish 0.7.3 依赖可装（66 s）、构建与 host/client 类型检查全过、仓库自带离线验证全 PASS；
-15 条独立探针验证了键名归一、状态往返、持锁并发零丢失、状态机与归档。唯一发现是 P3：
-内部函数 transitionError 对表外状态抛 TypeError。真实多智能体组队与全 verify 链未验。**
+- 快测底稿：[测评报告_dsh-agent-teams-fish_v0.1.md](测评报告_dsh-agent-teams-fish_v0.1.md)
+- 本地读数：`raw/60-eval-runtime/result.json`（10 runs）、`registry-cohort.json`（295 包快照）、各场景 `trace.jsonl`。
