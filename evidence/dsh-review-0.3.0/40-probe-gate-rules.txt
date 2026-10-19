@@ -1,0 +1,209 @@
+== probe_gate_rules.mjs ==
+pkg  = D:\natnat\lingshu\测试\dsh-review\worktree\pkg
+node = v24.21.0
+
+---- R1. REVIEW.md parsing ----
+      skip=["vendor/**","**/*.lock"] sensitive=["src/billing/**"]
+      maxNits=0 severityFloor=blocker mode=deep found=true path=REVIEW.md
+      failureSignals=2 条: ["文档给出的命令不能执行","配置将请求发送到错误账号"]
+PASS  R1 limits parsed from the 限制 section
+PASS  R1 skip globs parsed from the 跳过 section
+PASS  R1 failure signals parsed from the 坏掉长什么样 section
+PASS  R1 sensitive paths parsed from the 敏感路径 section
+PASS  R1 a parsed file is marked found with its path
+PASS  R1 empty content yields found=false and no overrides
+      invalid values -> maxNits=null severityFloor=null
+PASS  R1 invalid limit values are ignored, not silently coerced
+      >32KiB REVIEW.md -> REVIEW.md exceeds 32 KiB; keep review guidance concise
+PASS  R1 REVIEW.md larger than 32 KiB is rejected
+
+---- R2. skip glob semantics ----
+      matchGlob("vendor/**", "vendor/a/b.js") = true
+PASS  R2 glob vendor/** vs vendor/a/b.js -> true
+      matchGlob("vendor/**", "src/vendor.js") = false
+PASS  R2 glob vendor/** vs src/vendor.js -> false
+      matchGlob("**/*.lock", "x.lock") = true
+PASS  R2 glob **/*.lock vs x.lock -> true
+      matchGlob("**/*.lock", "a/b/c.lock") = true
+PASS  R2 glob **/*.lock vs a/b/c.lock -> true
+      matchGlob("**/*.lock", "package-lock.json") = false
+PASS  R2 glob **/*.lock vs package-lock.json -> false
+      matchGlob("src/*.ts", "src/a.ts") = true
+PASS  R2 glob src/*.ts vs src/a.ts -> true
+      matchGlob("src/*.ts", "src/sub/a.ts") = false
+PASS  R2 glob src/*.ts vs src/sub/a.ts -> false
+      matchGlob("?.md", "a.md") = true
+PASS  R2 glob ?.md vs a.md -> true
+      matchGlob("?.md", "ab.md") = false
+PASS  R2 glob ?.md vs ab.md -> false
+      matchGlob("docs/**", "docs") = false
+PASS  R2 glob docs/** vs docs -> false
+PASS  R2 isSkipped uses the same glob rule
+PASS  R2 the three guidance locations are the documented ones
+
+---- R3. style / naming / formatting are dropped before verification ----
+      DROP_KINDS = ["style","formatting","format","diagnostics","diagnostic","cleanup","nitpick","naming","whitespace"]
+PASS  R3 kind style is dropped (parseCandidate returns null)
+PASS  R3 kind formatting is dropped (parseCandidate returns null)
+PASS  R3 kind format is dropped (parseCandidate returns null)
+PASS  R3 kind diagnostics is dropped (parseCandidate returns null)
+PASS  R3 kind diagnostic is dropped (parseCandidate returns null)
+PASS  R3 kind cleanup is dropped (parseCandidate returns null)
+PASS  R3 kind nitpick is dropped (parseCandidate returns null)
+PASS  R3 kind naming is dropped (parseCandidate returns null)
+PASS  R3 kind whitespace is dropped (parseCandidate returns null)
+PASS  R3 a correctness finding survives the filter
+PASS  R3 a surviving finding gets a 16-hex fingerprint
+      unknown kind -> Unknown finding kind
+PASS  R3 an unknown kind is rejected loudly (not dropped silently)
+
+---- R4. evidence must quote immutable snapshot source ----
+      base-side anchor used on after side -> Finding does not quote exact snapshot source
+PASS  R4 an anchor that is not the exact source line is rejected
+PASS  R4 line 0 is rejected
+PASS  R4 the before-side (base snapshot) may be cited with side:"before"
+      introducedBy on an unchanged line -> Finding is not linked to a changed introducing line
+PASS  R4 a finding not introduced by a changed line is rejected
+PASS  R4 sourceMatches accepts the exact line
+PASS  R4 sourceMatches rejects an off-by-one line
+
+---- R5. fingerprint dedupe and repeated anchors ----
+      same kind/file/anchor, lens specificity -> 58bf03622b0f985b vs 58bf03622b0f985b (lens=security)
+PASS  R5 the same defect reported by two lenses dedupes to one fingerprint (no double-reporting)
+      same anchor text at lines 4 and 5 -> 3b4934c5d4cb7dbe vs 40983cc928bf5d2e
+PASS  R5 the same anchor text at different occurrences gets different fingerprints
+      normalized line -> "export const value = danger().name"
+PASS  R5 fingerprint survives case/whitespace/backslash re-normalisation
+
+---- R6. severity floor, maxNits, maxFindings ----
+      defaults: severityFloor=important maxNits=2 maxFindings=20
+      floor=important, 3 confirmed (correctness/state/breaking) -> postable=2 dropped=1 unverified=0
+PASS  R6 the default floor (important) drops the nit and keeps the rest
+      same fingerprint at blocker+nit -> unverified=1 (one candidate after merge)
+PASS  R6 the same fingerprint at two severities merges into one candidate (highest severity wins)
+      REVIEW.md severity_floor=nit -> postable=1 (severity=nit)
+PASS  R6 REVIEW.md severity_floor overrides the default
+      maxNits=1 with 2 nits (breaking+security) -> postable=1 dropped=1
+PASS  R6 maxNits caps published nits
+      maxFindings=1 with 2 confirmed blockers -> postable=1 unverified=1
+PASS  R6 maxFindings turns the overflow into 未验证 rather than posting it
+      same finding twice on the same target -> first postable=1, second suppressed=1 postable=0
+PASS  R6 a re-published finding is suppressed by fingerprint and its repeat count is kept
+
+---- R7. independent verification votes ----
+      short reason rejected -> Invalid independent verification
+PASS  R7 short reason rejected
+      no witness rejected -> Verifier supplied no checkable source witness
+PASS  R7 no witness rejected
+      pre-existing needs base witness -> Pre-existing verdict requires base evidence
+PASS  R7 pre-existing needs base witness
+      fabricated witness rejected -> Verifier cited source outside the immutable snapshot
+PASS  R7 fabricated witness rejected
+PASS  R7 2-of-3 confirm carries the finding
+PASS  R7 2-of-3 reject rejects the finding
+PASS  R7 fewer votes than required is unverifiable, not a pass
+      one of each decision -> unverifiable
+PASS  R7 a split without a majority is unverifiable
+      no votes at all -> unverified=1 postable=0
+PASS  R7 a finding with no independent verification is never published
+
+---- R8. modes and risk classification ----
+      quick: finders=correctness+security verifiers=1 arbiter=false calls=5
+      standard: finders=correctness+state+breaking+security verifiers=3 arbiter=false calls=15
+      deep: finders=correctness+state+breaking+security verifiers=3 arbiter=true calls=25
+PASS  R8 quick = 2 finders (correctness+security), 1 verifier, no arbiter (matches the README table)
+PASS  R8 standard = 4 finders, 3 verifiers, no arbiter
+PASS  R8 deep = 4 finders, 3 verifiers, plus an arbiter
+      classifyRisk(["docs/readme.md","README.md"]) -> low (仅文档/测试/文案)
+PASS  R8 risk tier for docs/readme.md,README.md -> low
+      classifyRisk(["src/app.js"]) -> medium (普通代码改动：src/app.js)
+PASS  R8 risk tier for src/app.js -> medium
+      classifyRisk(["package.json"]) -> high (敏感路径：package.json)
+PASS  R8 risk tier for package.json -> high
+      classifyRisk([".github/workflows/ci.yml"]) -> high (敏感路径：.github/workflows/ci.yml)
+PASS  R8 risk tier for .github/workflows/ci.yml -> high
+      classifyRisk(["src/auth/login.js"]) -> high (敏感路径：src/auth/login.js)
+PASS  R8 risk tier for src/auth/login.js -> high
+      classifyRisk(["test/a.test.mjs"]) -> low (仅文档/测试/文案)
+PASS  R8 risk tier for test/a.test.mjs -> low
+PASS  R8 REVIEW.md sensitive paths escalate to high
+PASS  R8 risk high forces deep regardless of size; low+small is quick
+PASS  R8 required human approvals: low 0 / medium 1 / high 2
+PASS  R8 severity ordering blocker > important > nit > pre-existing
+PASS  R8 documented defaults: severityFloor=important, maxNits=2, roundCap=3
+
+== 70/70 assertions passed ==
+
+== assertions ==
+PASS  R1 limits parsed from the 限制 section
+PASS  R1 skip globs parsed from the 跳过 section
+PASS  R1 failure signals parsed from the 坏掉长什么样 section
+PASS  R1 sensitive paths parsed from the 敏感路径 section
+PASS  R1 a parsed file is marked found with its path
+PASS  R1 empty content yields found=false and no overrides
+PASS  R1 invalid limit values are ignored, not silently coerced
+PASS  R1 REVIEW.md larger than 32 KiB is rejected
+PASS  R2 glob vendor/** vs vendor/a/b.js -> true
+PASS  R2 glob vendor/** vs src/vendor.js -> false
+PASS  R2 glob **/*.lock vs x.lock -> true
+PASS  R2 glob **/*.lock vs a/b/c.lock -> true
+PASS  R2 glob **/*.lock vs package-lock.json -> false
+PASS  R2 glob src/*.ts vs src/a.ts -> true
+PASS  R2 glob src/*.ts vs src/sub/a.ts -> false
+PASS  R2 glob ?.md vs a.md -> true
+PASS  R2 glob ?.md vs ab.md -> false
+PASS  R2 glob docs/** vs docs -> false
+PASS  R2 isSkipped uses the same glob rule
+PASS  R2 the three guidance locations are the documented ones
+PASS  R3 kind style is dropped (parseCandidate returns null)
+PASS  R3 kind formatting is dropped (parseCandidate returns null)
+PASS  R3 kind format is dropped (parseCandidate returns null)
+PASS  R3 kind diagnostics is dropped (parseCandidate returns null)
+PASS  R3 kind diagnostic is dropped (parseCandidate returns null)
+PASS  R3 kind cleanup is dropped (parseCandidate returns null)
+PASS  R3 kind nitpick is dropped (parseCandidate returns null)
+PASS  R3 kind naming is dropped (parseCandidate returns null)
+PASS  R3 kind whitespace is dropped (parseCandidate returns null)
+PASS  R3 a correctness finding survives the filter
+PASS  R3 a surviving finding gets a 16-hex fingerprint
+PASS  R3 an unknown kind is rejected loudly (not dropped silently)
+PASS  R4 an anchor that is not the exact source line is rejected
+PASS  R4 line 0 is rejected
+PASS  R4 the before-side (base snapshot) may be cited with side:"before"
+PASS  R4 a finding not introduced by a changed line is rejected
+PASS  R4 sourceMatches accepts the exact line
+PASS  R4 sourceMatches rejects an off-by-one line
+PASS  R5 the same defect reported by two lenses dedupes to one fingerprint (no double-reporting)
+PASS  R5 the same anchor text at different occurrences gets different fingerprints
+PASS  R5 fingerprint survives case/whitespace/backslash re-normalisation
+PASS  R6 the default floor (important) drops the nit and keeps the rest
+PASS  R6 the same fingerprint at two severities merges into one candidate (highest severity wins)
+PASS  R6 REVIEW.md severity_floor overrides the default
+PASS  R6 maxNits caps published nits
+PASS  R6 maxFindings turns the overflow into 未验证 rather than posting it
+PASS  R6 a re-published finding is suppressed by fingerprint and its repeat count is kept
+PASS  R7 short reason rejected
+PASS  R7 no witness rejected
+PASS  R7 pre-existing needs base witness
+PASS  R7 fabricated witness rejected
+PASS  R7 2-of-3 confirm carries the finding
+PASS  R7 2-of-3 reject rejects the finding
+PASS  R7 fewer votes than required is unverifiable, not a pass
+PASS  R7 a split without a majority is unverifiable
+PASS  R7 a finding with no independent verification is never published
+PASS  R8 quick = 2 finders (correctness+security), 1 verifier, no arbiter (matches the README table)
+PASS  R8 standard = 4 finders, 3 verifiers, no arbiter
+PASS  R8 deep = 4 finders, 3 verifiers, plus an arbiter
+PASS  R8 risk tier for docs/readme.md,README.md -> low
+PASS  R8 risk tier for src/app.js -> medium
+PASS  R8 risk tier for package.json -> high
+PASS  R8 risk tier for .github/workflows/ci.yml -> high
+PASS  R8 risk tier for src/auth/login.js -> high
+PASS  R8 risk tier for test/a.test.mjs -> low
+PASS  R8 REVIEW.md sensitive paths escalate to high
+PASS  R8 risk high forces deep regardless of size; low+small is quick
+PASS  R8 required human approvals: low 0 / medium 1 / high 2
+PASS  R8 severity ordering blocker > important > nit > pre-existing
+PASS  R8 documented defaults: severityFloor=important, maxNits=2, roundCap=3
+
+70/70 assertions passed
