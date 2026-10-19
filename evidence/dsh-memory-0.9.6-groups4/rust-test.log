@@ -1,0 +1,67 @@
+running 32 tests
+test atoms::tests::r6_probe_branch_is_active_by_default ... ok
+test freshness::tests::fresh_node_factor_is_one ... ok
+test text::tests::neg_line_stripped ... ok
+test freshness::tests::old_node_is_floored ... ok
+test json::parse_tests::deep_nesting_beyond_limit_is_err_not_abort ... ok
+test freshness::tests::rehearsal_needs_last_access ... ok
+test store::opt_batch1_tests::archived_entries_excluded_from_candidates ... ok
+test store::opt_batch1_tests::lifecycle_state_parsed_from_index_json ... ok
+test freshness::tests::decay_half_life_is_30_days ... ok
+test text::tests::bigrams_dedup ... ok
+test text::tests::fm_roundtrip ... ok
+test text::tests::cn_grams_budget_rotation_covers_tail_segment ... ok
+test text::tests::golden_python_alignment ... ok
+test freshness::tests::protected_node_keeps_protect_line ... ok
+test text::tests::terms_basic ... ok
+test json::parse_tests::nesting_within_limit_parses ... ok
+test store::opt_batch1_tests::r2_like_lower_is_precomputed_equivalent ... ok
+test store::opt_batch1_tests::r2_like_lower_follows_lit_branch ... ok
+test serve::tests::bad_requests_report_error ... ok
+test store::opt_batch1_tests::r2_like_case_insensitive_recall ... ok
+test serve::tests::search_op_roundtrip ... ok
+test engine::tests::concurrent_search_is_thread_safe ... ok
+test engine::tests::r1_search_ranked_is_the_single_orchestration_point ... ok
+test engine::tests::search_hits_expected_doc ... ok
+test serve::tests::info_reports_effective_score_mode ... ok
+test atoms::tests::unify_pure_zh_untouched ... ok
+test atoms::tests::unify_mixed_fixture_matches_python ... ok
+test atoms::tests::unify_en_to_zh_atoms ... ok
+test atoms::tests::segment_greedy_longest ... ok
+test engine::tests::r3_score_only_sort_degenerates_to_enumeration_order ... ok
+test engine::tests::r3_graph_seeds_use_three_key_sort_path ... ok
+test engine::tests::r1_unifier_changes_cross_lingual_result ... ok
+
+test result: ok. 32 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+
+running 2 tests
+test opt_batch1_tests::r1_graph_seeds_default_is_sorted ... ok
+test opt_batch1_tests::r1_eval_path_applies_query_unifier ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+
+running 1 test
+test probe_zh_tie ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test probe_store_zh_tie ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling mdcg-eval v0.2.0 (C:\lr096\rust)
+    Finished `release` profile [optimized] target(s) in 38.59s
+     Running unittests src\lib.rs (C:\rt096\release\deps\mdcg_eval-c528224b8eab9d69.exe)
+     Running unittests src\main.rs (C:\rt096\release\deps\mdcg_eval-e472c354dc060666.exe)
+     Running tests\i29_probe.rs (C:\rt096\release\deps\i29_probe-f5f64097fcf0aadf.exe)
+     Running tests\i29_store_probe.rs (C:\rt096\release\deps\i29_store_probe-5dcd081c34433751.exe)
+   Doc-tests mdcg_eval
