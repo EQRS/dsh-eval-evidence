@@ -1,0 +1,853 @@
+===== md_cg.test_heartbeat_ledger rc=1 (7.3s)
+== G0 隔离与基线自证 ==
+  PASS G0a 缺省开：未设 MDCG_HEARTBEAT_LEDGER 时台账启用
+  PASS G0b 关断字面量 0/false/False 均关（沿用 AUTO_OFF_VALUES 口径）
+  PASS G0c 其余值（含空串）为开——只有三个关断字面量算关
+  PASS G0d 有界参数缺省 >0（轮转开、保留片数有上限、节流步长≥1）
+  PASS G0e 台账落点＝<root>/_heartbeat.jsonl（与 _sustain.jsonl 同域）
+  PASS G0f 沙箱：库根在守卫临时目录内（绝不碰在役库）
+== L1 零判定变更（硬门）——台账开/关读面逐位一致 ==
+  PASS L1 前置：台账关时不写盘（无 _heartbeat.jsonl）
+  PASS L1a 台账开时恰 3 条周期行（三次 beat）
+  PASS L1b beat() 返回逐位一致（键集 + 值）——台账不改返回
+  PASS L1c 心跳戳字段逐位一致（含进度三字段）
+  PASS L1d judge() 返回逐位一致（12 组年龄×任务态）
+  PASS L1e heal() 返回逐位一致（含 before/after 统计）
+  PASS L1e' 前置：heal 确有动作（读面非空，比对有意义）
+  PASS L1f diagnose() 返回逐位一致（含 issues/stats）
+  PASS L1g _sustain.jsonl 既有记录逐位一致（台账不污染既有台账）
+== L2 append-only —— 只追加，历史行不被改写 ==
+  PASS L2 旧字节是新内容的前缀（历史行未被改写/截断）
+  PASS L2a 行数==写入次数（10）
+  PASS L2b 记录顺序==写入顺序（追加不重排）
+  PASS L2c 字段齐备（t/name/pid/ok/kind）
+== L3 断点可检出 —— 人为断档 → 报断点且最长区间缩短 ==
+  PASS L3 连续序列：零断点、最长 40s
+  PASS L3a 注入断档后**报出断点**（breaks=1、segments=2）
+  PASS L3b 最长连续区间**缩短**（40s → 30s）
+  PASS L3c 断点间隔可读数（30→1000＝970s）
+  PASS L3d 最近一次周期时刻可读（last_iso / last_age_s）
+  PASS L3e 单条记录：零断点、最长 0s、一段
+  PASS L3f 无记录：absent=True（诚实不编数）
+== L4 有界（硬门）——分片轮转 + 保留片数上限 ==
+  PASS L4 分片数受 KEEP=2 约束（实际 2）
+  PASS L4a 保留片数不超上限（淘汰在跑）
+  PASS L4b 活动台账有界：341 ≤ 阈值 256 + 单条余量
+  PASS L4c 每个分片有界（≤ 阈值 + 单条余量）
+  PASS L4d 总字节有界：1025 ≤ (keep+1)×阈值 + 余量
+  PASS L4e 淘汰**非静默**：pruned 名单写进轮转自述行（['_heartbeat.000116.jsonl']）
+  PASS L4f 索引与磁盘分片对齐（淘汰即摘索引，不留悬空项）
+  PASS L4g HEARTBEAT_ROTATE_BYTES=0 → 不切分（显式退回无上界形态）
+  PASS L4h 归档目录不在 LAYERS → 分片不参与节点索引
+== L5 心跳调度源唯一（开关开 => 转移，不叠加）==
+  PASS L5a 前置：关态窗口内确有 beat 行（否则比较空转）实际 6
+  FAIL L5b 开态**不叠加**：开=10 关=6（倍率 1.67x，>1.6x 即两路各调度一次）  ← (10, 6)
+  PASS L5c 开态心跳**仍在推进**（未被误关掉）：开=10 关=6
+
+心跳台账守卫：37 通过，1 失败
+
+===== md_cg.test_issue150_empty_query_terms rc=0 (1.9s)
+[A] Python 五处过滤
+  [PASS] A1 全标点 query 不再产出空词项
+  [PASS] A1b 纯空白 query 不再产出空词项
+  [PASS] A1c 正常 query 词项不变（零误伤）  · ['跨节点证据', '跨节', '节点']
+  [PASS] A2 _like 对空词项不再恒真
+  [PASS] A2b _like 空词项混入非空词项仍不恒真
+  [PASS] A2c _like 正常词项仍命中（零误伤）
+  [PASS] A5 add() 入口滤掉空 tag（落库 tags 无空串）  · ['标签A']
+[A3/A4] tag_bonus 与负覆盖
+  [PASS] A3 无关问句下：空 tag 与干净 tag 原始分相同（空 tag 不再白拿 0.05）  · 干净=0.0 空tag=0.0
+  [PASS] A4 空词项/全标点 query 不再把负记忆算作「覆盖本查询」  · covered_neg=[]
+  [PASS] A4b 正向对照：真正命中负记忆的问句仍照旧覆盖（零误伤）  · covered_neg=['rejected/neg_probe.md']
+[B] 跨侧面
+  [PASS] B1 Python：空 tag 不改变排名（两档读数一致）  · A=(0.016129, 0.016393) B=(0.016129, 0.016393)
+  [PASS] B2 Rust：空 tag 不改变排名（两档读数一致）  · A=(0.016129, 0.016393) B=(0.016129, 0.016393)
+  [PASS] B3 两侧逐位一致（含空 tag 档）  · py=(0.016129, 0.016393) rust=(0.016129, 0.016393)
+  [PASS] B4 两侧逐位一致（干净 tag 档）  · py=(0.016129, 0.016393) rust=(0.016129, 0.016393)
+
+SUMMARY: #150 空查询词项跨侧守卫：14 通过，0 失败
+
+===== md_cg.test_issue354_p2_datapath_clock rc=1 (0.7s)
+== A 组：判据固化（CLOCK$ 不收的读数与真源唯一性）==
+  PASS A1 清单在 datapath.py 中恰定义 1 次（真源单点）
+  PASS A1 清单只被 _reserved_device_tail 消费（AST 面，无第二份副本）
+  PASS A2 清单不含 CLOCK$（大小写不敏感）
+  PASS A2 清单仍含 DOS 设备名与主控台伪设备（判据非空集）
+  PASS A3 _reserved_device_tail('clock$') 判 False（不是保留名）
+  PASS A3 _reserved_device_tail('CLOCK$') 判 False（不是保留名）
+  PASS A3 _reserved_device_tail('Clock$') 判 False（不是保留名）
+  PASS A3 _reserved_device_tail('clock$.txt') 判 False（不是保留名）
+  PASS A3 _reserved_device_tail('D:\\probe\\clock$') 判 False（不是保留名）
+  PASS A3 _reserved_device_tail('D:/probe/clock$') 判 False（不是保留名）
+  PASS A3 _reserved_device_tail('clock$ ') 判 False（不是保留名）
+  PASS A3 _reserved_device_tail('clock$.log') 判 False（不是保留名）
+  PASS A4 _abs_host_path(<tmp>\clock$) 不抛（合法名不被误拒）
+  PASS A4 归一结果末段仍是 clock$（未吞成设备路径）
+  PASS A5 os.makedirs 建 clock$ 目录成功且 isdir 为真
+  PASS A5 clock$ 目录内写入读回一致
+  PASS A5 listdir 里可见 clock$（不是被吞的设备路径）
+  PASS A6 RtlIsDosDeviceName_U("CLOCK$") == 0（NT 不认它是设备名）
+  PASS A6 对照：AUX / CONOUT$ 均非 0（判据非恒零）
+  PASS A6 \\.\clock$ 打不开（不是设备）
+  FAIL A6 对照：\\.\aux / \\.\nul / \\.\conin$ 都打得开（判据非恒假）  {'aux': False, 'nul': True, 'conin$': True, 'clock$': False}
+  PASS A7 既有记录已写明 clock$ 实测不保留（同源口径）
+
+== K 组：非恒真 / 非恒假对照 ==
+  PASS K1 _reserved_device_tail('CON') 判 True
+  PASS K1 _reserved_device_tail('con') 判 True
+  PASS K1 _reserved_device_tail('PRN') 判 True
+  PASS K1 _reserved_device_tail('AUX') 判 True
+  PASS K1 _reserved_device_tail('aux') 判 True
+  PASS K1 _reserved_device_tail('NUL') 判 True
+  PASS K1 _reserved_device_tail('nul') 判 True
+  PASS K1 _reserved_device_tail('CONIN$') 判 True
+  PASS K1 _reserved_device_tail('conin$') 判 True
+  PASS K1 _reserved_device_tail('CONOUT$') 判 True
+  PASS K1 _reserved_device_tail('COM1') 判 True
+  PASS K1 _reserved_device_tail('COM9') 判 True
+  PASS K1 _reserved_device_tail('LPT1') 判 True
+  PASS K1 _reserved_device_tail('LPT9') 判 True
+  PASS K1 _reserved_device_tail('D:\\probe\\aux') 判 True
+  PASS K1 _reserved_device_tail('D:/probe/aux') 判 True
+  PASS K1 _reserved_device_tail('aux.txt') 判 True
+  PASS K1 _reserved_device_tail('AUX ') 判 True
+  PASS K1 _reserved_device_tail('nul.') 判 True
+  PASS K1 _reserved_device_tail('aux...') 判 True
+  PASS K1 _reserved_device_tail('com1.tar.gz') 判 True
+  PASS K2 _reserved_device_tail('cone') 判 False
+  PASS K2 _reserved_device_tail('clock') 判 False
+  PASS K2 _reserved_device_tail('com0') 判 False
+  PASS K2 _reserved_device_tail('com10') 判 False
+  PASS K2 _reserved_device_tail('lpt0') 判 False
+  PASS K2 _reserved_device_tail('lpt10') 判 False
+  PASS K2 _reserved_device_tail('auxx') 判 False
+  PASS K2 _reserved_device_tail('.aux') 判 False
+  PASS K2 _reserved_device_tail('auxiliary') 判 False
+  PASS K2 _reserved_device_tail('') 判 False
+  PASS K2 _reserved_device_tail('D:\\probe\\com0') 判 False
+  PASS K2 _reserved_device_tail('clock$') 判 False
+  PASS K2 _reserved_device_tail('logger$') 判 False
+  PASS K2 _reserved_device_tail('conin') 判 False
+  PASS K2 _reserved_device_tail('com') 判 False
+  PASS K2 _reserved_device_tail('lpt') 判 False
+  PASS K2 _reserved_device_tail('nul1') 判 False
+  PASS K2 _reserved_device_tail('con2x') 判 False
+  PASS K3 对照：CONOUT$ 判 True 而 CLOCK$ 判 False（不是按字符集定）
+  PASS K4 _abs_host_path(<tmp>\aux) 抛 ValueError（真设备名仍拒）
+  PASS K4 对照：<tmp>\cone 任何平台都不抛（判据非恒真）
+  PASS K5 普通路径仍走 abspath 归一（恒等语义未变）
+
+断言总数 65（PASS 64 / FAIL 1 / SKIP 0），FLOOR=40
+issue #354 [P2-16] 结果：1 失败
+   - A6 对照：\\.\aux / \\.\nul / \\.\conin$ 都打得开（判据非恒假）
+
+===== md_cg.test_issue491_compose_sandbox rc=0 (13.4s)
+[PASS] S3 函数级死循环有界返回失败  · ok=False sec=1.64 checks='✗ L2 执行超时（超过 1.0s 未返回，已强制终止；被校验代码须在受控时限内返回）'
+[PASS] S4 模块级死循环有界返回失败  · ok=False sec=2.17 checks='✗ L2 执行超时（超过 1.0s 未返回，已强制终止；被校验代码须在受控时限内返回）'
+[PASS] S5 py_ref 死循环有界返回失败  · ok=False sec=1.59 checks='✗ L2 执行超时（超过 1.0s 未返回，已强制终止；被校验代码须在受控时限内返回）'
+[PASS] S6 open() 载荷无副作用且判负  · ok=False created=False
+[PASS] S7 正对照：正常模板仍通过  · ok=True checks='✔ 语法通过 | 样例 2 组全过'
+[PASS] S8 判据不放宽：期望严格相等  · ok=False（严格相等下 dict 多键必须判负）
+[PASS] S9 语义保留：首可调用 / 多参 / call 标记  · s9a=True s9b=True s9c=True
+[PASS] S1 AST：code_compose 无 exec/eval 调用点  · 裸调用点=[]
+[PASS] S2 单点：L2 经 verifier.run_guarded（不新建第二套沙箱）  · run_guarded@[('run_guarded', 774)] subprocess_import=[] verifier委托=[('_run_guarded', 869)]
+
+================================================================
+通过 9 ／ 失败 0
+================================================================
+
+===== md_cg.test_issue91_verifier_timeout rc=0 (18.7s)
+[PASS] T1a 模块级死循环 ⇒ 有界返回失败（不挂死）  · l2_ok=False blocked=True sec=1.46s ev=执行超时（超过 0.8s 未返回，已强制终止；被校验代码须在受控时限内返回）
+[PASS] T1b 函数级死循环 ⇒ 有界返回失败（不挂死）  · l2_ok=False blocked=True sec=1.91s ev=执行超时（超过 0.8s 未返回，已强制终止；被校验代码须在受控时限内返回）
+[PASS] T2（正对照）合法载荷仍通过（整体 ok 与 L2 层都通过）  · ok=True l2_ok=True ev=2 组样例全部通过
+[PASS] T3a 超时子进程被回收（kill 后 wait，无残留）  · kinds=['timeout', 'timeout', 'timeout'] reaped=[True, True, True]
+[PASS] T3b 连续超时后存活进程数不增长  · before=4 after=4
+[PASS] T3c 连续超时后后续调用仍正常（全链路 L2 有界判负 + 正常载荷通过）  · full_l2_ok=False full_sec=1.44s ok_after=True
+[PASS] T5a 超时结果不被固化成缓存条目（不会缓存成 ok）  · l2_ok=False blocked=True cached=False
+[PASS] T5b（正对照）正常载荷确会写缓存  · ctrl_ok=True ctrl_cached=True
+[PASS] T3d 子进程整体墙钟有界（外层守护未触发强杀）  · child sec=17.36s outer=20.0s
+[PASS] T4a _SAFE_BUILTIN_NAMES 不含 __import__/open/eval 等危险内建  · 越界=[]
+[PASS] T4b _STDLIB_OK 不含 os/sys/socket/threading  · 越界=[]
+[PASS] T4c _STDLIB_OK 仍保留常用纯标准库（collections/math/itertools 在）
+[PASS] T6a Verifier 类体内执行全部经 _run_guarded（3 处）  · guard_calls=['_run_guarded@1194', '_run_guarded@1241', '_run_guarded@1625']
+[PASS] T6b Verifier 类体内无裸 exec/compile 调用  · bare=[]
+[PASS] T6c 时限可注入（Verifier(exec_timeout=…)）且默认取模块常量 EXEC_TIMEOUT_S
+
+================================================================
+通过 15 ／ 失败 0
+================================================================
+
+===== swarm.tests.bench_swarm_parallel rc=0 (13.5s)
+第 1 次: 单实例 198 ms / 8 实例 774 ms / 加速比 2.05×
+第 2 次: 单实例 202 ms / 8 实例 754 ms / 加速比 2.14×
+第 3 次: 单实例 197 ms / 8 实例 760 ms / 加速比 2.08×
+第 4 次: 单实例 201 ms / 8 实例 749 ms / 加速比 2.15×
+第 5 次: 单实例 218 ms / 8 实例 745 ms / 加速比 2.34×
+
+单实例 4 轮: 中位 201 ms（197~218 ms，极差 1.11×）
+8 实例 4 轮: 中位 754 ms（745~774 ms，极差 1.04×）
+串行参照 (8×单实例中位): 1608 ms
+逐次加速比: 2.05×  2.14×  2.08×  2.15×  2.34×
+稳健加速比(中位): 2.14×  （理论上限 ~8×，管道往返阻塞 IO）
+每轮每实例摊薄: 23.6 ms
+
+[✓] 稳健加速比 2.14× > 2.0（5 次采样取中位）
+
+===== swarm.tests.test_swarm_fault rc=0 (46.5s)
+[✓] 项目生成
+=== ① 基线（无故障） ===
+[✓] 基线运行
+=== ② 运行中强杀两个实例子进程 ===
+[✓] 强杀了 2 个实例子进程 — ['36028', '15940']
+[✓] 蜂群完成（退出码 0，未被故障击穿） — 0
+=== ③ 透明性比对 ===
+[✓] 重入幂等聚合
+[✓] WAL 全验签通过（60055 条） — bad=0
+[✓] 故障跑在线报告可解析（末行 JSON —— health 面的载体） — ndition_space":[{"name":"新信任路径","trust_at_create":0.1}],"halt":"halt","instance":"无名实例","round_no":6000,"stack":[],"symbols":{"已收消息数":1,"收件箱":"[{\"from\":\"实例0\",\"payload\":\"0.9\"}]"},"trust":0.9}}}
+[✓] 健康评分满分（重试成功即透明：在线窗口面非空且逐项满分） — {'实例0': 1.0, '实例1': 1.0, '实例2': 1.0, '实例3': 1.0, '实例4': 1.0, '实例5': 1.0}
+[✓] N263 变异自证：空 health 面判红（旧码 all([]) 恒真之处） — 空面=False None=False
+[✓] N263 变异自证：掉分面判红 / 满分面对照判绿（判据非恒真非恒假） — 掉分面=False 满分面=True
+[✓] 六实例终态与基线一致（trust 逐项相等） — {'实例0': 0.9, '实例1': 0.9, '实例2': 0.9, '实例3': 0.9, '实例4': 0.9, '实例5': 0.9}
+[✓] gossip 水位一致（对账通过）
+
+12 passed, 0 failed
+
+===== scripts.test_mdcg_stale_servers_scan rc=0 (21.7s)
+  [PASS] G0 前提：Windows 且模块可导入
+[1] G1 探测可用性单点（unit，桩 _ps）
+  [PASS] G1 PowerShell 未能执行（rc=None） → 判不可用（err 非 None）
+  [PASS] G1 PowerShell 非零退出 → 判不可用（err 非 None）
+  [PASS] G1 输出带 <ERR 标记 → 判不可用（err 非 None）
+  [PASS] G1 输出为空 → 判不可用（err 非 None）
+  [PASS] G1 伪记录（<ERR 文本被解析成记录） → 判不可用（err 非 None）
+  [PASS] G1 正常 Format-List 输出 → 判可用（err=None 且记录非空）
+  [PASS] G1 CommandLine 含换行（多行 --eval，值内夹空行） → 判可用（err=None 且记录非空）
+[2] G2 沙盒 E2E·探测不可用（修前：判绿 + 自报被删光）
+  [PASS] G2 前提：沙盒预置 3 个自报文件
+  [PASS] G2 探测不可用 → 退出码 ≠ 0（修前 EXITCODE=0）
+  [PASS] G2 stderr 报环境错误（不判「前置守卫通过」）
+  [PASS] G2 沙盒自报 3 件原样在位（修前被 purge([]) 删光）
+[3] G3/G4/G5 沙盒 E2E·list 只读 与 显式清理
+  [PASS] G3 list（探测可用）→ 沙盒自报 3 件仍在（修前被删）
+  [PASS] G3 list 退出码 ∈ {0,1}（只读，不因环境报错）
+  [PASS] G4 `purge` 子命令 → 退出码 0（修前无此子命令：argparse exit 2）
+  [PASS] G4 非在役自报确被清掉（清理能力未丢）
+  [PASS] G5 探测不可用时 `purge` → 退出码 2 且报「拒绝清理」
+  [PASS] G5 探测不可用时 `purge` 不删任何文件（fail-closed）
+[4] G6/G7/G8 kill 与 --json
+  [PASS] G6 kill 探测不可用 → 报「探测不可用」（修前误报「进程不存在」）
+  [PASS] G6 kill 探测不可用 → 退出码 ≠ 0
+  [PASS] G7 kill 不存在 pid（探测可用）→ 「进程不存在」且退出码 1
+  [PASS] G8 list --json（探测可用）→ stdout 仍为 JSON 数组
+  [PASS] G8 list --json（探测不可用）→ stdout `[]` + 退出码 2
+[5] G9/G10 selfreport.purge 边界 与 自报契约
+  [PASS] G9 purge([]) 默认不删（修前删光整个目录，N255）
+  [PASS] G9 purge([], allow_empty=True) 才按「在役已全退」清空
+  [PASS] G10 report() 仍写自报且键齐（本次改动未破in-service契约）
+  [PASS] G10 read_all() 可读回（pid 键 = 本进程）
+
+27 passed, 0 failed, 0 skipped
+
+===== hive.test_h6_mcp_depends_on rc=0 (15.8s)
+  [ok] A1·MCP 面提交带 depends_on 的任务 → spec.json 落盘含该键
+  [ok] A2·落盘值与提交参数逐项一致（保序、不裁剪）
+  [ok] A3·依赖未 done 时不被领取（观察窗口内 pending 且无 claimed.lock）
+  [ok] A4·依赖 done 后才被领取且终态 done（领取不早于依赖 done 写盘）
+  [ok] B1·格式非法被拒 '../x'
+  [ok] B2·格式非法被拒 'x123'
+  [ok] B3·格式非法被拒 'h/../../x'
+  [ok] B4·格式非法被拒 '..'
+  [ok] B5·格式非法被拒 'h\\..'
+  [ok] B6·格式非法被拒 'h:x'
+  [ok] B7·格式非法被拒 'h.%.txt'
+  [ok] B8·格式非法被拒 'h1_a '
+  [ok] B9·格式非法被拒 ''
+  [ok] B10·格式非法被拒 'h..'
+  [ok] C1·不存在的依赖被拒 h1999999999999_zz
+  [ok] C2·不存在的依赖被拒 h_notadir_x
+  [ok] D1·两侧逐项一致 已有目录的合法 id
+  [ok] D2·两侧逐项一致 已有目录的短合法 id
+  [ok] D3·两侧逐项一致 已有目录的仅 h 前缀 id
+  [ok] D4·两侧逐项一致 合法格式但目录不存在
+  [ok] D5·两侧逐项一致 合法格式但同名是文件
+  [ok] D6·两侧逐项一致 不以 h 开头
+  [ok] D7·两侧逐项一致 相对路径穿越
+  [ok] D8·两侧逐项一致 父目录锚
+  [ok] D9·两侧逐项一致 h + 路径穿越
+  [ok] D10·两侧逐项一致 反斜杠穿越
+  [ok] D11·两侧逐项一致 冒号（盘符/ADS 面）
+  [ok] D12·两侧逐项一致 百分号与点
+  [ok] D13·两侧逐项一致 尾随空格
+  [ok] D14·两侧逐项一致 空串
+  [ok] D15·两侧逐项一致 整型元素
+  [ok] D16·两侧逐项一致 布尔元素
+  [ok] D17·两侧逐项一致 null 元素
+  [ok] D18·两侧逐项一致 嵌套数组元素
+  [ok] D19·两侧逐项一致 一好一坏（存在性拒面）
+  [ok] D20·两侧逐项一致 空列表（声明无依赖）
+  [ok] D21·python 侧分类分布非退化（accept/fmt_reject/exist_reject 三态皆现）
+  [ok] E1·格式闸拦截后池中不新增任务目录（不静默写入/不降级为无依赖）
+  [ok] E2·存在性闸拦截后池中不新增任务目录（不静默写入）
+  [ok] F1·缺省不带 depends_on → ok=True 且 spec 不含该键（缺省不写）
+  [ok] G1·非列表（裸字符串）被拒且原因含「列表」
+  [ok] H1·orch._spawn 透传 depends_on 进子 spec
+  [ok] I1·orch._spawn 缺省不写 depends_on
+
+================================================================
+H-6 依赖门禁守卫（MCP 面 / orch 面）：43 通过，0 失败
+
+===== hive.test_id_contract_v2 rc=0 (67.9s)
+
+== [A] 四槽必填（CLI/MCP 两路实跑）+ _submit 退场 + orch 透传 ==
+  [ok]   A0 前置：hive 二进制在盘（真 exe 对照面）
+  [ok]   A1·CLI 缺身份 → 退出 1 且错误含四槽名/可照抄示例
+  [ok]   A1·CLI 缺任务 → 退出 1 且错误含四槽名/可照抄示例
+  [ok]   A1·CLI 缺单元 → 退出 1 且错误含四槽名/可照抄示例
+  [ok]   A1·CLI 三槽全缺 → 退出 1 且错误含四槽名/可照抄示例
+  [ok]   A1b·缺槽不落任何任务目录（fail fast 在进队列前）
+  [ok]   A2·CLI env 兜底三槽可提交（英文键 unit 落 id 为中文名）
+  [ok]   A3·alloc-id 成功：id 四槽中文形态 + 目录已创建（分配凭证）
+  [ok]   A3b·alloc-id 失败非 0 且打印原因（单元不在闭集）
+  [ok]   A4·MCP 真实 stdio 服务：缺四槽被拒且原因含四槽名
+  [ok]   A4b·MCP 真实进程侧证：缺槽拒面未触任何落盘（临时池仍空）
+  [ok]   A5·MCP 工具 inputSchema 收四槽且 required 含 identity/task/unit
+  [ok]   A5b·schema properties 与 SPAWN_ALLOWED_KEYS 逐键同集（防两处漂移）
+  [ok]   A5c·工具描述键数与 schema 一致（19 键，防文案漂移）
+  [ok]   A6·MCP _t_spawn 三槽全缺 → ok=False 且错误含四槽名与 MCP 面示例
+  [ok]   A6·MCP _t_spawn 缺 identity → ok=False 且错误含四槽名与 MCP 面示例
+  [ok]   A6·MCP _t_spawn 缺 task → ok=False 且错误含四槽名与 MCP 面示例
+  [ok]   A6·MCP _t_spawn 缺 unit → ok=False 且错误含四槽名与 MCP 面示例
+  [ok]   A6b·缺槽时**根本没调分配器**（必填闸在 Python 面先落，非靠下游兜底）
+  [ok]   A6c·缺槽不落任何任务目录
+  [ok]   A7·MCP _t_spawn 四槽齐备 → 四槽中文 id（编号 4 位定宽）+ spec/status 落盘
+  [ok]   A7b·四槽不入 spec.json（文件须已落盘；与 rust init_job_with_slots 同写序/同口径）
+  [ok]   A7c·返回体透出实际生效的三槽（调用方可见，不静默）
+  [ok]   A8·_submit 不再自造 id（旧 `uuid4().hex[:6]` 与 `f"h{毫秒}_` 已退场）
+  [ok]   A8b·_submit 签名带四槽之三且 docstring 声明「不再自造 id」
+  [ok]   A9·HIVE_EXE 不可用 → SubmitError 显式报错（不静默降级/不自造 id）
+  [ok]   A9b·该失败经 _t_spawn 转成 ok:False + 可读原因（不抛给协议面）
+  [ok]   A9c·分配失败不落任何任务目录（不自造 id 的观测面）
+  [ok]   A10·orch 缺四槽 → ok=False 且报错含四槽名（不兜底造 id）
+  [ok]   A10b·orch 四槽齐备 → 透传给 _submit（identity/task/unit 逐项一致）
+  [ok]   A10c·orch 显式传值优先于 spec 继承（缺省才继承）
+  [ok]   A10d·orch 源码面无 id 自造形态（不含 uuid4().hex[:6]）
+  [ok]   A10e·orch 三槽从 spec 同名键读入（spec 带则透传的单一来源）
+
+== [B] 编号分配（B3：独占创建即分配 / 定宽 4 位 / 号位间回绕 / 全部占用才报错） ==
+  [ok]   B0 前置：hive 二进制在盘
+  [ok]   B1·连续分配不碰撞且自 0001 起（英文键 unit 落中文名）
+  [ok]   B2·编号 4 位定宽十进制 + 分配即创建目录（独占创建即分配）
+  [ok]   B2b·分配只落在本守卫的临时池（exe 回显 jobs_dir == 临时池，自证不碰在役池）
+  [ok]   B3·回绕生效：池内只存 …_9999（起点 = 10000 越上限）→ 分到空闲的 …_0001
+  [ok]   B3b·回绕段不重复试号（9999 + 0001 在场 → 落到 0002，既不复用 0001 也不报用尽）
+  [ok]   B4·9999 个号位**全部**被占用才报错：退出 1 且文案含「9999 个号位已全部被占用」
+  [ok]   B4b·文案不含旧措辞「已无可用编号」（它会被读成「前面也满了」，与池内事实不符）
+  [ok]   B4c·用尽不得静默加宽（不得出现 5 位 10000 目录）
+  [ok]   B4d·用尽不得就地复用/新落目录：池内清单不变 且 末次碰撞 = …_9999（全序扫过）
+  [ok]   B4e·用尽失败不留残迹：池内仍恰 9999 个号位目录
+  [ok]   B5·9998 在场时 9999 仍可分配（上界形态 + 定宽守恒）
+  [ok]   B5b·9998+9999 在场（起点越界）→ 回绕到 0001，而**不是**报用尽
+  [ok]   B6·AlreadyExists 才算碰撞（外来非 4 位尾段既不参与起点也不占号位）
+  [ok]   B7·MCP/编排面不自持分配器（无 os.mkdir 自增实现，只调 alloc-id）
+  [ok]   B8·生产默认上限恒为 9999（B4 的「真用尽」用例依赖该默认值，故在守卫里钉死）
+  [ok]   B8b·docstring/注释并列写清两个「回绕」（编号值不回绕 ∧ 搜索在号位间回绕）
+  [ok]   B8c·搜索序单点 = seq_candidates（先 hint..=MAX、再回绕 1..hint，两区间不重叠）
+  [ok]   B8d·源码面：新文案在位（「个号位已全部被占用」）且旧文案形态（「已无可用编号（」）已退场（注释里解释旧措辞为何被换掉不算违例，故只钉会进错误文本的那个形态）
+
+== [C] 字符集闸 B5′：唯一真源区块表 + 判据 ≡ 表（两侧零分歧）+ 语料两侧同判 ==
+  [ok]   C0 前置：hive 二进制在盘（live oracle = 由工作区源码编译的 exe）
+  [ok]   C1·合法 'h_zcode端_灵枢迭代_反思单元_0001' 两侧同判收
+  [ok]   C1·合法 'h_端_任务_记录单元_9999' 两侧同判收
+  [ok]   C1·合法 'h_端_任务_维生系统_0001' 两侧同判收
+  [ok]   C1·合法 'h_端_任务_反思单元_0000' 两侧同判收
+  [ok]   C1·合法 'h_123_456_输出单元_0007' 两侧同判收
+  [ok]   C1·合法 'h_a.b' 两侧同判收
+  [ok]   C1·合法 'h1758000000000_1a2b' 两侧同判收
+  [ok]   C1·合法 'h1_a' 两侧同判收
+  [ok]   C1·合法 'h' 两侧同判收
+  [ok]   C2·非法 '' 两侧同判拒
+  [ok]   C2·非法 '..' 两侧同判拒
+  [ok]   C2·非法 '../victim' 两侧同判拒
+  [ok]   C2·非法 'h/../../x' 两侧同判拒
+  [ok]   C2·非法 'h/.' 两侧同判拒
+  [ok]   C2·非法 'h\\..' 两侧同判拒
+  [ok]   C2·非法 'h:x' 两侧同判拒
+  [ok]   C2·非法 '/etc' 两侧同判拒
+  [ok]   C2·非法 'h..' 两侧同判拒
+  [ok]   C2·非法 'h.' 两侧同判拒
+  [ok]   C2·非法 'h ' 两侧同判拒
+  [ok]   C2·非法 'h\t' 两侧同判拒
+  [ok]   C2·非法 'h\x01' 两侧同判拒
+  [ok]   C2·非法 'h\x7f' 两侧同判拒
+  [ok]   C2·非法 'h\x00NUL' Python 拒（NUL 例 live oracle 不适用，已声明）
+  [ok]   C2·非法 'h\u200b' 两侧同判拒
+  [ok]   C2·非法 'h\u200e' 两侧同判拒
+  [ok]   C2·非法 'h\u2060' 两侧同判拒
+  [ok]   C2·非法 'h\ufeff' 两侧同判拒
+  [ok]   C2·非法 'h\u202e' 两侧同判拒
+  [ok]   C2·非法 'h\u2066' 两侧同判拒
+  [ok]   C2·非法 'h́' 两侧同判拒
+  [ok]   C2·非法 'hÁ' 两侧同判拒
+  [ok]   C2·非法 'hª' 两侧同判拒
+  [ok]   C2·非法 'h⁰' 两侧同判拒
+  [ok]   C2·非法 'hⅠ' 两侧同判拒
+  [ok]   C2·非法 'h１' 两侧同判拒
+  [ok]   C2·非法 'hᄀ' 两侧同判拒
+  [ok]   C2·非法 'h塚' 两侧同判拒
+  [ok]   C2·非法 'hﬁ' 两侧同判拒
+  [ok]   C2·非法 'hΩ' 两侧同判拒
+  [ok]   C2·非法 'h①' 两侧同判拒
+  [ok]   C2·非法 'h㈀' 两侧同判拒
+  [ok]   C2·非法 'h𝐀' 两侧同判拒
+  [ok]   C2·非法 'h丽' 两侧同判拒
+  [ok]   C2·非法 'h︰' 两侧同判拒
+  [ok]   C2·非法 'h﹐' 两侧同判拒
+  [ok]   C2·非法 'h\u3130' 两侧同判拒
+  [ok]   C2·非法 'h_端-1_任务_记录单元_0001' 两侧同判拒
+  [ok]   C2·非法 'h_CON_任务_记录单元_0001' 两侧同判拒
+  [ok]   C2·非法 'h_CON.txt_任务_记录单元_0001' 两侧同判拒
+  [ok]   C2·非法 'h_端_aux_记录单元_0001' 两侧同判拒
+  [ok]   C2·非法 'h_端_任务_COM1_0001' 两侧同判拒
+  [ok]   C2·非法 'h_端_任务_LPT9_0001' 两侧同判拒
+  [ok]   C2·非法 'h_端_任务_NUL_0001' 两侧同判拒
+  [ok]   C2b·拒收原因可读：'h.' 的原因含 '尾点'
+  [ok]   C2b·拒收原因可读：'h..' 的原因含 '尾点'
+  [ok]   C2b·拒收原因可读：'h\u200b' 的原因含 '零宽'
+  [ok]   C2b·拒收原因可读：'h\u2060' 的原因含 '零宽'
+  [ok]   C2b·拒收原因可读：'h\u202e' 的原因含 '双向控制'
+  [ok]   C2b·拒收原因可读：'h\u2066' 的原因含 '双向控制'
+  [ok]   C2b·拒收原因可读：'h_CON_任务_记录单元_0001' 的原因含 '保留设备名'
+  [ok]   C2b·拒收原因可读：'h_CON.txt_任务_记录单元_0001' 的原因含 '保留设备名'
+  [ok]   C2b·拒收原因可读：'h_端_任务_LPT9_0001' 的原因含 '保留设备名'
+  [ok]   C2b·拒收原因可读：'hÁ' 的原因含 'NFC'
+  [ok]   C2b·拒收原因可读：'h塚' 的原因含 'NFC'
+  [ok]   C2b·拒收原因可读：'h/../../x' 的原因含 '路径成分'
+  [ok]   C2b·拒收原因可读：'h:x' 的原因含 '路径成分'
+  [ok]   C3·语料规模 ≥18 例（B6 下限）
+  [ok]   C3·语料 'h_zcode端_灵枢迭代_反思单元_0001' want=accept
+  [ok]   C3·语料 'h_端_任务_记录单元_9999' want=accept
+  [ok]   C3·语料 'h_端_任务_维生系统_0001' want=accept
+  [ok]   C3·语料 'h_端_任务_反思单元_0000' want=accept
+  [ok]   C3·语料 'h_123_456_输出单元_0007' want=accept
+  [ok]   C3·语料 'h_a.b' want=accept
+  [ok]   C3·语料 'hÁ' want=accept
+  [ok]   C3·语料 'h1758000000000_1a2b' want=accept
+  [ok]   C3·语料 'h1_a' want=accept
+  [ok]   C3·语料 'h' want=accept
+  [ok]   C3·语料 '' want=reject
+  [ok]   C3·语料 '..' want=reject
+  [ok]   C3·语料 '../victim' want=reject
+  [ok]   C3·语料 'h/../../x' want=reject
+  [ok]   C3·语料 'h/.' want=reject
+  [ok]   C3·语料 'h\\..' want=reject
+  [ok]   C3·语料 'h:x' want=reject
+  [ok]   C3·语料 '/etc' want=reject
+  [ok]   C3·语料 'h..' want=reject
+  [ok]   C3·语料 'h.' want=reject
+  [ok]   C3·语料 'h ' want=reject
+  [ok]   C3·语料 'h\t' want=reject
+  [ok]   C3·语料 'h\x01' want=reject
+  [ok]   C3·语料 'h\x7f' want=reject
+  [ok]   C3·语料 'h\x00NUL' want=reject
+  [ok]   C3·语料 'h\u200b' want=reject
+  [ok]   C3·语料 'h\u200e' want=reject
+  [ok]   C3·语料 'h\u2060' want=reject
+  [ok]   C3·语料 'h\ufeff' want=reject
+  [ok]   C3·语料 'h\u202e' want=reject
+  [ok]   C3·语料 'h\u2066' want=reject
+  [ok]   C3·语料 'h́' want=reject
+  [ok]   C3·语料 'hÁ' want=reject
+  [ok]   C3·语料 'hª' want=reject
+  [ok]   C3·语料 'h⁰' want=reject
+  [ok]   C3·语料 'hⅠ' want=reject
+  [ok]   C3·语料 'h１' want=reject
+  [ok]   C3·语料 'hᄀ' want=reject
+  [ok]   C3·语料 'h塚' want=reject
+  [ok]   C3·语料 'hﬁ' want=reject
+  [ok]   C3·语料 'hΩ' want=reject
+  [ok]   C3·语料 'h①' want=reject
+  [ok]   C3·语料 'h㈀' want=reject
+  [ok]   C3·语料 'h𝐀' want=reject
+  [ok]   C3·语料 'h丽' want=reject
+  [ok]   C3·语料 'h︰' want=reject
+  [ok]   C3·语料 'h﹐' want=reject
+  [ok]   C3·语料 'h\u3130' want=reject
+  [ok]   C3·语料 'h_端-1_任务_记录单元_0001' want=reject
+  [ok]   C3·语料 'h_CON_任务_记录单元_0001' want=reject
+  [ok]   C3·语料 'h_CON.txt_任务_记录单元_0001' want=reject
+  [ok]   C3·语料 'h_端_aux_记录单元_0001' want=reject
+  [ok]   C3·语料 'h_端_任务_COM1_0001' want=reject
+  [ok]   C3·语料 'h_端_任务_LPT9_0001' want=reject
+  [ok]   C3·语料 'h_.._x' want=reject
+  [ok]   C3·语料 'h_a_.._b' want=reject
+  [ok]   C4·语料两侧**逐例同判**全绿（含真 exe 对照）
+  [ok]   C5·语料两侧都非退化（accept/reject 都有真实样本）
+  [ok]   C6a·表非退化且已归并到最小（区间升序 ∧ 两两不相邻 ∧ 互不相交）
+  [ok]   C6b·mcp_server 导入期读表成功且与本地独立解析**逐区间一致**
+  [ok]   C6c·表缺失/坏表 ⇒ 判据 fail-closed（空表对一切字符 False）
+  [ok]   C6d·解析器对坏表一律 ValueError（空/坏行/逆序/未归并/乱序；绝不静默跳过）
+  [ok]   C6e·c5 机械断言：表内**每一个**码点 NFC 稳定（本地 unicodedata 全表重算）
+  [ok]   C6f·不误伤：常规中英文与 ASCII 字母数字判收（含四位编号与旧形态面）
+  [ok]   C8a·Rust 侧判据 ≡ 表（全码点遍历承载于 job.rs 单测，本守卫核验其在位）
+  [ok]   C8a2·Rust 侧**不再查任何 Unicode 属性库**（无属性方法调用、无旧改写表定义）
+  [ok]   C8b·Python 侧判据 ≡ 表（**全码点遍历** 0..0x10FFFF：_id_charset_member ≡ 表并集）
+  [ok]   C8b2·id 闸用的**字符判据** ≡ 表（全码点；`_` 是结构字符，单独计入）
+  [ok]   C8c·跨语言零分歧：C8a ∧ C8b ⇒ 两侧接受集逐码点相同（结构性，非逐例对齐）
+  [ok]   C8d·`_` 与 `.` 由**结构分支**处理（有意不在表内，两侧口径一致）
+  [ok]   C8e·md_cg 面（**第三处读者**）判据 ≡ **同一张表**（全码点遍历；读数据不 import hive）
+  [ok]   C8f·三处读者**同源取证**：rel 路径字面量一致 ∧ 各自读到的表段数逐值相同 ∧ 两侧读表无错
+  [ok]   C8g·Rust 侧 fail-closed 判据在位（表坏 ⇒ 判据 false；由 cargo gate 内的单测实跑钉死）
+  [ok]   C8h·第三处读者**同表同拒**：换面放宽的 14 码点被收 ∧ 零宽/双向控制/控制字符/路径成分/尾点/设备名仍拒（放宽不得把静默风险带回来，c9）
+  [ok]   C8i·全码点遍历**只在测试内**（三处生产面 0 命中；job.rs 单测与本守卫各有命中）
+  [ok]   C9a·零宽（U+200B..200F/U+2060/U+FEFF）**逐码点**显式拒，原因走专有分支
+  [ok]   C9b·双向控制（U+202A..202E/U+2066..2069）**逐码点**显式拒，原因走专有分支
+  [ok]   C9c·控制字符（C0/DEL/C1，含 NUL）**逐码点**显式拒（原因含「控制字符」）
+  [ok]   C9d·路径成分 `/` `\` `:` 显式拒（原因含「路径成分」）
+  [ok]   C9e·单独的 `.`/`..`、尾点、首尾空白、保留设备名（含 CON.txt 与分段）仍拒
+  [ok]   C10·表边界抽样（135 点）真 exe 与表同判（经验面；活二进制 = 工作区源码）
+  [ok]   C10b·私用区(Co)与表外文种抽样：两侧同拒（表外即拒，非属性推断）
+
+== [D] 三入口（kill/poll/depends_on）拒收非法 id ==
+  [ok]   D0 前置：hive 二进制在盘
+  [ok]   D1·kill '..' → 退出 1 且「job_id 非法」
+  [ok]   D2·poll '..' → 退出 1 且「job_id 非法」
+  [ok]   D3·submit depends_on='..' → 退出 1 且「项非法」
+  [ok]   D1·kill '../victim' → 退出 1 且「job_id 非法」
+  [ok]   D2·poll '../victim' → 退出 1 且「job_id 非法」
+  [ok]   D3·submit depends_on='../victim' → 退出 1 且「项非法」
+  [ok]   D1·kill '/etc' → 退出 1 且「job_id 非法」
+  [ok]   D2·poll '/etc' → 退出 1 且「job_id 非法」
+  [ok]   D3·submit depends_on='/etc' → 退出 1 且「项非法」
+  [ok]   D1·kill 'h:x' → 退出 1 且「job_id 非法」
+  [ok]   D2·poll 'h:x' → 退出 1 且「job_id 非法」
+  [ok]   D3·submit depends_on='h:x' → 退出 1 且「项非法」
+  [ok]   D1·kill 'h\u200b' → 退出 1 且「job_id 非法」
+  [ok]   D2·poll 'h\u200b' → 退出 1 且「job_id 非法」
+  [ok]   D3·submit depends_on='h\u200b' → 退出 1 且「项非法」
+  [ok]   D1·kill 'h.' → 退出 1 且「job_id 非法」
+  [ok]   D2·poll 'h.' → 退出 1 且「job_id 非法」
+  [ok]   D3·submit depends_on='h.' → 退出 1 且「项非法」
+  [ok]   D1·kill 'h_CON_任务_记录单元_0001' → 退出 1 且「job_id 非法」
+  [ok]   D2·poll 'h_CON_任务_记录单元_0001' → 退出 1 且「job_id 非法」
+  [ok]   D3·submit depends_on='h_CON_任务_记录单元_0001' → 退出 1 且「项非法」
+  [ok]   D1·kill 'h_端_任务_NUL_0001' → 退出 1 且「job_id 非法」
+  [ok]   D2·poll 'h_端_任务_NUL_0001' → 退出 1 且「job_id 非法」
+  [ok]   D3·submit depends_on='h_端_任务_NUL_0001' → 退出 1 且「项非法」
+  [ok]   D1·kill 'h/../../x' → 退出 1 且「job_id 非法」
+  [ok]   D2·poll 'h/../../x' → 退出 1 且「job_id 非法」
+  [ok]   D3·submit depends_on='h/../../x' → 退出 1 且「项非法」
+  [ok]   D4·旧缺陷载体核证：`..` 指向的父目录真实存在（拒收不是靠「不存在」）
+  [ok]   D5·池外未被写入 kill 标志（穿越写面闭环）
+  [ok]   D6·MCP `_valid_job_id('..')` 拒
+  [ok]   D7·MCP `_dep_gate(['..'])` 返回原因（fail-closed）
+  [ok]   D8·MCP `_t_kill('..')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D9·MCP `_t_poll('..')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D6·MCP `_valid_job_id('../victim')` 拒
+  [ok]   D7·MCP `_dep_gate(['../victim'])` 返回原因（fail-closed）
+  [ok]   D8·MCP `_t_kill('../victim')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D9·MCP `_t_poll('../victim')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D6·MCP `_valid_job_id('/etc')` 拒
+  [ok]   D7·MCP `_dep_gate(['/etc'])` 返回原因（fail-closed）
+  [ok]   D8·MCP `_t_kill('/etc')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D9·MCP `_t_poll('/etc')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D6·MCP `_valid_job_id('h:x')` 拒
+  [ok]   D7·MCP `_dep_gate(['h:x'])` 返回原因（fail-closed）
+  [ok]   D8·MCP `_t_kill('h:x')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D9·MCP `_t_poll('h:x')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D6·MCP `_valid_job_id('h\u200b')` 拒
+  [ok]   D7·MCP `_dep_gate(['h\u200b'])` 返回原因（fail-closed）
+  [ok]   D8·MCP `_t_kill('h\u200b')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D9·MCP `_t_poll('h\u200b')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D6·MCP `_valid_job_id('h.')` 拒
+  [ok]   D7·MCP `_dep_gate(['h.'])` 返回原因（fail-closed）
+  [ok]   D8·MCP `_t_kill('h.')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D9·MCP `_t_poll('h.')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D6·MCP `_valid_job_id('h_CON_任务_记录单元_0001')` 拒
+  [ok]   D7·MCP `_dep_gate(['h_CON_任务_记录单元_0001'])` 返回原因（fail-closed）
+  [ok]   D8·MCP `_t_kill('h_CON_任务_记录单元_0001')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D9·MCP `_t_poll('h_CON_任务_记录单元_0001')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D6·MCP `_valid_job_id('h_端_任务_NUL_0001')` 拒
+  [ok]   D7·MCP `_dep_gate(['h_端_任务_NUL_0001'])` 返回原因（fail-closed）
+  [ok]   D8·MCP `_t_kill('h_端_任务_NUL_0001')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D9·MCP `_t_poll('h_端_任务_NUL_0001')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D6·MCP `_valid_job_id('h/../../x')` 拒
+  [ok]   D7·MCP `_dep_gate(['h/../../x'])` 返回原因（fail-closed）
+  [ok]   D8·MCP `_t_kill('h/../../x')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D9·MCP `_t_poll('h/../../x')` 拒（ok=False 且「job_id 非法」）
+  [ok]   D10·对照：合法 id 过 kill 闸（真实写 kill 标志）
+  [ok]   D11·对照：合法 id 过 poll 闸（返回任务视图）
+  [ok]   D12·对照：MCP 侧同判（合法 id 皆过闸）
+
+== [E] 五单元闭集三方同源（identity.POSITIONS / job.rs::UNITS / exe 受理面） ==
+  [ok]   E1·真源 identity.POSITIONS 键序 == 契约闭集（5 项）
+  [ok]   E2·真源落 id 的中文名逐项一致
+  [ok]   E3·Rust `job.rs::UNITS` 与真源 identity.POSITIONS 逐项一致（键+中文名+序）
+  [ok]   E4·词表恰 5 项（副代理不是第六单元）
+  [ok]   E4b·Python 面无第二份单元词表（只用 Rust 的受理面）
+  [ok]   E5.1·英文键 'record' → 落 id 为中文名 '记录单元'
+  [ok]   E5.2·英文键 'reflect' → 落 id 为中文名 '反思单元'
+  [ok]   E5.3·英文键 'verify' → 落 id 为中文名 '验证单元'
+  [ok]   E5.4·英文键 'output' → 落 id 为中文名 '输出单元'
+  [ok]   E5.5·英文键 'sustain' → 落 id 为中文名 '维生系统'
+  [ok]   E6·中文名 '记录单元' 直接受理
+  [ok]   E6·中文名 '反思单元' 直接受理
+  [ok]   E6·中文名 '验证单元' 直接受理
+  [ok]   E6·中文名 '输出单元' 直接受理
+  [ok]   E6·中文名 '维生系统' 直接受理
+  [ok]   E7·非闭集 '第六单元' → 退出 1 且错误列全五单元
+  [ok]   E7·非闭集 '副代理' → 退出 1 且错误列全五单元
+  [ok]   E7·非闭集 'reflect ' → 退出 1 且错误列全五单元
+  [ok]   E7·非闭集 'REFLECT' → 退出 1 且错误列全五单元
+  [ok]   E7·非闭集 '' → 退出 1 且错误列全五单元
+
+== [F] list_jobs_by_created 保序 / 按真值 / 与 exe 同序（A2/A3 的 Python 对照） ==
+  [ok]   F1·旧形态保序：created_ts 序 == 名升序（逐位相同）
+  [ok]   F2·按真值：created_ts 升序（与名序相反时仍按真值）
+  [ok]   F2b·与名序确实不同（证明读的是真值而非名序）
+  [ok]   F3·缺/非数/负/坏 status → i64::MIN 哨兵排最前 + id 字典序次键
+  [ok]   F3b·读失败不 panic 且结果确定（重复 3 次逐位相同）
+  [ok]   F3c·只读：本函数不新建/不修改任何文件（含 mtime 逐位不变）
+  [ok]   F5·MCP 排序单点在位：_t_poll 无参列表与 _t_doctor 都走同一函数
+  [ok]   F6·哨兵值与 rust `job::created_ts_of` 的 `i64::MIN` 逐值同口径
+  [ok]   F6b·真值读取口径：正常值直读 / 缺失即哨兵 / 饱和转型
+  [ok]   F4·旧形态池两侧同序（exe list_jobs_by_created == MCP 单点）
+  [ok]   F4·真值池两侧同序（exe list_jobs_by_created == MCP 单点）
+  [ok]   F4·退化池两侧同序（exe list_jobs_by_created == MCP 单点）
+
+== [G] 存量共存（旧形态 id 零迁移：仍合法 / 仍被收 / 仍可 poll、kill） ==
+  [ok]   G1·新形态与旧形态同池共存（新形态 id 四槽中文）
+  [ok]   G2·旧形态 'h1758000000000_1a2b' 仍合法（两侧同判）
+  [ok]   G2·旧形态 'h1758000000001_00ff' 仍合法（两侧同判）
+  [ok]   G2·旧形态 'h1_a' 仍合法（两侧同判）
+  [ok]   G2·旧形态 'h' 仍合法（两侧同判）
+  [ok]   G3·旧形态仍被 list_jobs 收（h 前缀过滤，含裸 `h`）
+  [ok]   G4·旧形态仍被 created_ts 真值序收（MCP 单点集合完整）
+  [ok]   G5·旧形态 'h1758000000000_1a2b' 仍可 poll（真实退出码 0）
+  [ok]   G6·旧形态 'h1758000000000_1a2b' 仍可 kill（真实写 kill 标志）
+  [ok]   G5·旧形态 'h1758000000001_00ff' 仍可 poll（真实退出码 0）
+  [ok]   G6·旧形态 'h1758000000001_00ff' 仍可 kill（真实写 kill 标志）
+  [ok]   G5·旧形态 'h1_a' 仍可 poll（真实退出码 0）
+  [ok]   G6·旧形态 'h1_a' 仍可 kill（真实写 kill 标志）
+  [ok]   G5·旧形态 'h' 仍可 poll（真实退出码 0）
+  [ok]   G6·旧形态 'h' 仍可 kill（真实写 kill 标志）
+  [ok]   G7·exe 无参列表两形态都在（存量零迁移的观测面）
+
+---- 分组 ----
+  [A] 33 条断言，失败 0
+  [B] 19 条断言，失败 0
+  [C] 151 条断言，失败 0
+  [D] 69 条断言，失败 0
+  [E] 20 条断言，失败 0
+  [F] 12 条断言，失败 0
+  [G] 16 条断言，失败 0
+
+结果：320 条断言，失败 0
+ALL OK：id 契约 v2 的 python 侧判据与真 hive.exe 逐例同判；四槽必填 / 编号分配 / 字符集闸 / 三入口 / 五单元同源 / 排序真值 / 存量共存全绿
+
+===== hive.test_job_id_segment_dot rc=0 (11.9s)
+
+== A 组 段级 `..` 判据（c7：按 `_` 分段，任一段等于 `.`/`..` 即拒；三处同判） ==
+  [ok]   A0 前置：真 hive.exe 在盘（Rust 面的 live oracle）
+  [ok]   A·段级 .. 拒 'h_.._x'（段 `..` 在中位（本批语料的载体形态）） · rust 面判 reject
+  [ok]   A·段级 .. 拒 'h_.._x'（段 `..` 在中位（本批语料的载体形态）） · mcp 面判 reject
+  [ok]   A·段级 .. 拒 'h_.._x'（段 `..` 在中位（本批语料的载体形态）） · md_cg 面判 reject
+  [ok]   A·段级 .. 拒 'h_.._x'（段 `..` 在中位（本批语料的载体形态）） · 三处同判
+  [ok]   A·段级 .. 拒 'h_a_.._b'（段 `..` 在中位、两侧均为普通槽值） · rust 面判 reject
+  [ok]   A·段级 .. 拒 'h_a_.._b'（段 `..` 在中位、两侧均为普通槽值） · mcp 面判 reject
+  [ok]   A·段级 .. 拒 'h_a_.._b'（段 `..` 在中位、两侧均为普通槽值） · md_cg 面判 reject
+  [ok]   A·段级 .. 拒 'h_a_.._b'（段 `..` 在中位、两侧均为普通槽值） · 三处同判
+  [ok]   A·段级 .. 拒 'h_.._任务_记录单元_0001'（四槽 id 形态里的 `..` 段） · rust 面判 reject
+  [ok]   A·段级 .. 拒 'h_.._任务_记录单元_0001'（四槽 id 形态里的 `..` 段） · mcp 面判 reject
+  [ok]   A·段级 .. 拒 'h_.._任务_记录单元_0001'（四槽 id 形态里的 `..` 段） · md_cg 面判 reject
+  [ok]   A·段级 .. 拒 'h_.._任务_记录单元_0001'（四槽 id 形态里的 `..` 段） · 三处同判
+  [ok]   A·段级 .. 拒 'h_端_任务_.._记录单元_0001'（五段形态（契约 §四.4「目录可作它的父段」）里的 `..` 段） · rust 面判 reject
+  [ok]   A·段级 .. 拒 'h_端_任务_.._记录单元_0001'（五段形态（契约 §四.4「目录可作它的父段」）里的 `..` 段） · mcp 面判 reject
+  [ok]   A·段级 .. 拒 'h_端_任务_.._记录单元_0001'（五段形态（契约 §四.4「目录可作它的父段」）里的 `..` 段） · md_cg 面判 reject
+  [ok]   A·段级 .. 拒 'h_端_任务_.._记录单元_0001'（五段形态（契约 §四.4「目录可作它的父段」）里的 `..` 段） · 三处同判
+  [ok]   A·段级 .. 拒 'h_x_..'（整串落在 `..` 段上（既有整串/尾点判据已覆盖，回归钉点）） · rust 面判 reject
+  [ok]   A·段级 .. 拒 'h_x_..'（整串落在 `..` 段上（既有整串/尾点判据已覆盖，回归钉点）） · mcp 面判 reject
+  [ok]   A·段级 .. 拒 'h_x_..'（整串落在 `..` 段上（既有整串/尾点判据已覆盖，回归钉点）） · md_cg 面判 reject
+  [ok]   A·段级 .. 拒 'h_x_..'（整串落在 `..` 段上（既有整串/尾点判据已覆盖，回归钉点）） · 三处同判
+
+== B 组 范围边界（c7「只加一条」的反证：`...` 段 / 空段 / 非尾点 `.` **仍收**） ==
+  [ok]   B·范围外仍收 'h_..._x'（段是 `...` 而非 `.`/`..` ⇒ **不**在 c7 范围内（不得顺手拒）） · rust 面判 accept
+  [ok]   B·范围外仍收 'h_..._x'（段是 `...` 而非 `.`/`..` ⇒ **不**在 c7 范围内（不得顺手拒）） · mcp 面判 accept
+  [ok]   B·范围外仍收 'h_..._x'（段是 `...` 而非 `.`/`..` ⇒ **不**在 c7 范围内（不得顺手拒）） · md_cg 面判 accept
+  [ok]   B·范围外仍收 'h_..._x'（段是 `...` 而非 `.`/`..` ⇒ **不**在 c7 范围内（不得顺手拒）） · 三处同判
+  [ok]   B·范围外仍收 'h__x'（空段 ⇒ 未被裁定的形态（不得顺手拒）） · rust 面判 accept
+  [ok]   B·范围外仍收 'h__x'（空段 ⇒ 未被裁定的形态（不得顺手拒）） · mcp 面判 accept
+  [ok]   B·范围外仍收 'h__x'（空段 ⇒ 未被裁定的形态（不得顺手拒）） · md_cg 面判 accept
+  [ok]   B·范围外仍收 'h__x'（空段 ⇒ 未被裁定的形态（不得顺手拒）） · 三处同判
+  [ok]   B·范围外仍收 'h_a.b'（非尾点、非单独的 `.` ⇒ 既有 accept 契约（语料第 44 行同形）） · rust 面判 accept
+  [ok]   B·范围外仍收 'h_a.b'（非尾点、非单独的 `.` ⇒ 既有 accept 契约（语料第 44 行同形）） · mcp 面判 accept
+  [ok]   B·范围外仍收 'h_a.b'（非尾点、非单独的 `.` ⇒ 既有 accept 契约（语料第 44 行同形）） · md_cg 面判 accept
+  [ok]   B·范围外仍收 'h_a.b'（非尾点、非单独的 `.` ⇒ 既有 accept 契约（语料第 44 行同形）） · 三处同判
+
+== C 组 存量零迁移（c8：在役 hive/jobs 的 h* 目录被三处闸判非法者必须为 0） ==
+  [SKIP] C 组跳过：无在役 job 台账（C:\ls096\clone2\hive\jobs 不存在或为空——干净检出 / CI 的预期形态）
+
+== D 组 语料（c9：段级 `..` 两例在位且三处同判；全语料三方复算逐例一致） ==
+  [ok]   D0 语料可读且例数非退化（防读出空表假绿）
+  [ok]   D1 段级 `..` 两例在语料内**在位**（hex 逐字比对，解出的 id 亦须对上）
+  [ok]   D2 两例的 verdict 行均为 reject（不许为迁就实现改 verdict）
+  [ok]   D·语料例 'h_.._x'（hex=685f2e2e5f78） · rust 面判 reject
+  [ok]   D·语料例 'h_.._x'（hex=685f2e2e5f78） · mcp 面判 reject
+  [ok]   D·语料例 'h_.._x'（hex=685f2e2e5f78） · md_cg 面判 reject
+  [ok]   D·语料例 'h_.._x'（hex=685f2e2e5f78） · 三处同判
+  [ok]   D·语料例 'h_a_.._b'（hex=685f615f2e2e5f62） · rust 面判 reject
+  [ok]   D·语料例 'h_a_.._b'（hex=685f615f2e2e5f62） · mcp 面判 reject
+  [ok]   D·语料例 'h_a_.._b'（hex=685f615f2e2e5f62） · md_cg 面判 reject
+  [ok]   D·语料例 'h_a_.._b'（hex=685f615f2e2e5f62） · 三处同判
+  [ok]   D3 全语料 MCP 面逐例与 verdict 一致
+  [ok]   D4 全语料 Rust 面逐例与 verdict 一致（NUL 例不可判，如实跳过 1 例）
+  [ok]   D5 全语料 md_cg 面逐例一致（仅登记在案的有意差异「允许 -」一例除外）
+
+---- 分组 ----
+  [A] 21 条断言，失败 0
+  [B] 12 条断言，失败 0
+  [C] 0 条断言，失败 0
+  [D] 14 条断言，失败 0
+
+结果：47 条断言，失败 0
+ALL OK：`.`/`..` 段级判据三处同判（真 exe / MCP / md_cg）；范围边界未收紧；存量零迁移；语料两例在位且全语料逐例一致
+
+===== hive.test_orch rc=0 (2.1s)
+[A] 权限收窄面（md_cg/tokens.py ORCH_* 真源）
+  [ok] A1 ops 清单 ⊆ ALL_OPS
+  [ok] A2 layers ⊆ ALL_LAYERS 且不含核心层 anchor/self
+  [ok] A3 危险 op 确在 ALL_OPS（防空洞断言）
+  [ok] A4 危险 op 均不在编排器清单
+  [ok] A5 编排器角色不可再派生（安全收紧：防令牌链蔓延，designer 独占派生权）
+  [ok] A6 派生 ops/layers 与真源逐位一致
+  [ok] A7 派生令牌结构上不可再派生（delegable=False）
+  [ok] A8 二次派生被库层拒
+  [ok] A9 校验后身份 ops 收窄一致
+  [ok] A10 校验后身份 layers 收窄一致
+  [ok] A11 can_admin=False（review 裁决权归设计者；编排器冲突只留痕上报）
+  [ok] A12 库层拒清单外 op（give forget）
+  [ok] A13 库层放行 review（裁决能力所求）
+  [ok] A14 CLI orch 签发退出码 0
+  [ok] A15 CLI orch 落盘令牌文件
+  [ok] A16 CLI 产出令牌 ops/layers 与真源一致
+  [ok] A17 CLI 产出令牌可裁决 review
+[B] 编排三工具：护栏 / 防递归 / 卡片 / 按需拉取
+  [ok] B1 缺省 tools 注入 lingshu_cg + web_search + read_file
+  [ok] B2 编排三工具为能力下限（强制并入）
+  [ok] B3 显式 tools 仍补编排三工具且不重复
+  [ok] B4 缺 user_prompt 诚实拒
+  [ok] B5 无可用 model 诚实拒
+  [ok] B6 子代理不可用编排工具（防递归第一道）
+  [ok] B7 缺 context 文件诚实拒
+  [ok] B8 派发成功（毫秒即返，带 job_id）
+  [ok] B9 子 spec 无 orchestrate（结构性防递归）
+  [ok] B10 子 spec tools ⊆ 子代理白名单
+  [ok] B10b read_file 在子代理白名单内且工具描述同步（防漂移）
+  [ok] B11 子任务默认注入与 MCP 面同源
+  [ok] B12 子任务清单落盘（换人续跑不重复派发）
+  [ok] B13 并行派发第二个子任务
+  [ok] B14 超上限诚实报错（不静默丢弃）
+  [ok] B15 卡片正文头截断到 CARD_CHARS
+  [ok] B16 默认不回全文（省编排者上下文）
+  [ok] B17 截断标记在位
+  [ok] B18 工具轨迹只留尾部 TRACE_MAX 条
+  [ok] B19 全量调用数仍可审计
+  [ok] B20 指针 result_path 在位
+  [ok] B21 提示按需拉取 read_full
+  [ok] B22 状态透出
+  [ok] B23 full=True 给全文（编排者显式索取时）
+  [ok] B24 read_full 给原文
+  [ok] B25 超上限截断给头 + 指针
+  [ok] B26 越权读被拒（非本编排者派发的 job）
+  [ok] B27 缺 job_id 诚实拒
+  [ok] B28 汇总本编排者全部子任务
+  [ok] B29 done/active 拆分恒等
+  [ok] B30 指定 job_ids 生效
+  [ok] B31 未派发时诚实空报
+  [ok] B32 令牌缺失 fail-closed（抛 OrcError）
+  [ok] B33 无效令牌 fail-closed
+  [ok] B34 正路令牌 → 编排器身份（session/harness 隔离）
+  [ok] B35 正路身份 ops 与真源一致
+[N235] 终态集含 needs_review：锚不可信的上游产物不得让编排器收不了口
+  [ok] N235-1 TERMINAL_STATES 与调度面同口径（含 needs_review）
+  [ok] N235-2 needs_review 子任务计入 done（不再挂 active）
+  [ok] N235-3 卡片提示按终态口径（不再提示「继续轮询」）
+  [ok] N235-4 state 如实透出 needs_review
+[C] exec.py 扩展口：register_tools / set_principal_factory
+  [ok] C1 未注册时工具面 = 内置三工具（零变更）
+  [ok] C2 register_tools 后 all_schemas 可见
+  [ok] C3 分发到注册 handler
+  [ok] C4 未注册工具仍诚实报错
+  [ok] C5 工具层白名单随身份同步收窄
+  [ok] C6 收窄后 review 过工具层前置闸（库层另裁）
+  [ok] C7 恢复默认后 review 被工具层拒（默认零变更）
+[D] exec_cmd.py：spec.orchestrate → orch.py
+  [ok] D1 orchestrate 真值 → 转发 orch.py
+  [ok] D2 无 orchestrate → 转发 exec.py（旧行为零变更）
+  [ok] D3 目标 worker 缺失时诚实报错并点名编排器
+  [ok] D4 HIVE_LLM_EXEC_PY 覆盖仍生效
+[E] orch.main() 装配与 fail-closed
+  [ok] E1 装配成功交回 exec loop（rc=0，恰好一次）
+  [ok] E2 spec 补全编排三工具（写回磁盘可审计）
+  [ok] E2b 编排轮次下限补全（迭代项6，删 setdefault 必红）
+  [ok] E3 缺省注入编排 system_prompt
+  [ok] E3b 写后回读纪律在系统提示词（M3.1，删除该行必红）
+  [ok] E4 max_subtasks 从 spec.orchestrate 生效
+  [ok] E4b 编排者三槽从 spec 同名键读入（id 契约 v2 · B8 透传面）
+  [ok] E5 已注册编排工具
+  [ok] E6 身份工厂已装
+  [ok] E7 工具层白名单同步收窄
+  [ok] E8 显式 system_prompt 不被覆盖
+  [ok] E9 令牌缺失 → EXIT_SPEC 且不交回 loop（不降级）
+  [ok] E10 result 诚实记 orch_token_unavailable
+[L] M5 纠正链侧车 + 同源标记
+  [ok] L1 缺 subject/evidence/note 诚实拒
+  [ok] L2 非法 kind 诚实拒
+  [ok] L3 合法裁决落台账（job 目录内）
+  [ok] L4 台账字段完整（ts/kind/subject/evidence/note/session）
+  [ok] L5 同源组键：同 model+同 context_files 同组
+  [ok] L6 同源组键：异 model 异组
+  [ok] L7 同源组键：异 context_files 异组
+  [ok] L8 卡片带 source_group 且孪生同组
+  [ok] L9 卡片可读出 source_group
+[N] N142/N88：children/spec 原子写（mkstemp 唯一名+os.replace 模板）
+  [ok] N1 成功路径零 tmp 残留且目标完整（行为不变对照）
+  [ok] N2 replace 首撞 PermissionError → 重试落新清单（旧码静默吞保旧值）
+  [ok] N3 tmp 扑空 → 重建唯一名重写自愈（旧码吞掉保旧值）
+  [ok] N4 重试耗尽 → log 留痕（旧码 except OSError: pass 无痕）
+  [ok] N4b 耗尽后目标仍=旧完整态（fail-safe，不撕裂）
+  [ok] N5a 写中途异常 → fail-fast 外抛（不吞）
+  [ok] N5b 旧完整 spec 未被截断毁（旧码裸 open(w) 先截断即毁）
+  [ok] N6 main spec 补全写回经 _atomic_write_json（N88 接线）
+  [ok] N7 裸 spec open(w) 写回已移除
+
+=== orchestration tests: 99 passed, 0 failed ===
+
+===== hive.test_result_anchor_chain rc=0 (1.6s)
+[绿态] 源 = 工作区 hive/hive_mcp/mcp_server.py
+  OK   A1
+  OK   A2
+  OK   A3
+  OK   A4
+  OK   B1
+  OK   B2
+  OK   B3
+  OK   C1
+  OK   C2
+  OK   C3
+  OK   C4
+  OK   F1
+  OK   F2
+  OK   F3
+  OK   F4
+  OK   E1
+  OK   E2
+  OK   E3
+  OK   H1
+  OK   H2
+  OK   H3
+  OK   H4
+
+结果：22 pass / 0 fail（红项：无）
+ALL OK：锚密钥链两侧同键同序同归一（锚面折小写 / 身份面不折），模型密钥不再作锚
+
+SUMMARY ok=11 fail=2 total=13
