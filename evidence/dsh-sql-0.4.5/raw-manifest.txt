@@ -1,0 +1,12 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-19T05:14:47.397Z
+label = dsh-sql 0.4.5
+generator = tools/make_manifest.mjs
+
+raw/00-anchor.txt        690  8340c109ceb63c46ea4d4af89130b3c4e132926ede5bf5a50fffae1404f1175c
+raw/02-install.txt       1041  0c9ba94dcde7bcc6107b90bbde58c23373ecefd414745af697cb1f368025731d
+raw/03-build.txt        293  8b879b5ac5e574784b6b7cf7386da36b95a70b07f2374931b8074bd761e0d128
+raw/04-self-test.txt       3997  b912650070ea9581ef4ff042bbab5b729c18ad1736c8bb6de97b2ba374c95972
+raw/05-probe.txt        402  b5fce8dad5ddb730388655648889c873502e1b0b5abe315be6eca86c743ac818
+raw/06-probe-fixed.txt       3618  dc57c41efdaf8febdd79497a1bd63ef15befad682b38b9b40a3682f5bd38fe0f
+raw/09-dedupe-grep.txt        126  48d847972f3007c78948cbb5bd32fee5b2f8f6b4b3c9fb850faedb61e64fab2d
