@@ -1,0 +1,19 @@
+# 锚定与环境基线
+
+repo: Fish-under-sea/dsh-agent-teams-fish
+ref: main
+commit: b5490e945a85c3906368b351c0be2f64ea38c6d4
+commit_date: 2026-10-18T06:21:36Z
+version: 0.7.3
+tarball: 外部插件/dsh-agent-teams-fish/dsh-agent-teams-fish.tgz
+tarball_sha256: a2b83de63399a7f163aa4d38db134da33b715610526310fcabf0f248daf2bf7a
+tree: 1218 files / 49771469 B / 7398113882047610
+snapshot: 外部插件/dsh-agent-teams-fish/dsh-agent-teams-fish-main
+
+host_dsh: 0.2.1-rc.2
+platform: win32-x64 / Windows 10.0.26200
+node: v24.21.0
+pnpm: 11.7.0
+python: 3.12.14
+anchored_at: 2026-10-19T13:03:38+0800
+notes: tarball gzip 字节不保证可复现（见 测试/README.md 锚定方法学修正）；内容锚定以 commit + 逐文件树指纹为准。
