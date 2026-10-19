@@ -1,0 +1,10 @@
+{
+ "verify_all": {
+  "exit": 2,
+  "tail": "[discipline_nodes] 未提供认知图 root（--cg-root / MDCG_ROOT）——投影判据体没有执行面。自动化面必须显式提供：先用 `python scripts/discipline_nodes.py --write --init --cg-root <dir>` 建最小库（四自动化面口径），或指向本机认知图库（md_cg/datapath.py 的 mdcg_root() 解析：env MDCG_ROOT > paths.json > 用户级状态根 data/mdcg）。\n"
+ },
+ "render_all": {
+  "exit": 0,
+  "tail": " transport=file chars=12248 bytes=24932 -> D:\\natnat\\lingshu\\外部插件\\lingshu-latest\\repo\\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\\zcode\\AGENTS.md (干跑) \n[zcode-user] variant=zcode-user transport=file chars=4519 bytes=9593 -> C:\\Users\\30951/.zcode/AGENTS.md (干跑) \n[codex] variant=full transport=file chars=12248 bytes=24932 -> D:\\natnat\\lingshu\\外部插件\\lingshu-latest\\repo\\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\\codex\\AGENTS.md (干跑) \n[claude-code] variant=full transport=file chars=12248 bytes=24932 -> D:\\natnat\\lingshu\\外部插件\\lingshu-latest\\repo\\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\\claude\\CLAUDE.md (干跑) \n[claude-code-plugin-skill] variant=skill transport=file chars=6559 bytes=14504 -> D:\\natnat\\lingshu\\外部插件\\lingshu-latest\\repo\\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\\claude\\lingshu-memory\\skills\\linglu-discipline\\SKILL.md (干跑) \n[codex-plugin-skill] variant=skill transport=file chars=6526 bytes=14443 -> D:\\natnat\\lingshu\\外部插件\\lingshu-latest\\repo\\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\\codex\\lingshu-memory\\skills\\linglu-discipline\\SKILL.md (干跑) \n[SKIP] 未提供认知图 root（--cg-root / MDCG_ROOT），本次不同步（写向豁免；判据面由 verify_discipline 强制 fail-closed）\n"
+ }
+}
