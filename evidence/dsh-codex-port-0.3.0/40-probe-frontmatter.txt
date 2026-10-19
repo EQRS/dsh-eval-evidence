@@ -1,0 +1,123 @@
+== probe_frontmatter.mjs ==
+pkg  = D:\natnat\lingshu\测试\dsh-codex-port\worktree\pkg
+node = v24.21.0
+
+---- A1. parsing the Codex SKILL.md source format ----
+      hasFrontmatter=true keys=["name","description","metadata"]
+      description="Renders the best video for a given prompt. Second line of a folded description."
+      body starts="\n# video-best\n\nBody line one.\n"
+PASS  A1 a standard Codex frontmatter block is recognised
+PASS  A1 the name field is parsed
+PASS  A1 a multi-line (folded) description is parsed as one string
+PASS  A1 nested metadata survives parsing (it is dropped later by the converter)
+PASS  A1 the body excludes the frontmatter block
+PASS  A1 a file without frontmatter is reported as such (body kept verbatim)
+      malformed YAML -> hasFrontmatter=false body="---\nname: [unclosed\n---\nbody\n"
+PASS  A1 malformed YAML is treated as "no frontmatter" instead of throwing
+PASS  A1 CRLF frontmatter parses
+      BOM-prefixed file -> hasFrontmatter=false
+PASS  A1 a UTF-8 BOM before --- is NOT recognised as frontmatter (documented gap, see report)
+
+---- A2. generating the DSH target format ----
+      generated:
+      | ---
+      | name: video-best
+      | description: Renders the best video for a given prompt. Second line of a folded description.
+      | compatibility: Ported from Codex plugin remotion
+      |   (https://github.com/example/remotion), license MIT.
+      | allowed-tools: Bash
+      | ---
+      | 
+PASS  A2 the generated frontmatter is itself valid YAML frontmatter (round-trip)
+PASS  A2 the target keeps the source name
+PASS  A2 the multi-line description survives verbatim
+PASS  A2 the compatibility line names the source plugin and license
+PASS  A2 allowed-tools is written as Bash
+PASS  A2 Codex-only fields (metadata) are dropped from the target
+      no homepage / unknown license -> compatibility="Ported from Codex plugin p."
+PASS  A2 empty homepage and unknown license are omitted (no empty parens, no "unknown")
+PASS  A2 title is used as the name when name is missing
+      empty frontmatter -> name="" description=""
+PASS  A2 an empty source produces empty name/description (port stage then refuses it)
+
+---- A3. converting a whole SKILL.md ----
+      converted length=271 hasFrontmatter=true name=video-best
+PASS  A3 the whole file is converted to the DSH shape
+PASS  A3 the body is preserved (only leading whitespace trimmed)
+      no-frontmatter input -> name="fallback-name" description="" body="\nno frontmatter body only\n"
+PASS  A3 a source without frontmatter falls back to the directory name and gets an EMPTY description (the port stage refuses it)
+PASS  A3 the body of a frontmatter-less source is preserved
+
+---- A4. skill-name sanitisation (docs: 非法字符→下划线, `..` 拒绝) ----
+      SKILL_NAME_PATTERN = /^[A-Za-z0-9][A-Za-z0-9._-]*$/
+      sanitizeSkillName("video-best") = "video-best"
+PASS  A4 "video-best" -> "video-best"
+      sanitizeSkillName("Video_Best") = "Video_Best"
+PASS  A4 "Video_Best" -> "Video_Best"
+      sanitizeSkillName("video.best") = "video.best"
+PASS  A4 "video.best" -> "video.best"
+      sanitizeSkillName("video best") = "video_best"
+PASS  A4 "video best" -> "video_best"
+      sanitizeSkillName("video/best") = "video_best"
+PASS  A4 "video/best" -> "video_best"
+      sanitizeSkillName("  spaced  ") = "spaced"
+PASS  A4 "  spaced  " -> "spaced"
+      sanitizeSkillName("中文技能") = null
+PASS  A4 "中文技能" is rejected (null)
+      sanitizeSkillName("..") = null
+PASS  A4 ".." is rejected (null)
+      sanitizeSkillName("a..b") = null
+PASS  A4 "a..b" is rejected (null)
+      sanitizeSkillName("") = null
+PASS  A4 "" is rejected (null)
+      sanitizeSkillName("   ") = null
+PASS  A4 "   " is rejected (null)
+      sanitizeSkillName("-leading") = null
+PASS  A4 "-leading" is rejected (null)
+      sanitizeSkillName(".dotted") = null
+PASS  A4 ".dotted" is rejected (null)
+PASS  A4 a pure-CJK name is rejected outright (its underscores cannot start a DSH skill name)
+PASS  A4 mixed-case name passes the sanitizer but fails the DSH loadability rule (port refuses it)
+
+== 37/37 assertions passed ==
+
+== assertions ==
+PASS  A1 a standard Codex frontmatter block is recognised
+PASS  A1 the name field is parsed
+PASS  A1 a multi-line (folded) description is parsed as one string
+PASS  A1 nested metadata survives parsing (it is dropped later by the converter)
+PASS  A1 the body excludes the frontmatter block
+PASS  A1 a file without frontmatter is reported as such (body kept verbatim)
+PASS  A1 malformed YAML is treated as "no frontmatter" instead of throwing
+PASS  A1 CRLF frontmatter parses
+PASS  A1 a UTF-8 BOM before --- is NOT recognised as frontmatter (documented gap, see report)
+PASS  A2 the generated frontmatter is itself valid YAML frontmatter (round-trip)
+PASS  A2 the target keeps the source name
+PASS  A2 the multi-line description survives verbatim
+PASS  A2 the compatibility line names the source plugin and license
+PASS  A2 allowed-tools is written as Bash
+PASS  A2 Codex-only fields (metadata) are dropped from the target
+PASS  A2 empty homepage and unknown license are omitted (no empty parens, no "unknown")
+PASS  A2 title is used as the name when name is missing
+PASS  A2 an empty source produces empty name/description (port stage then refuses it)
+PASS  A3 the whole file is converted to the DSH shape
+PASS  A3 the body is preserved (only leading whitespace trimmed)
+PASS  A3 a source without frontmatter falls back to the directory name and gets an EMPTY description (the port stage refuses it)
+PASS  A3 the body of a frontmatter-less source is preserved
+PASS  A4 "video-best" -> "video-best"
+PASS  A4 "Video_Best" -> "Video_Best"
+PASS  A4 "video.best" -> "video.best"
+PASS  A4 "video best" -> "video_best"
+PASS  A4 "video/best" -> "video_best"
+PASS  A4 "  spaced  " -> "spaced"
+PASS  A4 "中文技能" is rejected (null)
+PASS  A4 ".." is rejected (null)
+PASS  A4 "a..b" is rejected (null)
+PASS  A4 "" is rejected (null)
+PASS  A4 "   " is rejected (null)
+PASS  A4 "-leading" is rejected (null)
+PASS  A4 ".dotted" is rejected (null)
+PASS  A4 a pure-CJK name is rejected outright (its underscores cannot start a DSH skill name)
+PASS  A4 mixed-case name passes the sanitizer but fails the DSH loadability rule (port refuses it)
+
+37/37 assertions passed
