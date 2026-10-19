@@ -1,66 +1,108 @@
 # 标准测评报告 · dsh-flakefinder 0.3.5（能力五状态）
 
 > 依据：工程协议手册 v1.1 §2/§3/§6/§13；`测试/协议/标准测评报告规范-v1.md`。
-> 本件是标准测评；但**装组工具链异常**，判定为「还说不准」，见第七节。
+> 本件是标准测评，不是体验快测：判定由配对实验区间 + 预注册阈值推出（第七节）。
+> 前置：v0.1（`标准测评_dsh-flakefinder_v0.1.md`）因**装组使用手写包装而非插件真实工具面**，判定为「还说不准」并作废；本 v0.2 为装组修复后的正式重跑。
 
 ## 一、结论
 
-**还说不准（精度不足）**
+**没啥差别**
 
 | 项 | 值 |
 |---|---|
-| 判定 | **还说不准（精度不足）** |
-| D | **-8**（范围 [-24,24]） |
-| 95% bootstrap 区间 | **[-18, 1]** |
-| 区间半宽 | **9.5**（预注册门槛 ≤6，**未满足**） |
-| 模型 | `deepseek-flash`，temperature=0.7，seeds=[101,202,303] |
-| 样本 | 8 场景 × 3 seed × 2 组 = 48 次基础运行，148 秒 |
+| 判定 | **没啥差别**（L=-3 > -6 且 U=0 < 12，且区间半宽 1.5 ≤ 6） |
+| D | **-1**（范围 [-24,24]） |
+| 95% bootstrap 区间 | **[-3, 0]** |
+| 区间半宽 | **1.5**（门槛 ≤6，满足） |
+| 模型 / 参数 | `deepseek-flash`，temperature=0.7，seeds=[101,202,303] |
+| 样本 | 8 场景 × 3 seed × 2 组 = 48 次基础会话；81 次模型调用；装组 72 次真实 `node:test` 运行 |
+| 耗时 | 约 3 分钟（2026-10-19 17:09:05 → 17:12:10，含测试进程） |
+
+**读法（重要）**：本件否定的只是「多轮报告 → flaky 判定」这一段解析能力没有增量，**不是**「插件没用」。
+插件真实价值在执行链路（实际重复跑测试、落历史、维护隔离清单），该链路在本实验里没有对照组（见第九节第 1 条）。
 
 ## 二、任务契约
 
-- 任务：给多轮测试报告（JSON），找出 flaky 用例（8 个场景，含无 flaky、多 flaky、skipped 等）。
-- 判分：答案中的 flaky 用例集合与期望集合完全一致。
-- 对照：装=插件 `aggregate`/`flakyTests` 包装成工具；不装=裸模型读 JSON 自行判断。
+- 任务：8 个场景，每个给一份 `node:test` 项目的 3 轮运行报告，模型回答「哪些测试不稳定（flaky）」（S3/S4/S8 为无 flaky 的对照场景）。
+- 真值来源：测试的真实通过/失败由 `plan.json`（每测试每轮 P/F）+ `state.json` 运行计数驱动，**真实执行** `node --test` 产生。
+- 判分器：模型最后一行 `ANSWER:` 的测试名集合与期望集合**完全相等**记 1（NONE/无 = 空集）。
+- 装组：注入插件真实 6 工具（`flaky_detect` / `flaky_history` / `flaky_quarantine` / `flaky_clear` / `flaky_report` / `flaky_health`），execute 为插件真实实现；模型用 `flaky_detect`（framework=node, runs=3）实际跑 3 轮再判定。
+- 不装组：无任何工具；把同一 plan 预跑的 3 轮 **TAP 原始输出**拼进 prompt，模型自行解析。
+- 状态独立：每个 (场景, seed) 两侧各用独立 fixture 副本，跑前重置 `state.json={run:0}`。
 
-## 三、预注册
+## 三、预注册（跑前冻结）
 
-目录内 `result.json` 记录：a=12、b=6、半宽≤6、B=10000、seed=20261019。
+- 文件：`probes/PREREG_标准测评_v0.2.md`（2026-10-19T17:02 冻结，正式实验 17:09 开跑）。
+- 指标：D = Σ(装 − 不装)；a=12，b=6；bootstrap 半宽 ≤6；B=10000，seed=20261019；模型/温度/seed 同上。
+- 反作弊：判分器跑前冻结；不装组 TAP 由脚本预跑（非编造）；不得只重跑差的一边；提示语不含期望集合。
 
 ## 四、读数
 
-| 场景 | 装组 | 不装组 |
-|---|---|---|
-| S1 | 0/3 | 0/3 |
-| S2 | 0/3 | 3/3 |
-| S3 | 3/3 | 3/3 |
-| S4 | 3/3 | 3/3 |
-| S5 | 0/3 | 0/3 |
-| S6 | 0/3 | 3/3 |
-| S7 | 0/3 | 3/3 |
-| S8 | 3/3 | 2/3 |
+| 场景 | 装组 | 不装组 | 期望 flaky 集合 |
+|---|---|---|---|
+| S1 | 3/3 | 3/3 | {beta} |
+| S2 | 3/3 | 3/3 | {alpha,beta} |
+| S3 | 3/3 | 3/3 | 空 |
+| S4 | 3/3 | 3/3 | 空 |
+| S5 | 3/3 | 3/3 | {alpha} |
+| S6 | 3/3 | 3/3 | {alpha,gamma} |
+| S7 | 3/3 | 3/3 | {alpha,beta} |
+| S8 | 2/3 | 3/3 | 空 |
+| **合计** | **23/24** | **24/24** | — |
+
+- 装组唯一失分：S8 seed 101 答「alpha, beta, gamma」（把稳定通过与稳定失败都列为不稳定），属模型判定错误，非工具执行错误（flaky_detect 返回的 verdict 正确）。
 
 ## 五、区间与判定
 
-半宽 9.5 > 6 → **精度不足** → 按协议 §2.2 输出「还说不准」。未生成正式能力标签。
+按协议 §2.2 逐条对照：
 
-## 六、证据链（https）
+1. 精度门槛：半宽 1.5 ≤ 6 → 通过，可以给判定。
+2. L=-3 > -b=-6，且 U=0 < a=12 → **没啥差别**。
+3. 未触发「真有用」（L 未 > 12）、未触发「帮倒忙」（U 未 < -6）。
 
-```text
-https://github.com/STARDUSTLC666/dsh-flakefinder/commit/fdba1afd20f7c942302aea36b6164903dad5f070 | 被测 commit（锚定）
-https://github.com/EQRS/dsh-eval-evidence/tree/main/evidence/dsh-flakefinder-0.3.5 | 全部证据
-https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/result.json | 结果（D=-8，CI[-18,1]，还说不准）
-https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/calls.jsonl | 调用记录
-https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/experiment_flake.mjs | 任务与判分器
-```
+## 六、证据链（本地就绪；本轮未上传）
 
-## 七、遗留问题（关键）
+本件按使用者决定**不发帖、不上传证据仓库**；以下为本地证据（https 链接待发布后补）：
 
-1. **装组工具链异常**：多个场景装组 0/3，怀疑工具 schema/参数与 `aggregate` 期望结构不匹配，或模型未正确调用；
-   **这是实验封装问题，不是 dsh-flakefinder 的能力结论**；
-2. 需修复装组调用后重跑（属新实验，另立预注册）；
-3. 单模型、单温度；未独立复核。
+- 报告本体：`测试/dsh-flakefinder/标准测评_dsh-flakefinder_v0.2.md`
+- 结果：`测试/dsh-flakefinder/raw/13-eval/result.json`
+- 调用记录：`测试/dsh-flakefinder/raw/13-eval/calls.jsonl`
+- 任务与判分器：`测试/dsh-flakefinder/probes/experiment_flake2.mjs`
+- 预注册：`测试/dsh-flakefinder/probes/PREREG_标准测评_v0.2.md`
+- 历史（作废）：`测试/dsh-flakefinder/raw/12-eval/`（v0.1 手写包装实验）
+
+## 七、遗留问题
+
+1. **对照覆盖的是解析环节，不是执行环节**：不装组被直接喂入真实预跑的 TAP 文本（补偿性设计，否则不装组无法运行测试、必然 0 分）。因此本实验测的是「给定报告做判定」，插件「自动重复运行 + 历史/隔离」的价值未被对照，不能由本件推出。
+2. **未覆盖 pytest/junit 路径**：插件 P1-1（JUnit 自闭合混排解析缺陷，见快测报告）恰在 pytest 路径上，本实验只用 node:test（TAP），未触发也未验证该缺陷。
+3. **对照退化已消除**：与 dsh-ppt（不装组 0/24）不同，本件两侧信息近似等价，D≈0 是真实的能力无差异，不是天花板效应。
+4. 单模型（deepseek-flash）单温度（0.7）、单机（Windows）、未独立复核；3 轮重复 ≠ 统计显著（区间已给）。
+5. 场景规模小（8 场景、每测试 3 轮）；结论不外推到更大测试集或真实工程噪声。
 
 ## 八、不适用条件
 
-- 本件结论**不能用于评价 dsh-flakefinder 的 flaky 检测能力**（装组未跑通）；
-- 仅说明：本次实验设计未能在预注册精度内给出判定。
+- 不能用于评价：pytest/junit 路径、隔离清单与历史工具（`flaky_quarantine`/`flaky_clear`/`flaky_report`/`flaky_health`）的可用性；这些在本实验中未被对照。
+- 不能用于评价：真实大型项目（数十至数百测试、跨进程、网络/文件竞态）上的表现；本件 fixture 为单文件 3 测试。
+- 换模型/温度/测试框架/判分口径后结论不适用。
+- 安全未测；性能未测（仅记录总耗时）。
+
+## 九、复现
+
+```bash
+# 1) 重跑正式实验（约 3 分钟；装组会真实执行 72 次 node --test）
+node 测试/dsh-flakefinder/probes/experiment_flake2.mjs
+# 2) 读结果
+cat 测试/dsh-flakefinder/raw/13-eval/result.json
+```
+
+- 预注册：`probes/PREREG_标准测评_v0.2.md`（判据冻结时间 17:02，实验 17:09 开跑）
+- 结果：`raw/13-eval/result.json`；调用：`raw/13-eval/calls.jsonl`
+
+## 十、附录：与 v0.1 的差异
+
+| 项 | v0.1（作废） | v0.2（本件） |
+|---|---|---|
+| 装组工具 | 手写 `flake_aggregate`/`flaky_flaky` 包装，非插件真实工具面 | 插件真实 6 工具 + 真实 execute |
+| 数据 | 手工构造 JSON 报告 | 真实 `node:test` 执行（plan/state 驱动） |
+| 判定 | 还说不准（半宽 9.5，装组封装异常） | 没啥差别（半宽 1.5） |
+| 证据 | `raw/12-eval/` | `raw/13-eval/` |
