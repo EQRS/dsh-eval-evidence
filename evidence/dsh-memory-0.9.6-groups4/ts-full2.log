@@ -1,0 +1,314 @@
+✔ 握手：进程启动并完成 initialize 握手 (5565.0481ms)
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-6h3Qke\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\19436.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 8s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-issue12-c2jjv2\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\34620.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 9s）
+✔ issue #12 回归：宿主 cwd 在插件仓外且零路径参数，MdcgClient 默认锚定仓根仍可启动 (7163.3976ms)
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-2Dgaue\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\6088.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ 工具发现（kernel）：默认面只有 cg / stg 两个认知基元 (5777.4455ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 6s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-QpwN65\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\29128.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ 工具发现（full）：cg/stg 基元 + mdcg_* 细粒度工具（33） (4513.3569ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 6s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-ngw8H8\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\38708.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ 数据往返：mdcg_remember → mdcg_search 命中写入的记忆 (5910.5272ms)
+[lingshu-bridge] [fsutil] ShardedLog 分片目录缺失，已重建（目录 _index_log，调用点 append）——本进程持有的分片实例不自愈；本次后进程内累计重建 1 次。排查方向：库根 _index_log/ 被外部清理/还原删掉，或库根被换过；正文 .md 未受影响，索引缺口由重放/全库扫描补齐。
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 7s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-vmXoEo\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\40412.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ 错误处理：调用不存在的工具以 isError 软错误返回（不抛异常） (4720.5785ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 5s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-bridge-x0d4oT\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\26528.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 5s）
+✔ dispose：进程优雅退出 (4982.9855ms)
+✔ ① 冷却分支必须结算状态面：子进程已死，isReady()/waitReady() 不得仍报就绪（N267） (8495.7076ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 8s）
+[lingshu-bridge] 10 分钟内已意外退出 3 次，冷却 5 分钟后自动恢复。若持续出现，请检查是否有多个插件/脚本同时管理灵枢进程（重复 spawn 会互相关闭对方子进程的 stdin）。
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 2s）
+[lingshu-bridge] 进程启动后 5 秒内即退出——请检查 C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe 可执行文件与 md_cg 依赖；自检 `C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe -m md_cg.mcp_server` 须在插件包根目录运行（插件已自动锚定 cwd 与 PYTHONPATH，issue #12），修复后在 DSH 中重新启用 dsh-memory 插件。
+[lingshu-bridge] 将进行第 1/8 次重试（1000ms 后）
+✔ ② 回归：未达冷却阈值的退出仍走原结算并排重试（冷却分支不得被误触） (4236.3047ms)
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 2s）
+✔ N219：stdout 一行 null 不得杀宿主、且其后协议面仍可用 (1652.7219ms)
+✔ N219：其余 JSON 标量/数组形态同样不得杀宿主 (6828.1458ms)
+✔ N219：结构断言——行处理器对 parse 结果存在类型闸（防回归） (2.256ms)
+[lingshu-bridge] 非对象 JSON 输出: null
+[lingshu-bridge] 非对象 JSON 输出: []
+[lingshu-bridge] 非对象 JSON 输出: 123
+[lingshu-bridge] 灵枢进程退出 code=null signal=SIGTERM（存活 4s）
+[lingshu-bridge] 非对象 JSON 输出: "x"
+[lingshu-bridge] 灵枢进程退出 code=null signal=SIGTERM（存活 3s）
+[lingshu-bridge] 灵枢进程退出 code=null signal=SIGTERM（存活 3s）
+[lingshu-bridge] 非对象 JSON 输出: true
+[lingshu-bridge] 灵枢进程退出 code=null signal=SIGTERM（存活 5s）
+[lingshu-bridge] 灵枢进程退出 code=null signal=SIGTERM（存活 3s）
+[lingshu-bridge] 灵枢进程退出 code=null signal=SIGTERM（存活 4s）
+[lingshu-bridge] 灵枢进程退出 code=null signal=SIGTERM（存活 4s）
+[lingshu-bridge] 非对象 JSON 输出: 0
+[lingshu-bridge] 灵枢进程退出 code=null signal=SIGTERM（存活 5s）
+✔ 握手超时重试不泄漏子进程：换代旧进程全部被回收（最后一代归 dispose 收尾） (9138.3493ms)
+[lingshu-bridge] 握手失败: 灵枢错误 -32000: 灵枢调用超时（200ms）：initialize
+[lingshu-bridge] 将进行第 1/8 次重试（1000ms 后）
+[lingshu-bridge] 握手失败: 灵枢错误 -32000: 灵枢调用超时（200ms）：initialize
+[lingshu-bridge] 将进行第 2/8 次重试（30ms 后）
+[lingshu-bridge] 握手失败: 灵枢错误 -32000: 灵枢调用超时（200ms）：initialize
+[lingshu-bridge] 将进行第 3/8 次重试（30ms 后）
+[lingshu-bridge] 握手失败: 灵枢错误 -32000: 灵枢调用超时（200ms）：initialize
+[lingshu-bridge] 将进行第 4/8 次重试（30ms 后）
+[lingshu-bridge] 握手失败: 灵枢错误 -32000: 灵枢调用超时（200ms）：initialize
+[lingshu-bridge] 将进行第 5/8 次重试（30ms 后）
+[lingshu-bridge] 握手失败: 灵枢错误 -32000: 灵枢调用超时（200ms）：initialize
+[lingshu-bridge] 将进行第 6/8 次重试（30ms 后）
+[lingshu-bridge] 握手失败: 灵枢错误 -32000: 灵枢调用超时（200ms）：initialize
+[lingshu-bridge] 将进行第 7/8 次重试（30ms 后）
+[lingshu-bridge] 握手失败: 灵枢错误 -32000: 灵枢调用超时（200ms）：initialize
+[lingshu-bridge] 连续启动失败 8 次，已停止自动重启（不再后台空转）。请检查 C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe 可执行文件与 md_cg 依赖；自检 `C:\Users\30951\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe -m md_cg.mcp_server` 须在插件包根目录运行（插件已自动锚定 cwd 与 PYTHONPATH，issue #12），修复后在 DSH 中重新启用 dsh-memory 插件。
+[lingshu-bridge] 灵枢进程退出 code=null signal=SIGTERM（存活 4s）
+✔ N119：stdin 挂 error 监听——大消息滞留+子进程死亡不产生 uncaughtException (1642.0391ms)
+[lingshu-bridge] stdin 写入失败（子进程可能已退出）: write EOF
+[lingshu-bridge] 灵枢进程退出 code=null signal=SIGTERM（存活 2s）
+✔ issue #18 ①：runRoot() 是包外落点、绝对路径且目录存在 (2.416ms)
+✔ issue #18 ②：MdcgClient 默认 cwd 拉起的子进程，自报 cwd 在包外 (5959.6139ms)
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-issue18-UOVBct\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\22368.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 8s）
+✔ issue #18 ③：目录被某进程当作 cwd 时不可删、进程退出后恢复可删 (5188.5323ms)
+✔ W1 写侧：user/assistant 原文进窗口（role/meta.session/tags），tool 不进 (27.2897ms)
+✔ W2 双闸：子代理会话 / relay / 注入类 kind 一律不写窗口（H1 同口径） (15.74ms)
+✔ W3 注入侧：两块齐 + 取数参数面 + 条数/单条截断 (3.005ms)
+✔ W3b 限幅保最新 + turns 透传：放不下的旧条目整条不放入、最新必须保留 (0.7078ms)
+✔ W3c 裁剪保最新（>turns 且超长场景）：丢的是最旧条目 (0.6594ms)
+✔ W4 开关：contextWindow.enabled=false → 写侧零调用、注入侧无第二块（既有块不受影响） (10.1177ms)
+✔ W5a fail-soft：sessionRecall 抛错 → assemble 不抛、无第二块、既有块照常 (0.7843ms)
+✔ W5b fail-soft：recentAdd 抛错 / 缺席 → session/event 处理不抛（只 warn） (23.4833ms)
+✔ W6 每步 push：同会话连续两步两块逐字节相同（与既有 ⑤ 同型） (0.8117ms)
+✔ ① 判据表：裸 ~ 与 ~/、~\ 前缀展开到注入家目录（期望值独立写出） (1.7671ms)
+✔ ② 过度收紧方向：非 home 形态一律原样，不得被当 home 处理 (0.3782ms)
+✔ ③ 四个 env 入口：~/probe 落注入家目录，不得落「仓根/~」字面目录（回退即红） (4.0173ms)
+✔ ④ 源码面唯一实现：src/ 下同判据只允许一处，且必须是 src/lib/datapath.ts (34.5575ms)
+✔ ⑤ 反例：第二处同判据实现必须被报出；仅注释里的判据不得被报出 (15.7707ms)
+✔ issue #18 相邻：默认数据根在包外 + 旧包内数据一次性复制到用户级根 (1959.2184ms)
+✔ 非 ASCII 源路径：数据面迁移不崩（cpSync 递归 0xC0000409 回归守卫） (1290.7084ms)
+✔ paths.json 取值：相对值锚插件仓根且不展开波浪线（两侧同口径） (4.3406ms)
+✔ ① 两向同判：同形即同过滤，且值不残留（半角/全角逐条对拍） (3.3425ms)
+✔ ② 混宽单串：半角/全角混排一律命中（两宽类天然覆盖混合写法） (0.3392ms)
+✔ ③ 反归一化：本实现不改写非凭据字符（全角标点/全角字母/可归一化字符逐字节保留） (0.3161ms)
+✔ ④ 误伤边界：空值/占位符不动，全角句读处停（不跨句吞并） (0.4412ms)
+✔ ⑤ 结构不变量：每条规则的词形/值类两宽齐备（新增规则不得只写半角） (0.4476ms)
+✔ ⑥ 全角纯凭据消息 → null（不进记忆库），与半角同命 (0.2252ms)
+✔ ⑦ 同源：两条令牌规则的字面量字符类与共享字符集常量一致（防漂移） (0.3519ms)
+✔ ⑧ 值类缺口（形态一·整条漏检）：半角 & 与全角 ＃％＾＊ 落在值前段时不得整条失配（N265） (0.5033ms)
+✔ ⑨ 值类缺口（形态二·尾部明文残留）：缺口在第 4 位之后时命中不得被截断（N265） (0.5445ms)
+✔ A1 会话级：origin=subagent ⇒ 整条会话的自动记忆被拦 (8.9063ms)
+✔ A2 会话级：delegationDepth>0 ⇒ 被拦（顶层会话缺省为零） (4.0076ms)
+✔ A3 会话级退化：深度 0 / 其它 origin / 字段缺失 / 形态不符 ⇒ 不拦 (35.7362ms)
+✔ B1 消息级：form=relay ⇒ 该条不写（kind=user 形态也拦） (7.5666ms)
+✔ B2 消息级：其它 form / 无 form / 真人输入不受影响 (19.2179ms)
+✔ B3 消息级：relay 判据先于 kind 判据 ⇒ kind=plugin+relay 同样被指名拦下 (11.4488ms)
+✔ B4 消息级退化：source 整个缺失也不抛错、不写（既有 kind 判据维持） (11.6407ms)
+✔ C1 退化路径的写入口径与旧行为逐位一致（role/tags/importance/session） (14.1511ms)
+✔ D1 子代理会话不得刷新 lastSession（顶层会话的召回必须仍读自己的会话） (8.5995ms)
+✔ E1 语义召回显式带会话槽（可观测调用参数，非源码断言） (8.7033ms)
+✔ E2 无会话标识 → 召回带 unassigned（不落内核进程随机 sess_*） (8.6284ms)
+✔ A1 绿态：三类过滤 + 真人写入 + 脱敏置空 → counts/kinds/last 逐项正确 (46.7952ms)
+✔ A2 kinds 分布：source 缺字段/空串/非字符串一律记 "undefined"（不可辨认即无值） (25.6311ms)
+✔ B1 有界：推 25 条过滤事件 → last 截断到 ≤ 20（计数不受截断影响） (152.9776ms)
+✔ C1 隐私：各路径喂独特哨兵串 → 审计文件全文不得出现该串 (32.4284ms)
+✔ D1 静默降级：auditPath 不可写 → 事件处理不抛错、记忆写入照常 (6.3921ms)
+✔ D2 静默降级：审计文件被外部写成坏 JSON → 不抛错、按空态重建 (26.0575ms)
+✔ E1 not_ready：认知图未就绪 → skipped.not_ready 留痕、记忆不发起 (16.3755ms)
+✔ E2 failed：写入失败 → skipped.failed 留痕（written 记「成功发起」） (15.6772ms)
+✔ F1 三处过滤分支的 ctx.logger.info 保留（in-memory 视图与盘面审计并存） (20.174ms)
+✔ G1 缺省审计路径 = ~/.dsh/logs/dsh-memory-hook-audit.json（与桥探针同目录同惯例） (0.8937ms)
+✔ G1 ok:false + DEFER → 记 skipped.failed 并告警（修前两者皆无） (22.1146ms)
+✔ G2 ok:false + proposed=true → 只告警「已转审核队列」，不计 failed (14.8263ms)
+✔ G3 ok:false 但 verdict=MERGE/DROP → 不告警、不计 failed（不是失败） (37.5462ms)
+✔ G4 ok:true → 无告警、无 failed、written 语义（成功发起）不变 (14.9105ms)
+✔ G5 抛异常 → 仍记 skipped.failed 并告警「失败」（.catch 路径不变） (21.1445ms)
+✔ G6 隐私：回执告警与审计文件全文均不含正文哨兵 (22.5195ms)
+✔ G7 role=null（读预热）的回执不计数 (19.5701ms)
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-host-uYrIjA\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\38496.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+✔ 插件激活：cg/stg 工具注册进 ctx.tools（core = cg/stg 两基元） (8895.217ms)
+[lingshu-bridge] 灵枢进程退出 code=null signal=SIGTERM（存活 11s）
+[lingshu-bridge] [mdcg-mcp] 路径：记忆真源 root=C:\Users\30951\AppData\Local\Temp\lingshu-host-feVaXO\mdcg · 身份/凭据根 aux=C:\Users\30951\.mdcg（aux 可用 MDCG_AUX_ROOT 覆盖）
+[lingshu-bridge] [mdcg-mcp] 写入策略：来源=package_default path=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\data\policy.json（forbidden=13 required=6）
+[lingshu-bridge] [mdcg-mcp] 自报: source=D:\natnat\lingshu\外部插件\lingshu-latest\repo\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\md_cg render_version=2
+[mdcg-mcp] 自报文件: C:\Users\30951\AppData\Local\Temp\md_cg_servers\13380.json
+[lingshu-bridge] [mdcg-mcp] 代校验：延迟导入 517 项 / 目标模块 52 个 / 已解析 184 项 / 可选缺失 26 项 · 代 6d6a0152dd66
+[lingshu-bridge] 灵枢进程退出 code=0 signal=null（存活 6s）
+✔ 插件卸载：工具注销且进程退出 (8580.2582ms)
+✔ 非交互端到端：四端各自产出含 MDCG_ROOT/MDCG_PYTHON/命令形态的片段，snippet 落盘可解析 (24.3034ms)
+✔ 幂等：同参数重跑 stdout 与片段文件逐字节一致 (5.5759ms)
+✔ 交互形态（mock stdin）：选 1=DSH 分支走通，片段与文件均落盘 (101.5767ms)
+✔ 交互形态：回车走缺省（记忆根=<home>/.lingshu/memory，解释器按平台） (109.2374ms)
+✔ 非交互环境缺参：报错而非挂死（错误信息点名缺失的 flag） (3.9523ms)
+✔ N167 回归：根入口波浪线展开——--root 与交互手输的 ~/x、裸 ~ 均落到注入 home (104.6954ms)
+✔ 缺省记忆根口径：<home>/.lingshu/memory（home 可注入，缺省 os.homedir()） (0.6466ms)
+✔ #222 干净安装可 import（optional peer 不静态导入） (3588.598ms)
+✔ #222 解析器判据：export type 不算静态值导入，export 值再导出算 (0.8564ms)
+✔ #224 A–F：租户 / config.env / 吊销 / 换绑 / 关闭签发 / 单点 (41939.1328ms)
+✔ P1-4 白箱距离非有限数值一律 needs_revision（NaN/Inf/字符串/undefined） (2.904ms)
+✔ P1-4 空复核结论不得 pass (0.2725ms)
+✔ P1-4 负向/分歧信号优先于正向词（死代码倒挂） (0.2389ms)
+✔ P1-4 零宽字符与间隔号不得切断关键词 (0.2841ms)
+✔ P1-4 缺 record_id 不得放行 (0.2628ms)
+✔ P1-4 阴性对照：正常采纳 + 同意仍 pass (0.1827ms)
+✔ P1-5 送审对象必须是盘上 claim（内存篡改不得生效） (15.6587ms)
+✔ P1-5 盘上坏 JSON 不得被消费（不写 done、不返回结果） (7.4753ms)
+✔ P1-12 超长 role 不得突破窗口预算、不得挤出后续历史 (3.137ms)
+✔ P1-12 阴性对照：正常窗口条目照常注入（判据非恒假） (0.794ms)
+✔ P1-13 写入失败 warn 不得外泄异常消息里的凭据 (170.6745ms)
+✔ P1-13 日志脱敏不受 desensitize=false 影响（诊断面 fail-closed） (159.6034ms)
+✔ P1-13 非 Error 拒绝值（字符串/undefined）不得让错误处理路径抛出 (422.3092ms)
+✔ P1-14 auto-recall 注入块不得回显库内凭据 (0.7692ms)
+✔ P1-14 诚实边界：渲染文本带前缀 ⇒ 整条皆凭据时仍注入，但凭据一律被替换 (0.7574ms)
+✔ P1-14 session-window 注入块同样脱敏 (0.4515ms)
+✔ P1-14 阴性对照：无凭据的记忆原样注入（不误伤正文） (0.331ms)
+✔ P2-15 __proto__ 必须是自有键，不得替换参数表原型 (0.5689ms)
+✔ #386 A/B/C：`~` 形态四入口与 Python 同落点 (2892.2674ms)
+✔ #386 源码锚点：expandHome 是唯一展开点且四入口都接上 (2.5534ms)
+✔ auto-recall：身份证跨 160 预算边界时不出残片 (3.9119ms)
+✔ auto-recall：手机号跨衰减档位（第二档 144）边界时不出残片 (0.6396ms)
+✔ session-window：身份证跨 120 边界时不出残片 (1.0722ms)
+✔ session-window：手机号跨 120 边界时不出残片 (0.5043ms)
+✔ 对照：不截断（短文本）时凭据同样被替换 (0.6416ms)
+✔ 对照：无凭据的普通文本不被改动（不误伤） (0.4405ms)
+✔ ① 六种闭合形态全部被打断（< 后插空格） (2.9827ms)
+✔ ② 幂等：打断后再打断不变 (0.4633ms)
+✔ ③ 真实边界块不受影响（非记忆载荷里的标签照常工作） (0.3757ms)
+✔ ④ 插件级兜底上限为 64KiB (0.2077ms)
+✔ ⑨ issue #97：经链接路径调用时主函数仍执行（修前静默空转、exit=0） (2261.5369ms)
+✔ ⑨b issue #97：cli.ts 与 init.ts 的 isMainEntry 都做了 realpath 归一 (1.2781ms)
+✔ ① 复核通道抛异常 → 判定链必须 fail-closed（llmReview 产出 ⟶ combineVerdict 认它） (1.7907ms)
+✔ ② 判别力对照：同一白箱 + 复核「同意」仍判 pass（修正未过度收紧） (0.2909ms)
+✔ ③ 边界：正文提及该异常标记、但结论非异常前缀 ⇒ 不误判 fail-closed（startsWith 口径） (0.1885ms)
+✔ ④ 回归：白箱通道异常/证据不足仍 fail-closed（既有判据不动） (0.1865ms)
+✔ ⑤ 端到端：复核抛异常的任务，写回 result 的 verdict 必须 needs_revision (18.5586ms)
+✔ ① 复现：裸 {{ 让宿主 renderContextSections 抛错 (2.3162ms)
+✔ ② 修复：escapePromptBraces 后宿主渲染不抛错且内容可辨 (0.6764ms)
+✔ ③ 保真与典型形态逐值断言 (0.2669ms)
+✔ ④ 幂等：escape(escape(x)) === escape(x) (0.2342ms)
+✔ ⑤ 对照：孤立 {{ / }} 本身不触发宿主 throw（转义面比报错面更宽，属刻意） (0.3548ms)
+✔ ⑥ 端到端：含 {{ 的记忆经注入后，宿主真函数可渲染 (2.9395ms)
+✔ issue #19：Windows 默认 python（既有行为逐字节不变） (1.3983ms)
+✔ issue #19：Linux/macOS 默认 python3（PEP 394 只有 python3） (0.2185ms)
+✔ issue #19：无覆盖时默认值与运行平台自洽 (0.1657ms)
+✔ issue #19：env MDCG_PYTHON 覆盖平台默认（含绝对路径/版本号形态） (0.174ms)
+✔ issue #19：空白 MDCG_PYTHON 视为未设置（不返回空串） (0.2188ms)
+✔ issue #19：Config 的 python 默认值来自解析函数（不再写死字面量） (2.0918ms)
+✔ issue #19：自检命令按实际解释器给出（报错文案可照抄） (0.2829ms)
+✔ issue #19：ENOENT 指引含成因与三条修法（防文案回归） (0.301ms)
+✔ ① 生产路径：mdcgChildEnv 同时注入 PYTHONIOENCODING=utf-8 与 PYTHONUTF8=1 (2.0595ms)
+﹣ ② 机制反证：不注入 UTF-8 模式时，读 UTF-8 中文 stderr 必崩（有判别力） (498.0967ms) # 内层 locale 已是 utf-8，无从构造 gbk 现场
+✔ ③ 机制消除：注入 UTF-8 模式后成功，且解码内容正确 (3199.5123ms)
+✔ ④ 站点扫描：「唯一构造点」是被守护的不变量（v15-9） (31.798ms)
+✔ ⑤ 站点扫描判据有判别力（合成反例必须被抓） (0.3797ms)
+✔ ① 记忆不变时：注入块每步照旧 push，渲染文本逐字节相同 → 宿主不追加任何快照 (6.1804ms)
+✔ ② 记忆真变了才追加：内容变化 → 恰好多一份；之后再次稳定 (1.2509ms)
+✔ ③ 对照：跳过 push 的旧策略会把快照数翻倍（证明「照旧 push」是必需的而非装饰） (0.4504ms)
+✔ ④ 记忆为空 / 召回失败：不注入、不抛错、next 照常 (0.769ms)
+✔ #20 /roleplay 页面含可点击返回出口（真实链接 → 同源根 "/"） (12.5415ms)
+✔ #20 守卫自身：抽掉出口后判据必红并点名（防守卫空转） (7.9905ms)
+✔ ① 数组 message 不得绕过内容门控：能力挂载态须拒（400）且零转发 (11.8015ms)
+✔ ② 能力缺省（503 态）时，数组 message 的原文不得落进本地转录 (6.2654ms)
+✔ ③ 非字符串 message 的各形态一律 400（不留 TypeError → 500 面） (5.9976ms)
+✔ ④ 回归：字符串 message 正常转发，user/bot 两笔按序落转录 (10.5602ms)
+✔ ⑤ 回归：字符串「内容类别词 ∧ 性词」仍 200 route=refused，零转发零落盘 (7.5567ms)
+✔ ⑥ 能力缺省（503）时合法字符串亦不落转录——落盘在就绪闸之后 (6.4289ms)
+✔ ① 页面 apiHeaders 注入 x-edit-key（localStorage 编辑密钥） (28.5397ms)
+✔ ① 页面提供 setEditKey（🔑 输入 → localStorage 持久化） (28.9008ms)
+✔ ③ saveRoleDetail 在 meta/import 均 403 时：alert 错误、不显示「已保存」、不关闭面板 (16.54ms)
+✔ ③ saveRoleDetail 配置密钥后成功：请求带 x-edit-key、显示「已保存」 (31.2115ms)
+✔ ② saveTrans / createRole 的写 POST 走 apiHeaders（携带 x-edit-key） (29.6651ms)
+✔ ④ 服务端：无编辑密钥 POST meta → 403 且 _roles.json 未写盘 (7.2801ms)
+✔ A01 默认部署（key 未配置）：三个读端点全 403，且文案引导配置 (10.9085ms)
+✔ A02/A03 配置 key：无 x-edit-key 头 ⇒ 403；带对头 ⇒ 200 且私有正文仍可读 (14.2967ms)
+✔ K01 【过度收紧腿】未配置 key 时 /roleplay/api/roles 仍 200（否则页面起不来） (7.0794ms)
+✔ F01 【前端配对腿·结构面】服务端吐出的脚本里，三个读请求都带 apiHeaders() (6.9898ms)
+✔ ① 中文 role_id POST translate → 400 + ok:false（旧代码 200 假成功、词对静默丢失） (12.0467ms)
+✔ ② __proto__ role_id POST translate → 400 + ok:false（旧代码 200、mode 经原型 setter 丢失） (6.929ms)
+✔ ③ 合法 role_id POST translate → 200 + ok:true + GET 回读词对与 mode 落盘 (16.721ms)
+✔ ④ 非法 id 被拒不影响已落盘的合法角色配置 (17.6187ms)
+✔ ① 写入带会话身份：user/assistant/tool 三路都打上 session 归属 (22.3199ms)
+✔ ② 宿主未给出会话标识：不编造宿主 id → 显式 unassigned（不落进程随机 sess_*） (9.566ms)
+✔ ③ 自动召回按会话隔离：只读 ctx 上标明的本会话 (0.9685ms)
+✔ ④ 取值每步稳定：ctx 缺省回落最近会话，且不中途翻转 (0.8952ms)
+✔ ⑤ 会话隔离不破坏「每步照旧 push」：同会话连续两步注入块逐字节相同 (0.6517ms)
+✔ ⑥ 开关尊重既有语义：关掉 autoRecall 则不注册自动召回监听 (0.3534ms)
+✔ ① 召回取数失败：显式 warn 回报（不再空 catch 吞掉），且不抛 (2.9214ms)
+✔ ② 窗口取数失败：显式 warn 回报，且不影响既有召回块 (1.566ms)
+✔ ③ 源级：src/hooks.ts 不再含空 catch（catch 后紧跟空体/纯注释体） (2.0869ms)
+✔ ④ 正对照：成功路径不产生 warn（不滥报） (0.6975ms)
+✔ e1 未观测 → 注入 unassigned 显式占位（不落进程级随机 sess_*） (1.4062ms)
+✔ a 观测 sess_X 后：cg(op=write) 与 mdcg_remember 均注入 session=sess_X (0.2494ms)
+✔ b cg 的非写 op 不注入：{op:read} / 无 op / {op:sustain} (1.0691ms)
+✔ c 读面不注入（视图过滤语义不动）：stg / mdcg_recall / mdcg_search / mdcg_get (0.3986ms)
+✔ d 显式声明不覆盖；空串/空白/非 string 视为未声明 → 注入 (0.2875ms)
+✔ e2 noteSession 空串/纯空白不覆盖旧值；非空观测写入前 trim (0.2303ms)
+✔ f 不 mutate：注入返回新对象，传入对象保持无 session 键 (0.3601ms)
+✔ g 接线闭环：hooks 观测（session/event）→ 工具面写归因注入同源 (11.9326ms)
+✔ ① 裸令牌 id 被过滤 (2.024ms)
+✔ ② 完整令牌整段吃掉，secret 不留残片 (0.2498ms)
+✔ ③ 纯令牌消息 → null（跳过写入，不进记忆库） (0.7535ms)
+✔ ④ 顺序回归：完整令牌先于裸 id 匹配 (0.2894ms)
+✔ ⑤ 前缀不误伤：普通文本原样保留 (0.2004ms)
+✔ ⑥ 语言面词形：密碼 / パスワード / 口令 与既有「密码」同口径（N269） (0.2801ms)
+✔ ⑦ 标签面词形：密钥 / token / secret / creds 的「标签: 值」形态不得漏检（N269） (0.2883ms)
+✔ ⑧ 误伤边界：标签后是中文说明/低熵值时不动（与「密码是重要的安全概念」同口径） (0.2362ms)
+✔ ① 真令牌（全角色）整段吃掉，secret 不留残片 (2.8895ms)
+✔ ② 三处失配触发点 + 顺序交换序：secret 一律无残片 (1.1186ms)
+✔ ③ 与写入闸门禁表同口径：禁表 #10/#11 命中的语料，TS 必须同样命中且不残留凭据 (1.1923ms)
+✔ ④ 形态假设与实现同源（改了令牌格式而没改本测 ⇒ 立刻红） (1.5119ms)
+✔ ⑤ 前缀不误伤：半段/短尾/普通文本原样保留；短尾文件名不被吞 (0.3443ms)
+✔ ① 注入文本 = 声明句 + 显式边界，且二者取自常量（单点） (4.1171ms)
+✔ ② 提前闭合不可行：伪标记一律被打断，注入文本中标记形态恰为 2（开+闭） (2.0403ms)
+✔ ③ 保真：打断只插空格、不删改字符；记忆真源（载荷）本身不被改写 (0.6284ms)
+✔ ④ 端到端：宿主真函数可渲染该注入面，且边界对模型可见 (0.7711ms)
+✔ ⑤ 稳定性：同一 payload 连续两步注入逐字节相同（不破坏每步 push 契约） (0.8077ms)
+✔ ⑥ 对照：不经边界的裸拼接会让伪标记直达提示词（证明边界+打断是必需的） (0.3464ms)
+✔ ⑦ 单点扫描：边界标记与声明句字面量只出现在 prompt_safety.ts (9.3731ms)
+✔ ⑧ issue #94：全角斜杠与零宽字符形态同样被打断（含幂等与已知残留） (0.4381ms)
+ℹ tests 204
+ℹ suites 0
+ℹ pass 203
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 47746.7039
+
+EXIT=0
