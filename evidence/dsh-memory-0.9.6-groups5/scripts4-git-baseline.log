@@ -1,0 +1,129 @@
+===== test_check_unreachable_decode rc=0
+[1] A 组：坏字节夹具（scripts/bad.py 非法 UTF-8 + scripts/tail.py 含 1 处 unreachable）
+[2] B 组：对照夹具（仅 scripts/clean.py 干净文件）
+[3] C 组：判据未放宽（仅含 unreachable 的好文件）
+[4] D 组：红基线自证（HEAD 版跑坏字节夹具）
+  [PASS] A1 坏字节夹具：退出码 = 1
+  [PASS] A2 [SYNTAX] 行点名 scripts/bad.py
+  [PASS] A3 汇总行存在（崩溃形态 stdout 为空，此腿即红）
+  [PASS] A4 汇总恰 2 文件 / 1 命中 / 1 语法失败（坏文件计入且不中断全轮）
+  [PASS] A5 scripts/tail.py 的 unreachable 照常报出（坏文件之后继续扫描）
+  [PASS] B1 对照夹具（仅好文件）：退出码 = 0
+  [PASS] B2 对照夹具：无 [SYNTAX] 行
+  [PASS] B3 对照夹具：汇总恰 1 文件 / 0 命中 / 0 语法失败
+  [PASS] C1 含 unreachable 的好文件：退出码 = 1
+  [PASS] C2 [UNREACHABLE] 点名 scripts/dirty.py
+  [PASS] C3 无 [SYNTAX] 行
+  [PASS] C4 汇总 1 文件 / 1 命中 / 0 语法失败
+  [SKIP] D 红基线自证（HEAD 版已呈修复形态——红基线只在本改动提交前可复现）
+
+12 passed, 0 failed, 1 skipped
+
+===== test_check_publish_artifact_manifest rc=0
+[1] 解析契约与越根判据（哑数据）
+  [PASS] M1 诱饵在前 → 取 npm 真清单（含 .env）
+  [PASS] M1 诱饵在后 → 仍取全形态真清单
+  [PASS] M2 清单候选计数=2 且形态档=full
+  [PASS] M2 纯文本污染不产生清单候选（不误报）
+  [PASS] M2 无清单形态 JSON → None
+  [PASS] M3 '..' 段判不安全
+  [PASS] M3 反斜杠形态归一后判不安全
+  [PASS] M3 中段 '..' 判不安全
+  [PASS] M3 绝对路径判不安全
+  [PASS] M3 盘符路径判不安全
+  [PASS] M3 包内相对路径放行
+  [PASS] M4 越根条目不进扫描面（只留 a.js）
+  [PASS] M4 越根条目记账 1 条
+  [PASS] M5 前提：根外文件确实存在且可读（否则断言无意义）
+  [PASS] M5 根外文件（../ 形态）不读
+  [PASS] M5 根外文件（绝对路径形态）不读
+  [PASS] M5 根内文件照读（不误伤）
+[2] E2E 攻击腿与反向腿（临时 git 仓 + 真实 npm）
+  [SKIP] M6/M7 E2E（本机无 npm 或 git）
+[3] 脚本内置自检
+  [PASS] M8 --selftest exit 0（含诱饵负例）
+
+18 passed, 0 failed, 1 skipped
+
+===== test_check_publish_artifact_coverage rc=0
+[1] 未扫成因单点（read_local_text_detail；哑数据）
+  [PASS] C5 前提坐实：超限内容本身含真形态令牌（若被扫即命中）
+  [PASS] C5 前提坐实：该件确实超 TEXT_SIZE_LIMIT（否则断言无意义）
+  [PASS] C1 清单内超限文本件 → 报未扫成因（修前：None 且无成因）
+  [PASS] C2 清单内却读不到 → 报未扫成因（修前静默）
+  [PASS] C2 成因按类区分：超限 ≠ 读不到
+  [PASS] C3 非文本扩展名 → 按设计不扫（无成因，不刷屏）
+  [PASS] C4 根内普通文本件照读且无成因
+  [PASS] C4 既有 API 语义不变：越根不读（read_local_text_if_needed）
+  [PASS] C4 既有 API 语义不变：根内普通文本件照读
+[2] E2E 本地模式（临时 git 仓 + 真实 npm）
+  [SKIP] L1/L2/L3 E2E（本机无 npm 或 git）
+[3] E2E registry 模式（桩 http 层，无网络）
+  [PASS] R1 registry 前置：桩链路走通（rc=0，非环境错误）
+  [PASS] R1 registry 成因隔离：R0 发布件一致性 PASS
+  [PASS] R1 registry 超限文本件 → R7 判负（修前静默）
+  [PASS] R1 registry 判负进入结论（report.failed）
+  [PASS] R2 registry 反向腿 rc=0
+  [PASS] R2 registry 反向腿 R7 PASS（未扫=0）
+[4] 脚本内置自检
+  [PASS] S1 --selftest exit 0（含本轮未扫成因断言）
+
+16 passed, 0 failed, 1 skipped
+
+===== test_gate_rust_legs rc=0
+== G1 契约①：gate 链里确实含这两条腿（且是纯 && 短路）==
+  PASS G1a gate 链含腿①（rust crate 测试）
+  PASS G1b gate 链含腿②（逐位对拍 harness）
+  PASS G1c 两条腿各**恰好一次**（不重复计、不空转）
+  PASS G1d 链是**纯 `&&` 短路**：无 `|| ` / `;` / 裸 `&` 吞错——任一条腿非 0 即 gate 非 0
+  PASS G1e 既有六条腿仍原样在位（新腿是追加，不顶掉别人）
+== G2 契约②：缺工具/缺产物 = 显式 SKIP + 不计通过 + 补救命令 ==
+  PASS G2a 腿①缺 cargo：退出码 0（SKIP 不拦死门禁）
+  PASS G2b 腿①缺 cargo：显式 [SKIP]（不静默通过）
+  PASS G2c 腿①缺 cargo：汇总**不计入通过数**（SKIP ≠ 通过）
+  PASS G2d 腿①缺 cargo：**不出现 [PASS]**（跑不起来不得记绿）
+  PASS G2e 腿①缺 cargo：打印可执行补救命令（cd rust && cargo test）
+  PASS G2f 腿②缺二进制（--build never）：退出码 0
+  PASS G2g 腿②缺二进制：显式 [SKIP]
+  PASS G2h 腿②缺二进制：汇总**不计入通过数**
+  PASS G2i 腿②缺二进制：**不出现 [PASS]**
+  PASS G2j 腿②缺二进制：打印补救命令（cd rust && cargo build --release）
+  PASS G2k 腿②缺 cargo（--build auto）：显式 [SKIP]、不计通过、不出 [PASS]
+  PASS G2l 腿②缺 cargo：SKIP 理由写明「cargo 不在位」
+== G6 缺产物的补救面：自动构建（补救成功即继续；构建失败即判红）==
+  PASS G6a 缺产物 ⇒ 自动构建后对拍通过（rc=0）
+  PASS G6b 打印自动构建动作（[BUILD]，不静默跳过）
+  PASS G6c 构建产物确实落盘（<crate>/target/release/mdcg-eval）
+  PASS G6d 用**新构建**的二进制对拍仍 10/10
+  PASS G6e 自动构建失败 ⇒ 本腿**非 0 退出**（构建不出来不算通过）
+  PASS G6f 打印 [FAIL] + 自动构建失败
+== G3 负向控制：前置在位时两条腿真跑（SKIP 不是无条件）==
+  PASS G3a 腿①真跑：退出码 0
+  PASS G3b 腿①真跑：打印 [PASS]
+  PASS G3c 腿①真跑：计入通过数 1（与 SKIP 的 0 形成对照）
+  PASS G3d 腿①真跑：汇报 cargo test 读数（passed/failed）
+  SKIP(未跑·不计通过) G3e-h 腿②真跑（release 二进制缺失）—— 修复：cd rust && cargo build --release
+== G4 红传导：腿失败必须非 0 退出并指认到那条腿（接了不管用 ≡ 没接）==
+  PASS G4a 腿①cargo test 失败 ⇒ 腿**非 0 退出**（gate 才会红）
+  PASS G4b 腿①失败：打印 [FAIL]（指认到腿①）
+  PASS G4c 腿①失败：不计入通过数
+  PASS G4d 腿①失败：打印补救命令
+  PASS G4m 腿①rc=0 但零测试 ⇒ 腿**非 0 退出**（0 样本不算通过）
+  PASS G4n 腿①零测试：打印 [FAIL]（指认到腿①）
+  PASS G4o 腿①零测试：文案点名「零测试」
+  PASS G4p 腿①零测试：不计入通过数
+  SKIP(未跑·不计通过) G4e-h 腿②漂移（真二进制缺失）—— 修复：cd rust && cargo build --release
+  PASS G4i 腿②（桩 serve 报 legacy）⇒ 腿**非 0 退出**
+  PASS G4j 腿②桩 serve：打印 [FAIL] + 口径不一致
+== G5 契约③：注释订正到位 + CH-1 守卫锚点判别力未被削弱 ==
+  PASS G5a 从 CH-1 守卫源码抽出 _RUST_CFG_DEFAULT_ANCHOR 字面量
+  PASS G5b 该锚点在 rust/src/main.rs 里**仍能命中**（锚点未成孤儿 ⇒ CH-1 的 G3k 仍有判据面）
+  PASS G5c Python 侧负向锚点（_PY_DEFAULT_ANCHOR）对 md_cg/mdcg.py 仍能命中
+  PASS G5d 失实原话（整句字面量）**已不在** main.rs（该注与事实相反）
+  PASS G5e 订正后的事实写在注释里：Rust 缺省与 Python 缺省不一致，后者是 legacy（跨行唯一锚点）
+  PASS G5c2 订正后的结论明确：Rust 缺省「与 Python 缺省不一致」
+  PASS G5f 失实片段「SCORE_MODE 缺省一致」在 main.rs **全文件**已清零（:99 与头注释 :13-14 两处）
+  PASS G5g 头注释已订正为事实：Rust 侧缺省 jaccard 与 Python 侧产品缺省 legacy 不一致（跨行唯一锚点）
+
+R-7 守卫（rust 门禁腿接线）：45 通过，0 失败，2 跳过
+
