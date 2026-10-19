@@ -1,0 +1,91 @@
+submitted 16
+t=0s running=0 done=0
+t=0s running=4 done=0
+t=0s running=4 done=0
+t=0s running=4 done=0
+t=0s running=4 done=0
+t=0s running=4 done=0
+t=1s running=4 done=0
+t=1s running=4 done=0
+t=1s running=4 done=0
+t=1s running=4 done=0
+t=1s running=4 done=0
+t=1s running=4 done=0
+t=5s running=4 done=0
+t=5s running=4 done=0
+t=5s running=4 done=0
+t=5s running=4 done=0
+t=5s running=4 done=0
+t=5s running=4 done=0
+t=6s running=4 done=0
+t=6s running=4 done=0
+t=6s running=4 done=0
+t=6s running=4 done=0
+t=6s running=4 done=0
+t=6s running=4 done=0
+t=10s running=4 done=1
+t=10s running=4 done=1
+t=10s running=4 done=1
+t=10s running=4 done=1
+t=10s running=4 done=1
+t=10s running=4 done=1
+t=11s running=4 done=1
+t=11s running=4 done=1
+t=11s running=4 done=1
+t=11s running=4 done=1
+t=11s running=4 done=1
+t=15s running=4 done=4
+t=15s running=4 done=4
+t=15s running=4 done=4
+t=15s running=4 done=4
+t=15s running=4 done=4
+t=16s running=4 done=4
+t=16s running=4 done=4
+t=16s running=4 done=4
+t=16s running=4 done=4
+t=16s running=4 done=4
+t=16s running=4 done=4
+t=20s running=4 done=8
+t=20s running=4 done=8
+t=20s running=4 done=8
+t=20s running=3 done=8
+t=20s running=4 done=8
+t=20s running=4 done=8
+t=21s running=4 done=8
+t=21s running=4 done=8
+t=21s running=4 done=8
+t=21s running=4 done=8
+t=21s running=4 done=8
+t=21s running=4 done=8
+t=25s running=4 done=11
+t=25s running=4 done=11
+t=25s running=4 done=11
+t=25s running=4 done=11
+t=25s running=4 done=11
+t=25s running=4 done=11
+t=26s running=4 done=11
+t=26s running=4 done=11
+t=26s running=4 done=11
+t=26s running=4 done=11
+t=26s running=4 done=11
+t=30s running=4 done=12
+t=30s running=4 done=12
+t=30s running=4 done=12
+t=30s running=4 done=12
+t=30s running=4 done=12
+t=31s running=4 done=12
+t=31s running=4 done=12
+t=31s running=4 done=12
+t=31s running=4 done=13
+t=31s running=4 done=13
+t=31s running=4 done=13
+A1 result.json 齐: 16 / 16 | ok=true: 16
+A2 峰值 running: 4 <= workers 4: True
+A3 并发真的发生: True
+A4 全部 state=done: True {'done'}
+A5 任务目录数==16: True 16
+A6 serve 被杀干净: True rc= 1
+serve_out_tail: ['[hive serve] 结果完整性锚：未启用（身份链 HIVE_ORCH_TOKEN / HIVE_ORCH_TOKEN_FILE 均缺；HIVE_API_KEY 是模型密钥、N190 起不作锚链兜底）——锚预期任务将判 needs_review']
+VERDICT PASS
+
+EXIT=0
