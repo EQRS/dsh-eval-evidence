@@ -1,0 +1,15 @@
+# command: C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\pnpm\bin\pnpm.cjs --filter @hyzyn/dsh-kit-settings typecheck
+# cwd: D:\natnat\lingshu\外部插件\hyzyn-dsh-kit-settings\dsh-plugin-kit-main
+# exit: 0
+# seconds: 4.14
+
+## stdout
+
+> @hyzyn/dsh-kit-settings@0.2.6 typecheck D:\natnat\lingshu\外部插件\hyzyn-dsh-kit-settings\dsh-plugin-kit-main\packages\kit-settings
+> tsc --noEmit && node ../../scripts/client-lint.mjs
+
+[client-lint] client.js 通过（宿主地址来源 0 处 · 样式变量 3 处全部存在 · 自定义属性 3 处全部有定义 · 胶囊/正圆 0 处均已配对 corner-shape · 中性边框 0 处均为 0.5px 发丝线 · 圆角 0 处均为官方尺度 token · 危险按钮 0 处均为官方 danger 配方 · 按钮族 0 个类均对齐官方 Button · 排版 3 处字号均已配对行高与官方字重 · 控件选中色 0 处均为官方 brand · 输入档 0 处均为显式高度 + token 圆角 · 颜色 3 处宿主令牌引用均无字面量兜底、规则体无字面量颜色；忽略 1 条已知噪音：TS2339×1）
+
+## stderr
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.overrides". See https://pnpm.io/settings for the new home of each setting.
+
