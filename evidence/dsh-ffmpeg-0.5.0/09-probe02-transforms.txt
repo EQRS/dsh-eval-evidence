@@ -1,0 +1,90 @@
+command  = cmd.exe /c C:\Users\30951\tools\run.cmd node D:\natnat\lingshu\测试\dsh-ffmpeg\probes\probe-02-transforms.mjs --plugin C:\Users\30951\AppData\Local\Temp\dsh-ffmpeg-probe\work --dir C:\Users\30951\AppData\Local\Temp\dsh-ffmpeg-probe\fixtures
+workdir  = C:\Users\30951\AppData\Local\Temp\dsh-ffmpeg-probe\work
+exitCode = 0
+duration = 16788 ms
+stdout   = 8786 bytes
+stderr   = 0 bytes
+----- stdout -----
+== probe-02：真实转码面（独立 ffprobe 复核） ==
+plugin = C:\Users\30951\AppData\Local\Temp\dsh-ffmpeg-probe\work
+dir    = C:\Users\30951\AppData\Local\Temp\dsh-ffmpeg-probe\fixtures
+
+[1] ffmpeg_cut
+  1a 流拷贝 start=0 dur=1 → 请求 duration=1，实际=1.002667s，frames=30
+OK   cut 流拷贝（关键帧起点）：实际时长≈请求时长  → actual=1.002667
+  1b 流拷贝 start=1 dur=1 → 请求 duration=1，实际=2.005333s，frames=60，帧数=aac
+     内容起点判定：产物 t=0.2 帧 md5=MD5=e82de2ae497401affdcc895ad5dcd70a；源 t=0.2=MD5=e82de2ae497401affdcc895ad5dcd70a；源 t=1.2=MD5=9d3727f631a76c8efbdafd4a03c49b6d
+OK   P2 候选复现：非关键帧起点流拷贝产物时长≈start+duration（含关键帧前预卷）  → 请求 1s / 实际 2.005333s / 内容从源 0.2s 帧开始=true
+  1b-对照（同一命令去掉 make_zero）→ with: dur=2.005333s / without: dur=1.005333s；without t=0.2 帧=MD5=9d3727f631a76c8efbdafd4a03c49b6d（=源 1.2 帧 → 从请求起点开始）
+OK   P2 根因对照：去掉 -avoid_negative_ts make_zero 后时长回到≈1s 且内容从请求起点开始  → with=2.005333s without=1.005333s
+  1c 精确重编码 start=1.5 dur=0.75 → 请求=0.75，实际=0.766667s，frames=23
+OK   cut 重编码：时长≈0.75s（±0.1）  → duration=0.766667
+  1d 流拷贝 start=0.5 end=2.25 → 返回 duration=1.75，实际=2.266667s
+OK   P2 候选复现：end 模式同样受预卷影响（实际>请求 1.75s）  → 请求 1.75s / 实际 2.266667s
+
+[2] ffmpeg_encode（四预设 + 覆盖参数）
+  bilibili-1080p   → {"codec":"h264","width":320,"height":240,"fps":"30/1","nbFrames":90}  audio={"codec":"aac","sampleRate":48000,"channels":2}  size=207123
+OK   encode bilibili-1080p：输出可读且保留原分辨率（预设不升采样）  → {"codec":"h264","width":320,"height":240,"fps":"30/1","nbFrames":90}
+  bilibili-4k      → {"codec":"h264","width":320,"height":240,"fps":"30/1","nbFrames":90}  audio={"codec":"aac","sampleRate":48000,"channels":2}  size=235129
+OK   encode bilibili-4k：输出可读且保留原分辨率（预设不升采样）  → {"codec":"h264","width":320,"height":240,"fps":"30/1","nbFrames":90}
+  vertical-1080p   → {"codec":"h264","width":1080,"height":1920,"fps":"30/1","nbFrames":90}  audio={"codec":"aac","sampleRate":48000,"channels":2}  size=712930
+OK   encode vertical-1080p：1080x1920（等比补边）  → {"codec":"h264","width":1080,"height":1920,"fps":"30/1","nbFrames":90}
+  web-720p         → {"codec":"h264","width":960,"height":720,"fps":"30/1","nbFrames":90}  audio={"codec":"aac","sampleRate":48000,"channels":2}  size=526108
+OK   encode web-720p：高度 720、宽度偶数  → {"codec":"h264","width":960,"height":720,"fps":"30/1","nbFrames":90}
+  crf/fps/scale 覆盖 → {"crf":30,"fps":24,"scale":"160:120","video":{"codec":"h264","width":160,"height":120,"fps":"24/1","nbFrames":74},"duration":3.083333}
+OK   encode 覆盖：160x120、24fps、时长≈3s  → {"codec":"h264","width":160,"height":120,"fps":"24/1","nbFrames":74}
+
+[3] ffmpeg_subtitle
+  烧录读出 = {"output":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-ffmpeg-probe\\fixtures\\out-sub.mp4","mode":"burn","media":{"format":"mov,mp4,m4a,3gp,3g2,mj2","duration":3,"size":160568,"videos":[{"codec":"h264","width":320,"height":240,"fps":"30/1","nbFrames":90}],"audios":[{"codec":"aac","sampleRate":48000,"channels":2}],"subtitles":[]}}
+OK   subtitle：输出存在、时长≈3s、无字幕流（硬烧录）、保留音轨  → {"format":"mov,mp4,m4a,3gp,3g2,mj2","duration":3,"size":160568,"videos":[{"codec":"h264","width":320,"height":240,"fps":"30/1","nbFrames":90}],"audios":[{"codec":"aac","sampleRate":48000,"channels":2}],"subtitles":[]}
+
+[4] ffmpeg_extract
+  audio(AAC 源) = {"output":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-ffmpeg-probe\\fixtures\\out-audio.m4a","media":{"format":"mov,mp4,m4a,3gp,3g2,mj2","duration":3,"size":47293,"videos":[],"audios":[{"codec":"aac","sampleRate":48000,"channels":2}],"subtitles":[]}}
+OK   extract audio：m4a 内 AAC、时长≈3s  → {"codec":"aac","sampleRate":48000,"channels":2}
+  audio(Opus 源→m4a) 调用序列 =
+    ffmpeg -y -i C:\Users\30951\AppData\Local\Temp\dsh-ffmpeg-probe\fixtures\src-opus.webm -vn -c copy C:\Users\30951\AppData\Local\Temp\dsh-ffmpeg-probe\fixtures\out-opus-to-m4a.m4a
+    ffmpeg -y -i C:\Users\30951\AppData\Local\Temp\dsh-ffmpeg-probe\fixtures\src-opus.webm -vn -c:a aac C:\Users\30951\AppData\Local\Temp\dsh-ffmpeg-probe\fixtures\out-opus-to-m4a.m4a
+  结果 = {"output":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-ffmpeg-probe\\fixtures\\out-opus-to-m4a.m4a","media":{"format":"mov,mp4,m4a,3gp,3g2,mj2","duration":1,"size":9499,"videos":[],"audios":[{"codec":"aac","sampleRate":48000,"channels":1}],"subtitles":[]}}
+OK   extract audio：Opus→m4a 失败后自动回退 AAC（2 次调用）  → calls=2
+  frames(fps=2,duration=2) → {"output":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-ffmpeg-probe\\fixtures\\out-ex-frames-%03d.png","count":4,"files":["out-ex-frames-001.png","out-ex-frames-002.png","out-ex-frames-003.png","out-ex-frames-004.png"],"first":{"codec":"png","width":320,"height":240,"fps":"25/1","nbFrames":null}}
+OK   extract frames：4±1 张 PNG、尺寸 320x240  → count=4
+  frame(start=1.2) → {"output":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-ffmpeg-probe\\fixtures\\out-ex-frame.png","media":{"format":"png_pipe","duration":null,"size":29754,"videos":[{"codec":"png","width":320,"height":240,"fps":"25/1","nbFrames":null}],"audios":[],"subtitles":[]}}
+OK   extract frame：单张 PNG 320x240  → {"codec":"png","width":320,"height":240,"fps":"25/1","nbFrames":null}
+  subtitle 提取 → {"output":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-ffmpeg-probe\\fixtures\\out-ex-sub.srt","bytes":101,"hasAlpha":true}
+OK   extract subtitle：导出 SRT 且含 cue 文本  → bytes=101
+
+[5] ffmpeg_gif（非零起点 / 精确时长 / 调色板临时产物）
+  start=0 dur=1 → {"media":{"format":"gif","duration":1,"size":49209,"videos":[{"codec":"gif","width":160,"height":120,"fps":"10/1","nbFrames":10}],"audios":[],"subtitles":[]},"frames":10,"sha":"6c8535907579c21a"}
+  start=2 dur=1 → {"media":{"format":"gif","duration":1,"size":54494,"videos":[{"codec":"gif","width":160,"height":120,"fps":"10/1","nbFrames":10}],"audios":[],"subtitles":[]},"frames":10,"sha":"5e9e3050b1d699bd"}
+  start=1 dur=2 → {"media":{"format":"gif","duration":2,"size":96921,"videos":[{"codec":"gif","width":160,"height":120,"fps":"10/1","nbFrames":20}],"audios":[],"subtitles":[]},"frames":20,"sha":"5963ef6ebb68ddfb"}
+  同目录 palette 残留 = []
+OK   gif：输出 160 宽、时长≈1s、约 10 帧  → {"width":160,"duration":1,"frames":10}
+OK   gif 0.5.0 修复：非零起点改变了内容（start=0 vs start=2 文件不同）  → sha0=6c8535907579c21a sha2=5e9e3050b1d699bd
+OK   gif 0.5.0 修复：时长作用到正确输入（dur=2 帧数约为 dur=1 的 2 倍）  → frames=10 vs 20
+OK   gif 调色板不落在用户输出旁（无 palette 残留）  → dir 内无 palette 文件
+
+[6] ffmpeg_frames
+  every=1 → {"outputDir":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-ffmpeg-probe\\fixtures\\frames-every\\run-eKScjV","mode":"every","every":1,"count":3,"files":["frame-001.png","frame-002.png","frame-003.png"]}
+OK   frames every=1：3 秒素材 ≈3 张且落在独立 run-* 子目录  → count=3
+  times=[0,1.5,2.5] → {"outputDir":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-ffmpeg-probe\\fixtures\\frames-times\\run-gobbhg","mode":"times","count":3,"files":["frame-001.png","frame-002.png","frame-003.png"]}
+OK   frames times：3 个指定时间点各 1 张  → count=3
+  format=jpg → {"files":["frame-001.jpg"]}
+OK   frames format=jpg：扩展名为 .jpg  → ["frame-001.jpg"]
+
+[7] ffmpeg_adjust
+  speed=2 → {"ops":["倍速 x2"],"duration":1.566667,"audios":1}
+OK   adjust speed=2：时长≈1.5s、保留音轨  → duration=1.566667
+OK   adjust speed=0.5：时长≈6s  → duration=5.986042
+OK   adjust volume=-3dB：成功且保留音轨  → duration=3
+OK   adjust mute：输出无音轨  → audios=0
+OK   adjust rotate=90：画面 240x320（竖起来）  → {"codec":"h264","width":240,"height":320,"fps":"30/1","nbFrames":90}
+  speed+volume+rotate270 → {"ops":["倍速 x2","音量 1.5","旋转 270°"],"duration":1.566667,"video":{"codec":"h264","width":240,"height":320,"fps":"30/1","nbFrames":47},"audios":1}
+OK   adjust 组合：240x320、时长≈1.5s、保留音轨  → {"codec":"h264","width":240,"height":320,"fps":"30/1","nbFrames":47} duration=1.566667
+OK   adjust 无声输入：volume 不报错、输出仍无音轨  → audios=0
+
+
+检查项合计：30，通过 30，失败 0
+== probe-02 done ==
+
+----- stderr -----
+
