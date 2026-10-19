@@ -1,0 +1,269 @@
+$ pnpm run build && node --test "test/*.test.mjs"
+$ tsc -p tsconfig.json
+✔ secure_baseline 接受当前问题后，secure_scan 只按新增判定 (417.2511ms)
+✔ secure_deps 解析 package.json 并标记风险 (29.5174ms)
+✔ secure_deps 解析 requirements.txt (29.2013ms)
+✔ parseDiff 映射新增行号 (7.9441ms)
+✔ scanDiff 只报告新增行 (75.4062ms)
+✔ scanDiff checks added private keys, .env secrets and disabled audit at their actual lines (4.1268ms)
+✔ parseDiff decodes Git octal UTF-8 and quoted filename escapes (3.3026ms)
+✔ parseDiff treats header-like added content as code and keeps new line numbers (2.2175ms)
+✔ scanDiff applies policy and default directory exclusions before reviewing added lines (6.0828ms)
+✔ parseDiff rejects a truncated hunk instead of returning a partial clean result (1.8215ms)
+✔ diff context honors existing next-line suppressions without reporting old findings (3.1502ms)
+✔ file rules match multiline added evidence and changed values with unchanged keys (4.1555ms)
+✔ Betterleaks uses isolated files, explicit config, no validation, redacted output and cleans its snapshot (43.4732ms)
+✔ bad or truncated reports and foreign locations never become a successful scan (40.5491ms)
+✔ external diff results are restricted to added lines, including a multi-line match (15.7575ms)
+✔ missing engines and malformed arguments cannot produce a clean verdict (86.1904ms)
+✔ cancelled external scans settle before snapshot cleanup and never replace prior state (36.5082ms)
+✔ a failed recheck does not mark previously detected findings as closed (35.166ms)
+✔ OSV inventory carries vulnerability IDs, fixed versions and actual resolved package versions (10.5661ms)
+✖ staged enhanced scans read the index rather than a safer working-tree replacement (10.5264ms)
+✖ secure_diff reads real Git changes with Chinese paths and exports their workspace locations (37.6848ms)
+✖ secure_diff reviews staged secret/config lines without reading later working tree edits (14.9995ms)
+✖ secure_diff produces a stable patch despite Git color and prefix preferences (13.2238ms)
+✖ secure_diff uses paths relative to a nested session workspace and excludes sibling changes (12.8121ms)
+✖ full scans locate file rules at their evidence lines and apply direct-file exclusions (12.0623ms)
+✖ invalid Git parameters and truncated patches cannot replace scan state (7.3689ms)
+✖ full/diff scans share baselines and accept legacy dot-prefixed state paths (6.9053ms)
+✖ secure_diff ignores configured external text converters and reviews source text (14.8202ms)
+✖ secure_diff persists reviewed file counts and renders skipped policy matches (8.4786ms)
+✔ secure_health 汇总配置且 ok=true (45.0735ms)
+[dsh-code-security] 至少选择一个检查引擎：builtin、betterleaks、semgrep / Select at least one scanning engine: builtin, betterleaks, semgrep
+✔ manifest 字段 (2.5585ms)
+✔ apply 注册 10 个工具、挂载 alpha.4 pre-execute 审批门并 dispose (3.5516ms)
+✔ invalid plugin configuration keeps DSH loadable but cannot silently pass a fallback scan (21.9766ms)
+﹣ native Betterleaks: a documented fake token is redacted; placeholders are ignored; a complete recheck persists the repair (1.2752ms) # SKIP
+﹣ native Semgrep CE: follows a local variable, respects parameterized SQL, and does not trust shadowed DOMPurify (0.2465ms) # SKIP
+﹣ native OSV: resolves a transitive lockfile package against a synthetic offline database, then confirms a fixed version (0.1679ms) # SKIP
+✔ tool values, persisted history, baseline and exports never echo synthetic credentials (111.0804ms)
+✔ legacy raw history is scrubbed atomically while preserving acceptance across line shifts (56.4249ms)
+✔ Python PEP621 extras/groups and Poetry are parsed by TOML, not header regex (10.9129ms)
+✔ malformed manifests and dynamic Python dependencies are incomplete rather than silently clean (8.3449ms)
+✔ dependency scanning skips junctions and respects aborts and file limits (12.6237ms)
+✔ sanitizer suppression requires the actual unchanged dompurify import and safe call shape (27.5047ms)
+✔ a secret reported by one rule is also removed from overlapping injection evidence, state, baseline and exports (87.9013ms)
+✔ git diff timeout remains active until the subprocess settles (32.5278ms)
+✔ settled and failed subprocesses release their timeout (147.9363ms)
+✔ a lossy DSH output tail is never parsed as a complete Git or scanner response (1.4624ms)
+✔ JavaScript 注入/硬编码密钥规则命中 (77.4197ms)
+✔ Python 反序列化/弱哈希规则命中 (9.6184ms)
+✔ Dockerfile privileged / latest 规则命中 (8.1536ms)
+✔ .npmrc audit=false 文件级规则命中 (8.9942ms)
+✔ 内联豁免 next-line 可跳过规则 (9.5018ms)
+✔ node_modules 默认排除 (16.7284ms)
+✔ PHP/Java/Ruby 命令执行规则命中 (18.0657ms)
+✔ Shell 关闭 TLS 证书校验规则命中 (9.4888ms)
+✔ .env 与 GitHub Actions 规则命中 (16.0441ms)
+✔ 并发扫描与基线写入不丢失历史或基线 (1239.2268ms)
+✔ 损坏记录不被新扫描或基线覆盖 (30.2967ms)
+✔ 等待另一个写入者期间取消，不追加历史或覆盖原记录 (16.9063ms)
+✔ secure_diff preserves the subprocess service receiver (42.5009ms)
+✔ secure_scan rejects misspelled or invalid targets before scanning or changing state (100.943ms)
+✔ secure_diff rejects misspelled or invalid targets before scanning or changing state (40.6301ms)
+✔ secure_fix_verify rejects misspelled or invalid targets before scanning or changing state (36.5465ms)
+✔ secure_scan keeps a valid file scope and still accepts an explicit whole-workspace scan (55.6819ms)
+✔ secure_scan 写入状态并给出门禁结论 (23.6709ms)
+✔ secure_fix_verify 对比基线并识别新增问题 (40.6209ms)
+✔ secure_diff 使用 git diff 结果 (19.0493ms)
+✔ secure_policy_set 写入策略 (13.5609ms)
+✔ secure_diff staged=true 使用 --cached (19.2933ms)
+✔ secure_export 生成 SARIF 与 Markdown (26.6809ms)
+✔ SARIF resolves a nested finding against the workspace with encoded paths (21.0634ms)
+✔ workbench rejects browser-supplied paths, cross-site calls, malformed settings and oversized bodies; safe jobs/export persist (235.067ms)
+✔ cancelling a running workbench job waits for the scanner and preserves its previous state (68.1018ms)
+✖ automatic checks are opt-in, include untracked files, preserve manual results and surface only new high-risk evidence (26.8617ms)
+✔ a new turn cancels an older end event even while workspace registration is awaiting I/O (58.487ms)
+✔ redaction is idempotent for quoted, unquoted, YAML and truncated credential evidence (0.5258ms)
+✔ automatic reminders use the official passive prompt context without variable interpolation (0.7564ms)
+✔ 扫描、策略和 git diff 使用当前会话工作区，取消后不写入状态 (86.8372ms)
+✔ 扫描跳过目录联接和循环链接，不读取链接外的文件 (22.0622ms)
+✔ 损坏策略和空忽略规则明确报错，不静默禁用检查 (7.0726ms)
+ℹ tests 79
+ℹ suites 0
+ℹ pass 65
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 3
+ℹ todo 0
+ℹ duration_ms 4988.9583
+
+✖ failing tests:
+
+test at test\engines.test.mjs:66:1
+✖ staged enhanced scans read the index rather than a safer working-tree replacement (10.5264ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 0
+  
+      at git (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-code-security/.work/repo/test/engines.test.mjs:68:92)
+      at TestContext.<anonymous> (file:///D:/natnat/lingshu/%E6%B5%8B%E8%AF%95/dsh-code-security/.work/repo/test/engines.test.mjs:69:2)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\git-diff.test.mjs:60:1
+✖ secure_diff reads real Git changes with Chinese paths and exports their workspace locations (37.6848ms)
+  Error: spawn git ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:287:19)
+      at onErrorNT (node:internal/child_process:525:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn git',
+    path: 'git',
+    spawnargs: [ 'init', '--initial-branch=main' ],
+    cmd: 'git init --initial-branch=main',
+    stdout: '',
+    stderr: ''
+  }
+
+test at test\git-diff.test.mjs:77:1
+✖ secure_diff reviews staged secret/config lines without reading later working tree edits (14.9995ms)
+  Error: spawn git ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:287:19)
+      at onErrorNT (node:internal/child_process:525:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn git',
+    path: 'git',
+    spawnargs: [ 'init', '--initial-branch=main' ],
+    cmd: 'git init --initial-branch=main',
+    stdout: '',
+    stderr: ''
+  }
+
+test at test\git-diff.test.mjs:96:1
+✖ secure_diff produces a stable patch despite Git color and prefix preferences (13.2238ms)
+  Error: spawn git ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:287:19)
+      at onErrorNT (node:internal/child_process:525:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn git',
+    path: 'git',
+    spawnargs: [ 'init', '--initial-branch=main' ],
+    cmd: 'git init --initial-branch=main',
+    stdout: '',
+    stderr: ''
+  }
+
+test at test\git-diff.test.mjs:108:1
+✖ secure_diff uses paths relative to a nested session workspace and excludes sibling changes (12.8121ms)
+  Error: spawn git ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:287:19)
+      at onErrorNT (node:internal/child_process:525:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn git',
+    path: 'git',
+    spawnargs: [ 'init', '--initial-branch=main' ],
+    cmd: 'git init --initial-branch=main',
+    stdout: '',
+    stderr: ''
+  }
+
+test at test\git-diff.test.mjs:120:1
+✖ full scans locate file rules at their evidence lines and apply direct-file exclusions (12.0623ms)
+  Error: spawn git ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:287:19)
+      at onErrorNT (node:internal/child_process:525:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn git',
+    path: 'git',
+    spawnargs: [ 'init', '--initial-branch=main' ],
+    cmd: 'git init --initial-branch=main',
+    stdout: '',
+    stderr: ''
+  }
+
+test at test\git-diff.test.mjs:133:1
+✖ invalid Git parameters and truncated patches cannot replace scan state (7.3689ms)
+  Error: spawn git ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:287:19)
+      at onErrorNT (node:internal/child_process:525:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn git',
+    path: 'git',
+    spawnargs: [ 'init', '--initial-branch=main' ],
+    cmd: 'git init --initial-branch=main',
+    stdout: '',
+    stderr: ''
+  }
+
+test at test\git-diff.test.mjs:158:1
+✖ full/diff scans share baselines and accept legacy dot-prefixed state paths (6.9053ms)
+  Error: spawn git ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:287:19)
+      at onErrorNT (node:internal/child_process:525:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn git',
+    path: 'git',
+    spawnargs: [ 'init', '--initial-branch=main' ],
+    cmd: 'git init --initial-branch=main',
+    stdout: '',
+    stderr: ''
+  }
+
+test at test\git-diff.test.mjs:181:1
+✖ secure_diff ignores configured external text converters and reviews source text (14.8202ms)
+  Error: spawn git ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:287:19)
+      at onErrorNT (node:internal/child_process:525:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn git',
+    path: 'git',
+    spawnargs: [ 'init', '--initial-branch=main' ],
+    cmd: 'git init --initial-branch=main',
+    stdout: '',
+    stderr: ''
+  }
+
+test at test\git-diff.test.mjs:198:1
+✖ secure_diff persists reviewed file counts and renders skipped policy matches (8.4786ms)
+  Error: spawn git ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:287:19)
+      at onErrorNT (node:internal/child_process:525:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn git',
+    path: 'git',
+    spawnargs: [ 'init', '--initial-branch=main' ],
+    cmd: 'git init --initial-branch=main',
+    stdout: '',
+    stderr: ''
+  }
+
+test at test\workbench-automatic.test.mjs:49:1
+✖ automatic checks are opt-in, include untracked files, preserve manual results and surface only new high-risk evidence (26.8617ms)
+  Error: spawn git ENOENT
+      at ChildProcess._handle.onexit (node:internal/child_process:287:19)
+      at onErrorNT (node:internal/child_process:525:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'spawn git',
+    path: 'git',
+    spawnargs: [ 'init', '-q' ]
+  }
+[ELIFECYCLE] Test failed. See above for more details.
+exit=1 elapsed_s=23.35
