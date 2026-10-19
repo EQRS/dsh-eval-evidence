@@ -20,19 +20,21 @@
 | 成本 | 130,317 tokens（输入 113,984 / 输出 16,333），约 ¥0.1 量级 |
 
 
-## 一之一、证据链索引（可点击）
+## 一之一、证据链索引（https，可点击）
 
 | # | 环节 | 证据 | 链接 |
 |---|---|---|---|
-| 1 | 锚定（外部可核对） | dsh-sql @ `6ed1199c` | [GitHub commit](https://github.com/STARDUSTLC666/dsh-sql/commit/6ed1199c77d5ff856088cd45a6cbfe32b445dc78) |
-| 2 | 预注册（跑前冻结） | a=12 / b=6 / 精度≤6 / B=10000 | [00-preregistration.txt](raw/11-eval/00-preregistration.txt) |
-| 3 | 任务与判分器 | 8 题 + 判分逻辑 | [experiment_toolcall.mjs](probes/experiment_toolcall.mjs) |
-| 4 | 原始调用记录 | 146 次调用 / token | [calls.jsonl](raw/11-eval/calls.jsonl) |
-| 5 | 区间与判定结果 | D=23，CI [21,24] | [result.json](raw/11-eval/result.json) |
-| 6 | 任务数据库 | 建库与数据 | [eval.db](raw/11-eval/eval.db)（二进制，SQLite） |
-| 7 | 插件源码（工具面） | buildSqlTools 导出 | [GitHub 原文 tools.js](https://github.com/STARDUSTLC666/dsh-sql/blob/6ed1199c77d5ff856088cd45a6cbfe32b445dc78/lib/tools.js) · [本地快照](file:///D:/natnat/lingshu/外部插件/dsh-sql/dsh-sql-master/lib/tools.js) |
-| 8 | 同件快测底稿 | 安装/构建/56 项测试/25 探针 | [测评报告_dsh-sql_v0.1.md](测评报告_dsh-sql_v0.1.md) |
-| 9 | 方法规范 | 三种结论/六要素 | [判定与证据链规范-v1](../协议/判定与证据链规范-v1.md) |
+| 1 | 锚定（被测插件） | dsh-sql @ `6ed1199c` | [6ed1199c77d5ff856088cd45a6cbfe32b445dc78](https://github.com/STARDUSTLC666/dsh-sql/commit/6ed1199c77d5ff856088cd45a6cbfe32b445dc78) |
+| 2 | 预注册（跑前冻结） | a=12 / b=6 / 精度≤6 / B=10000 | [00-preregistration.txt](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/00-preregistration.txt) |
+| 3 | 任务与判分器 | 8 题 + 判分逻辑 | [experiment_toolcall.mjs](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/experiment_toolcall.mjs) |
+| 4 | 原始调用记录 | 146 次调用 / 130,317 tokens | [calls.jsonl](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/calls.jsonl) |
+| 5 | 区间与判定结果 | D=23，CI [21,24] | [result.json](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/result.json) |
+| 6 | 任务数据库（可重建） | 建表/插入 SQL | [eval.sql](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/eval.sql) |
+| 7 | 插件源码（工具面） | buildSqlTools 导出 | [tools.js](https://github.com/STARDUSTLC666/dsh-sql/blob/6ed1199c77d5ff856088cd45a6cbfe32b445dc78/lib/tools.js) |
+| 8 | 本报告归档 | 同一份报告 | [report.md](https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-sql-0.4.5/report.md) |
+| 9 | 证据仓库 | 全部证据 | [dsh-eval-evidence](https://github.com/EQRS/dsh-eval-evidence) |
+
+> 证据仓库发布时 HEAD：`453da67d63fca2b15e4485a380534bba588d0cfc`。链接用 `main` 分支，内容只追加不覆盖。
 
 ## 二、任务契约
 
