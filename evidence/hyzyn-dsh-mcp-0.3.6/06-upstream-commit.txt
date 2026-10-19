@@ -1,0 +1,39 @@
+# probe-upstream · @hyzyn/dsh-mcp 0.3.6 · commit raw 文件 vs 本地快照
+repo=D:\natnat\lingshu\外部插件\hyzyn-dsh-plugin-kit\dsh-plugin-kit-main
+commit=7363332f595b8112cb4b601f8723e6453043eb62
+measured_at=2026-10-19T02:31:05.414Z
+file[package.json]=MATCH local=283a5fc901a740d826e9d3e2003c7121ab419bb7dc296c270a0186826ccc484b remote=283a5fc901a740d826e9d3e2003c7121ab419bb7dc296c270a0186826ccc484b bytes_local=4216 bytes_remote=4216 via=gh-proxy.com
+file[pnpm-lock.yaml]=MATCH local=d54abb9c6c43004931b537ccfeb16a4443dcc125b4d608efd95bb0838e034003 remote=d54abb9c6c43004931b537ccfeb16a4443dcc125b4d608efd95bb0838e034003 bytes_local=114994 bytes_remote=114994 via=gh-proxy.com
+file[vitest.config.ts]=MATCH local=91e080ee6d94cde197f585efea8fa2b102fe3dd06a2c0e5351a871083f708c90 remote=91e080ee6d94cde197f585efea8fa2b102fe3dd06a2c0e5351a871083f708c90 bytes_local=8971 bytes_remote=8971 via=gh-proxy.com
+file[tsconfig.base.json]=MATCH local=72d0b08265e8fcc2ca43d79dac1661b51da3d3f0085ae5f0fe0c29077c340585 remote=72d0b08265e8fcc2ca43d79dac1661b51da3d3f0085ae5f0fe0c29077c340585 bytes_local=466 bytes_remote=466 via=gh-proxy.com
+file[packages/mcp/package.json]=MATCH local=a7edc746c10f3a8c3633b4c400f2321f6a17da30071666e9d9f0fde4dac88c34 remote=a7edc746c10f3a8c3633b4c400f2321f6a17da30071666e9d9f0fde4dac88c34 bytes_local=2223 bytes_remote=2223 via=gh-proxy.com
+file[packages/mcp/src/index.ts]=MATCH local=0d29078ce986547e60be78f9c50d9b5fce72a0e73e2ce234b1ab7b468968232d remote=0d29078ce986547e60be78f9c50d9b5fce72a0e73e2ce234b1ab7b468968232d bytes_local=56796 bytes_remote=56796 via=gh-proxy.com
+file[packages/mcp/src/js-yaml.d.ts]=MATCH local=12e4e2524daf39acc756a1a2632d8d4695484830b49f88467244638f7908652e remote=12e4e2524daf39acc756a1a2632d8d4695484830b49f88467244638f7908652e bytes_local=772 bytes_remote=772 via=gh-proxy.com
+file[packages/mcp/test/managed-block.test.ts]=MATCH local=709a4e45a61dbc34a3dfedfd4201e095c2028ee31a25037fbaada947a5de6a14 remote=709a4e45a61dbc34a3dfedfd4201e095c2028ee31a25037fbaada947a5de6a14 bytes_local=5690 bytes_remote=5690 via=gh-proxy.com
+file[packages/mcp/test/route-gate.test.ts]=MATCH local=082db58777a77615cc2851b45338af8743b848dc015e9f233823e69a0f233fed remote=082db58777a77615cc2851b45338af8743b848dc015e9f233823e69a0f233fed bytes_local=5995 bytes_remote=5995 via=gh-proxy.com
+file[packages/mcp/test/save-guard.test.ts]=MATCH local=d1e2ad1e4162b0ce3ec17c4b06e17f2461228a1db9d5a5be81181d2b9ee2a714 remote=d1e2ad1e4162b0ce3ec17c4b06e17f2461228a1db9d5a5be81181d2b9ee2a714 bytes_local=3841 bytes_remote=3841 via=gh-proxy.com
+file[packages/mcp/test/external-conflicts.test.ts]=MATCH local=375140af04f8cb329c04a19bfd2e693f594e71555a4893907f8342aae2a29b6f remote=375140af04f8cb329c04a19bfd2e693f594e71555a4893907f8342aae2a29b6f bytes_local=7600 bytes_remote=7600 via=gh-proxy.com
+file[packages/mcp/test/tool-count.test.ts]=MATCH local=3d593d0226ae36dd79a84fc2273c1235e8afbc9ee96da3d1d9b2bb4da3e1a3fe remote=3d593d0226ae36dd79a84fc2273c1235e8afbc9ee96da3d1d9b2bb4da3e1a3fe bytes_local=10502 bytes_remote=10502 via=gh-proxy.com
+file[packages/mcp/lib/index.js]=MATCH local=9eb08baa85a1147df805d7fddef2151392b552f37679709437940f896ae9332a remote=9eb08baa85a1147df805d7fddef2151392b552f37679709437940f896ae9332a bytes_local=55205 bytes_remote=55205 via=gh-proxy.com
+file[packages/mcp/lib/index.d.ts]=MATCH local=e112b70b2cd05be43ddefaa8fc849619a4920b33ed9da766ddbed581b7680a40 remote=e112b70b2cd05be43ddefaa8fc849619a4920b33ed9da766ddbed581b7680a40 bytes_local=6384 bytes_remote=6384 via=gh-proxy.com
+file[packages/mcp/lib/index.js.map]=MATCH local=d57e7be55f2b6d5730b8d6a8acbac10e9f62d0221850bb36f5542c373cc19c3f remote=d57e7be55f2b6d5730b8d6a8acbac10e9f62d0221850bb36f5542c373cc19c3f bytes_local=42939 bytes_remote=42939 via=gh-proxy.com
+file[packages/mcp/client.js]=MATCH local=0310de51c256fa8eb6d023819f3fb8186504010cb054971423a75dc418df59c6 remote=0310de51c256fa8eb6d023819f3fb8186504010cb054971423a75dc418df59c6 bytes_local=72280 bytes_remote=72280 via=gh-proxy.com
+file[packages/mcp/cordis.patch.yml]=MATCH local=cf9284789e5f49f13a014fa5ce4ff5dc46d8071946c76877d02a6a5a87174bf1 remote=cf9284789e5f49f13a014fa5ce4ff5dc46d8071946c76877d02a6a5a87174bf1 bytes_local=649 bytes_remote=649 via=gh-proxy.com
+file[packages/mcp/scripts/verify-managed-block.mjs]=MATCH local=fe52bbb456d22a5472d16977584fc314c44dfeec33c87d17821b408bf7a08633 remote=fe52bbb456d22a5472d16977584fc314c44dfeec33c87d17821b408bf7a08633 bytes_local=3111 bytes_remote=3111 via=gh-proxy.com
+file[packages/mcp/README.md]=MATCH local=108755da3bd1387c2def651fa9750ea2f36c7b4211c2864d1a294ee2945d2739 remote=108755da3bd1387c2def651fa9750ea2f36c7b4211c2864d1a294ee2945d2739 bytes_local=8609 bytes_remote=8609 via=gh-proxy.com
+file[packages/mcp/README.en.md]=MATCH local=7e98a5e5099dc3fcc0411267dddb28380c7205f78143d087153f8a8b14c140e2 remote=7e98a5e5099dc3fcc0411267dddb28380c7205f78143d087153f8a8b14c140e2 bytes_local=9313 bytes_remote=9313 via=gh-proxy.com
+file[packages/mcp/tsconfig.json]=MATCH local=57374229e141a2d55e9b76de252d14602f85cec36e9484806b2fbecc3c6be946 remote=57374229e141a2d55e9b76de252d14602f85cec36e9484806b2fbecc3c6be946 bytes_local=167 bytes_remote=167 via=gh-proxy.com
+commit_patch=OK bytes=5245 sha256=60dd0c5ad6340f501fa890dea4513f89e9167eb8596ce2d92f5592d911932d89
+commit_patch_head="From 7363332f595b8112cb4b601f8723e6453043eb62 Mon Sep 17 00:00:00 2001 | From: hyzyn <hyzyn@users.noreply.github.com> | Date: Sun, 18 Oct 2026 21:46:13 +0800 | Subject: [PATCH] =?UTF-8?q?chore(release):=20loglens=20=E9=A6=96=E5=8F=91?= |  =?UTF-8?q?=EF=BC=88dsh-all=200.1.63=20/=20=E6=A0=B9=200.1.57=20/=20search?="
+summary matched=21 mismatched=0 errored=0 total=21
+verdict=PASS_commit_content_match
+# run_cmd evidence
+command: cmd /c "C:\Users\30951\tools\run.cmd node probes\probe-upstream.mjs --repo D:\natnat\lingshu\外部插件\hyzyn-dsh-plugin-kit\dsh-plugin-kit-main --commit 7363332f595b8112cb4b601f8723e6453043eb62 --out D:\natnat\lingshu\测试\hyzyn-dsh-mcp\raw\artifacts\upstream"
+cwd: D:\natnat\lingshu\测试\hyzyn-dsh-mcp
+env_overrides: (none)
+started: 2026-10-19T10:31:05+08:00
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+exit_code: 0
+elapsed_ms: 12884
