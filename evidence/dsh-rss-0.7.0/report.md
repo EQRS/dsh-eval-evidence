@@ -113,3 +113,30 @@ node ../tools/make_manifest.mjs --raw raw --label "dsh-rss 0.7.0"
 
 **dsh-rss 0.7.0 装得上、构建干净、自带 119 项测试全绿；RSS/Atom 解析、OPML 往返、非法 URL 跳过、
 订阅 YAML 往返与配置默认在 16 条独立探针中全部符合预期。未发现 P0–P3；真实网络抓取与宿主内 UI 未验。**
+
+
+## 证据链（https，站点提交用）
+
+| # | 说明 | 链接 |
+|---|---|---|
+| 1 | 被测 commit（锚定） | https://github.com/STARDUSTLC666/dsh-rss/commit/774ed13181d4c1a6423283c2dc21bb63ff33d99b |
+| 2 | 全部证据 | https://github.com/EQRS/dsh-eval-evidence/tree/main/evidence/dsh-rss-0.7.0 |
+| 3 | report.md | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/report.md |
+| 4 | raw-00-anchor.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/raw-00-anchor.txt |
+| 5 | raw-manifest.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/raw-manifest.txt |
+| 6 | probe_dsh_rss.mjs | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/probe_dsh_rss.mjs |
+| 7 | 04-self-test.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/04-self-test.txt |
+| 8 | 07-probe-final.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/07-probe-final.txt |
+
+站点证据框格式：**每行一条 `URL` 或 `URL | 备注`**，最多 10 条；可直接粘贴 `证据链_提交文本.txt`。
+
+```text
+https://github.com/STARDUSTLC666/dsh-rss/commit/774ed13181d4c1a6423283c2dc21bb63ff33d99b | 被测 commit（锚定）
+https://github.com/EQRS/dsh-eval-evidence/tree/main/evidence/dsh-rss-0.7.0 | 全部证据
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/report.md | report.md
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/raw-00-anchor.txt | raw-00-anchor.txt
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/raw-manifest.txt | raw-manifest.txt
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/probe_dsh_rss.mjs | probe_dsh_rss.mjs
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/04-self-test.txt | 04-self-test.txt
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-rss-0.7.0/07-probe-final.txt | 07-probe-final.txt
+```
