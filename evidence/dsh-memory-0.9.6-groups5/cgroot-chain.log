@@ -1,0 +1,38 @@
+===== scripts/discipline_nodes.py --init --write --cg-root C:\ls096\cg rc=0 (0.8s)
+真源指纹 9486668b0dadac39；纪律 18 条
+  [新建] 第1条 -> C:\ls096\cg\structural\mem_1792423732425001.md
+  [新建] 第2条 -> C:\ls096\cg\structural\mem_1792423732425002.md
+  [新建] 第3条 -> C:\ls096\cg\structural\mem_1792423732425003.md
+  [新建] 第4条 -> C:\ls096\cg\structural\mem_1792423732425004.md
+  [新建] 第5条 -> C:\ls096\cg\structural\mem_1792423732425005.md
+  [新建] 第6条 -> C:\ls096\cg\structural\mem_1792423732425006.md
+  [新建] 第7条 -> C:\ls096\cg\structural\mem_1792423732425007.md
+  [新建] 第8条 -> C:\ls096\cg\structural\mem_1792423732425008.md
+  [新建] 第9条 -> C:\ls096\cg\structural\mem_1792423732425009.md
+  [新建] 第10条 -> C:\ls096\cg\structural\mem_1792423732425010.md
+  [新建] 第11条 -> C:\ls096\cg\structural\mem_1792423732425011.md
+  [新建] 第12条 -> C:\ls096\cg\structural\mem_1792423732425012.md
+  [新建] 第13条 -> C:\ls096\cg\structural\mem_1792423732425013.md
+  [新建] 第14条 -> C:\ls096\cg\structural\mem_1792423732425014.md
+  [新建] 第15条 -> C:\ls096\cg\structural\mem_1792423732425015.md
+  [新建] 第16条 -> C:\ls096\cg\structural\mem_1792423732425016.md
+  [新建] 第17条 -> C:\ls096\cg\structural\mem_1792423732425017.md
+  [新建] 第18条 -> C:\ls096\cg\structural\mem_1792423732425018.md
+
+===== scripts/verify_discipline.py --allow-missing --cg-root C:\ls096\cg rc=0 (2.7s)
+[SKIP] dsh        variant=spec    -> 未找到受管块：~/.dsh/profiles/web/cordis.patch.yml
+[OK  ] codebuddy  variant=full    -> C:\ls096\repo\codebuddy\CODEBUDDY.md
+[OK  ] codebuddy-rules variant=rules-mdc -> C:\ls096\repo\.codebuddy\rules\lingshu-discipline\RULE.mdc
+[OK  ] zcode      variant=full    -> C:\ls096\repo\zcode\AGENTS.md
+[SKIP] zcode-user variant=zcode-user -> 未生成：~/.zcode/AGENTS.md
+[OK  ] codex      variant=full    -> C:\ls096\repo\codex\AGENTS.md
+[OK  ] claude-code variant=full    -> C:\ls096\repo\claude\CLAUDE.md
+[OK  ] claude-code-plugin-skill variant=skill   -> C:\ls096\repo\claude\lingshu-memory\skills\linglu-discipline\SKILL.md
+[OK  ] codex-plugin-skill variant=skill   -> C:\ls096\repo\codex\lingshu-memory\skills\linglu-discipline\SKILL.md
+[SKIP] codebuddy-local variant=full    -> 未生成：C:\ls096\repo\AGENTS.md
+[OK  ] cg-nodes   variant=-       -> 认知图投影节点 18/18 一致（真源指纹 9486668b0dadac39）
+[OK  ] injection  variant=-       -> 注入面：9 条链，同槽位命中 0（仓内 0 / 仓外 0），别名折叠 0，同仓 worktree 重复源 0
+[OK  ] count      variant=-       -> 分发面计数：17 个手写描述文件，16 处「N 条工作纪律」全部 = 真源 18 条
+
+结论：10/10 目标一致
+
