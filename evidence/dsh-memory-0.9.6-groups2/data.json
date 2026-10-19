@@ -1,0 +1,29 @@
+{
+ "data": {
+  "file_bytes": 558116,
+  "records": 1000,
+  "parse_errors": 0,
+  "keys": [
+   "category",
+   "chars",
+   "id",
+   "importance",
+   "label",
+   "observed_at",
+   "tags",
+   "text",
+   "time_window"
+  ],
+  "sample": {
+   "id": "membench-b6ce996f3e",
+   "text": "[会话dialogue1000·要点1] 电脑蓝屏了。",
+   "category": "fixture_dialogue",
+   "label": "noise",
+   "importance": "0.5",
+   "tags": "['session:dialogue1000', 'context_external']",
+   "chars": "27",
+   "observed_at": "1787183927.2893596",
+   "time_window": "[1787183927.2893596, 1787187527.2893596]"
+  }
+ }
+}
