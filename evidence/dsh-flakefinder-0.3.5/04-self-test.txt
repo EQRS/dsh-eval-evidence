@@ -1,0 +1,65 @@
+# command: C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe --test test/*.test.mjs
+# cwd: D:\natnat\lingshu\外部插件\dsh-flakefinder\dsh-flakefinder-master
+# exit: 0
+# seconds: 3.14
+
+## stdout
+✔ 五轮全过判定 stable-pass (17.2935ms)
+✔ 五轮全挂判定 stable-fail (0.6262ms)
+✔ 时好时坏判定 flaky 并计算失败率 (0.8326ms)
+✔ 全部跳过判定 skipped (0.324ms)
+✔ 没有任何报告时抛中文错误 (0.9275ms)
+✔ 默认配置落在 DSH_HOME 下 (7.5445ms)
+✔ 非法 timeoutMs 抛中文错误 (2.9043ms)
+✔ defaultRuns 超过 maxRuns 时收窄 (1.2059ms)
+✔ resolveRuns 钳制与报错 (1.2822ms)
+✔ target 拒绝空与选项开头 (0.4484ms)
+✔ 字符串参数助手 (0.3928ms)
+✔ flaky_health python 与 pytest 可用时 ok=true (10.7099ms)
+✔ flaky_health pytest 缺失时 ok=false 且给出安装指引 (4.0634ms)
+✔ npm 名称与 bundle manifest (1.2269ms)
+✔ files 白名单包含 lib 与 patch (0.3112ms)
+✔ cordis.patch.yml 插入 flakefinder 行 (2.3968ms)
+✔ lib 已构建且导出六个工具入口 (0.7955ms)
+✔ 解析 vitest JSON 报告 (1.6558ms)
+✔ 缺断言数组时回退到套件状态 (1.6653ms)
+✔ JSON 损坏抛中文错误 (0.9061ms)
+✔ 缺统计字段时从用例列表回填 (0.3028ms)
+✔ 解析 node:test 的 TAP 输出 (1.2453ms)
+✔ TAP SKIP 指令归类为跳过 (0.286ms)
+✔ 空 TAP 不算成功 (0.2503ms)
+✔ readFramework 支持 pytest (2.1169ms)
+✔ buildPlan 在 pyproject 配置下自动选择 pytest (18.8094ms)
+✔ buildPlan 在 setup.cfg 配置下自动选择 pytest (7.5002ms)
+✔ parseJunitReport 解码 XML 实体 (1.8041ms)
+✔ parseJunitReport 解析通过/失败/跳过 (0.7873ms)
+[dsh-flakefinder] timeoutMs 必须是大于 0 的数字（毫秒）。
+✔ apply 注册六个工具并按 dispose 清理 (7.5251ms)
+✔ writeApproval 通过 alpha.4 tools/pre-execute 返回 ask (1.31ms)
+✔ 配置非法时退回默认配置并告警 (1.6472ms)
+✔ createSubprocessRunner 超时真正触发 AbortSignal (54.6557ms)
+✔ createSubprocessRunner 正常结束收集 stdout/stderr (0.8749ms)
+✔ parseRef 支持文件与用例两种形式 (2.7906ms)
+✔ formatRef 输出可读形式 (0.329ms)
+✔ 隔离清单新增/替换/移除 (59.6012ms)
+✔ 历史追加与目标过滤 (22.8551ms)
+✔ 两个实例并发保存不丢历史或隔离条目，损坏记录不被覆盖 (2210.7432ms)
+✔ flaky_health preserves the subprocess service receiver (8.0776ms)
+✔ quarantine/clear enforce array bounds before touching the store (6.8443ms)
+✔ flaky_detect 重复运行并判定 flaky 用例 (43.2179ms)
+✔ flaky_history 支持目标过滤 (15.4952ms)
+✔ quarantine/clear 写清单，report 汇总 (21.6378ms)
+✔ 工具定义不再携带旧 gate 字段 (2.471ms)
+✔ 会话工作区用于测试与隔离清单，取消后不派发下一轮或写历史 (31.2568ms)
+✔ 子进程接上宿主取消信号并使用指定 cwd (1.5546ms)
+ℹ tests 47
+ℹ suites 0
+ℹ pass 47
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2960.5761
+
+## stderr
+
