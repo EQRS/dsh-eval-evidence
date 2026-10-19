@@ -1,0 +1,57 @@
+{
+  "perScenario": [
+    {
+      "id": "S1",
+      "with": 3,
+      "without": 0
+    },
+    {
+      "id": "S2",
+      "with": 3,
+      "without": 0
+    },
+    {
+      "id": "S3",
+      "with": 3,
+      "without": 0
+    },
+    {
+      "id": "S4",
+      "with": 3,
+      "without": 0
+    },
+    {
+      "id": "S5",
+      "with": 3,
+      "without": 0
+    },
+    {
+      "id": "S6",
+      "with": 3,
+      "without": 0
+    },
+    {
+      "id": "S7",
+      "with": 3,
+      "without": 0
+    },
+    {
+      "id": "S8",
+      "with": 3,
+      "without": 0
+    }
+  ],
+  "D": 24,
+  "ci95": [
+    24,
+    24
+  ],
+  "halfWidth": 0,
+  "prereg": {
+    "a": 12,
+    "b": 6,
+    "B": 10000,
+    "seed": 20261019
+  },
+  "verdict": "真有用"
+}
