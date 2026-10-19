@@ -1,0 +1,94 @@
+# command: <node> probes/probe_dsh_rss.mjs（最终版）
+# exit: 0
+# seconds: 0.52
+
+## stdout
+{
+ "total": 16,
+ "failed": 0,
+ "results": [
+  {
+   "name": "RSS 2.0 解析 2 条",
+   "pass": true,
+   "detail": "{\"n\":2,\"title\":\"Demo RSS\"}"
+  },
+  {
+   "name": "RSS 条目标题/链接/日期归一（字段名 pubDate）",
+   "pass": true,
+   "detail": "{\"title\":\"First\",\"link\":\"https://example.com/a\",\"guid\":\"\",\"pubDate\":\"2026-10-19T06:00:00.000Z\",\"pubDateRaw\":\"Mon, 19 Oct 2026 06:00:00 GMT\",\"author\":\"\",\"summary\":\"hello world\",\"categories\":[]}"
+  },
+  {
+   "name": "RSS 摘要去 HTML 标签",
+   "pass": true,
+   "detail": "\"hello world\""
+  },
+  {
+   "name": "Atom 解析 1 条",
+   "pass": true,
+   "detail": "{\"n\":1,\"title\":\"Demo Atom\"}"
+  },
+  {
+   "name": "空内容抛错",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "截断 XML 抛错",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "OPML 解析出 3 条 outline（非法 URL 留给导入阶段过滤）",
+   "pass": true,
+   "detail": "{\"title\":\"\",\"outlines\":[{\"name\":\"A\",\"url\":\"https://a.example/feed\",\"category\":\"Tech\"},{\"name\":\"B\",\"url\":\"https://b.example/feed\",\"category\":\"\"},{\"name\":\"Bad\",\"url\":\"ftp://bad/feed\",\"category\":\"\"}]}"
+  },
+  {
+   "name": "OPML 分类从父 outline 继承 Tech",
+   "pass": true,
+   "detail": "[{\"name\":\"A\",\"url\":\"https://a.example/feed\",\"category\":\"Tech\"},{\"name\":\"B\",\"url\":\"https://b.example/feed\",\"category\":\"\"},{\"name\":\"Bad\",\"url\":\"ftp://bad/feed\",\"category\":\"\"}]"
+  },
+  {
+   "name": "importOpmlFeeds 只收 2 条 http(s)、跳过 1 条 ftp",
+   "pass": true,
+   "detail": "{\"added\":2,\"skipped\":1}"
+  },
+  {
+   "name": "OPML build→parse 往返条数一致",
+   "pass": true,
+   "detail": "[{\"name\":\"A\",\"url\":\"https://a.example/feed\",\"category\":\"Tech\"},{\"name\":\"B\",\"url\":\"https://b.example/feed\",\"category\":\"\"},{\"name\":\"Bad\",\"url\":\"ftp://bad/feed\",\"category\":\"\"}]"
+  },
+  {
+   "name": "sameFeedUrl 归一 host 大小写（URL.href 语义）",
+   "pass": true,
+   "detail": "true"
+  },
+  {
+   "name": "sameFeedUrl 保留尾部斜杠差异（设计选择）",
+   "pass": true,
+   "detail": "false"
+  },
+  {
+   "name": "addFeed 归一后同 URL 合并、不新增",
+   "pass": true,
+   "detail": "{\"feeds\":[{\"url\":\"https://a.example/feed\",\"name\":\"A2\",\"category\":\"Tech\"}],\"added\":{\"url\":\"https://a.example/feed\",\"name\":\"A2\",\"category\":\"Tech\"},\"existed\":true}"
+  },
+  {
+   "name": "addFeed 新 URL 追加",
+   "pass": true,
+   "detail": "{\"feeds\":[{\"url\":\"https://a.example/feed\",\"name\":\"A\",\"category\":\"Tech\"},{\"url\":\"https://c.example/feed\",\"name\":\"C\",\"category\":\"News\"}],\"added\":{\"url\":\"https://c.example/feed\",\"name\":\"C\",\"category\":\"News\"},\"existed\":false}"
+  },
+  {
+   "name": "feeds YAML 往返 2 条",
+   "pass": true,
+   "detail": "[{\"url\":\"https://a.example/feed\",\"name\":\"A\",\"category\":\"Tech\"},{\"url\":\"https://c.example/feed\",\"name\":\"C\",\"category\":\"News\"}]"
+  },
+  {
+   "name": "resolveConfig 返回对象且含默认值",
+   "pass": true,
+   "detail": "{\"proxyUrl\":\"\",\"useSystemProxy\":true,\"fakeIpDnsFallback\":true,\"timeoutMs\":15000,\"maxBodyBytes\":5242880,\"userAgent\":\"dsh-rss/0.5.1 (DeepSeek Harness RSS plugin)\",\"feedsYaml\":\"\",\"allowPrivateNetwork\":false,\"opmlWriteApproval\":true}"
+  }
+ ]
+}
+
+## stderr
+
