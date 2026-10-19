@@ -1,0 +1,19 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-19T02:36:52.538Z
+label = dsh-codex-port 0.3.0
+generator = tools/make_manifest.mjs
+
+raw/00-env-baseline.txt       3074  5b94992bf406b57231b17e71d515ac6f08c24de03bf9da750afc60c65c210592
+raw/01-toolchain-smoke.txt        322  1a92c606edf1081e614eb34dd91d643450e63c4ff31794d388728f0174a997b8
+raw/20-anchor-local.txt       1866  af0212453b842ab2baa05126270466055995670c8e1be501f69da4d05d63dcdb
+raw/21-anchor-compare.txt       3891  ec92142824235f93025f415052c286a0ee8859b84df99583b6482eae90fd9c76
+raw/22-anchor-copy.txt       3861  abb9bb058d374f3e1477b2b1d56d0bf5deda8421be6a3a5355407b7c488ee244
+raw/23-upstream-tarball.txt       3307  d1f1cec65d274facda848d96bfd7321716203660e23680c0d60c7a6c42767233
+raw/24-npm-package.txt       1737  f7dff140765082e2d2d75466d8460f70db14b379bbe0e812fe3f6db27e395b5b
+raw/30-self-test.txt       4092  115c2070e58ba08bcdce030ef7e621cd773fc5497c7e63d6ebf21832043d195f
+raw/32-build.txt        359  0dd9a5d505ca094ac8da9d7efb9f2eeff0473fe80f6f2c4d4aaf8178188119c5
+raw/40-probe-frontmatter.txt       6296  0be247e31ab3a920dd438783ff1a7a8c83505874fd2631f8d6bca52de19ab928
+raw/41-probe-discover.txt       3103  7bfc041c061979a8fc065402d4e389802356649298c00076a288186e964b20ad
+raw/42-probe-port-tools.txt      11228  e3ed01beffa05353b8a3656f8efa968887ceabe90770ff09026a86cb75289ec5
+raw/dsh-codex-port-0.3.0.npm.tgz      19598  09a0f9ebd4fb7d73e0f49c4bb67d1d6d2a9e2b3521b41062ec61fcb35cb931e5
+raw/upstream-dsh-codex-port-9b144cc.tgz    2049002  3f54bbb0bcc2d52e5ae4222a352e2abeb02e59154cb0bc3b6d18e9dde998b3d0
