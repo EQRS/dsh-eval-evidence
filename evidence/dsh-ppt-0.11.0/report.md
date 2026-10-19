@@ -1,140 +1,102 @@
-[intake 输入] 【测评报告】dsh-ppt 0.11.0 体验快测（演示文稿生成 · 方法试验）
+# 标准测评报告 · dsh-ppt 0.11.0（能力五状态）
 
-<!-- intake:v1 {"project":"bench","difficulty":"medium","impact":"B","target":"STARDUSTLC666/dsh-ppt","form":"intake"} -->
+> 依据：工程协议手册 v1.1 §2/§3/§6/§13；`测试/协议/标准测评报告规范-v1.md`。
+> 本件是标准测评，不是体验快测：判定由配对实验区间 + 预注册阈值推出（第七节）。
+> 安装/构建/自带测试等验收面见快测底稿 `测评报告_dsh-ppt_v0.1.md`（附录）；本件只做能力五状态。
 
-<!-- 协议对齐：工程协议手册 v1.1（r2）§6 体验快测档；协议文件 sha256 8dd51cbf75b259c5dabfdb928eb112364231b5d8f9f580759534e5d78a34d849 -->
-> **协议对齐（v1.1 · r2 · 体验快测档）**：本件是**体验快测**（手册 §6），只记录安装/功能点/卸载残留类检查结果；
-> **不生成五种能力状态标签、不进入能力榜、不以「通过/合格」作为插件结论**；未覆盖项见「诚实边界」。
-> - **规范对齐（AI 编程通用规范 v1.1.2）**：验证结论按**附表 A 四档**给出（见「结果速览」）；报告按附表 B 顺序组织。
-> - **插件身份**：源码版（commit + 逐文件树指纹），见「锚定提交」。
-> - **环境配置 ID**：dsh 0.2.1-rc.2 / win32-x64 / Windows 10.0.26200 / node v24.21.0 / model=n/a。
-> - **安全口径（§4 三分法）**：本件**未做**六威胁安全审计 ⇒ 安全结论 = **未测**。
-> - **时效（§13.7）**：测评完成后 90 个自然日内有效。
+## 一、结论
 
-## 性质声明
-
-本件是**给主创测评站 <https://review.lingshulab.com> 的投稿测评**（intake 输入，外部贡献申报），不是悬赏：
-**不 /claim、不自行加 bounty 标签**；计分、档位与是否归并均由维护者裁定（marker 的 difficulty/impact 仅为 intake 格式字段）。
-
-- 被测对象：站点「dsh-ppt」详情页；源码取上游默认分支 `master⟧ commit `46bb5272⟧ 的 tarball 解包快照（源码版本 **0.11.0**）。
-- **未把插件装进任何正在使用的 DSH profile**：读数来自源码快照 + 自带测试 + 直接 `import lib/config.js⟧ 与 `lib/skill.js⟧ 的独立探针。
-- **仅 Windows**（10.0.26200 x64）：不对其它平台下结论。
-- 不排名、不给总分、不用星级；不改被测源码、不提 PR、不做安全渗透。
-
-## 锚定提交
-
-- 仓库：`STARDUSTLC666/dsh-ppt⟧，默认分支 `master⟧
-- commit：`46bb52724ba17253818ece75ebf4ef1ad4cab9e3⟧（2026-10-17T15:15:31Z）
-- 逐文件树指纹：**83 文件 / 2,488,890 B / sha256 `851931c7b60245d0⟧**
-- tarball：`外部插件/dsh-ppt/dsh-ppt.tgz⟧，sha256 前缀 `5d755d3dde8955fc⟧
-- 快照目录：`外部插件/dsh-ppt/dsh-ppt-master⟧
-
-## 环境与基线
+**真有用**
 
 | 项 | 值 |
 |---|---|
-| 宿主 | DSH desktop **0.2.1-rc.2** |
-| 平台 | Windows 11 10.0.26200 x64 |
-| Node / pnpm | v24.21.0 / 11.7.0 |
-| 运行依赖 | `@office-kit/pptx⟧ 0.21.0、`fflate⟧ 0.8.3 |
-| 关键间接依赖 | `koffi⟧ 3.1.1（含原生构建脚本，被 pnpm 供应链策略忽略） |
+| 判定 | **真有用**（L=24 > a=12） |
+| D | **24**（范围 [-24,24]） |
+| 95% bootstrap 区间 | **[24, 24]** |
+| 区间半宽 | **0**（门槛 ≤6，满足） |
+| 模型 / 参数 | `deepseek-flash`，temperature=0.7，seeds=[101,202,303] |
+| 样本 | 8 场景 × 3 seed × 2 组 = 48 次基础会话；136 次模型调用（88 次带工具调用） |
+| 耗时 | 7 分 40 秒（2026-10-19 17:08:55 → 17:16:35，含工具真实生成 PPTX/HTML/JSON） |
 
-## 结果速览
+**读法（重要）**：本件是**天花板对照**——不装组没有文件系统与 PPT 工具，无法产出任何文件，因此 D=24 反映的是「有无该工具」的绝对差，不是「同一产物下的质量优劣」。区间 [24,24] 无区分度，须与下列遗留问题并读。
 
-**验证四档：部分验证**
+## 二、任务契约
 
-| 面 | 结果 |
-|---|---|
-| 依赖安装（`pnpm install --frozen-lockfile⟧） | **exit 1**（`ERR_PNPM_IGNORED_BUILDS⟧：`koffi@3.1.1⟧ 构建脚本被忽略；包已落盘） |
-| 构建（`pnpm run build⟧） | **exit 1**（pnpm 依赖状态检查拦截，未执行到 tsc） |
-| 构建（直接 `tsc -p tsconfig.json⟧） | **exit 0**，1.5 s，`lib/⟧ 17 个产物文件 |
-| 自带测试 | **119 / 119 通过，0 失败**，2.0 s |
-| 独立探针（13 断言） | **13 / 13 通过** |
+- 8 个场景（预注册第三节）：T1 封面+目录、T2 三页指定标题、T3 柱状图（数据精确）、T4 表格（8 行 3 列）、T5 指定 velvet 主题、T6 页数上限（config maxSlides=6，材料 12 页）、T7 编辑后检查、T8 撤销后恢复。
+- 判分器：独立读取输出目录内最新 `*.json` deck 工程，按预注册判分条件判定（页数/layout/title/bullets/chart 值/表格行数/theme/revision/history），**不看模型自述**。
+- 装组：注入 dsh-ppt **真实 7 工具**（`ppt_themes` / `ppt_create` / `ppt_templates` / `ppt_edit` / `ppt_undo` / `ppt_check` / `ppt_render`），execute 为插件真实实现（`buildPptTools`），config `outputDir` 每场景独立空目录。
+- 不装组：无任何工具、无文件能力，只允许输出文本。
+- 状态独立：每 (场景, seed) 独立输出目录并在跑前清空。
 
-> 四档判定的理由：安装与 `pnpm run build⟧ 在 pnpm 默认供应链策略下非零；构建本身用本地 `tsc⟧ 验证通过。
-> 因此写「部分验证」，不写「已验证通过」。
+## 三、预注册（跑前冻结）
 
-## 逐项读数
+- 文件：`probes/PREREG_标准测评_v0.1.md`（2026-10-19T17:00 冻结；17:01 依据冒烟实测修正 T5/T8 判分；17:08 脚本修订 1，见第四节注）。
+- 指标：D = Σ(装 − 不装)；a=12，b=6；bootstrap 半宽 ≤6；B=10000，seed=20261019。
+- 反作弊：判分器跑前冻结；装组不得人工放置产物；不得只重跑差的一边；提示语不含判分条件原句。
 
-### 1. 安装（`raw/02-install.txt⟧ → `raw/02b/02c⟧ 重试）
+## 四、读数
 
-```
-command: <node> <pnpm.cjs> install --frozen-lockfile
-exit: 1    seconds: 10.0
-+ @office-kit/pptx 0.21.0
-+ fflate 0.8.3
-[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: koffi@3.1.1
-Run "pnpm approve-builds" to pick which dependencies should be allowed to run scripts.
-```
+| 场景 | 装组 | 不装组 | 判分要点 |
+|---|---|---|---|
+| T1 封面+目录 | 3/3 | 0/3 | cover/section 页与标题 |
+| T2 三页正文 | 3/3 | 0/3 | 问题/方案/收益 + 各页 ≥2 要点 |
+| T3 柱状图 | 3/3 | 0/3 | chart.kind=column、2 系列、数值精确 |
+| T4 表格 | 3/3 | 0/3 | 表头 3 列 + 8 行数据 |
+| T5 velvet 主题 | 3/3 | 0/3 | theme=velvet + 3 页 bullets + 0 error |
+| T6 页数上限 | 3/3 | 0/3 | slides ≤6 + 封面 + 0 error |
+| T7 编辑后检查 | 3/3 | 0/3 | 第 2 页标题被改 + revision=1 |
+| T8 撤销后恢复 | 3/3 | 0/3 | 恢复「背景」+ revision=2 |
+| **合计** | **24/24** | **0/24** | — |
 
-- 重试 `--allow-build=koffi⟧ → pnpm 11.7.0 报 `Unknown option⟧；
-  `--config.onlyBuiltDependencies=koffi⟧ 未生效，仍报 `ERR_PNPM_IGNORED_BUILDS⟧。
+> 注：首轮（run1）因实验脚本 max_tokens 过小 + 空响应未重试，T6 出现装组 0/3；脚本修复（max_tokens 4096、空响应重试 1 次、记录 finish_reason）后按同一判分全量重跑得本表。run1 结果（D=20）作废，保留于 `raw/12-eval-run1/`。
 
-### 2. 构建（`raw/03-build.txt⟧、`raw/03b/03c⟧、`raw/03d-build-direct-tsc.txt⟧）
+## 五、区间与判定
 
-```
-pnpm run build:            exit 1（pnpm 依赖状态检查拦截）
-<node> node_modules/typescript/bin/tsc -p tsconfig.json:  exit 0, 1.5 s
-lib/ 产物文件数: 17
-```
+按协议 §2.2 逐条对照：
 
-### 3. 自带测试（`raw/04-self-test.txt⟧）
+1. 精度门槛：半宽 0 ≤ 6 → 通过。
+2. L=24 > a=12 → **真有用**。
+3. 未触发「帮倒忙」（U=24 未 < -6）；未触发「没啥差别」。
 
-```
-command: node --test test/*.test.mjs
-exit: 0    seconds: 2.0
-tests 119 / pass 119 / fail 0 / skipped 0
-```
+## 六、证据链（本地就绪；本轮未上传）
 
-### 4. 独立探针（`raw/05-probe.txt⟧）
+按使用者决定**不发帖、不上传证据仓库**；以下为本地证据（https 链接待发布后补）：
 
-探针：`probes/probe_dsh_ppt.mjs⟧，**13/13 通过**：
+- 报告本体：`测试/dsh-ppt/标准测评_dsh-ppt_v0.1.md`
+- 结果：`测试/dsh-ppt/raw/12-eval/result.json`
+- 调用记录：`测试/dsh-ppt/raw/12-eval/calls.jsonl`（run2；run1 另存 `calls-run1.jsonl`）
+- 任务与判分器：`测试/dsh-ppt/probes/experiment_ppt.mjs`
+- 预注册：`测试/dsh-ppt/probes/PREREG_标准测评_v0.1.md`
+- 产物（每场景独立目录）：`测试/dsh-ppt/raw/12-eval/runs/<场景>-<seed>/`
 
-- `clampInt⟧：越界夹到上下限、非数字/NaN 回退、小数截断。
-- `resolvePptConfig⟧：默认 `maxSlides=60⟧；非法 `defaultTheme⟧ 抛错；数组配置抛错。
-- `parseSkillFile⟧：frontmatter 解析 `name/description⟧；无 frontmatter 时 name 为空且保留正文。
-- 内置技能：`bundledSkillsDir()⟧ 存在；`skills/dsh-ppt/SKILL.md⟧ 可解析出 name；`SKILL_NAMES === ['dsh-ppt']⟧。
+## 七、遗留问题
 
-## 发现
+1. **对照退化（必须明写）**：不装组无文件能力，24 次全部 0 分；本件 D=24 是「有/无工具」的绝对差，**不得**包装成「质量优势」；区间 [24,24] 无区分度，属规范已记录的已知踩坑。
+2. **未做视觉验收**：实验未调用 `ppt_render` 逐页查看 PNG/PDF，PPTX 渲染核验（`pptxRender: not-verified`）与字体/溢出视觉检查均**未测**；本件判定只覆盖结构正确性。
+3. **单模型单温度、单机、未独立复核**；8 场景题面由本工作台设计，未做第二人复核。
+4. 安装面遗留：`pnpm install` 因 koffi@3.1.1 构建脚本被忽略 exit 1、`pnpm run build` 被拦截；构建以直接 `tsc` 验证（见快测报告），本件实验直接使用已构建的 `lib/`。
+5. T2/T4 的「数值自拟」留有余地：装组全对不代表内容质量可接受（如文案质量未评分）。
 
-### P3-1 · 依赖 `koffi⟧ 的原生构建脚本被 pnpm 忽略，导致 `pnpm install⟧ 退出码 1、`pnpm run build⟧ 被依赖检查拦截
+## 八、不适用条件
 
-- **现象**：`ERR_PNPM_IGNORED_BUILDS: koffi@3.1.1⟧；随后 `pnpm run build⟧ 因依赖状态检查直接失败（参数是 `tsc -p tsconfig.json⟧）。
-- **根因**：pnpm 的供应链默认策略不执行未批准的依赖构建脚本；`koffi⟧ 是 `@office-kit/pptx⟧ 的原生依赖。
-  这是**宿主 pnpm 策略与依赖形态的交互**，不是插件代码缺陷；用本地 `tsc⟧ 直接构建可通过，自带 119 项测试也全绿。
-- **影响**：在默认 pnpm 策略下，CI/开发者会看到安装与构建非零退出；需要额外批准步骤或直接调用 `tsc⟧。
-- **建议**：在 README/CI 说明 `pnpm approve-builds⟧ 或把 `koffi⟧ 加入 `onlyBuiltDependencies⟧；
-  或把 `build⟧ 脚本改为不触发 pnpm 依赖检查的形式（视项目 CI 约束而定）。
+- 换模型、温度、seed、任务集或判分口径后结论不适用。
+- 不能用于评价：演示文稿的视觉设计质量、中文文案质量、PPTX 在 PowerPoint/WPS/Keynote 中的实际渲染效果、打印效果；这些未测。
+- 不能用于评价：`ppt_render` 的渲染后端（本实验未调用）、`ppt_templates` 模板质量（仅作为可选工具暴露）。
+- 安全未测；性能仅记录总耗时，未做基准。
 
-### 未发现 P0 / P1 / P2
-
-## 诚实边界
-
-- **已验**：安装落盘、直接 tsc 构建（17 产物）、自带 119 项测试、13 条独立探针（配置/技能解析）。
-- **未验**：真实 DSH 会话内的 PPT 生成工具链与 `@office-kit/pptx⟧ 实际导出 PPTX 的端到端；Web 工作台预览与下载；
-  真正执行 `koffi⟧ 原生构建后的行为；卸载残留；非 Windows 平台。
-- **不确定**：批准 `koffi⟧ 构建后是否改变运行时行为；不同 pnpm 版本对 `onlyBuiltDependencies⟧ 的配置位置。
-- **不做**：不排名、不给总分、不用星级；不做安全渗透；不改被测源码、不提 PR；不装进 live profile。
-
-## 查重
-
-- 账本（595 事件）：`dsh-ppt⟧ **0 命中**。
-- 站点：`plugins-20261019b.json⟧ 中 **reviewed=false**。
-- 结论：未见同件。
-
-## 复现步骤
+## 九、复现
 
 ```bash
-# 锚定：STARDUSTLC666/dsh-ppt @ 46bb52724ba17253818ece75ebf4ef1ad4cab9e3
-pnpm install --frozen-lockfile        # 观察 ERR_PNPM_IGNORED_BUILDS
-node node_modules/typescript/bin/tsc -p tsconfig.json   # 绕过 pnpm 依赖检查
-node --test test/*.test.mjs
-node probes/probe_dsh_ppt.mjs
-node ../tools/make_manifest.mjs --raw raw --label "dsh-ppt 0.11.0"
+# 1) 全量重跑（约 8 分钟；装组会真实生成 24 套 HTML/PPTX/JSON）
+node 测试/dsh-ppt/probes/experiment_ppt.mjs
+# 2) 读结果
+cat 测试/dsh-ppt/raw/12-eval/result.json
 ```
 
-## 一句话总结
+- 预注册：`probes/PREREG_标准测评_v0.1.md`（含跑前修正记录）
+- 结果：`raw/12-eval/result.json`；调用：`raw/12-eval/calls.jsonl`；产物：`raw/12-eval/runs/`
 
-**dsh-ppt 0.11.0 的源码可直接 `tsc⟧ 构建（17 产物）、自带 119 项测试全绿、13 条独立探针验证配置与技能解析；
-但默认 pnpm 供应链策略忽略 `koffi⟧ 原生构建，导致 `pnpm install⟧ 退出码 1 且 `pnpm run build⟧ 被依赖检查拦截。
-本件按附表 A 记「部分验证」。真实 PPTX 导出端到端未验。**
+## 十、附录
+
+- 快测底稿：[测评报告_dsh-ppt_v0.1.md](测评报告_dsh-ppt_v0.1.md)（安装/构建/自带测试 119/119/独立探针 13/13/P3×1，验证四档「部分验证」）
+- 本件索引：[README.md](README.md)
