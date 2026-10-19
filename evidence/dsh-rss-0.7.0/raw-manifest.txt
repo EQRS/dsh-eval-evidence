@@ -1,0 +1,12 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-19T07:08:16.396Z
+label = dsh-rss 0.7.0
+generator = tools/make_manifest.mjs
+
+raw/00-anchor.txt        583  edbb2114c605966d4e1b85ebe95680ed181cc5487482a86f3b90dec0c06261c5
+raw/02-install.txt       1234  33693dca30b8a63c46d47fea995d74240d2b2c50e516d2758fe46903a659fad2
+raw/03-build.txt        293  a5e450a9ef014f78db7d5c9415cc5854ae3ab09590abe94fac602261270508b0
+raw/04-self-test.txt       9355  c71805e3455adc3f3226b3e6b73e86105d2c3b37e4c793157fddbd32c71121fe
+raw/05-probe.txt        525  0bd1bd4dffeac5177a5b9f931f1ae633958f6e33ea7cfc9e3eb2cf7a188b6202
+raw/06-probe-fixed.txt       3516  3988b69497cdbd58679252345ffdbbbeb81ac280f9dbeb2c78afa494c24a77da
+raw/07-probe-final.txt       3599  54441614876462523123069e08c5c2215899dd0fbfc5472e453c375fb9abf182
