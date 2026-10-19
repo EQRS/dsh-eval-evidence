@@ -1,0 +1,36 @@
+{
+ "fails": [
+  "scripts.test_check_unreachable_decode",
+  "scripts.test_check_publish_artifact_manifest",
+  "scripts.test_check_publish_artifact_coverage",
+  "scripts.test_gate_rust_legs"
+ ],
+ "blocks": [
+  {
+   "name": "scripts.test_check_unreachable_decode",
+   "tail": "FAIL  scripts.test_check_unreachable_decode\n        [PASS] C2 [UNREACHABLE] 点名 scripts/dirty.py\n        [PASS] C3 无 [SYNTAX] 行\n        [PASS] C4 汇总 1 文件 / 1 命中 / 0 语法失败\n        [FAIL] D 红基线自证：HEAD 版物化  —— git show 失败 rc=128 fatal: not a git repository (or any of the parent directories): .git\n      \n      12 passed, 1 failed, 0 skipped\nPASS  scripts.test_cogmap_cross_primitive\nFAIL  scripts.test_check_publish_artifact_manifest\n      \n      \n      [3] 脚本内置自检\n        [PASS] M8 --selftest exit 0（含诱饵"
+  },
+  {
+   "name": "scripts.test_check_publish_artifact_manifest",
+   "tail": "FAIL  scripts.test_check_publish_artifact_manifest\n      \n      \n      [3] 脚本内置自检\n        [PASS] M8 --selftest exit 0（含诱饵负例）\n      \n      18 passed, 10 failed, 0 skipped\nPASS  scripts.test_discipline_fingerprint_eol\nFAIL  scripts.test_check_publish_artifact_coverage\n      16 passed, 11 failed, 0 skipped\n      warning: in the working copy of 'lib/big.txt', LF will be replaced by CRLF the next time Git touches it\n      warning: in the working copy of 'lib/gone.txt', LF will be replaced by CRLF the"
+  },
+  {
+   "name": "scripts.test_check_publish_artifact_coverage",
+   "tail": "FAIL  scripts.test_check_publish_artifact_coverage\n      16 passed, 11 failed, 0 skipped\n      warning: in the working copy of 'lib/big.txt', LF will be replaced by CRLF the next time Git touches it\n      warning: in the working copy of 'lib/gone.txt', LF will be replaced by CRLF the next time Git touches it\n      warning: in the working copy of 'lib/keep.txt', LF will be replaced by CRLF the next time Git touches it\n      warning: in the working copy of 'lib/small.txt', LF will be replaced by C"
+  },
+  {
+   "name": "scripts.test_gate_rust_legs",
+   "tail": "FAIL  scripts.test_gate_rust_legs\n        PASS G5e 订正后的事实写在注释里：Rust 缺省与 Python 缺省不一致，后者是 legacy（跨行唯一锚点）\n        PASS G5c2 订正后的结论明确：Rust 缺省「与 Python 缺省不一致」\n        PASS G5f 失实片段「SCORE_MODE 缺省一致」在 main.rs **全文件**已清零（:99 与头注释 :13-14 两处）\n        PASS G5g 头注释已订正为事实：Rust 侧缺省 jaccard 与 Python 侧产品缺省 legacy 不一致（跨行唯一锚点）\n      \n      R-7 守卫（rust 门禁腿接线）：50 通过，3 失败，0 跳过\nPASS  scripts.test_migrate_restricted_ids\nPASS  scripts.test_p70_pack_manifest_shape\nPASS  scripts.test_publish_smoke_guard\nPASS  scripts.te"
+  }
+ ],
+ "skips": [
+  "scripts.test_bench_chain_reader",
+  "scripts.test_bench_chain_retrieval_diag",
+  "scripts.test_dsh_log_index_shape",
+  "scripts.test_dsh_log_index_token",
+  "scripts.test_ignore_face",
+  "scripts.test_linux_verify_exit_code",
+  "scripts.test_link_check_fence_aware",
+  "scripts.test_registry_tarball"
+ ]
+}
