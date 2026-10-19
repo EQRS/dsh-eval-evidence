@@ -142,3 +142,30 @@ node ../tools/make_manifest.mjs --raw raw --label "dsh-flakefinder 0.3.5"
 **dsh-flakefinder 0.3.5 装得上、构建干净、自带 47 项测试全绿，聚合/解析/框架探测 16 条独立探针全部符合预期；
 但 JUnit 解析存在一条 P1：pytest 的标准输出（自闭合通过与带 failure 用例混排）会让用例名全部错配，
 并在单轮内把稳定通过用例误判为 flaky。JS/TAP 路径不受影响。**
+
+
+## 证据链（https，站点提交用）
+
+| # | 说明 | 链接 |
+|---|---|---|
+| 1 | 被测 commit（锚定） | https://github.com/STARDUSTLC666/dsh-flakefinder/commit/fdba1afd20f7c942302aea36b6164903dad5f070 |
+| 2 | 全部证据 | https://github.com/EQRS/dsh-eval-evidence/tree/main/evidence/dsh-flakefinder-0.3.5 |
+| 3 | report.md | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/report.md |
+| 4 | raw-00-anchor.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/raw-00-anchor.txt |
+| 5 | raw-manifest.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/raw-manifest.txt |
+| 6 | probe_dsh_flakefinder.mjs | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/probe_dsh_flakefinder.mjs |
+| 7 | 04-self-test.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/04-self-test.txt |
+| 8 | 06-probe-fixed.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/06-probe-fixed.txt |
+
+站点证据框格式：**每行一条 `URL` 或 `URL | 备注`**，最多 10 条；可直接粘贴 `证据链_提交文本.txt`。
+
+```text
+https://github.com/STARDUSTLC666/dsh-flakefinder/commit/fdba1afd20f7c942302aea36b6164903dad5f070 | 被测 commit（锚定）
+https://github.com/EQRS/dsh-eval-evidence/tree/main/evidence/dsh-flakefinder-0.3.5 | 全部证据
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/report.md | report.md
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/raw-00-anchor.txt | raw-00-anchor.txt
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/raw-manifest.txt | raw-manifest.txt
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/probe_dsh_flakefinder.mjs | probe_dsh_flakefinder.mjs
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/04-self-test.txt | 04-self-test.txt
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-flakefinder-0.3.5/06-probe-fixed.txt | 06-probe-fixed.txt
+```
