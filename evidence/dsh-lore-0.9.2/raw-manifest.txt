@@ -1,0 +1,20 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-18T14:27:39.736Z
+label = dsh-lore 0.9.2
+generator = tools/make_manifest.mjs
+
+raw/00-env-baseline.txt       2885  947dd0930ea74c3c614f33407b459bc0f3f3905cd5f521f02995269ca1ff1550
+raw/10-selftest.txt      53108  3fc003e9a1847feae373a3154d34813ee1c31e1e682d129b9f1a4dea1cfa2fad
+raw/20-anchor-local.txt       2492  fac5899a17ea6ec61d6e2ec2608162556e1a296ae63da6a0acf7d77e017642df
+raw/21-anchor-compare.txt       5151  b5c557bd640cd45561f7ef2d0b37d14a99651be9e987e625bc528ee639c2f8e1
+raw/22-anchor-copy.txt       5232  64a5fd99fc200af9d3025c298584590801baa74eec0913056bb3d8204b4b26ac
+raw/23-upstream-tarball.txt       2856  f46cf614a9f5a2e5ded09c0971c40f5267d523e3b0b91542c235b4f7efd930cf
+raw/24-npm-package.txt       1569  a90a1f3fb76848cf0936078e4b94514f421a87a0cd2a02de6bf6ff8939be7339
+raw/30-plugin-tests.txt      64099  e77348c4262c9a31a8d3867f5f8f0576db5b6e20c1590a9ac2edd6ec6cc1686e
+raw/31-preaudit-noprofile.txt      64146  08c6e37332beb81d49ae50799559c5fb75a11e806a572b1086d94d335c902c66
+raw/40-probe-skill-layer.txt       5269  312b6648a4b4dcc9df106b7f7decb6f98c8f807ef481838135990bee6d2fadc9
+raw/41-probe-memory-layer.txt       7992  88b364273bb6285126ae2e3c56e0360e9d4d801239ae25037211f553cf604355
+raw/42-probe-plugin-mount.txt       7258  851ea1f47efd1f2ed68cb31c532f7dea3dad5f7559a6e3017d47ebabc644a81b
+raw/dsh-lore-0.9.2.npm.tgz     603945  9f384834b8117fbea0f681ac694101cd89616172a4be62fb6a8f61173eab3dd0
+raw/upstream-dsh-lore-31d6552.gh-proxy.org.tgz     789282  1a149d7fbaa2baeeda04edbf3ab3f011f43663d55f14d68933db462c0b629dc7
+raw/upstream-dsh-lore-31d6552.tgz     789282  1a149d7fbaa2baeeda04edbf3ab3f011f43663d55f14d68933db462c0b629dc7
