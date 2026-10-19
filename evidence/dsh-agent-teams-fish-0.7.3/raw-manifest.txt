@@ -1,0 +1,16 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-19T05:14:48.142Z
+label = dsh-agent-teams-fish 0.7.3
+generator = tools/make_manifest.mjs
+
+raw/00-anchor.txt        755  061cbd68e8f8fe92d64c2d1b58a5338a86e0af77fbfe67d23edf1f7fcaea2a4c
+raw/02-install.txt       7058  f806ea74478dfca7f4176c396b760dff6de2493eee87814c3817b6cf2d0f453b
+raw/03-build.txt       1352  2da92a1522173640323c6e49406f10e088ef834f6307ca13c27a13ff32a35f3b
+raw/04-verify.txt      13518  b9d3916ef06f3a06ea05cea374fb0153d11daaf482f2cfae241fe87edb3862c5
+raw/05-typecheck.txt        361  675256be3816e96aae5b4d5dddee82d879cec750aaadafed80aaa874a626274a
+raw/06-probe.txt        756  ad95bf89f0a5e60ea4105f60c1a9203fb23d94df9f3b3856465d2423dd8be51a
+raw/07-probe-fixed.txt        786  01624e66bafb11e2d3ed16661a363277999da9a4fbbb9f1eb711ad52233845fb
+raw/08-probe-fixed2.txt        733  ea690f0d2f499a4fe10b360fe745fbbe41ae0030ccbfe31c7667b7613209d7ad
+raw/09-dedupe-grep.txt        139  71ee22709a4a54fcdee20806b0fbdd75984f4a149d0329b9ee9e9f84c4d04d0c
+raw/09-probe-fixed3.txt       1936  f1675c738813b24b74fe906c71e4732fbd979fd6fcaccc67d0f267e48f957d49
+raw/10-probe-final.txt       2068  c482b68e78707c547fd3475c43baac8001adbcd529151fff9fbda6c31f28d112
