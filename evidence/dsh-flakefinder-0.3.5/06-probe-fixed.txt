@@ -1,0 +1,94 @@
+# command: <node> probes/probe_dsh_flakefinder.mjs（按源码契约修正后）
+# exit: 0
+# seconds: 0.22
+
+## stdout
+{
+ "total": 16,
+ "failed": 0,
+ "results": [
+  {
+   "name": "aggregate: 两轮全过 → stable-pass",
+   "pass": true,
+   "detail": "{\"v\":\"stable-pass\",\"n\":1}"
+  },
+  {
+   "name": "aggregate: 一过一挂 → flaky 且 failureRate 50",
+   "pass": true,
+   "detail": "{\"id\":\"a\",\"file\":\"f\",\"name\":\"a\",\"passes\":1,\"failures\":1,\"skips\":0,\"failureRate\":50,\"verdict\":\"flaky\"}"
+  },
+  {
+   "name": "flakyTests 提取到 1 条",
+   "pass": true,
+   "detail": "[{\"file\":\"f\",\"name\":\"a\",\"failureRate\":50}]"
+  },
+  {
+   "name": "aggregate: 全挂 → stable-fail",
+   "pass": true,
+   "detail": "{\"v\":\"stable-fail\"}"
+  },
+  {
+   "name": "崩溃 run 合成 (crash) 记录且 verdict=flaky",
+   "pass": true,
+   "detail": "{\"v\":\"flaky\",\"ids\":[\"(crash)\",\"a\"]}"
+  },
+  {
+   "name": "无报告时 aggregate 抛错",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parseJsonReport: 2 用例 1 过 1 挂",
+   "pass": true,
+   "detail": "{\"t\":2,\"p\":1,\"f\":1}"
+  },
+  {
+   "name": "parseJsonReport: 非法 JSON 抛错",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parseTapReport: 3 用例（2 过 1 挂）",
+   "pass": true,
+   "detail": "[[\"first case\",\"passed\"],[\"second case\",\"failed\"],[\"third case\",\"skipped\"]]"
+  },
+  {
+   "name": "parseJunitReport: 2 用例含 failure",
+   "pass": true,
+   "detail": "[[\"good\",\"failed\"],[\"good\",\"passed\"]]"
+  },
+  {
+   "name": "detectFramework 按本地入口识别 vitest",
+   "pass": true,
+   "detail": "\"vitest\""
+  },
+  {
+   "name": "detectFramework 识别 pytest 配置",
+   "pass": true,
+   "detail": "\"pytest\""
+  },
+  {
+   "name": "无框架时回退 node:test",
+   "pass": true,
+   "detail": "\"node\""
+  },
+  {
+   "name": "buildPlan(pytest) 生成 junit 报告参数",
+   "pass": true,
+   "detail": "{\"framework\":\"pytest\",\"reportKind\":\"junit\",\"reportPath\":\"C:\\\\Users\\\\30951\\\\AppData\\\\Local\\\\Temp\\\\dsh-flakefinder-pytest-23148-1-7f2709e8c888.xml\",\"argv\":[\"python\",\"-m\",\"pytest\",\"tests\",\"-q\",\"--junitxml=C:\\\\Users\\\\30951\\\\AppData\\\\Local\\\\Temp"
+  },
+  {
+   "name": "resolveConfig 默认 defaultRuns=5 且 maxRuns=20",
+   "pass": true,
+   "detail": "{\"d\":5,\"m\":20}"
+  },
+  {
+   "name": "resolveConfig 默认 dataDir 落在 .dsh 下",
+   "pass": true,
+   "detail": "C:\\Users\\30951\\.dsh\\.dsh-flakefinder"
+  }
+ ]
+}
+
+## stderr
+
