@@ -1,0 +1,10 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-19T07:08:16.727Z
+label = @hyzyn/dsh-kit-settings 0.2.6
+generator = tools/make_manifest.mjs
+
+raw/00-anchor.txt        721  9439baff3fdd214a4c80513005210544f90a6bca9c1e470f468672ef058e9b32
+raw/02-install.txt       1919  d0900d0e02d580e83e35ff5070d8b61b8154d0ce74a3ad27fcfd4e381b8ffe38
+raw/03-build.txt        654  e0616fe0c415a4d2670e3d8ddeea1a05b09146cd9fc01e352e5c4a341d00991c
+raw/04-typecheck.txt       1326  091ada57c26f3e48b16e6d1467ab14a9f3c1f021e8ba966725f0f936063a0e4b
+raw/05-probe.txt       1027  9c8e4dc2329ddc081c637dc2017754e9848470776796ff290befa9332090e8dc
