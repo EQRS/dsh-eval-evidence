@@ -1,0 +1,163 @@
+== probe_port_tools.mjs ==
+pkg  = D:\natnat\lingshu\测试\dsh-codex-port\worktree\pkg
+node = v24.21.0
+
+      discovered: remotion@1.0.0[con,nodef-skill,sane-skill,upper-skill]
+
+---- C1. dryRun previews without writing ----
+      dryRun sane-skill -> status=planned files=0 reason="将安装新技能"
+PASS  C1 dryRun returns status=planned with no file count
+PASS  C1 dryRun created nothing in the target directory
+PASS  C1 dryRun does not delete or replace an existing target root
+PASS  C1 dryRun against an absent target root still creates nothing
+
+---- C2. real port: conversion, excluded dirs, file count ----
+      port -> status=ported files=2 reason=""
+PASS  C2 the skill is ported and its files are counted
+      installed SKILL.md:
+      | ---
+      | name: sane-skill
+      | description: a sane skill
+      | compatibility: Ported from Codex plugin remotion
+      |   (https://example.invalid/remotion), license MIT.
+      | allowed-tools: Bash
+      | ---
+      | 
+      | # sane-skill
+      | 
+      | body of sane-skill
+      | 
+PASS  C2 the installed SKILL.md keeps the DSH name
+PASS  C2 the description is preserved
+PASS  C2 compatibility names the source plugin and allowed-tools is Bash
+PASS  C2 the body is preserved
+PASS  C2 ordinary subdirectories are copied
+PASS  C2 the Codex-only `agents/` directory is excluded
+      transaction dirs left after a fresh install: [".dsh-port-sane-skill-C8jAdF"]
+PASS  C2 a fresh install keeps ONE recovery directory (documented for overwrite; it also happens on fresh install — see report P3-2)
+      fresh-install transaction contents: ["recovery.json"]
+PASS  C2 the fresh-install recovery dir has recovery.json, no previous/, and no top-level SKILL.md
+
+---- C3. duplicate skip, overwrite backup, recovery record ----
+      duplicate without overwrite -> status=skipped reason="目标技能已存在（overwrite=false），跳过以免覆盖"
+PASS  C3 a second port without overwrite is skipped with a reason
+      overwrite=true -> status=ported files=2
+PASS  C3 overwrite=true replaces the installation
+PASS  C3 the new installation does not contain the old files
+      transaction dirs after overwrite: [".dsh-port-sane-skill-C8jAdF",".dsh-port-sane-skill-tAV9Bq"]
+PASS  C3 the overwrite adds a second recovery directory (the fresh-install one is kept as-is)
+PASS  C3 one of the recovery directories carries previous/
+      overwrite transaction contents: ["previous","recovery.json"]
+PASS  C3 the recovery directory keeps previous/ and recovery.json
+PASS  C3 the previous installation (with its old file) is preserved for recovery
+      recovery.json: {"version":1,"skill":"sane-skill","target":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-codex-port-probe-port-Jy5JJL\\skills\\sane-skill","incoming":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-codex-port-probe-port-Jy5JJL\\skills\\.dsh-port-sane-skill-tAV9Bq\\incoming","previous":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-codex-port-probe-port-Jy5JJL\\skills\\.dsh-port-sane-skill-tAV9Bq\\previous","phase":"installed"}
+PASS  C3 recovery.json records the completed phase and skill
+PASS  C3 the transaction dir has no top-level SKILL.md (it would be discovered as a duplicate skill)
+
+---- C4. fail-closed: names, sources, targets ----
+      mixed-case name (Upper_Skill) -> failed: 转换后的技能名称或描述无效，不能安装。
+PASS  C4 mixed-case name (Upper_Skill) is refused with an actionable reason
+      no frontmatter => empty description -> failed: 转换后的技能名称或描述无效，不能安装。
+PASS  C4 no frontmatter => empty description is refused with an actionable reason
+      windows device name (con) -> failed: 技能名清洗后为空或不合法，已跳过（可能是纯中文或含危险字符的名称）
+PASS  C4 windows device name (con) is refused with an actionable reason
+      empty targetDir -> failed: 目标技能目录不能为空
+PASS  C4 empty targetDir is refused with an actionable reason
+      filesystem root as targetDir -> failed: 不能把文件系统根目录作为技能目录
+PASS  C4 filesystem root as targetDir is refused with an actionable reason
+      source inside target (overwrite=false) -> status=skipped reason="目标技能已存在（overwrite=false），跳过以免覆盖"
+PASS  C4 source inside the target root is skipped first when overwrite=false (same-name guard)
+      source inside target (overwrite=true) -> status=failed reason="技能源与安装目标重叠，拒绝递归复制或移动源目录"
+PASS  C4 … and refused as an overlapping source/target once overwrite lets it reach that check
+      target occupied by a file -> status=failed reason="目标技能不是目录，拒绝覆盖：C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-codex-port-probe-port-Jy5JJL\\file-target\\sane-skill"
+PASS  C4 a non-directory target is refused (never overwritten)
+
+---- C5. the registered tool surface ----
+      tools = ["codex_list","codex_port","codex_status","codex_health"]
+PASS  C5 four tools are registered (codex_health is registered but missing from docs/USAGE.md 工具一览 — see report P3-1)
+PASS  C5 the plugin entry declares name and injects ctx.tools
+      codex_list {} -> total=1 count=1 plugins=["remotion"]
+PASS  C5 codex_list reports the discovered plugin and its skill count
+PASS  C5 the skill filter is case-insensitive substring matching
+PASS  C5 a non-matching filter returns zero rows but still reports the total
+PASS  C5 limit is clamped into 1..200 (0 and 500 both still return the one plugin)
+      codex_port dryRun -> total=4 counts={"ported":0,"skipped":0,"failed":3} plannedCount=1
+PASS  C5 codex_port dryRun previews plan + failures without writing (1 planned / 3 failed)
+PASS  C5 codex_port dryRun created no target directory
+      codex_port real -> counts={"ported":1,"skipped":0,"failed":3} ported=[{"skill":"sane-skill","plugin":"remotion","files":2}]
+PASS  C5 codex_port ports the one loadable skill and reports the three refusals
+PASS  C5 the ported skill is on disk
+PASS  C5 the skills filter is case-insensitive and overwrite can be requested per call
+      codex_status -> skills=4 installed=1 missing=3 missingNames=["con","nodef-skill","Upper_Skill"]
+PASS  C5 codex_status counts installed vs missing skills against the target directory
+      codex_health -> ok=true checks=[{"name":"Codex 主目录","ok":true,"detail":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-codex-port-probe-port-Jy5JJL\\codex"},{"name":"插件目录","ok":true,"detail":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-codex-port-probe-port-Jy5JJL\\codex/plugins"}]
+PASS  C5 codex_health reports the happy path with per-check detail
+      codex_health (missing home) -> ok=false checks=[{"name":"Codex 主目录","ok":false,"detail":"Codex 家目录不存在：C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-codex-port-probe-port-Jy5JJL\\nope。请检查是否安装了 Codex CLI，或在 cordis.patch.yml 里用 codexHome 显式指定。"}]
+PASS  C5 codex_health fails with the actionable "Codex 家目录不存在" message
+      codex_port with an aborted signal -> AbortError
+PASS  C5 an aborted signal stops the port before writing
+
+---- C6. configuration resolution ----
+      explicit -> {"codexHome":"C:\\custom","targetDir":"C:\\skills","overwrite":true}
+PASS  C6 explicit config values are trimmed and honoured
+      env -> {"codexHome":"C:\\from-env","targetDir":"C:\\dsh-home\\skills","overwrite":false}
+PASS  C6 CODEX_HOME is used when config.codexHome is absent
+PASS  C6 the default target is <DSH_HOME>/skills
+PASS  C6 overwrite defaults to false (same-name skills are skipped)
+PASS  C6 defaultTargetDir follows DSH_HOME
+
+== 50/50 assertions passed ==
+
+== assertions ==
+PASS  C1 dryRun returns status=planned with no file count
+PASS  C1 dryRun created nothing in the target directory
+PASS  C1 dryRun does not delete or replace an existing target root
+PASS  C1 dryRun against an absent target root still creates nothing
+PASS  C2 the skill is ported and its files are counted
+PASS  C2 the installed SKILL.md keeps the DSH name
+PASS  C2 the description is preserved
+PASS  C2 compatibility names the source plugin and allowed-tools is Bash
+PASS  C2 the body is preserved
+PASS  C2 ordinary subdirectories are copied
+PASS  C2 the Codex-only `agents/` directory is excluded
+PASS  C2 a fresh install keeps ONE recovery directory (documented for overwrite; it also happens on fresh install — see report P3-2)
+PASS  C2 the fresh-install recovery dir has recovery.json, no previous/, and no top-level SKILL.md
+PASS  C3 a second port without overwrite is skipped with a reason
+PASS  C3 overwrite=true replaces the installation
+PASS  C3 the new installation does not contain the old files
+PASS  C3 the overwrite adds a second recovery directory (the fresh-install one is kept as-is)
+PASS  C3 one of the recovery directories carries previous/
+PASS  C3 the recovery directory keeps previous/ and recovery.json
+PASS  C3 the previous installation (with its old file) is preserved for recovery
+PASS  C3 recovery.json records the completed phase and skill
+PASS  C3 the transaction dir has no top-level SKILL.md (it would be discovered as a duplicate skill)
+PASS  C4 mixed-case name (Upper_Skill) is refused with an actionable reason
+PASS  C4 no frontmatter => empty description is refused with an actionable reason
+PASS  C4 windows device name (con) is refused with an actionable reason
+PASS  C4 empty targetDir is refused with an actionable reason
+PASS  C4 filesystem root as targetDir is refused with an actionable reason
+PASS  C4 source inside the target root is skipped first when overwrite=false (same-name guard)
+PASS  C4 … and refused as an overlapping source/target once overwrite lets it reach that check
+PASS  C4 a non-directory target is refused (never overwritten)
+PASS  C5 four tools are registered (codex_health is registered but missing from docs/USAGE.md 工具一览 — see report P3-1)
+PASS  C5 the plugin entry declares name and injects ctx.tools
+PASS  C5 codex_list reports the discovered plugin and its skill count
+PASS  C5 the skill filter is case-insensitive substring matching
+PASS  C5 a non-matching filter returns zero rows but still reports the total
+PASS  C5 limit is clamped into 1..200 (0 and 500 both still return the one plugin)
+PASS  C5 codex_port dryRun previews plan + failures without writing (1 planned / 3 failed)
+PASS  C5 codex_port dryRun created no target directory
+PASS  C5 codex_port ports the one loadable skill and reports the three refusals
+PASS  C5 the ported skill is on disk
+PASS  C5 the skills filter is case-insensitive and overwrite can be requested per call
+PASS  C5 codex_status counts installed vs missing skills against the target directory
+PASS  C5 codex_health reports the happy path with per-check detail
+PASS  C5 codex_health fails with the actionable "Codex 家目录不存在" message
+PASS  C5 an aborted signal stops the port before writing
+PASS  C6 explicit config values are trimmed and honoured
+PASS  C6 CODEX_HOME is used when config.codexHome is absent
+PASS  C6 the default target is <DSH_HOME>/skills
+PASS  C6 overwrite defaults to false (same-name skills are skipped)
+PASS  C6 defaultTargetDir follows DSH_HOME
+
+50/50 assertions passed
