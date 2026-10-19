@@ -1,0 +1,1062 @@
+== run_node_suite.py ==
+pkg  = D:\natnat\lingshu\测试\dsh-lore\worktree\pkg
+node = C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe
+node version = v24.21.0
+
+---- [0] node tests/run.mjs  (0.4s, 155 行输出) ----
+PASS  exports a plugin name
+PASS  injects the skills service
+PASS  exports apply()
+PASS  an exported Config is a validator, not a plain object
+PASS  parses the worklog skill name
+PASS  parses a non-trivial description
+PASS  description excludes the closing fence
+PASS  parses the zh guidelines name
+PASS  parses the en guidelines name
+PASS  the two language copies are different documents
+PASS  the zh copy is Chinese
+PASS  the en copy is English
+PASS  accepts a minimal block
+PASS  tolerates a BOM
+PASS  unescapes double-quoted scalars
+PASS  unescapes single-quoted scalars
+PASS  folds a block scalar
+PASS  disable-model-invocation: true -> modelInvocable false
+PASS  disable-model-invocation: no -> modelInvocable true
+PASS  disable-model-invocation: 1 -> modelInvocable false
+PASS  disable-model-invocation: 0 -> modelInvocable true
+PASS  rejects a missing frontmatter block
+PASS  rejects an unclosed frontmatter block
+PASS  rejects a non-kebab-case name
+PASS  rejects a missing name
+PASS  rejects an empty description
+PASS  rejects an invalid boolean
+PASS  stripFrontmatter removes the frontmatter
+PASS  stripFrontmatter keeps the body
+PASS  stripFrontmatter is a no-op without frontmatter
+PASS  default config mounts one provider per bundle on disk (worklog + guidelines + extras)
+PASS  no error logged on a healthy bundle
+PASS  the memory tool reaches the tools registry
+PASS  and no registration failure is logged
+PASS  the memory tool declares its two required parameters
+PASS  its output schema compiles (explicit additionalProperties, text required)
+PASS  the worklog provider has its own name
+PASS  the guidelines provider has its own name
+PASS  the two provider names are distinct (the registry requires it)
+PASS  neither uses the reserved "runtime"
+PASS  every extra bundle on disk got its own provider
+PASS  worklog-bundle-client-require-whitelist: the bundle's own frontmatter decides modelInvocable
+PASS  worklog: list() returns a promise (the registry calls .then on it)
+PASS  worklog: get() returns a promise (the registry calls .then on it)
+PASS  guidelines: list() returns a promise (the registry calls .then on it)
+PASS  guidelines: get() returns a promise (the registry calls .then on it)
+PASS  worklog-bundle: list() survives waitWithAbort
+PASS  worklog-bundle: get() survives waitWithAbort
+PASS  worklog-guidelines: list() survives waitWithAbort
+PASS  worklog-guidelines: get() survives waitWithAbort
+PASS  the registry call shape does not throw
+PASS  a stale-name get() returns a promise, not undefined
+PASS  the stale-name get() returns a definition the registry can reject by name
+PASS  worklog: list() returns a complete observation
+PASS  worklog: candidate name
+PASS  worklog: description is a string
+PASS  worklog: source is a string
+PASS  worklog: candidate.provider matches the provider name
+PASS  worklog: rank is a finite number
+PASS  worklog: invocation permits both surfaces
+PASS  worklog: get() returns a definition
+PASS  worklog: loaded name matches discovered name
+PASS  worklog: definition content is a non-trivial string
+PASS  worklog: content excludes the frontmatter
+PASS  worklog: resourceBase is a directory
+PASS  worklog: path points at SKILL.md
+PASS  guidelines: list() returns a complete observation
+PASS  guidelines: candidate name
+PASS  guidelines: description is a string
+PASS  guidelines: source is a string
+PASS  guidelines: candidate.provider matches the provider name
+PASS  guidelines: rank is a finite number
+PASS  guidelines: invocation permits both surfaces
+PASS  guidelines: get() returns a definition
+PASS  guidelines: loaded name matches discovered name
+PASS  guidelines: definition content is a non-trivial string
+PASS  guidelines: content excludes the frontmatter
+PASS  guidelines: resourceBase is a directory
+PASS  guidelines: path points at SKILL.md
+PASS  project-work-log declares work_log/ as the container
+PASS  guidelines (zh) reference the container project-work-log declares
+PASS  guidelines (en) reference the container project-work-log declares
+PASS  guidelines (zh) no longer tell you to write into journal/
+PASS  guidelines (en) no longer tell you to write into journal/
+PASS  guidelines still name the journal.py tool correctly
+PASS  guidelinesLanguage=en serves the English copy
+PASS  guidelinesLanguage=zh serves the Chinese copy
+PASS  the Chinese copy is the cleaned-up rewrite
+PASS  an unrecognized language falls back to Chinese rather than serving nothing
+PASS  the zh copy frames itself as a strong default
+PASS  the zh copy states the user outranks it
+PASS  the zh copy drops the refuse-the-user licence
+PASS  the en copy frames itself as a strong default
+PASS  the en copy states the user outranks it
+PASS  the en copy drops the refuse-the-user licence
+PASS  guidelinesEnabled=false keeps the provider registered (switch is read live, not at mount)
+PASS  the work-log skill is still served when only the guidelines are off
+PASS  the guidelines provider reports an EMPTY catalog (complete), so the skill really is gone
+PASS  skillEnabled=false keeps the work-log provider registered too
+PASS  and that provider serves nothing while the switch is off
+PASS  and the memory tool still mounts — the skill half and the memory half are independent
+PASS  live: the skill is served before the change
+PASS  live: flipping skillEnabled takes effect on the NEXT list() — no restart
+PASS  live: flipping guidelinesEnabled likewise takes effect immediately
+PASS  live: flipping it back works too
+PASS  verbose=true sends the trace to the host log when no trace file is armed
+PASS  verbose=false emits no trace at all
+PASS  with DSH_WORKLOG_TRACE set the same lines go to that file instead
+PASS  and not to the host log — the env var decides where, it does not decide whether
+PASS  get() re-reads the file, so an edit appears without a host restart
+PASS  the harness restored the guidelines file
+PASS  config can withdraw the user surface
+PASS  config leaves the model surface intact
+PASS  a non-boolean / unknown config value does not break the mount
+PASS  unknown config keys are reported
+PASS  a null config does not break the mount
+PASS  missing bundles still register their two explicit providers (registration is not file-gated)
+PASS  and neither of them serves a skill when its directory does not exist
+PASS  both missing bundles are reported, not swallowed
+PASS  a missing worklog bundle does not stop the guidelines mounting (both providers register)
+PASS  and the guidelines skill is still served while the work-log directory is broken
+PASS  verbose logs the worklog skill
+PASS  verbose logs the guidelines skill
+PASS  apply() survives a degraded logger (no logger at all)
+PASS  apply() survives a degraded logger (logger is an empty object)
+PASS  apply() survives a degraded logger (logger.warn is not a function)
+PASS  apply() survives a degraded logger (logger methods throw)
+PASS  an unusable logger falls back to console.error instead of dropping the message
+PASS  a missing bundle says "not found", not a bare ENOENT
+PASS  a missing bundle names the file it looked for
+PASS  a missing bundle names the config that resolves it
+PASS  a missing bundle does not leak the raw ENOENT wording
+PASS  a missing bundle is not prefixed with a redundant "Error:"
+PASS  a malformed bundle is reported as invalid
+PASS  a malformed bundle prints its path only once
+PASS  a missing registry does not throw (ctx.skills absent)
+PASS  a missing registry names what is absent (ctx.skills absent)
+PASS  a missing registry does not throw (registerProvider is not a function)
+PASS  a missing registry names what is absent (registerProvider is not a function)
+139/139 passed
+worklog: ignoring unsupported config keys: bogusKey
+worklog: skill bundle "worklog-bundle" not found: D:/natnat/lingshu/测试/dsh-lore/worktree/pkg/no/such/dir/SKILL.md (bundle directory D:/natnat/lingshu/测试/dsh-lore/worktree/pkg/no/such/dir, resolved from config "skillDir" or its default); this skill will not be available
+worklog: ctx.tools.register is not available — the memory tool will not be offered (is @deepseek-ai/dsh-tools mounted?)
+worklog: ctx.systemPrompt is not available — the memory index and the inbox notice will not be injected (is @deepseek-ai/dsh-system-prompt mounted?)
+worklog: ignoring unsupported config keys: bogusKey
+worklog: skill bundle "worklog-bundle" not found: D:/natnat/lingshu/测试/dsh-lore/worktree/pkg/no/such/dir/SKILL.md (bundle directory D:/natnat/lingshu/测试/dsh-lore/worktree/pkg/no/such/dir, resolved from config "skillDir" or its default); this skill will not be available
+worklog: ctx.tools.register is not available — the memory tool will not be offered (is @deepseek-ai/dsh-tools mounted?)
+worklog: ctx.systemPrompt is not available — the memory index and the inbox notice will not be injected (is @deepseek-ai/dsh-system-prompt mounted?)
+worklog: ignoring unsupported config keys: bogusKey
+worklog: ctx.tools.register is not available — the memory tool will not be offered (is @deepseek-ai/dsh-tools mounted?)
+worklog: ctx.systemPrompt is not available — the memory index and the inbox notice will not be injected (is @deepseek-ai/dsh-system-prompt mounted?)
+worklog: ignoring unsupported config keys: bogusKey
+worklog: skill bundle "worklog-bundle" not found: D:/natnat/lingshu/测试/dsh-lore/worktree/pkg/no/such/dir/SKILL.md (bundle directory D:/natnat/lingshu/测试/dsh-lore/worktree/pkg/no/such/dir, resolved from config "skillDir" or its default); this skill will not be available
+worklog: ctx.tools.register is not available — the memory tool will not be offered (is @deepseek-ai/dsh-tools mounted?)
+worklog: ctx.systemPrompt is not available — the memory index and the inbox notice will not be injected (is @deepseek-ai/dsh-system-prompt mounted?)
+
+---- [0] node tests/registry-contract.mjs  (0.3s, 69 行输出) ----
+PASS  apply() registers one provider per skill bundle on disk
+PASS  apply() logged no error
+PASS  project-work-log: provider name is not the reserved "runtime"
+PASS  project-work-log: list() returns a promise (waitWithAbort calls .then)
+PASS  project-work-log: list() returns an object
+PASS  project-work-log: observation carries a candidates array
+PASS  project-work-log: observation carries a boolean complete
+PASS  project-work-log: observation is complete
+PASS  project-work-log: candidate name is kebab-case
+PASS  project-work-log: candidate name is the expected skill
+PASS  project-work-log: candidate description is a non-empty string
+PASS  project-work-log: candidate whenToUse is a string or absent
+PASS  project-work-log: candidate source is a string
+PASS  project-work-log: candidate rank is a finite number
+PASS  project-work-log: candidate provider is a string
+PASS  project-work-log: candidate.provider equals the provider name (a mismatch is fatal)
+PASS  project-work-log: candidate path is a string or absent
+PASS  project-work-log: both invocation flags are booleans
+PASS  project-work-log: get() returns a promise (waitWithAbort calls .then)
+PASS  project-work-log: definition name is kebab-case
+PASS  project-work-log: definition description is a non-empty string
+PASS  project-work-log: definition source is a string
+PASS  project-work-log: definition provider is a string
+PASS  project-work-log: definition content IS A STRING  <-- the field that failed on the first install
+PASS  project-work-log: definition content is non-trivial
+PASS  project-work-log: definition path is a string or absent
+PASS  project-work-log: definition whenToUse is a string or absent
+PASS  project-work-log: get() returns the name it was asked for (no stale selection)
+PASS  project-work-log: rendered body does not begin with frontmatter
+PASS  project-work-log: rendered body starts at the H1
+PASS  project-work-log: resourceBase is a directory
+PASS  project-work-log: resourceBase carries a path
+PASS  project-work-log: the instruction file is readable at the advertised path
+PASS  worklog: body contains the skill sections
+PASS  worklog: body still points at scripts/journal.py, which resourceBase resolves
+PASS  reliability-guidelines: provider name is not the reserved "runtime"
+PASS  reliability-guidelines: list() returns a promise (waitWithAbort calls .then)
+PASS  reliability-guidelines: list() returns an object
+PASS  reliability-guidelines: observation carries a candidates array
+PASS  reliability-guidelines: observation carries a boolean complete
+PASS  reliability-guidelines: observation is complete
+PASS  reliability-guidelines: candidate name is kebab-case
+PASS  reliability-guidelines: candidate name is the expected skill
+PASS  reliability-guidelines: candidate description is a non-empty string
+PASS  reliability-guidelines: candidate whenToUse is a string or absent
+PASS  reliability-guidelines: candidate source is a string
+PASS  reliability-guidelines: candidate rank is a finite number
+PASS  reliability-guidelines: candidate provider is a string
+PASS  reliability-guidelines: candidate.provider equals the provider name (a mismatch is fatal)
+PASS  reliability-guidelines: candidate path is a string or absent
+PASS  reliability-guidelines: both invocation flags are booleans
+PASS  reliability-guidelines: get() returns a promise (waitWithAbort calls .then)
+PASS  reliability-guidelines: definition name is kebab-case
+PASS  reliability-guidelines: definition description is a non-empty string
+PASS  reliability-guidelines: definition source is a string
+PASS  reliability-guidelines: definition provider is a string
+PASS  reliability-guidelines: definition content IS A STRING  <-- the field that failed on the first install
+PASS  reliability-guidelines: definition content is non-trivial
+PASS  reliability-guidelines: definition path is a string or absent
+PASS  reliability-guidelines: definition whenToUse is a string or absent
+PASS  reliability-guidelines: get() returns the name it was asked for (no stale selection)
+PASS  reliability-guidelines: rendered body does not begin with frontmatter
+PASS  reliability-guidelines: rendered body starts at the H1
+PASS  reliability-guidelines: resourceBase is a directory
+PASS  reliability-guidelines: resourceBase carries a path
+PASS  reliability-guidelines: the instruction file is readable at the advertised path
+PASS  guidelines: zh body contains the eight principles
+PASS  guidelines: body frames itself as a strong default
+every provider output satisfies the rules the registry applies
+
+---- [0] node tests/manifest.mjs  (0.3s, 29 行输出) ----
+PASS  package.json declares dsh.bundle.patch
+PASS  the declared patch file exists
+PASS  the patch file is non-empty
+SKIP  dsh-base id cross-check SKIPPED (set DSH_SRC_DIR to enable it)
+PASS  the patch has at least one top-level entry
+PASS  an override entry carries exactly one id
+SKIP  override target cross-check SKIPPED (needs DSH_SRC_DIR)
+PASS  an override entry asserts the module name
+PASS  an insert block carries at least one row id
+SKIP  inserted id cross-check SKIPPED (needs DSH_SRC_DIR)
+PASS  inserted row names this package (dsh-lore vs dsh-lore)
+PASS  every top-level patch entry is classified as an override or an insert
+PASS  the patch inserts this package row
+PASS  the patch declares skillDir
+PASS  skillDir exists (skills/project-work-log)
+PASS  skillDir holds a SKILL.md
+PASS  the patch declares guidelinesDir
+PASS  guidelinesDir exists (skills/reliability-guidelines)
+PASS  guidelinesDir holds a SKILL.md
+PASS  the guidelines bundle holds the zh SKILL.md
+PASS  the guidelines bundle holds the en SKILL.md
+PASS  no stray marker files in the guidelines bundle
+PASS  the plugin exports a Config schema
+PASS  the Config carries toJSON (the settings-page projection requires it)
+PASS  the plugin parses the worklog skill name
+PASS  the plugin parses a description
+PASS  the plugin parses the guidelines skill name
+PASS  the English copy declares the same skill name
+all bundle manifest checks passed (3 skipped)
+
+---- [0] node tests/audit-paths.mjs  (0.3s, 26 行输出) ----
+PASS  found the skill files to audit
+PASS  the skill package holds exactly the expected files
+PASS  the packaging script is not shipped inside the skill (it is a build tool)
+PASS  no stale old-layout references outside back-compat text
+PASS  the worklog skill declares work_log/ as the container
+PASS  guidelines (zh) reference the same container the worklog skill declares
+PASS  guidelines (en) reference the same container the worklog skill declares
+PASS  the script-free variant source tree exists
+PASS  the script-free variant holds exactly the three expected files
+PASS  the script-free variant names no script, package manager, or CLI flag
+PASS  the optional Python-toolbox mention appears at most once
+PASS  the script-free variant keeps the work_log/ container
+PASS  the script-free variant keeps the 精细度 field
+PASS  the script-free variant declares which tier is the default
+PASS  read MODE_DEFAULT from journal.py
+PASS  the script-free variant's default tier matches the code (full)
+PASS  the script-free variant still requires a verification section
+PASS  the script-free variant states plainly that there is no mechanical gate
+PASS  the script-free variant states that verification is by human review
+PASS  the script-free variant declares the same container as the main skill
+PASS  the built copy exists (dist/skill-only/)
+PASS  the built copy holds exactly the three expected files
+PASS  dist/skill-only/ matches the source for SKILL.md (line endings normalised)
+PASS  dist/skill-only/ matches the source for references/conventions.md (line endings normalised)
+PASS  dist/skill-only/ matches the source for references/templates.md (line endings normalised)
+path consistency OK
+
+---- [0] node tests/audit-doc-consistency.mjs  (0.2s, 58 行输出) ----
+PASS  the entry reads at least one env var
+PASS  env var DSH_WORKLOG_TRACE is documented
+PASS  env var DSH_HOME is documented
+PASS  env var DSH_WORKLOG_MEMORY is documented
+PASS  env var DSH_WORKLOG_SETTINGS is documented
+PASS  env var DSH_WORKLOG_PYTHON is documented
+PASS  parsed the config keys
+PASS  config key skillDir appears in the docs
+PASS  config key skillFile appears in the docs
+PASS  config key modelInvocable appears in the docs
+PASS  config key userInvocable appears in the docs
+PASS  config key verbose appears in the docs
+PASS  config key guidelinesEnabled appears in the docs
+PASS  config key guidelinesDir appears in the docs
+PASS  config key guidelinesLanguage appears in the docs
+PASS  found config keys in the row patch
+PASS  patch config key skillDir is a known key
+PASS  patch config key modelInvocable is a known key
+PASS  patch config key userInvocable is a known key
+PASS  patch config key verbose is a known key
+PASS  patch config key guidelinesEnabled is a known key
+PASS  patch config key guidelinesDir is a known key
+PASS  patch config key guidelinesLanguage is a known key
+PASS  parsed the CLI subcommands
+PASS  SKILL.md names only real subcommands
+PASS  references/analysis.md names only real subcommands
+PASS  references/commands.md names only real subcommands
+PASS  references/conventions.md names only real subcommands
+PASS  references/memory.md names only real subcommands
+PASS  references/templates.md names only real subcommands
+PASS  top-level command append is documented in commands.md
+PASS  top-level command archive is documented in commands.md
+PASS  top-level command brief is documented in commands.md
+PASS  top-level command check is documented in commands.md
+PASS  top-level command config is documented in commands.md
+PASS  top-level command digest is documented in commands.md
+PASS  top-level command export is documented in commands.md
+PASS  top-level command lint is documented in commands.md
+PASS  top-level command mode is documented in commands.md
+PASS  top-level command new is documented in commands.md
+PASS  top-level command outline is documented in commands.md
+PASS  top-level command prune is documented in commands.md
+PASS  top-level command retro is documented in commands.md
+PASS  top-level command search is documented in commands.md
+PASS  top-level command show is documented in commands.md
+PASS  top-level command snapshot is documented in commands.md
+PASS  top-level command split is documented in commands.md
+PASS  top-level command stats is documented in commands.md
+PASS  top-level command status is documented in commands.md
+PASS  top-level command todo is documented in commands.md
+PASS  top-level command topics is documented in commands.md
+PASS  SKILL.md cross-references resolve
+PASS  references/analysis.md cross-references resolve
+PASS  references/commands.md cross-references resolve
+PASS  references/conventions.md cross-references resolve
+PASS  references/memory.md cross-references resolve
+PASS  references/templates.md cross-references resolve
+doc/identifier consistency OK
+
+---- [0] node tests/audit-ranks.mjs  (0.2s, 9 行输出) ----
+PASS  read PROVIDER_RANK from the entry
+SKIP  registry RUNTIME_RANK cross-check SKIPPED (set DSH_SKILL_SRC to enable it)
+      filesystem roots: {"projectDsh":100,"projectAgents":200,"customDirs":300,"dshHome":400,"agentsHome":500}
+PASS  PROVIDER_RANK (350) does not try to outrank project-local roots
+PASS  PROVIDER_RANK (350) outranks the user-level ~/.dsh/skills root (400)
+PASS  PROVIDER_RANK (350) outranks the user-level ~/.agents/skills root (500)
+PASS  PROVIDER_RANK (350) lets a project's customSkillDirs (300) win
+PASS  PROVIDER_RANK is the reviewed default (350)
+catalog rank relations OK (1 skipped)
+
+---- [0] node tests/audit-versions.mjs  (0.2s, 32 行输出) ----
+PASS  package.json declares a semver release version
+PASS  CHANGELOG.md has a "## [0.9.2] - <date>" section
+PASS  CHANGELOG.md keeps an empty or populated [未发布] section at the top
+PASS  found released CHANGELOG sections
+PASS  CHANGELOG link table defines [0.9.2]
+PASS  CHANGELOG link table defines [0.9.2]
+PASS  CHANGELOG link table defines [0.9.1]
+PASS  CHANGELOG link table defines [0.9.0]
+PASS  CHANGELOG link table defines [0.8.1]
+PASS  CHANGELOG link table defines [0.8.0]
+PASS  CHANGELOG link table defines [0.7.0]
+PASS  CHANGELOG link table defines [0.6.0]
+PASS  CHANGELOG link table defines [0.5.1]
+PASS  CHANGELOG link table defines [0.5.0]
+PASS  CHANGELOG link table defines [0.4.0]
+PASS  CHANGELOG link table defines [0.3.1]
+PASS  CHANGELOG link table defines [0.2.0]
+PASS  CHANGELOG link table defines [0.1.1]
+PASS  CHANGELOG link table defines [0.1.0]
+PASS  [未发布] compares the newest release to HEAD
+PASS  [未发布]'s base is the newest release (v0.9.2)
+PASS  found at least one pinned install example
+PASS  pinned example README.md:0.9.2 matches package.json (0.9.2)
+PASS  pinned example PUBLISHING.md:0.9.2 matches package.json (0.9.2)
+PASS  README.md names the repository at least once
+PASS  PUBLISHING.md names the repository at least once
+PASS  CHANGELOG.md names the repository at least once
+PASS  collected the repository names used by the docs
+      repository slug in docs: IThinkItsaName/dsh-lore
+PASS  all 3 repository mentions agree (IThinkItsaName/dsh-lore)
+SKIP  expected-slug check SKIPPED (set DSH_WORKLOG_SLUG to pin it)
+version consistency OK (1 skipped)
+
+---- [0] node tests/audit-locale.mjs  (0.2s, 29 行输出) ----
+PASS  package.json exports a ./locale/* subpath
+PASS  package.json files includes "locale"
+PASS  the locale directory exists on disk
+PASS  locale/en.json exists (the anchor that locates the directory)
+PASS  at least two language files are present
+PASS  locale/en.json uses a valid language id
+PASS  locale/en.json does not duplicate another id case-insensitively
+PASS  dsh-lore/locale/en.json resolves through the package exports
+PASS  locale/en.json has a "meta" object
+PASS  locale/en.json meta.title is a non-empty string
+PASS  locale/en.json meta.description is a non-empty string
+PASS  locale/zh-cn.json uses a valid language id
+PASS  locale/zh-cn.json does not duplicate another id case-insensitively
+PASS  dsh-lore/locale/zh-cn.json resolves through the package exports
+PASS  locale/zh-cn.json has a "meta" object
+PASS  locale/zh-cn.json meta.title is a non-empty string
+PASS  locale/zh-cn.json meta.description is a non-empty string
+PASS  locale/zh.json uses a valid language id
+PASS  locale/zh.json does not duplicate another id case-insensitively
+PASS  dsh-lore/locale/zh.json resolves through the package exports
+PASS  locale/zh.json has a "meta" object
+PASS  locale/zh.json meta.title is a non-empty string
+PASS  locale/zh.json meta.description is a non-empty string
+PASS  the language files carry different titles
+PASS  DSH would receive a multi-language title map, not a bare string
+PASS  DSH would receive a multi-language description map
+      title       -> {"en":"dsh-lore · worklog","zh-cn":"dsh-lore · 项目工作记录","zh":"dsh-lore · 项目工作记录"}
+      description -> en, zh-cn, zh
+plugin locale metadata OK
+
+---- [0] node tests/audit-client.mjs  (0.6s, 31 行输出) ----
+PASS  package.json exports a ./client subpath
+PASS  exports["./client"] is a plain path string (the host joins it directly)
+PASS  the file exports["./client"] names exists
+PASS  package.json files ships the client bundle
+PASS  package.json declares dsh.client
+PASS  dsh.client.platform is "web"
+PASS  dsh.client.inject is an empty array
+PASS  dsh.client.immediately is true (the settings seat must exist before first render)
+PASS  the client bundle is non-empty
+PASS  the client bundle parses as JavaScript
+PASS  the bundle opens the window.__ModuleLoader__.load({...}) wrapper
+PASS  the wrapper declares an id
+PASS  the wrapper id equals the package name (host and bundle agree on the module id)
+PASS  the wrapper declares a factory taking the loader require
+PASS  the factory parameter is a plain identifier (the host passes it positionally)
+PASS  the factory returns module.exports
+PASS  the factory body builds the CJS shell (var module = { exports: {} })
+PASS  the bundle requires at least one module
+PASS  every require() specifier is in the nine-item baseline
+      requires: react, @deepseek-ai/dsh-client-ui-primitives
+PASS  the bundle has no top-level ESM export (the loader evaluates it as a script)
+PASS  the bundle has no top-level ESM import
+PASS  elements are built with React.createElement (no JSX, so no transpile step)
+PASS  no JSX-looking component tags are present
+PASS  both dictionaries are present and readable
+PASS  every zh key exists in en
+PASS  every en key exists in zh
+      dictionaries: 58 keys, 0 mismatched
+PASS  every t() key resolves in the dictionary
+      t() keys used: 30
+client half OK — lib/client.js loads under id dsh-lore with 2 resolvable require(s)
+
+---- [0] node tests/audit-client-tokens.mjs  (0.4s, 7 行输出) ----
+PASS  the client half uses at least one --dsw-* token
+      tokens used: --dsw-alias-border-l2, --dsw-alias-label-error, --dsw-alias-label-primary, --dsw-alias-label-secondary, --dsw-alias-label-tertiary, --dsw-font-family
+PASS  every token is named in the documented --dsw-<group>-<role> form
+PASS  the host token list looks real
+PASS  every token the client half uses exists in the host
+PASS  no --dsw-* token carries a hard-coded colour fallback
+client design tokens OK
+
+---- [0] node tests/audit-client-runtime.mjs  (0.3s, 170 行输出) ----
+PASS  the bundle calls window.__ModuleLoader__.load
+PASS  the handoff id is the package name
+PASS  the handoff carries a factory
+PASS  the factory returns an exports object
+PASS  exports.apply is a function
+PASS  exports.inject is an array
+PASS  exports.inject names locale, slots and configForms (the settings channel is a required service)
+PASS  exports.name matches the package
+PASS  the factory resolves through the injected require, and only those two words
+PASS  the namespace claim is exported (the test drives it directly)
+PASS  the claim fingerprint is exported and names fourteen fields
+PASS  the read-only status endpoint is the only HTTP surface the client has
+PASS  the client carries no string literal for the removed settings route
+PASS  and exports no SETTINGS_URL any more (the export was the write path)
+PASS  the client issues no POST (every write goes through ctx.configForms)
+PASS  no mirror at all claims nothing
+PASS  a mirror without getSnapshot claims nothing
+PASS  an empty namespace list claims nothing
+PASS  a view with no namespaces claims nothing
+PASS  a non-array namespaces field claims nothing
+PASS  a row with no value claims nothing
+PASS  a row whose value is null claims nothing
+PASS  a row whose value is an array claims nothing
+PASS  a namespace missing even ONE of our fields claims nothing
+PASS  a namespace missing the FIRST field claims nothing too
+PASS  the full field set claims that namespace, verbatim (the id is never assumed)
+PASS  a differently-mounted deployment (entry id == package name) is claimed too
+PASS  an unrelated namespace ahead of ours does not shadow it
+PASS  our namespace later in the list is found as well
+PASS  an extra projected field does not stop the claim (a superset is still ours)
+PASS  a row with an empty ns is never claimed (it could not be addressed)
+PASS  a row with nothing but ns + value is enough (the claim reads plain JSON, not the envelope)
+PASS  a legacy-shaped schema with an EMPTY value claims nothing (reading `schema.properties` is the bug)
+PASS  apply() binds no t of its own (the slot registration's `locale` is what injects it)
+PASS  apply() registers exactly one dictionary set
+PASS  the dictionary set carries both zh and en (the register({zh,en}) form)
+PASS  apply() nudges the lazy describe mirror once
+PASS  nothing is registered before the host serves our namespace
+PASS  another plugin’s namespace does not make us claim a page
+PASS  once our namespace is served, exactly one card is registered
+PASS  the card goes into the BUNDLE page slot (plugins.bundle.config), not the Official group
+PASS  the registration names plugins.bundle.config
+PASS  a keyed slot is addressed by the BUNDLE package name (what the manager looks up)
+PASS  and it carries no id/order: this slot is keyed, not ordered
+PASS  the registration declares its locale namespace (this is what injects t)
+PASS  the registration carries a function component
+PASS  the injected face hands the card the form for the namespace we claimed
+PASS  the face carries the two write actions
+PASS  saving goes through the form controller and returns its promise
+PASS  the face’s save reached the form as one mutation
+PASS  when the namespace stops being served, the card is taken down again
+PASS  and it comes back when the namespace returns
+PASS  the client registers no settings.section entry (the settings nav is not our surface)
+PASS  and it never registers into plugins.item (that slot is the OFFICIAL group, for host-plane plugins)
+PASS  our namespace one field short warns once instead of vanishing silently
+PASS  the warning names the missing field and says what to do
+PASS  and the claim stays strict — nothing is registered
+PASS  a foreign namespace produces no warning at all
+PASS  the summary view returns a plain string (the Plugins page renders it as the item description)
+PASS  the summary copy is the localized one-liner
+PASS  the card renders the host SegmentedTabs
+PASS  the selected tab defaults to 技能
+PASS  the tab list carries a localized accessible name
+PASS  there are exactly three tabs
+PASS  the tab values are skills, memory and advanced
+PASS  the tab labels are 技能 / 记忆 / 高级
+PASS  each tab declares its own id and panelId
+PASS  the tab ids and the panel ids are each unique (the primitive validates this)
+PASS  exactly one tabpanel is rendered
+PASS  the rendered panel is the one the selected tab controls
+PASS  the panel points back at its tab with aria-labelledby
+PASS  the 技能 panel holds two switches
+PASS  the switches are skillEnabled / guidelinesEnabled, with localized copy (not the raw key)
+PASS  they reflect the LIVE values the host projected (each skill is switchable on its own)
+PASS  a writable form leaves both switches enabled
+PASS  the switches are controlled
+PASS  the 技能 panel carries exactly one SegmentedControl
+PASS  it is the language control
+PASS  it reflects the projected language
+PASS  the options are zh and en in that order
+PASS  the option labels are the two language names, each in its own language
+PASS  the language control carries a localized accessible name
+PASS  the 技能 panel renders the 路径 DisclosureRow
+PASS  the disclosure is titled 路径
+PASS  the 路径 area starts collapsed
+PASS  a collapsed 路径 area renders no input at all (its rows are children, not siblings)
+PASS  opening 路径 shows exactly two text inputs
+PASS  the two inputs are the two path fields
+PASS  each input carries a localized accessible name
+PASS  an un-overridden field shows EMPTY (blank means "use the layer below")
+PASS  and shows the value it would fall back to as its placeholder
+PASS  the guidelines directory does too
+PASS  neither path field shows an override badge while neither is overridden
+PASS  no control in the 技能 panel is named for container / lessons / mode
+PASS  the removed mode control did not come back
+PASS  selecting 记忆 renders its panel and only its panel
+PASS  the 记忆 panel points back at its own tab
+PASS  the 记忆 panel holds three switches
+PASS  the three switches are memoryEnabled / memoryInjectIndex / memoryPersonalSearchable, in order
+PASS  they reflect the projected values
+PASS  the 记忆 panel offers no control for container / lessons / mode
+PASS  the 记忆 copy distinguishes the load-time switch from the live ones
+PASS  the English copy draws the same distinction
+PASS  the 记忆 copy says upload permission lives in each workspace's 发布.md
+PASS  the 记忆 panel has the 当前状态 disclosure
+PASS  the status block starts collapsed
+PASS  a collapsed status block does not render its numbers
+PASS  the status block reports what the host answered
+PASS  and says where upload permission lives
+PASS  selecting 高级 renders its panel and only its panel
+PASS  the 高级 panel holds four switches
+PASS  the switches are verbose / modelInvocable / userInvocable / sessionsCrossWorkspace, in order
+PASS  they reflect the projected values
+PASS  the 高级 panel holds no text input
+PASS  the 高级 panel holds no segmented control
+PASS  the 高级 panel offers no control for container / lessons / mode
+PASS  the panel says which of its options still needs a restart, in the panel-specific wording
+PASS  the card says WHERE the settings live (the official channel is not a guess)
+PASS  and resolves that copy through the dictionary rather than printing the key
+PASS  toggling a switch issues exactly one mutation
+PASS  the mutation is a set of that one field to the chosen value
+PASS  and the card re-renders from the host answer (not from an optimistic local copy)
+PASS  the card reports the save as done
+PASS  choosing a language issues a set of that field
+PASS  typing does NOT write: no patch rewrite per keystroke
+PASS  the draft is what the user sees while typing (a controlled input reading the mirror would reset it)
+PASS  blurring writes exactly once
+PASS  the write carries the settled text
+PASS  and the host now has the override
+PASS  the field still shows the committed text
+PASS  the override badge appears now that the value is overridden
+PASS  the badge is the localized copy
+PASS  blurring without changing anything writes nothing
+PASS  clearing writes once
+PASS  clearing sends an UNSET (back to the layer below), not a stored empty string
+PASS  the host no longer carries the override
+PASS  the field shows empty again
+PASS  and falls back to showing the inherited value as its placeholder
+PASS  the override badge is gone
+PASS  an overridden field offers a 恢复默认 control
+PASS  the reset control unsets that field
+PASS  a refused write says the host refused it
+PASS  and the field falls back to the value that is actually stored (no "looks saved" illusion)
+PASS  a throwing write reports a failure too
+PASS  and the cause reaches the console: field name + the original error, not a generic line
+PASS  a refused switch change is reported, not swallowed
+PASS  and it is not reported as saved
+PASS  a failed status read says so
+PASS  and names the HTTP status
+PASS  while the configuration form still works (the status endpoint is optional)
+PASS  and no invented numbers are shown
+PASS  a form the host has not projected says so
+PASS  and every control is disabled rather than writable-but-dead
+PASS  with the path fields still collapsed
+PASS  lib/index.js declares a Config object literal with volatile fields
+PASS  the client fingerprint has no duplicate field
+PASS  the client claims exactly the volatile fields the Config declares
+PASS  the dictionary defines placeholder text
+PASS  every placeholder key has a reader (no dead locale entry)
+PASS  the never-referenced `state.loading` key is gone (one message covers idle and loading)
+PASS  both write-failure paths hand the cause to the reporter
+PASS  and the reporter really warns on the console
+PASS  a console that refuses to warn cannot break the card
+PASS  both dictionaries are found
+PASS  EN memoryEnabled.hint no longer claims the tool disappears
+PASS  EN memoryEnabled.hint says the tool itself stays registered (matching the code)
+PASS  both languages still say the switch needs a restart
+PASS  zh memoryDir.hint still explains the settings-file mirror
+PASS  en memoryDir.hint explains the settings-file mirror too (it used to be zh-only)
+client runtime OK — the card claims its namespace, mounts, edits and reports
+
+---- [0] node tests/audit-settings.mjs  (0.4s, 91 行输出) ----
+PASS  GET answers 200
+PASS  GET answers JSON
+PASS  GET reports exactly source/path/memory/error — no configuration document
+PASS  GET reports the settings path it would read
+PASS  without a profile config editor, the plugin’s own file IS the source
+PASS  a missing file is not an error
+PASS  a missing memory root reports null, not a zero (0 workspaces would be a different claim)
+PASS  the response forbids caching (a stale readout is a real bug)
+PASS  and reading the status created nothing on disk
+PASS  the workspace count comes from the registry
+PASS  the inbox count is of markdown entries only
+PASS  the index size is the length of INDEX.md
+PASS  and it goes back to null when the root disappears
+PASS  a corrupt settings file still answers 200
+PASS  the corrupt file is reported through `error`
+PASS  and the host log says so too (a silent fallback is how settings "stop working")
+PASS  POST answers 405 (configuration is not written over HTTP)
+PASS  the 405 for POST names exactly the allowed methods
+PASS  the 405 for POST carries no body (nothing was parsed)
+PASS  PUT answers 405 (configuration is not written over HTTP)
+PASS  the 405 for PUT names exactly the allowed methods
+PASS  the 405 for PUT carries no body (nothing was parsed)
+PASS  PATCH answers 405 (configuration is not written over HTTP)
+PASS  the 405 for PATCH names exactly the allowed methods
+PASS  the 405 for PATCH carries no body (nothing was parsed)
+PASS  DELETE answers 405 (configuration is not written over HTTP)
+PASS  the 405 for DELETE names exactly the allowed methods
+PASS  the 405 for DELETE carries no body (nothing was parsed)
+PASS  no refused write touched the legacy file
+PASS  HEAD is accepted beside GET
+PASS  mountStatusRoute registers exactly one route
+PASS  the route is kind "exact"
+PASS  the route path matches the client half's STATUS_URL
+PASS  the route carries a handler
+PASS  mountStatusRoute RETURNS a disposer
+PASS  the disposer releases the route exactly once
+PASS  the disposer is idempotent (a double cleanup cannot double-release)
+PASS  and the client half fetches exactly that path
+PASS  a missing webServer yields a disposer rather than throwing (headless hosts activate)
+PASS  cleaning up before the route was ever registered is safe
+PASS  effectiveSettings applies the skillDir default
+PASS  effectiveSettings resolves skillFile (apply() reads it; no surface offers a control for it)
+PASS  and the two guideline defaults
+PASS  effectiveSettings does not carry the project key "container" (an empty document)
+PASS  effectiveSettings does not carry the project key "lessons" (an empty document)
+PASS  effectiveSettings does not carry the project key "mode" (an empty document)
+PASS  effectiveSettings does not carry the project key "container" (a document stating all three)
+PASS  effectiveSettings does not carry the project key "lessons" (a document stating all three)
+PASS  effectiveSettings does not carry the project key "mode" (a document stating all three)
+PASS  projectDefaults marks the group as not applied by the plugin
+PASS  projectDefaults.values carries exactly the stored-but-unread keys
+PASS  projectDefaults reports what the document states
+PASS  projectDefaults applies the documented defaults
+PASS  a hand-edited unusable mode falls back to the documented default
+PASS  the settings file beats the row config (file false with row true → guidelines not served)
+PASS  apply() logged no error
+PASS  the settings file beats the row config (file true with row false → two skills)
+PASS  a key the file does not state still comes from the row config (row false → guidelines not served)
+PASS  the file's guidelinesLanguage=en selects the en/ bundle
+PASS  the file's guidelinesLanguage=zh selects the zh bundle
+PASS  the bundle patch still declares guidelinesEnabled
+PASS  the bundle patch still declares guidelinesLanguage
+PASS  the bundle patch still declares skillDir
+PASS  the bundle patch still declares guidelinesDir
+PASS  and it declares none of the project-side keys (those are not plugin configuration)
+PASS  SETTINGS.md 的配置键表列全了 Config 的每个字段
+PASS  SETTINGS.md 的配置键表没有 Config 不认识的字段
+PASS  GET says the config is the source
+PASS  and names the patch as the file to edit
+PASS  it does not read the legacy file at all (a corrupt one produces no error and no warning)
+PASS  the response shape is the same on both stores (the card renders one thing)
+PASS  a save attempt through HTTP is refused on the official path too
+PASS  and no write reached configEditor
+PASS  apply() reads verbose from the profile config
+PASS  and logs no error on the official path
+PASS  a populated BUNDLE layer does not stop the migration (the bug that shipped)
+PASS  the file’s value is what gets written
+PASS  a project-side key is NOT migrated (it is not in Config, so the patch must not carry it)
+PASS  and neither is the bundle layer’s own skillDir (only the file’s values are written)
+PASS  and the file is archived rather than deleted
+PASS  running it again is a no-op
+PASS  empty/blank strings are not migrated (they would become an explicit empty override)
+PASS  while a usable value beside them still migrates
+PASS  an existing profile value is never overwritten by the file
+PASS  the file is still archived (the user layer is the authority, so there is nothing to carry)
+PASS  an editor that cannot report the user layer leaves the file alone
+PASS  and writes nothing
+PASS  and says why
+PASS  a failed migration keeps the file and reports failure
+PASS  and warns loudly about it
+status route and settings stores OK
+
+---- [0] node tests/audit-memory-injection.mjs  (0.5s, 52 行输出) ----
+PASS  an absent memory root injects nothing
+PASS  an absent inbox counts 0, not a throw
+PASS  a header-only index injects nothing
+PASS  a populated index IS injected
+PASS  the injected text carries the entry line
+PASS  the injected text says the body needs the tool
+PASS  the injected text has its own heading
+PASS  the generated file H1 is not duplicated into the prompt
+PASS  an over-budget index is dropped, not truncated
+PASS  the index section is registered by default
+PASS  the inbox context is registered by default
+PASS  the section carries a stable name
+PASS  the context carries a stable name
+PASS  the section carries a finite order
+PASS  the context carries a finite order
+PASS  the index text is a function (re-read per assembly)
+PASS  the inbox text is a function (count read per assembly)
+PASS  the registered section resolves to the index
+PASS  memoryInjectIndex=false still registers the section
+PASS  but it resolves to nothing, so nothing is injected
+PASS  and the inbox context is independent of that switch
+PASS  with the switch on, the index is injected
+PASS  flipping the switch takes effect on the next assembly — without a restart
+PASS  memoryEnabled=false registers no index section
+PASS  memoryEnabled=false registers no inbox context
+PASS  an absent inbox produces the empty string, not a notice
+PASS  an empty inbox directory produces the empty string
+PASS  the notice states the count
+PASS  the notice says how to read them, and names the operation that does it
+PASS  the registered memory tool really has an `inbox` operation
+PASS  a .tmp left by an interrupted put is not counted
+PASS  inbox lists what is waiting
+PASS  the list says who sent it
+PASS  the list never returns a body — content only ever arrives as a file
+PASS  the answer gives the path it landed at
+PASS  the file landed byte for byte — frontmatter included, so it still says who sent it and that it is untrusted
+PASS  and it left the inbox
+PASS  so the waiting count drops
+PASS  the answer repeats the untrusted-input warning
+PASS  fetching identical bytes again still empties the inbox
+PASS  and it leaves the copy already there alone
+PASS  a destination that cannot be created is reported, not swallowed
+PASS  and the message is still in the inbox — nothing was lost
+PASS  an unknown item name is reported
+PASS  an ambiguous name is refused, not guessed
+PASS  an item with no frontmatter still fetches, with the default warning
+PASS  an empty inbox says so plainly
+PASS  the CLI's `from` lands in `meta.from`
+PASS  the CLI's `at` lands in `meta.at`
+PASS  the CLI's untrusted-input note lands in `meta.note`
+PASS  and the body is exactly the author's words — no frontmatter, no separator
+memory injection OK — nothing means nothing, and both switches are real
+
+---- [0] node tests/audit-memory-settings.mjs  (0.4s, 26 行输出) ----
+PASS  A1 设置文件里的 memoryDir 说了算
+PASS  A2 文件与环境变量同时存在时文件赢（与 journal.py 同一口径）
+PASS  A3 文件里没有这个键时环境变量生效
+PASS  A4 都没有时回默认根 ~/dsh-lore-memory
+PASS  A5 显式传进来的设置（合并后的那一份）压过环境变量
+PASS  A6 相对路径按用户主目录解析（不是按 cwd）
+PASS  A7 只有空白算"没设置"，退回下一档
+PASS  B1 patch 里不写 memoryDir 时不报"不认识的键"
+PASS  B2 patch 里写了 memoryDir 也不许报"不认识的键" —— 它是插件自己文档化的键
+PASS  B3 但真的不认识的键照样要报（判据没被放宽）
+PASS  C1 有 configEditor 时，卡片的值被写进 CLI 也读的那份文件（两个进程同一个根）
+PASS  C2 落盘之后解析出来的根就是卡片那个值
+PASS  C3 卡片清空 → 文件里的键**消失**，不是留个空串
+PASS  C4 没有 configEditor 的宿主（headless）不回写文件 —— 那份文件本来就是真源
+PASS  C5 回写只碰 memoryDir，用户手写的 container/lessons 原样留着
+PASS  D1 工具 status 报的根 = 解析出的根
+PASS  D2 索引字符数也来自同一个根（不是 0）
+PASS  D3 条目也来自同一个根（放一篇进去就该数到 1）
+PASS  D4 信箱计数同样来自那个根
+PASS  D5 get 能从那个根里取到正文
+PASS  E1 装载时先把卡片的值镜像进文件（这一步 0.8.1 原来就有）
+PASS  E2 订阅了 loader/volatile-update —— 配置变更走引用提交，不走重挂载
+PASS  E3 提交之后设置文件**立刻**跟上（不是等下一次装载）
+PASS  E4 解析出来的根也换成新的（CLI 那边读的就是这个文件）
+PASS  E5 清空之后文件里的键同样消失（与装载期的 C3 同一口径）
+memory-root settings OK — card beats file beats environment beats the default, the CLI reads the same root, and a volatile commit reaches that file at once
+
+---- [0] node tests/audit-memory-migration.mjs  (0.4s, 25 行输出) ----
+PASS  G0 旧根的路径就是 <DSH_HOME>/memory（迁移来源的定义）
+PASS  G1a 新根空 + 旧根有内容 ⇒ 迁移发生并回一句人话
+PASS  G1b INDEX.md 逐字节复制过去
+PASS  G1c 子目录里的文件也复制了（不是只搬根目录那一层）
+PASS  G1d `.git` 一起带上 —— 历史也是记忆的一部分（这是刻意的）
+PASS  G1e `.tmp` 半截文件不搬（复制途中被打断的残片不配进新库）
+PASS  G1f 留痕文件写下了来源路径（下次装载看它就不再搬）
+PASS  G1g **旧根一字不动**（绝不自动删：跨卷 rename 会失败、删了不可回滚）
+PASS  G1h 文案明确告诉用户"旧的那份还在，满意了自己删"
+PASS  G2a 留痕在 ⇒ 返回 null，不重复搬（旧根后来新增的东西也不追）
+PASS  G2b 重复调用没有把新内容塞进新根（"一次性"是真的只有一次）
+PASS  G2c 而旧根那条还在（没被搬走、也没被删）
+PASS  G3a 新根非空 ⇒ 返回 null（显式配置优先，不覆盖）
+PASS  G3b 新根里已有的内容一个字都没被覆盖
+PASS  G3c 也没留下痕 —— 没搬就不算搬过
+PASS  G4a 旧根**不存在** ⇒ 返回 null（"没有可迁的东西"不是失败）
+PASS  G4b 旧根存在但是空目录 ⇒ 也返回 null
+PASS  G4c 空目录不算迁过：新根连留痕都不该有（否则以后真有内容时就不搬了）
+PASS  G5 新旧同一个路径 ⇒ 返回 null（不做自我复制）
+PASS  G5b 自我复制没有发生（旧根条目没变多）
+PASS  G6a 目标不可用 ⇒ 返回 `memory migration failed …`（不抛异常、不半途而废）
+PASS  G6b 文案说清"什么都没搬走"，并指出旧根在哪
+PASS  G6c 失败后旧根仍然一字不动（最坏情况只是白跑一次）
+PASS  G6d 失败路径没把那个文件当成目录乱写（目标原样留着）
+memory migration OK — copy, marker, idempotence, three refusals, and the failure path
+
+---- [0] node tests/audit-inbox-delivery.mjs  (19.1s, 98 行输出) ----
+PASS  the CLI can be imported to read `subscriptions_key`
+PASS  `workspaceKey` and the CLI's `subscriptions_key` agree (one key, two processes)
+PASS  the memory tool is registered
+PASS  `send` puts a letter
+PASS  exactly one letter landed in the shared inbox
+PASS  `from` is the sender workspace name (the CLI reads it from cwd, not from a field)
+PASS  the letter carries a stable 16-hex `id` (dedupe/idempotency)
+PASS  no `thread` is written when the send does not name one (no empty fields)
+PASS  the tool answer does not echo the body back through the prompt
+PASS  a cross-workspace letter does not carry the sender conversation id
+PASS  a same-workspace direct letter is written
+PASS  a same-workspace direct letter carries the sender conversation id
+PASS  `send` accepts a `thread`
+PASS  `thread` points at the replied-to message id
+PASS  `send` accepts a file
+PASS  a file send puts the whole file content into the letter body (files must ride inside the letter)
+PASS  an empty send is refused
+PASS  an unknown DSH_WORKLOG_PYTHON falls back to python / python3 / py (ENOENT only)
+PASS  `send` refuses a workspace that is not this session's own
+PASS  and nothing is written for a refused sender
+PASS  `send --file` refuses a file outside the sender workspace
+PASS  and the outside file is not copied into the inbox
+PASS  a relative `file` is resolved inside the workspace
+PASS  without an initiator `send` refuses rather than guessing a sender
+PASS  a body larger than the Windows argv limit still sends
+PASS  and it arrives byte-for-byte (the temp file was only the transport)
+PASS  subscribe turns active delivery on
+PASS  the authorization lands in the table
+PASS  with a fixed inbox session id (resume, not create-per-message)
+PASS  the `workspace` argument cannot subscribe someone else (cwd wins)
+PASS  active:false revokes it
+PASS  the revocation is persisted (active:false), not a deleted row
+PASS  without an initiator subscribe refuses rather than guessing
+PASS  without `to` nothing is pushed
+PASS  `to` without an authorization stays passive (the sender cannot turn it on)
+PASS  and no session was created or prompted
+PASS  a target outside the workspace registry is refused (no ungrouped session)
+PASS  and no session is created for it
+PASS  an authorized target is woken
+PASS  delivery creates/adopts the fixed session **by workspace id** (so the UI can group it)
+PASS  delivery resolves the live Agent of that session (the schedule path, not `prompt`)
+PASS  delivery appends exactly one message to that session
+PASS  the notice is a user/message with an `inbox-notice` source — the UI renders that as a trigger card, not a user bubble, and never as developer/system
+PASS  and it asks the host to flush the session log (durable before we report success)
+PASS  the notice says what it is and how to fetch
+PASS  the notice never carries the body (untrusted text must not enter the prompt)
+PASS  delivery runs outside the sender's initiator chain (no accidental parentage)
+PASS  a successful push increments the delivery count
+PASS  and keeps the same session below the cap
+PASS  the cap rotates the notice session
+PASS  rotation mints a new session id and resets the counter
+PASS  the rotation happens **after** the delivery (the last notice still goes to the old session)
+PASS  a host with no session controller reports it instead of pretending
+PASS  a same-workspace conversation can be targeted
+PASS  and it creates/adopts exactly that session
+PASS  waking the named conversation, not the workspace inbox session
+PASS  an explicit target does not advance or rotate the default inbox session
+PASS  cross-workspace targeting is refused (workspace-level only)
+PASS  a session that lives in another workspace is refused
+PASS  an unknown session is reported
+PASS  an archived conversation is refused
+PASS  a host without a workspace registry still gets active delivery
+PASS  and it falls back to create({ cwd }) instead of refusing
+PASS  `sessions` lists the calling workspace's sessions with titles
+PASS  every row is labelled with its workspace
+PASS  the sessions output routes content search to session_search (layered, not merged)
+PASS  archived sessions are NOT listed (the host list includes them; the tool filters by registry)
+PASS  the default scope does not enumerate another workspace
+PASS  `scope: "all"` lists other workspaces, labelled with the workspace name
+PASS  and still lists the calling workspace with its label
+PASS  archived sessions stay hidden under `scope: "all"` too
+PASS  the cross-workspace footer says sending stays workspace-level
+PASS  the cross-workspace footer marks other workspaces' titles as untrusted input
+PASS  a title containing a newline is flattened (no forged output line)
+PASS  with the setting off, `scope: "all"` is refused (not silently downgraded)
+PASS  and the default scope still works with the setting off
+PASS  with the setting off, the default footer does not advertise scope:"all"
+PASS  `query` filters by title
+PASS  passing another path in `workspace` does not widen the default boundary (cwd wins)
+PASS  without an initiator it refuses rather than guessing a workspace
+PASS  listing the waiting item never returns its body
+PASS  fetching never returns the body either
+PASS  the letter lands in the receiving workspace, byte for byte
+PASS  and nothing appears in any other workspace (independence is a landing fact, not a promise)
+PASS  a same-workspace send goes direct, not through the shared inbox
+PASS  nothing lands in the shared inbox
+PASS  the letter lands in work_log/.lore-inbox/
+PASS  it keeps the same header (from/at/id/note)
+PASS  and it is recorded as pending (unanswered)
+PASS  `inbox` lists the direct letter as pending
+PASS  and still never returns the body
+PASS  `message` processes a direct letter (archives it)
+PASS  the file leaves the drop folder for work_log/logs/inbox/
+PASS  and the pending entry is gone
+PASS  a second direct letter is sent
+PASS  a reply with `thread` closes the original
+PASS  the original is archived and no longer pending
+inbox delivery OK — one writer, authorized waking, no body in any prompt, and sessions stay in their own workspace by default (`scope: "all"` lists other workspaces read-only, labelled, with sending still workspace-level)
+
+---- [0] node tests/audit-harness-hygiene.mjs  (1.2s, 30 行输出) ----
+PASS  `test:plugin` 点名的每个文件都存在
+PASS  `test:plugin` 跑的就是磁盘上那几道门禁（不重、不漏、不写错名）
+PASS  `npm run audit` 接的是 preaudit.mjs
+PASS  每道门禁都 import `_pkg.mjs`（否则它读的是开发者机器上的真实设置/记忆）
+PASS  _pkg.mjs 在顶层钉住 DSH_WORKLOG_SETTINGS
+PASS  DSH_WORKLOG_SETTINGS 的钉是无条件的（条件式等于没钉 —— 2026-10-14/15 两次都是这么漏的）
+PASS  _pkg.mjs 在顶层钉住 DSH_WORKLOG_MEMORY
+PASS  DSH_WORKLOG_MEMORY 的钉是无条件的（条件式等于没钉 —— 2026-10-14/15 两次都是这么漏的）
+PASS  _pkg.mjs 在顶层钉住 DSH_HOME
+PASS  DSH_HOME 的钉是无条件的（条件式等于没钉 —— 2026-10-14/15 两次都是这么漏的）
+PASS  隔离设置文件不在包内（包内多出来的夹具就是 `_package.py --check` 的漂移）
+PASS  隔离设置文件在系统临时目录下
+PASS  `_pkg.mjs` 在退出时收走自己那三个隔离路径（不在共享临时目录里留东西）
+PASS  CI 跑 `npm run test:plugin`
+PASS  CI 跑 `npm run audit`
+PASS  CI 跑技能自测
+PASS  CI 不再说 `dist/skill-only/` 不在 git 里（它有 3 个跟踪文件）
+PASS  CI 那一步不再叫 "Build …"（它跑的是 `--check`，报错而不是构建）
+PASS  CI 那一步叫 "Check the skill-only copy"
+PASS  CI 注释里的 harness 支数与链上真跑的一致
+PASS  `RELEASING.md` 发版清单里的 harness 支数与链上真跑的一致
+PASS  `RELEASING.md` 判读行里的变异条数与 `tests/reverse-verify.py` 的变异表一致
+PASS  变异表里用到的每一相都在 `PHASES` 里登记过（没登记的那一相，驱动当场 KeyError）
+PASS  驱动有起飞前检查：先跑一遍未变异的自测，把断言标签收进来
+PASS  起飞前检查与判定用同一种匹配（`expect in label`）——两处不一样就等于没查
+PASS  起飞前检查认"动态标签"（相里拼出来的 `f"…{name}…"`），不把好好的变异判成不可达
+PASS  起飞前检查能指出"字样落在哪个函数里"（内联在 `main()` 里的那种，当场点名）
+PASS  起飞前检查能显式跳过（`--no-preflight`），而不是悄悄失效
+PASS  两个标题正则各定义一次、且不是同一条（重名会静默覆盖 `HEADING_RE`，`check` 当场退出 2）
+harness hygiene OK — 17 gates wired, all importing the shim, the CI + RELEASING prose matches reality (120 mutations), and the driver keeps its preflight (12 phases registered)
+
+---- [1] node tests/preaudit.mjs  (0.3s, 28 行输出) ----
+FAIL  the profile has the dsh-lore link  -- C:\Users\30951\.dsh\profiles\desktop/node_modules/dsh-lore
+PASS  manifest declares type=module (the loader needs ESM)
+PASS  manifest declares the bundle patch
+PASS  manifest exports the entry point
+      lib/index.js sha256:2cd0649702cec925  (3473 lines)
+PASS  the entry registers a PROVIDER (not a snapshot register)
+PASS  every bare import is a node: builtin or a host-supplied @deepseek-ai package
+PASS  the definition carries a content string
+PASS  the entry exports apply()
+PASS  the entry injects ctx.skills
+PASS  the entry injects ctx.tools (the registry the memory tool registers into)
+PASS  the entry exports a Config (the host supplies schemastery — §4.3 of PLUGIN-AUTHORING)
+PASS  the exported Config is a schema object, not a plain string or number
+PASS  the Config carries toJSON (the settings-page projection requires it — §4.3)
+PASS  apply() calls registerProvider once per skill bundle on disk
+PASS  apply() logged no error
+PASS  the provider name is valid and not the reserved one
+PASS  list() returns one complete candidate
+PASS  candidate.provider matches the provider name (the registry enforces this)
+PASS  candidate carries a numeric rank
+PASS  candidate name
+PASS  get() returns a definition with a content string
+PASS  the loaded name matches the discovered name
+PASS  the served body no longer contains the stale count
+PASS  the served body carries the corrected wording
+PASS  the served body equals the current file body (live, not snapshotted)
+SKIP  pnpm store check SKIPPED (this package is not the installed one)
+1 FAILED (1 skipped)
+
+---- [0] node tools/build-skill-only.mjs --check  (0.2s, 3 行输出) ----
+source  skill-only/project-work-log  (3 files)
+out     dist/skill-only/project-work-log
+in sync (3 files, line endings normalised)
+
+---- [0] node tests/audit-paths.mjs  (0.2s, 26 行输出) ----
+PASS  found the skill files to audit
+PASS  the skill package holds exactly the expected files
+PASS  the packaging script is not shipped inside the skill (it is a build tool)
+PASS  no stale old-layout references outside back-compat text
+PASS  the worklog skill declares work_log/ as the container
+PASS  guidelines (zh) reference the same container the worklog skill declares
+PASS  guidelines (en) reference the same container the worklog skill declares
+PASS  the script-free variant source tree exists
+PASS  the script-free variant holds exactly the three expected files
+PASS  the script-free variant names no script, package manager, or CLI flag
+PASS  the optional Python-toolbox mention appears at most once
+PASS  the script-free variant keeps the work_log/ container
+PASS  the script-free variant keeps the 精细度 field
+PASS  the script-free variant declares which tier is the default
+PASS  read MODE_DEFAULT from journal.py
+PASS  the script-free variant's default tier matches the code (full)
+PASS  the script-free variant still requires a verification section
+PASS  the script-free variant states plainly that there is no mechanical gate
+PASS  the script-free variant states that verification is by human review
+PASS  the script-free variant declares the same container as the main skill
+PASS  the built copy exists (dist/skill-only/)
+PASS  the built copy holds exactly the three expected files
+PASS  dist/skill-only/ matches the source for SKILL.md (line endings normalised)
+PASS  dist/skill-only/ matches the source for references/conventions.md (line endings normalised)
+PASS  dist/skill-only/ matches the source for references/templates.md (line endings normalised)
+path consistency OK
+
+== summary ==
+PASS            0.4s  node tests/run.mjs
+PASS            0.3s  node tests/registry-contract.mjs
+PASS            0.3s  node tests/manifest.mjs
+PASS            0.3s  node tests/audit-paths.mjs
+PASS            0.2s  node tests/audit-doc-consistency.mjs
+PASS            0.2s  node tests/audit-ranks.mjs
+PASS            0.2s  node tests/audit-versions.mjs
+PASS            0.2s  node tests/audit-locale.mjs
+PASS            0.6s  node tests/audit-client.mjs
+PASS            0.4s  node tests/audit-client-tokens.mjs
+PASS            0.3s  node tests/audit-client-runtime.mjs
+PASS            0.4s  node tests/audit-settings.mjs
+PASS            0.5s  node tests/audit-memory-injection.mjs
+PASS            0.4s  node tests/audit-memory-settings.mjs
+PASS            0.4s  node tests/audit-memory-migration.mjs
+PASS           19.1s  node tests/audit-inbox-delivery.mjs
+PASS            1.2s  node tests/audit-harness-hygiene.mjs
+FAIL(1)         0.3s  node tests/preaudit.mjs
+PASS            0.2s  node tools/build-skill-only.mjs --check
+PASS            0.2s  node tests/audit-paths.mjs
+total = 20  pass = 19  fail = 1
+sum_elapsed_s = 26.2
