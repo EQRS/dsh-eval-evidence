@@ -1,0 +1,21 @@
+{
+ "swarm": {
+  "total": 24,
+  "pass": 24,
+  "fail": [],
+  "err": []
+ },
+ "rust": {
+  "exit": 101,
+  "tail": [
+   "          ld: cannot find D:\\natnat\\lingshu\\外部插件\\lingshu-latest\\repo\\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\\rust\\target\\debug\\deps\\mdcg_eval-e82d0b2fc9b5e9ff.expo10zgidmsvl8jgj3n7xzwg.17arnpf.rcgu.o: No such file or directory",
+   "          ld: cannot find D:\\natnat\\lingshu\\外部插件\\lingshu-latest\\repo\\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\\rust\\target\\debug\\deps\\mdcg_eval-e82d0b2fc9b5e9ff.f0b9w6c034u0drrz24gc6onsj.17arnpf.rcgu.o: No such file or directory",
+   "          ld: cannot find D:\\natnat\\lingshu\\外部插件\\lingshu-latest\\repo\\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\\rust\\target\\debug\\deps\\mdcg_eval-e82d0b2fc9b5e9ff.f5ki3gtgwiw59c8wgp7067rxy.17arnpf.rcgu.o: No such file or directory",
+   "          ld: cannot find D:\\natnat\\lingshu\\外部插件\\lingshu-latest\\repo\\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\\rust\\target\\debug\\deps\\mdcg_eval-e82d0b2fc9b5e9ff.594o3ukl35msytggmwwgoffmc.17arnpf.rcgu.o: No such file or directory",
+   "          ld: cannot find D:\\natnat\\lingshu\\外部插件\\lingshu-latest\\repo\\dsh-memory-dcac0e795cd03923b2159e4218c76f7578b84efd\\rust\\target\\debug\\deps\\libmdcg_eval-8dd9a43858267fca.rlib: No such file or directory",
+   "          ",
+   "",
+   "error: could not compile `mdcg-eval` (bin \"mdcg-eval\") due to 1 previous error"
+  ]
+ }
+}
