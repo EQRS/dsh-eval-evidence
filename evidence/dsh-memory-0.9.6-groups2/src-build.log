@@ -1,0 +1,9 @@
+CMD: npm install --no-package-lock --registry npmmirror
+
+added 14 packages in 4s
+
+INSTALL_EXIT=0
+npm notice run @furongjun1999/dsh-memory@0.9.6 build
+npm notice run node -e "require('node:fs').rmSync('lib',{recursive:true,force:true})" && tsc -p tsconfig.json
+
+BUILD_EXIT=0
