@@ -1,0 +1,121 @@
+===== test_bm25_hydration_refill.py rc=0 (8.8s)
+通过 12 / 失败 0 / errors 0 / SKIP 0
+
+===== test_bm25_pool_view.py rc=0 (10.1s)
+通过 8 / 失败 0 / errors 0 / SKIP 0
+
+===== test_canonical_timezones.py rc=0 (0.9s)
+通过 14 / 失败 0 / errors 0 / SKIP 0
+
+===== test_chain_best_first.py rc=0 (2.1s)
+test_conditions_and_relation_filter (md_cg.test_chain_best_first.ChainGuards.test_conditions_and_relation_filter) ... ok
+test_convergence_work_and_order (md_cg.test_chain_best_first.ChainGuards.test_convergence_work_and_order) ... ok
+test_cycles_zero_weights_and_scores (md_cg.test_chain_best_first.ChainGuards.test_cycles_zero_weights_and_scores) ... ok
+test_depth_and_budget_edges (md_cg.test_chain_best_first.ChainGuards.test_depth_and_budget_edges) ... ok
+test_hierarchy_and_read_gates (md_cg.test_chain_best_first.ChainGuards.test_hierarchy_and_read_gates) ... ok
+test_legacy_numeric_fallback (md_cg.test_chain_best_first.ChainGuards.test_legacy_numeric_fallback) ... ok
+test_multiple_seeds_and_decay (md_cg.test_chain_best_first.ChainGuards.test_multiple_seeds_and_decay) ... ok
+test_native_markdown_default_rrf (md_cg.test_chain_best_first.ChainGuards.test_native_markdown_default_rrf) ... ok
+test_priority_under_truncation (md_cg.test_chain_best_first.ChainGuards.test_priority_under_truncation) ... ok
+test_round_only_final_product (md_cg.test_chain_best_first.ChainGuards.test_round_only_final_product) ... ok
+test_seeded_exhaustive_oracle (md_cg.test_chain_best_first.ChainGuards.test_seeded_exhaustive_oracle) ... ok
+test_shallow_weaker_prefix (md_cg.test_chain_best_first.ChainGuards.test_shallow_weaker_prefix) ... ok
+test_strong_target_default_budget (md_cg.test_chain_best_first.ChainGuards.test_strong_target_default_budget) ... ok
+test_zero_suffix_tied_provenance (md_cg.test_chain_best_first.ChainGuards.test_zero_suffix_tied_provenance) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.663s
+
+OK
+通过 14 / 失败 0
+
+===== test_chain_candidate_scope.py rc=0 (1.6s)
+通过 14 / 失败 0 / errors 0 / SKIP 0
+
+===== test_derived_cache_generations.py rc=0 (2.1s)
+通过 12 / 失败 0 / errors 0 / SKIP 0
+
+===== test_hierarchy_audit_graph.py rc=0 (0.9s)
+通过 12 / 失败 0 / errors 0 / SKIP 0
+
+===== test_index_snapshot_shape.py rc=0 (2.2s)
+通过 8 / 失败 0 / errors 0 / SKIP 0
+
+===== test_jsonl_commit_watermark.py rc=0 (0.9s)
+通过 8 / 失败 0 / errors 0 / SKIP 0
+
+===== test_live_validity_cache.py rc=0 (2.2s)
+通过 13 / 失败 0 / errors 0 / SKIP 0
+
+===== test_qmd.py rc=0 (8.2s)
+  OK   P1 关闭态只有 user（MDCG_QMD_SYS=None）
+  OK   P1 关闭态只有 user（MDCG_QMD_SYS='0'）
+  OK   P1 关闭态只有 user（MDCG_QMD_SYS='true'）
+  OK   P1 关闭态只有 user（MDCG_QMD_SYS=''）
+  OK   P2 打开态 extract/query/answer 首条 system = SYSTEM
+  OK   P2 SYSTEM 与原型逐字相同（sha256）
+  OK   P3 判官开/关两态都不带 system（含实际请求体）
+  OK   P4 开/关态缓存身份不同
+  OK   P4 关态写入后开态干净 miss、各自命中各自
+  OK   P4 同身份第二次命中缓存（调用 1 次）
+  OK   P5 条目身份被改 ⇒ CacheIdentityError
+  OK   P4 max_tokens 不同 ⇒ 干净 miss
+  OK   P4 不同 key 同 base+model ⇒ 干净 miss
+  OK   P4 缓存文件不含 key 明文
+  OK   P6 缺 MDCG_QMD_LLM_BASE ⇒ LLMUnavailable 点名且 0 调用
+  OK   P6 缺 MDCG_QMD_LLM_MODEL ⇒ LLMUnavailable 点名且 0 调用
+  OK   P6 缺 MDCG_QMD_LLM_KEY ⇒ LLMUnavailable 点名且 0 调用
+  OK   P7 不回落 MDCG_LLM_KEY / DEEPSEEK_API_KEY
+  OK   P8 坏响应（无 choices）⇒ RuntimeError
+  OK   P8 坏响应（空 content）⇒ RuntimeError
+  OK   P8 坏响应（截断）⇒ RuntimeError
+  OK   P8 {"data":{...}} 外包可解
+  OK   P9 枢纽实体进 hubs、不进 prov
+  OK   P9 缺省（hub=.02）前 10 不含枢纽噪声文本、答句在前 4
+  OK   P9 hub=0 时枢纽噪声文本涌入前 10（≥5 条）
+  OK   P10 源图含 None ⇒ PartialGraph
+  OK   P10 源图不等长 ⇒ PartialGraph
+  OK   P10 全 [] 源图合法
+  OK   P11 缺 hint ⇒ MissingHint
+  OK   P11 显式 require_hints=False 退回且与 MultiDim 逐位相同
+  OK   P12 有 hint 时零交集答句排第 1
+  OK   P12 无 hint（显式退回）时答句不在前 10
+  OK   P13 既有入口不加载 qmd / qmd_llm
+  OK   P13 md_cg/ 无其它源码 import qmd / qmd_llm
+  OK   P14 夹具排序与原型金标逐位相同
+  OK   P15 提示词 Q_ZH 与原型逐字相同（sha256）
+  OK   P15 提示词 Q_EN 与原型逐字相同（sha256）
+  OK   P15 提示词 G_ZH 与原型逐字相同（sha256）
+  OK   P15 提示词 G_EN 与原型逐字相同（sha256）
+  OK   P15 拆半补抽：q0–q2 抽到，q3 进 missing
+  OK   P15 整批失败先原样重试一次再拆半
+通过 41 / 失败 0
+
+===== test_query_excerpt.py rc=0 (7.6s)
+通过 12 / 失败 0
+............
+----------------------------------------------------------------------
+Ran 12 tests in 6.002s
+
+OK
+
+===== test_reach_snapshot_admission.py rc=0 (2.1s)
+通过 13 / 失败 0 / errors 0 / SKIP 0
+
+===== test_rrf_qualified_topk.py rc=0 (2.5s)
+通过 8 / 失败 0 / errors 0 / SKIP 0
+
+===== test_rrf_unique_votes.py rc=0 (2.3s)
+通过 8 / 失败 0 / errors 0 / SKIP 0
+
+===== test_stg_interval_candidates.py rc=0 (1.1s)
+通过 13 / 失败 0 / errors 0 / SKIP 0
+
+===== test_stg_time_blocks.py rc=0 (2.0s)
+通过 8 / 失败 0 / errors 0 / SKIP 0
+
+===== test_subgraph_bounded_bfs.py rc=0 (0.9s)
+通过 12 / 失败 0 / errors 0 / SKIP 0
+
+===== test_trust_bounded_frontier.py rc=0 (3.4s)
+通过 10 / 失败 0 / errors 0 / SKIP 0
