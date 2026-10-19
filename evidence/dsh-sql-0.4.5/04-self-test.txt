@@ -1,0 +1,73 @@
+# command: C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe --test test/*.test.mjs
+# cwd: D:\natnat\lingshu\外部插件\dsh-sql\dsh-sql-master
+# exit: 0
+# seconds: 0.89
+
+## stdout
+✔ PostgreSQL：真实 pg.Query 行事件在上限结束，内部不累计结果 (4.0931ms)
+✔ MySQL：真实 mysql2 Readable 消费超过 64 行，并在上限销毁专用连接 (5.324ms)
+✔ MySQL / PostgreSQL：少于上限和零行结果保留列名、正常归还连接 (2.6656ms)
+✔ PostgreSQL：有界查询转发驱动错误并归还连接 (0.9659ms)
+✔ MySQL / PostgreSQL：行数组保留同名列的不同值，零行也保留两列 (3.4367ms)
+✔ MySQL：有界查询转发 Readable 错误 (1.1604ms)
+✔ MySQL / PostgreSQL：有界查询取消时销毁专用连接 (3.7409ms)
+✔ MySQL / PostgreSQL：已取消的有界查询不请求连接 (0.6784ms)
+✔ 查询结果 bigint：安全整数转 number，超出安全范围转十进制字符串 (0.7831ms)
+✔ MySQL：取消信号销毁专用连接，不把取消后的连接放回池 (1.6479ms)
+✔ PostgreSQL：取消信号销毁专用连接 (0.9263ms)
+✔ 默认：内存 SQLite 兜底连接 (1.5789ms)
+✔ 多连接解析 + 密码环境变量回退 (0.6231ms)
+✔ 配置非法抛中文错误 (1.068ms)
+✔ queryTimeoutMs / execTimeoutMs 默认、校验与钳制 (0.336ms)
+✔ maxRows 钳制到 10000；readOnly 解析 (0.2484ms)
+✔ assertIdentifier 防注入 (0.5121ms)
+✔ dsh.bundle.patch 与 exports (3.1454ms)
+✔ cordis.patch.yml 插入行名为 dsh-sql (2.7913ms)
+✔ 名称与版本 (0.3933ms)
+✔ inject 声明 tools (2.068ms)
+✔ apply 注册 6 个工具（官方 register 签名） (1.3992ms)
+✔ sql_exec 通过 tools/pre-execute 返回 ask，其他工具继续 waterfall (0.5538ms)
+✔ writeApproval=false 时不注册 pre-execute 审批策略 (0.2957ms)
+✔ apply 遇到非法配置时响亮失败，不回退到内存 SQLite (0.7729ms)
+✔ dispose 卸载全部工具 (0.4102ms)
+✔ SQLite：建表/插入/查询/描述/列表 (21.521ms)
+✔ SQLite：exec 返回 changes，多语句返回 0 (15.2118ms)
+✔ SQLite：query(limit) 只迭代前 N 行，不全量载入 (0.6217ms)
+✔ SQLite：64 位整数与重名列不会丢失，空结果也保留列名 (1.3005ms)
+✔ SQLite：ping 与关闭 (0.905ms)
+✔ cleanup (1.6803ms)
+✔ sql_stats：表数/行数/库体积 (20.1824ms)
+✔ sql_stats：不存在的连接给中文指引 (2.1542ms)
+✔ sql_query format=csv：含表头与转义 (15.2835ms)
+✔ sql_query format=json：可解析回对象数组 (15.3199ms)
+✔ sql_query 默认格式不产生 formatted 字段 (8.2514ms)
+✔ toCsv 空结果只输出表头 (0.2276ms)
+✔ sql_health：连接正常时 ok=true 且汇总安全配置 (3.6213ms)
+✔ sql_health：坏连接报 ok=false 且错误可读 (14.7939ms)
+✔ 工具 timeoutMs 取配置值 (1.8309ms)
+✔ 构建 6 个工具且名字正确 (1.1377ms)
+✔ 每个工具 schema 是 object JSON Schema (0.2407ms)
+✔ sql_list：连接健康 (2.6556ms)
+✔ sql_exec + sql_query + sql_schema 全链路 (15.1049ms)
+✔ sql_query 拒绝写语句与多语句 (1.1788ms)
+✔ sql_exec 在 readOnly 配置下被禁用 (0.449ms)
+✔ 未知连接抛中文错误 (0.5914ms)
+✔ execute 返回值可 JSON 序列化 (0.4962ms)
+✔ JSON 导出遇到同名列时保留列序与所有值 (0.608ms)
+✔ 工具执行把 exec.signal 传入数据库适配器 (0.4912ms)
+✔ assertReadQuery 不误伤字符串/注释里的分号与写关键字 (0.4239ms)
+✔ assertReadQuery 拒绝 data-modifying CTE / INTO OUTFILE / 行锁 / PRAGMA 赋值 (0.4368ms)
+✔ assertReadQuery 连续调用始终拒绝同一 data-modifying CTE (0.3258ms)
+✔ assertReadQuery 放行 SHOW CREATE TABLE 等元数据语句 (0.1828ms)
+✔ cleanup (1.8381ms)
+ℹ tests 56
+ℹ suites 0
+ℹ pass 56
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 722.0965
+
+## stderr
+
