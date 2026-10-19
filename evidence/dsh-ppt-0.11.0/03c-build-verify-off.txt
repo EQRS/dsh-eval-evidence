@@ -1,0 +1,29 @@
+# command: C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe pnpm.cjs run build --config.verify-deps-before-run=false
+# cwd: D:\natnat\lingshu\外部插件\dsh-ppt\dsh-ppt-master
+# exit: 1
+# seconds: 5.37
+
+## stdout
+✓ Lockfile passes supply-chain policies (verified 39s ago)
+Lockfile is up to date, resolution step is skipped
+Already up to date
+
+[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: koffi@3.1.1
+
+Run "pnpm approve-builds" to pick which dependencies should be allowed to run scripts.
+[ERROR] Command failed with exit code 1: "C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe" "D:\.pnpm-store\v11\links\@\pnpm\11.7.0\13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f\node_modules\pnpm\bin\pnpm.mjs" install
+
+pnpm: Command failed with exit code 1: "C:\Users\30951\AppData\Local\Programs\DeepSeek Harness\resources\runtime\primary-runtime\dependencies\node\bin\node.exe" "D:\.pnpm-store\v11\links\@\pnpm\11.7.0\13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f\node_modules\pnpm\bin\pnpm.mjs" install
+    at getFinalError (file:///D:/.pnpm-store/v11/links/@/pnpm/11.7.0/13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f/node_modules/pnpm/dist/pnpm.mjs:34109:14)
+    at makeError (file:///D:/.pnpm-store/v11/links/@/pnpm/11.7.0/13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f/node_modules/pnpm/dist/pnpm.mjs:36416:21)
+    at getSyncResult (file:///D:/.pnpm-store/v11/links/@/pnpm/11.7.0/13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f/node_modules/pnpm/dist/pnpm.mjs:38260:10)
+    at spawnSubprocessSync (file:///D:/.pnpm-store/v11/links/@/pnpm/11.7.0/13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f/node_modules/pnpm/dist/pnpm.mjs:38220:14)
+    at execaCoreSync (file:///D:/.pnpm-store/v11/links/@/pnpm/11.7.0/13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f/node_modules/pnpm/dist/pnpm.mjs:38150:23)
+    at callBoundExeca (file:///D:/.pnpm-store/v11/links/@/pnpm/11.7.0/13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f/node_modules/pnpm/dist/pnpm.mjs:40678:23)
+    at boundExeca (file:///D:/.pnpm-store/v11/links/@/pnpm/11.7.0/13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f/node_modules/pnpm/dist/pnpm.mjs:40655:49)
+    at sync (file:///D:/.pnpm-store/v11/links/@/pnpm/11.7.0/13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f/node_modules/pnpm/dist/pnpm.mjs:40814:10)
+    at runPnpmCli (file:///D:/.pnpm-store/v11/links/@/pnpm/11.7.0/13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f/node_modules/pnpm/dist/pnpm.mjs:245099:5)
+    at runDepsStatusCheck (file:///D:/.pnpm-store/v11/links/@/pnpm/11.7.0/13310dfb63588666a20ffbb7892eca80e4978178e90910f66079c792a7b2dc4f/node_modules/pnpm/dist/pnpm.mjs:246833:7)
+
+## stderr
+
