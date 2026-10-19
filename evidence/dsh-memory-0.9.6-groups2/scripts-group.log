@@ -1,0 +1,72 @@
+CMD: python scripts/run_tests.py scripts
+SKIP  scripts.test_bench_chain_reader  （[SKIP] 官方仓不在位：C:\Users\30951\AppData\Local\Temp\bench（守卫无法比对官方提示词））
+PASS  scripts.test_axis_declaration
+SKIP  scripts.test_bench_chain_retrieval_diag  （[SKIP] 官方 _bucket 不在量具模块命名空间（应经 load_official 注入）——改用与官方同阈值的本地桩校验聚合面）
+PASS  scripts.test_bootstrap_channel_b
+PASS  scripts.test_bootstrap_channel_b_state
+PASS  scripts.test_bootstrap_persist_gate
+PASS  scripts.test_bootstrap_selfmod_gate
+PASS  scripts.test_check_local_paths
+PASS  scripts.test_check_guard_coverage
+PASS  scripts.test_check_config_env_registry
+PASS  scripts.test_check_publish_artifact_boundary
+PASS  scripts.test_check_duplicate_keys
+PASS  scripts.test_check_placeholder_leak
+PASS  scripts.test_check_publish_artifact_scan
+PASS  scripts.test_check_op_table_parity
+FAIL  scripts.test_check_unreachable_decode
+        [PASS] C2 [UNREACHABLE] 点名 scripts/dirty.py
+        [PASS] C3 无 [SYNTAX] 行
+        [PASS] C4 汇总 1 文件 / 1 命中 / 0 语法失败
+        [FAIL] D 红基线自证：HEAD 版物化  —— git show 失败 rc=128 fatal: not a git repository (or any of the parent directories): .git
+      
+      12 passed, 1 failed, 0 skipped
+PASS  scripts.test_cogmap_cross_primitive
+FAIL  scripts.test_check_publish_artifact_manifest
+      
+      
+      [3] 脚本内置自检
+        [PASS] M8 --selftest exit 0（含诱饵负例）
+      
+      18 passed, 10 failed, 0 skipped
+PASS  scripts.test_discipline_fingerprint_eol
+FAIL  scripts.test_check_publish_artifact_coverage
+      16 passed, 11 failed, 0 skipped
+      warning: in the working copy of 'lib/big.txt', LF will be replaced by CRLF the next time Git touches it
+      warning: in the working copy of 'lib/gone.txt', LF will be replaced by CRLF the next time Git touches it
+      warning: in the working copy of 'lib/keep.txt', LF will be replaced by CRLF the next time Git touches it
+      warning: in the working copy of 'lib/small.txt', LF will be replaced by CRLF the next time Git touches it
+      warning: in the working copy of 'lib/keep.txt', LF will be replaced by CRLF the next time Git touches it
+PASS  scripts.test_discipline_nodes_drift
+SKIP  scripts.test_dsh_log_index_shape  （[SKIP] 缺依赖 zstandard，整份守卫跳过）
+SKIP  scripts.test_dsh_log_index_token  （SKIP: 缺 zstandard（pip install zstandard）——本守卫依赖哑 zstd 日志构造）
+PASS  scripts.test_discipline_cg_root_failclosed
+PASS  scripts.test_discipline_fingerprint_required
+SKIP  scripts.test_ignore_face  （[SKIP] L1–L4（非 git 工作树（fatal: not a git repository (or any of the parent directories): .git）））
+PASS  scripts.test_injection_chain
+PASS  scripts.test_gate_json_shape
+PASS  scripts.test_issue406_bidirectional_fields
+PASS  scripts.test_judgment_manifest
+PASS  scripts.test_check_push_scope
+SKIP  scripts.test_linux_verify_exit_code  （[SKIP] L1–L9（本机无 bash（容器腿行为断言需要）））
+SKIP  scripts.test_link_check_fence_aware  （[SKIP] L6（取不到 HEAD 版：git show 失败 rc=128 fatal: not a git repository (or any of the parent directories): .git））
+PASS  scripts.test_migrate_restricted
+FAIL  scripts.test_gate_rust_legs
+        PASS G5e 订正后的事实写在注释里：Rust 缺省与 Python 缺省不一致，后者是 legacy（跨行唯一锚点）
+        PASS G5c2 订正后的结论明确：Rust 缺省「与 Python 缺省不一致」
+        PASS G5f 失实片段「SCORE_MODE 缺省一致」在 main.rs **全文件**已清零（:99 与头注释 :13-14 两处）
+        PASS G5g 头注释已订正为事实：Rust 侧缺省 jaccard 与 Python 侧产品缺省 legacy 不一致（跨行唯一锚点）
+      
+      R-7 守卫（rust 门禁腿接线）：50 通过，3 失败，0 跳过
+PASS  scripts.test_migrate_restricted_ids
+PASS  scripts.test_p70_pack_manifest_shape
+PASS  scripts.test_publish_smoke_guard
+PASS  scripts.test_precommit_gate
+PASS  scripts.test_receipt_and_state
+PASS  scripts.test_state_extract
+PASS  scripts.test_interop_gate_release
+PASS  scripts.test_verify_discipline_semantic
+SKIP  scripts.test_registry_tarball  （SKIP 真实条目不在本地）
+PASS  scripts.test_mdcg_stale_servers_scan
+PASS  scripts.test_zcode_user_embed
+PASS  scripts.test_verify_open_encoding
