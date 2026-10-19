@@ -1,51 +1,347 @@
 {
+  "model": "deepseek-flash",
+  "temperature": 0.7,
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "tasks": 8,
   "perScenario": [
     {
       "id": "S1",
-      "with": 0,
-      "without": 0
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "beta"
+          },
+          "without": {
+            "ok": true,
+            "answer": "beta"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "beta"
+          },
+          "without": {
+            "ok": true,
+            "answer": "beta"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "beta"
+          },
+          "without": {
+            "ok": true,
+            "answer": "beta"
+          }
+        }
+      ]
     },
     {
       "id": "S2",
-      "with": 0,
-      "without": 3
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "alpha,beta"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha,beta"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "alpha,beta"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha, beta"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "alpha,beta"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha,beta"
+          }
+        }
+      ]
     },
     {
       "id": "S3",
       "with": 3,
-      "without": 3
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        }
+      ]
     },
     {
       "id": "S4",
       "with": 3,
-      "without": 3
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        }
+      ]
     },
     {
       "id": "S5",
-      "with": 0,
-      "without": 0
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "alpha"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "alpha"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "alpha"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha"
+          }
+        }
+      ]
     },
     {
       "id": "S6",
-      "with": 0,
-      "without": 3
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "alpha,gamma"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha,gamma"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "alpha,gamma"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha,gamma"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "alpha, gamma"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha,gamma"
+          }
+        }
+      ]
     },
     {
       "id": "S7",
-      "with": 0,
-      "without": 3
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "alpha,beta"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha,beta"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "alpha,beta"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha,beta"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "alpha,beta"
+          },
+          "without": {
+            "ok": true,
+            "answer": "alpha,beta"
+          }
+        }
+      ]
     },
     {
       "id": "S8",
-      "with": 3,
-      "without": 2
+      "with": 2,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": false,
+            "answer": "alpha, beta, gamma"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        }
+      ]
     }
   ],
-  "D": -8,
+  "D": -1,
   "ci95": [
-    -18,
-    1
+    -3,
+    0
   ],
-  "halfWidth": 9.5,
-  "verdict": "还说不准（精度不足）"
+  "halfWidth": 1.5,
+  "prereg": {
+    "a": 12,
+    "b": 6,
+    "precision": 6,
+    "B": 10000,
+    "seed": 20261019
+  },
+  "verdict": "没啥差别",
+  "ranAt": "2026-10-19T09:12:10.086Z"
 }
