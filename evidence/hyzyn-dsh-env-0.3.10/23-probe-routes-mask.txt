@@ -1,0 +1,58 @@
+# probe: probes\probe-routes-mask.mjs
+# exit_code = 0
+# elapsed_s = 0.5
+# at = 2026-10-18T22:05:16.8526755+08:00
+
+# probe-routes-mask：路由围栏 / 密钥 mask / 落盘形态
+env_file = C:\Users\30951\AppData\Local\Temp\dsh-env-probe-routes-W6TBzs\env.yml
+INFO | A0 | 注册路由=["/api/dsh-env/list","/api/dsh-env/save"]
+PASS | A0 | 只注册两条 exact 路由：["/api/dsh-env/list","/api/dsh-env/save"]
+INFO | A1 | list 响应={"ok":true,"entries":[{"key":"ROUTE_PLAIN","value":"plain-value","secret":false,"storage":"file"},{"key":"REF_SECRET","value":null,"secret":true,"storage":"refs"},{"key":"FILE_SECRET","value":null,"secret":true,"storage":"file"}],"file":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-env-probe-routes-W6TBzs\\env.yml"}
+PASS | A1 | 普通条目回明文：{"key":"ROUTE_PLAIN","value":"plain-value","secret":false,"storage":"file"}
+PASS | A2 | ref 托管密钥 value=null / storage=refs：{"key":"REF_SECRET","value":null,"secret":true,"storage":"refs"}
+PASS | A3 | 文件托管密钥 value=null / storage=file（明文不下发）：{"key":"FILE_SECRET","value":null,"secret":true,"storage":"file"}
+PASS | A4 | 响应安全头：{"cache-control":"no-store","x-content-type-options":"nosniff","referrer-policy":"no-referrer"}
+PASS | A5-remoteAddress=10.1.2.3 | remoteAddress=10.1.2.3 → 403 {"error":"forbidden: loopback-only"}
+PASS | A5-host=evil.example:443 | host=evil.example:443 → 403 {"error":"forbidden: loopback-only"}
+PASS | A5-host=127.0.0.1:52034 + sec-fetch-site=cross-site | host=127.0.0.1:52034 + sec-fetch-site=cross-site → 403 {"error":"forbidden: loopback-only"}
+PASS | A5-origin=http://evil.example | origin=http://evil.example → 403 {"error":"forbidden: loopback-only"}
+PASS | A5-host 缺失 | host 缺失 → 403 {"error":"forbidden: loopback-only"}
+PASS | A5b | 同源判定忽略 scheme：origin=https://127.0.0.1:52034 对 http Host 放行 → 200（isLoopbackRequest 只比 host）
+PASS | A6-127.0.0.1 + localhost host | 127.0.0.1 + localhost host → 200
+PASS | A6-::1 remote + [::1] host | ::1 remote + [::1] host → 200
+PASS | A6-::ffff:127.0.0.1 remote | ::ffff:127.0.0.1 remote → 200
+PASS | A6-同源 origin | 同源 origin → 200
+PASS | A7 | POST /list → 405
+PASS | A8 | GET /save → 405
+PASS | A9 | 非法 JSON → 400 {"error":"invalid JSON body"}
+PASS | A10 | JSON 数组（非对象）→ 400 {"error":"invalid JSON body"}
+PASS | A11 | 600 KiB body（上限 512 KiB）→ 400 {"error":"invalid JSON body"}
+INFO | B0 | 无 seam 保存响应={"ok":true,"applied":true,"entries":[{"key":"ROUTE_PLAIN","value":"plain-value","secret":false,"storage":"file"},{"key":"LOCAL_SECRET","value":null,"secret":true,"storage":"file"}],"file":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-env-probe-routes-W6TBzs\\env.yml"}
+PASS | B1 | 无 seam 保存成功 applied=true：true
+PASS | B2 | 无凭据 seam（单存储降级）时密钥明文**留在 env.yml**：含 local-secret-plaintext=true
+PASS | B3 | 响应仍不下发明文：{"key":"LOCAL_SECRET","value":null,"secret":true,"storage":"file"}
+PASS | B4 | 无 seam 保存即写 process.env：ROUTE_PLAIN="plain-value"
+PASS | B5 | 无 .tmp 残留：["env.yml"]
+INFO | B6 | Windows 落盘 mode=666（POSIX 0600 在 Windows 上是 no-op，仅记录）
+INFO | C0 | 有 seam 保存响应={"ok":true,"applied":true,"entries":[{"key":"ROUTE_PLAIN","value":"plain-value","secret":false,"storage":"file"},{"key":"STORE_SECRET","value":null,"secret":true,"storage":"refs"}],"file":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-env-probe-routes-W6TBzs\\env.yml"}
+INFO | C1 | seam 调用=[["set","STORE_SECRET","store-secret-plaintext"]] refs={"STORE_SECRET":"store-secret-plaintext"}
+PASS | C1 | 密钥值经 seam.set 写入 refs：[["set","STORE_SECRET","store-secret-plaintext"]]
+PASS | C2 | env.yml **不含**密钥明文：true
+PASS | C3 | env.yml 只留清单（key + secret: true，无 value）："# dsh env managed file\n\n# --- dsh-env-manager managed (auto-generated; do not edit) ---\n- key: ROUTE_PLAIN\n  value: plain-value\n  secret: false\n- key: STORE_SECRET\n  secret: true\n# --- end dsh-env-manager managed ---\n"
+PASS | C4 | 响应 storage=refs / value=null：{"key":"STORE_SECRET","value":null,"secret":true,"storage":"refs"}
+INFO | D0 | 响应={"ok":true,"applied":true,"entries":[{"key":"KEEP_SECRET","value":null,"secret":true,"storage":"refs"},{"key":"UNSECRET","value":"unsecret-value","secret":false,"storage":"file"}],"file":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-env-probe-routes-W6TBzs\\env.yml"} seam 调用=[["unset","DROP_SECRET"],["unset","UNSECRET"]]
+PASS | D1 | 留空保存不重写 refs（KEEP_SECRET 无 set 调用）：[["unset","DROP_SECRET"],["unset","UNSECRET"]]
+PASS | D2 | 删除密钥条目 → seam.unset(DROP_SECRET)：[["unset","DROP_SECRET"],["unset","UNSECRET"]]
+PASS | D3 | secret→plain：值从 refs 物化回 env.yml 并 unset："# --- dsh-env-manager managed (auto-generated; do not edit) ---\n- key: KEEP_SECRET\n  secret: true\n- key: UNSECRET\n  value: unsecret-value\n  secret: false\n# --- end dsh-env-manager managed ---\n\n"
+INFO | E0 | 响应={"ok":true,"applied":true,"warnings":["FAIL_SECRET 未能写入凭据存储，值保留在 env 文件: store offline"],"entries":[{"key":"FAIL_SECRET","value":null,"secret":true,"storage":"file"}],"file":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-env-probe-routes-W6TBzs\\env.yml"}
+PASS | E1 | seam 写失败 → warnings：["FAIL_SECRET 未能写入凭据存储，值保留在 env 文件: store offline"]
+PASS | E2 | 写失败时明文留在 env.yml（可重试）：true
+INFO | F0 | 响应={"ok":true,"applied":true,"entries":[{"key":"JS_SECRET","value":null,"secret":true,"storage":"file"}],"file":"C:\\Users\\30951\\AppData\\Local\\Temp\\dsh-env-probe-routes-W6TBzs\\env.yml"} seam 调用=[]
+PASS | F1 | secret + js: → 表达式留文件、不进 refs："# dsh env managed file\n\n# --- dsh-env-manager managed (auto-generated; do not edit) ---\n- key: JS_SECRET\n  value: !!js process.env.ANY\n  secret: true\n# --- end dsh-env-manager managed ---\n"
+PASS | F2 | 响应仍 mask（value=null）且 storage=file：{"key":"JS_SECRET","value":null,"secret":true,"storage":"file"}
+PASS | G-非法键名 | 非法键名 → 400 {"error":"非法键名: \"1BAD\""}
+PASS | G-重复的键名 | 重复的键名 → 400 {"error":"重复的键名: A"}
+PASS | G-entries 必须是数组 | entries 必须是数组 → 400 {"error":"entries 必须是数组"}
+PASS | G-fileError | 损坏文件时 list 返回 fileError："托管区块缺少结束标记（# --- end dsh-env-manager managed ---）"
+
+SUMMARY probe-routes-mask: pass=40 fail=0
