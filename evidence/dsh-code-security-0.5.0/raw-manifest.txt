@@ -1,0 +1,37 @@
+# Raw evidence index (sha256; every file under dsh-code-security/raw/, excluding this manifest)
+generated_at = 2026-10-18T14:21:44.425Z
+label = dsh-code-security 0.5.0 @ 0f2c70b (snapshot + probes)
+generator = tools/make_manifest.mjs
+
+dsh-code-security/raw/00-env.txt       2640  283de51dd9eb95192d15b2fbc4334857cf2d2373dee6bbd4fd7db74fadcde724
+dsh-code-security/raw/01a-upstream-repo-api.txt        389  01db06b18249da242537ab9d8ee3d37867ed36289eafd83b2479195a14be3682
+dsh-code-security/raw/01b-upstream-commit-api.txt        490  b20e9b47d2cfac8253e1d298965dfc9f9a10b1bf3787da18c602c158d6bdd8a2
+dsh-code-security/raw/01c-upstream-tarball.txt        494  367f4ecda22f2b6386c0609492e2b8a0c5c375a2338fd6b07f9b8f0c0b5e6013
+dsh-code-security/raw/01d-upstream-master-tarball.txt        446  4a9c4c6a75ed43ddbd214a7afe4ce46092bdad0b311723dcd7a6fc6f70e2a741
+dsh-code-security/raw/02-anchor-fingerprint.txt        933  a5131b64aee2f7a54a5b8210fc4bb6d178949fe3d8e5175a1efb663098bd8f99
+dsh-code-security/raw/03-pnpm-install.txt       1378  4ba7f4887e29050a90fb3a9ebd93bb7d34c6913a460de399acbba69ec484395d
+dsh-code-security/raw/03b-pnpm-install-note.txt       1405  cb7d2edff19d388343c3070980e8749bebfbe59ce1f8795e9f01929b1952545e
+dsh-code-security/raw/04a-deps-list.txt       3651  dd3b80246812aabd9e35d9fff35fc3934b31653a4eece7f457ea53973dfba404
+dsh-code-security/raw/04b-pnpm-store-packages.txt        718  fb820b0aa30f39d83afd598d6137b43f505480de148edb9ca7c73fcbc4bde3c5
+dsh-code-security/raw/05-typecheck.txt        409  44e6aa1c716121a4471ced0a10ff17b74b7a049f0724af30f71a454a696f3eb6
+dsh-code-security/raw/06-build.txt        390  95840c60c24d6ff7a6ec341fa8b73baabbf8abeddc24c1370745919f7b5f0bfa
+dsh-code-security/raw/07-anchor-after-build.txt        913  76838746b2ab6c44a97e7feb8535f6a0253db3b57cbeec3fc8e3307d257cfd3f
+dsh-code-security/raw/08a-self-test-no-git.txt      14200  cd3a2aaa45af4183f2f70acb0d652283a747773d09d0d4fbdfea68654dcc2d2b
+dsh-code-security/raw/08b-self-test-with-git.txt       8341  788c3927bbe399ba4ae1600d93780480358256875c679b3631976a35116c5a67
+dsh-code-security/raw/08c-git-diff-test-usrin.txt       1982  65331f859925b859cda6ef666f8ae05e9e2aa8096430c9cf43d490fe80684aa8
+dsh-code-security/raw/08d-self-test-summary.txt       2992  f59aff7042ef9fc5ed9ddd40c06bb5051ea237a09dd4b75cbe3241c381ba8adc
+dsh-code-security/raw/09a-mingit-download.txt        571  81c3cd4aa626dadf0f29723fdaba8f0a21f6688bf07cd290f44e59a65525f4de
+dsh-code-security/raw/09b-mingit-env.txt         30  dc0a995f896e73e8fc394cc5dc4d8cabfea65b5eb2db4a40d134dc21c4feb3c0
+dsh-code-security/raw/10-probe-rules.json       2798  1d15608fe537d6d02350a16f746055371edc3635b9e893e97bafc2ef783490ea
+dsh-code-security/raw/11-probe-diff.json       4488  c367a488c4db9f06cbae8f0cd5875ae35610611a361e35c9d9a43f79eb4beec8
+dsh-code-security/raw/12-probe-tools.json       9418  f2b148bd48465add8417eff9a79739578d2189ca2da1bfe685181dd49a93110e
+dsh-code-security/raw/13-probe-apply.json       2646  a09bd5c475402fda506262e49de23c7ff5707794a72566975ca284eb3eaa6a35
+dsh-code-security/raw/13-probe-apply.stderr.txt        154  55c64f40664d9255ee258eaa9ecdd5e7956230c43ccf4c938f0d2e368b83c623
+dsh-code-security/raw/14-probes-summary.txt        775  aeb4118f73c37a1c3e6b147abf004684c024a30985c328c78a0d2ac554f98079
+dsh-code-security/raw/15-site-review.txt       1148  1b22e4077a0c14c3799f556a0b0120e01a47775bfbdcd0412bb40c21188b1dac
+dsh-code-security/raw/16-dedupe.txt        930  42079188d560c895a3038291c9868816e8f18ba36aa99a5d1564878ae7fd1104
+dsh-code-security/raw/17-npm-metadata.txt        659  e8474f19732dc7d6393808ccaa784fe3f501010717072ee7a3689255b07a3cc3
+dsh-code-security/raw/18-e2e-git.json       1568  996f47f2d7ea56cd964eed236e7768fd5c95b6a3206935e6cd3aefa18f8179c8
+dsh-code-security/raw/19-upstream-anchor.txt       2048  4afffb5beb66c3721eb0407d481ed460f6dd04c8d5cf52da2bd00d01d50ab33f
+dsh-code-security/raw/20-declared-claims.txt       5520  9324064414b687ac8b02ee75eef71bc51dd343939e7978a345b175bf9eb4f0be
+dsh-code-security/raw/21-client-first-run.txt       2799  10a95d21770e0e01246e047f15575ae31c4227ae1a98991118b7e8b4641dd237
