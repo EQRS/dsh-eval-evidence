@@ -1,0 +1,347 @@
+{
+  "model": "deepseek-flash",
+  "temperature": 0.7,
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "tasks": 8,
+  "perScenario": [
+    {
+      "id": "S1",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "inject.js:2 SQL 注入（SQL 字符串拼接，CWE-89，high）"
+          },
+          "without": {
+            "ok": true,
+            "answer": "inject.js:2 SQL注入"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "inject.js:2 SQL注入(SEC-007, CWE-89)"
+          },
+          "without": {
+            "ok": true,
+            "answer": "inject.js:2 SQL注入"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "inject.js:2 SQL注入"
+          },
+          "without": {
+            "ok": true,
+            "answer": "inject.js:2 SQL注入（字符串拼接SQL）"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "secrets.js:1 硬编码令牌/API密钥"
+          },
+          "without": {
+            "ok": true,
+            "answer": "secrets.js:1 硬编码密钥"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "secrets.js:1 硬编码令牌/API 密钥（CWE-798）"
+          },
+          "without": {
+            "ok": true,
+            "answer": "secrets.js:1 硬编码密钥"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "secrets.js:1 硬编码密钥/API密钥(CWE-798)"
+          },
+          "without": {
+            "ok": true,
+            "answer": "secrets.js:1 硬编码密钥"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "with": 0,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": false,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "exec.js:3 命令注入（exec 字符串拼接未过滤的用户输入）"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": false,
+            "answer": "我的探测性调用把状态覆盖为不完整扫描，因此需要重新做一次完整扫描来恢复可信状态。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "exec.js:3 命令注入（host 未校验直接拼接进 exec 的 shell 命令，CWE-78）"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": false,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "exec.js:3 命令注入（exec 字符串拼接未校验 host，且 exec 走 shell 属危险调用）"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "eval.js:2 注入/动态代码执行(SEC-001, eval 直接执行外部传入 code, CWE-95)"
+          },
+          "without": {
+            "ok": true,
+            "answer": "eval.js:2 危险调用(eval任意代码执行/代码注入RCE风险)"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "eval.js:2 注入（eval 动态代码执行 CWE-95）"
+          },
+          "without": {
+            "ok": true,
+            "answer": "eval.js:2 危险调用（eval 执行外部输入，代码注入或任意代码执行风险）"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "eval.js:2 注入（CWE-95 eval 动态代码执行）"
+          },
+          "without": {
+            "ok": true,
+            "answer": "eval.js:2 危险调用（eval 动态执行任意代码，可导致代码注入/RCE）"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "with": 3,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "hash.js:3 弱哈希(MD5/CWE-328)"
+          },
+          "without": {
+            "ok": true,
+            "answer": "hash.js:3 使用弱哈希算法MD5（不安全加密实践）"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": true,
+            "answer": "hash.js:3 弱哈希用于安全场景"
+          },
+          "without": {
+            "ok": true,
+            "answer": "hash.js:3 弱哈希算法（MD5）"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "hash.js:3 弱哈希用于安全场景(MD5, CWE-328)"
+          },
+          "without": {
+            "ok": true,
+            "answer": "hash.js:3 弱加密哈希算法MD5（密码学不安全、易碰撞，敏感场景应改用SHA-256/argon2/bcrypt等）"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "with": 0,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": false,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "fs.js:4 路径遍历/任意文件读取（path.join 未校验 name 可逃逸 root）"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": false,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "fs.js:4 路径遍历/任意文件读取（name 未校验，可 ../ 逃逸 root）"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": false,
+            "answer": "NONE"
+          },
+          "without": {
+            "ok": true,
+            "answer": "fs.js:4 路径遍历（name 未校验可包含 ../ 逃逸 root）"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "with": 0,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": false,
+            "answer": "导出结果为空，因为 git 未跟踪文件无法枚举。我会尝试用具体靶点探测那个被跳过的文件。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": false,
+            "answer": "扫描已完成，但仓库中只扫描了 1 个文件，另有 1 个被跳过。我会检查策略与被跳过的文件，确认是否存在覆盖缺口。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": false,
+            "answer": "扫描只找到 1 个文件，还有 1 个文件被跳过，我来查一下原因。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "NONE"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "with": 2,
+      "without": 3,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "ok": true,
+            "answer": "inject.js:2 SQL 注入（CWE-89）; secrets.js:1 硬编码 API 密钥（CWE-798）"
+          },
+          "without": {
+            "ok": true,
+            "answer": "secrets.js:1 硬编码密钥; inject.js:3 SQL注入"
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "ok": false,
+            "answer": "扫描完成：2 个问题。有 1 个文件被跳过，我再确认一下覆盖情况并检查依赖。"
+          },
+          "without": {
+            "ok": true,
+            "answer": "secrets.js:1 硬编码密钥; inject.js:2 SQL注入"
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "ok": true,
+            "answer": "inject.js:2 SQL注入(SEC-007/CWE-89); secrets.js:1 硬编码密钥(SEC-302/CWE-798)"
+          },
+          "without": {
+            "ok": true,
+            "answer": "secrets.js:1 硬编码密钥;inject.js:2 SQL注入"
+          }
+        }
+      ]
+    }
+  ],
+  "D": -10,
+  "ci95": [
+    -18,
+    -3
+  ],
+  "halfWidth": 7.5,
+  "prereg": {
+    "a": 12,
+    "b": 6,
+    "precision": 6,
+    "B": 10000,
+    "seed": 20261019
+  },
+  "verdict": "还说不准（精度不足）",
+  "ranAt": "2026-10-19T12:34:17.681Z"
+}
