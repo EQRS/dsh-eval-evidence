@@ -118,3 +118,30 @@ node ../tools/make_manifest.mjs --raw raw --label "dsh-minimal-ptc 0.5.6"
 **dsh-minimal-ptc 0.5.6 零运行时依赖、可完全离线；装依赖后自带 26 项测试 25 过 1 跳过，
 11 条独立探针验证了物化 5 文件 + 版本标记、幂等、用户自建目录不被覆盖、profile 核心包检测与调度器键三态。
 未发现 P0–P3。真实宿主选择器与注入时序未验。**
+
+
+## 证据链（https，站点提交用）
+
+| # | 说明 | 链接 |
+|---|---|---|
+| 1 | 被测 commit（锚定） | https://github.com/STARDUSTLC666/dsh-minimal-ptc/commit/cf35c1a3a655a397e2a2f1f9cf87bd5535dc8eb7 |
+| 2 | 全部证据 | https://github.com/EQRS/dsh-eval-evidence/tree/main/evidence/dsh-minimal-ptc-0.5.6 |
+| 3 | report.md | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/report.md |
+| 4 | raw-00-anchor.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/raw-00-anchor.txt |
+| 5 | raw-manifest.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/raw-manifest.txt |
+| 6 | probe_minimal_ptc.mjs | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/probe_minimal_ptc.mjs |
+| 7 | 01-self-test.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/01-self-test.txt |
+| 8 | 03-self-test-after-install.txt | https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/03-self-test-after-install.txt |
+
+站点证据框格式：**每行一条 `URL` 或 `URL | 备注`**，最多 10 条；可直接粘贴 `证据链_提交文本.txt`。
+
+```text
+https://github.com/STARDUSTLC666/dsh-minimal-ptc/commit/cf35c1a3a655a397e2a2f1f9cf87bd5535dc8eb7 | 被测 commit（锚定）
+https://github.com/EQRS/dsh-eval-evidence/tree/main/evidence/dsh-minimal-ptc-0.5.6 | 全部证据
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/report.md | report.md
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/raw-00-anchor.txt | raw-00-anchor.txt
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/raw-manifest.txt | raw-manifest.txt
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/probe_minimal_ptc.mjs | probe_minimal_ptc.mjs
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/01-self-test.txt | 01-self-test.txt
+https://github.com/EQRS/dsh-eval-evidence/blob/main/evidence/dsh-minimal-ptc-0.5.6/03-self-test-after-install.txt | 03-self-test-after-install.txt
+```
