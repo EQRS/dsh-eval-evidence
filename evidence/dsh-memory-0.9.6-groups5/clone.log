@@ -1,0 +1,578 @@
+﻿git.exe : Cloning into 'C:\ls096\clone2'...
+所在位置 行:1 字符: 159
++ ... PROMPT="0"; & "C:\Users\30951\tools\git\cmd\git.exe" -c http.sslVerif ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Cloning into 'C:\ls096\clone2'...:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+remote: Enumerating objects: 25284, done.        
+remote: Counting objects:   0% (1/513)        
+remote: Counting objects:   1% (6/513)        
+remote: Counting objects:   2% (11/513)        
+remote: Counting objects:   3% (16/513)        
+remote: Counting objects:   4% (21/513)        
+remote: Counting objects:   5% (26/513)        
+remote: Counting objects:   6% (31/513)        
+remote: Counting objects:   7% (36/513)        
+remote: Counting objects:   8% (42/513)        
+remote: Counting objects:   9% (47/513)        
+remote: Counting objects:  10% (52/513)        
+remote: Counting objects:  11% (57/513)        
+remote: Counting objects:  12% (62/513)        
+remote: Counting objects:  13% (67/513)        
+remote: Counting objects:  14% (72/513)        
+remote: Counting objects:  15% (77/513)        
+remote: Counting objects:  16% (83/513)        
+remote: Counting objects:  17% (88/513)        
+remote: Counting objects:  18% (93/513)        
+remote: Counting objects:  19% (98/513)        
+remote: Counting objects:  20% (103/513)        
+remote: Counting objects:  21% (108/513)        
+remote: Counting objects:  22% (113/513)        
+remote: Counting objects:  23% (118/513)        
+remote: Counting objects:  24% (124/513)        
+remote: Counting objects:  25% (129/513)        
+remote: Counting objects:  26% (134/513)        
+remote: Counting objects:  27% (139/513)        
+remote: Counting objects:  28% (144/513)        
+remote: Counting objects:  29% (149/513)        
+remote: Counting objects:  30% (154/513)        
+remote: Counting objects:  31% (160/513)        
+remote: Counting objects:  32% (165/513)        
+remote: Counting objects:  33% (170/513)        
+remote: Counting objects:  34% (175/513)        
+remote: Counting objects:  35% (180/513)        
+remote: Counting objects:  36% (185/513)        
+remote: Counting objects:  37% (190/513)        
+remote: Counting objects:  38% (195/513)        
+remote: Counting objects:  39% (201/513)        
+remote: Counting objects:  40% (206/513)        
+remote: Counting objects:  41% (211/513)        
+remote: Counting objects:  42% (216/513)        
+remote: Counting objects:  43% (221/513)        
+remote: Counting objects:  44% (226/513)        
+remote: Counting objects:  45% (231/513)        
+remote: Counting objects:  46% (236/513)        
+remote: Counting objects:  47% (242/513)        
+remote: Counting objects:  48% (247/513)        
+remote: Counting objects:  49% (252/513)        
+remote: Counting objects:  50% (257/513)        
+remote: Counting objects:  51% (262/513)        
+remote: Counting objects:  52% (267/513)        
+remote: Counting objects:  53% (272/513)        
+remote: Counting objects:  54% (278/513)        
+remote: Counting objects:  55% (283/513)        
+remote: Counting objects:  56% (288/513)        
+remote: Counting objects:  57% (293/513)        
+remote: Counting objects:  58% (298/513)        
+remote: Counting objects:  59% (303/513)        
+remote: Counting objects:  60% (308/513)        
+remote: Counting objects:  61% (313/513)        
+remote: Counting objects:  62% (319/513)        
+remote: Counting objects:  63% (324/513)        
+remote: Counting objects:  64% (329/513)        
+remote: Counting objects:  65% (334/513)        
+remote: Counting objects:  66% (339/513)        
+remote: Counting objects:  67% (344/513)        
+remote: Counting objects:  68% (349/513)        
+remote: Counting objects:  69% (354/513)        
+remote: Counting objects:  70% (360/513)        
+remote: Counting objects:  71% (365/513)        
+remote: Counting objects:  72% (370/513)        
+remote: Counting objects:  73% (375/513)        
+remote: Counting objects:  74% (380/513)        
+remote: Counting objects:  75% (385/513)        
+remote: Counting objects:  76% (390/513)        
+remote: Counting objects:  77% (396/513)        
+remote: Counting objects:  78% (401/513)        
+remote: Counting objects:  79% (406/513)        
+remote: Counting objects:  80% (411/513)        
+remote: Counting objects:  81% (416/513)        
+remote: Counting objects:  82% (421/513)        
+remote: Counting objects:  83% (426/513)        
+remote: Counting objects:  84% (431/513)        
+remote: Counting objects:  85% (437/513)        
+remote: Counting objects:  86% (442/513)        
+remote: Counting objects:  87% (447/513)        
+remote: Counting objects:  88% (452/513)        
+remote: Counting objects:  89% (457/513)        
+remote: Counting objects:  90% (462/513)        
+remote: Counting objects:  91% (467/513)        
+remote: Counting objects:  92% (472/513)        
+remote: Counting objects:  93% (478/513)        
+remote: Counting objects:  94% (483/513)        
+remote: Counting objects:  95% (488/513)        
+remote: Counting objects:  96% (493/513)        
+remote: Counting objects:  97% (498/513)        
+remote: Counting objects:  98% (503/513)        
+remote: Counting objects:  99% (508/513)        
+remote: Counting objects: 100% (513/513)        
+remote: Counting objects: 100% (513/513), done.        
+remote: Compressing objects:   0% (1/170)        
+remote: Compressing objects:   1% (2/170)        
+remote: Compressing objects:   2% (4/170)        
+remote: Compressing objects:   3% (6/170)        
+remote: Compressing objects:   4% (7/170)        
+remote: Compressing objects:   5% (9/170)        
+remote: Compressing objects:   6% (11/170)        
+remote: Compressing objects:   7% (12/170)        
+remote: Compressing objects:   8% (14/170)        
+remote: Compressing objects:   9% (16/170)        
+remote: Compressing objects:  10% (17/170)        
+remote: Compressing objects:  11% (19/170)        
+remote: Compressing objects:  12% (21/170)        
+remote: Compressing objects:  13% (23/170)        
+remote: Compressing objects:  14% (24/170)        
+remote: Compressing objects:  15% (26/170)        
+remote: Compressing objects:  16% (28/170)        
+remote: Compressing objects:  17% (29/170)        
+remote: Compressing objects:  18% (31/170)        
+remote: Compressing objects:  19% (33/170)        
+remote: Compressing objects:  20% (34/170)        
+remote: Compressing objects:  21% (36/170)        
+remote: Compressing objects:  22% (38/170)        
+remote: Compressing objects:  23% (40/170)        
+remote: Compressing objects:  24% (41/170)        
+remote: Compressing objects:  25% (43/170)        
+remote: Compressing objects:  26% (45/170)        
+remote: Compressing objects:  27% (46/170)        
+remote: Compressing objects:  28% (48/170)        
+remote: Compressing objects:  29% (50/170)        
+remote: Compressing objects:  30% (51/170)        
+remote: Compressing objects:  31% (53/170)        
+remote: Compressing objects:  32% (55/170)        
+remote: Compressing objects:  33% (57/170)        
+remote: Compressing objects:  34% (58/170)        
+remote: Compressing objects:  35% (60/170)        
+remote: Compressing objects:  36% (62/170)        
+remote: Compressing objects:  37% (63/170)        
+remote: Compressing objects:  38% (65/170)        
+remote: Compressing objects:  39% (67/170)        
+remote: Compressing objects:  40% (68/170)        
+remote: Compressing objects:  41% (70/170)        
+remote: Compressing objects:  42% (72/170)        
+remote: Compressing objects:  43% (74/170)        
+remote: Compressing objects:  44% (75/170)        
+remote: Compressing objects:  45% (77/170)        
+remote: Compressing objects:  46% (79/170)        
+remote: Compressing objects:  47% (80/170)        
+remote: Compressing objects:  48% (82/170)        
+remote: Compressing objects:  49% (84/170)        
+remote: Compressing objects:  50% (85/170)        
+remote: Compressing objects:  51% (87/170)        
+remote: Compressing objects:  52% (89/170)        
+remote: Compressing objects:  53% (91/170)        
+remote: Compressing objects:  54% (92/170)        
+remote: Compressing objects:  55% (94/170)        
+remote: Compressing objects:  56% (96/170)        
+remote: Compressing objects:  57% (97/170)        
+remote: Compressing objects:  58% (99/170)        
+remote: Compressing objects:  59% (101/170)        
+remote: Compressing objects:  60% (102/170)        
+remote: Compressing objects:  61% (104/170)        
+remote: Compressing objects:  62% (106/170)        
+remote: Compressing objects:  63% (108/170)        
+remote: Compressing objects:  64% (109/170)        
+remote: Compressing objects:  65% (111/170)        
+remote: Compressing objects:  66% (113/170)        
+remote: Compressing objects:  67% (114/170)        
+remote: Compressing objects:  68% (116/170)        
+remote: Compressing objects:  69% (118/170)        
+remote: Compressing objects:  70% (119/170)        
+remote: Compressing objects:  71% (121/170)        
+remote: Compressing objects:  72% (123/170)        
+remote: Compressing objects:  73% (125/170)        
+remote: Compressing objects:  74% (126/170)        
+remote: Compressing objects:  75% (128/170)        
+remote: Compressing objects:  76% (130/170)        
+remote: Compressing objects:  77% (131/170)        
+remote: Compressing objects:  78% (133/170)        
+remote: Compressing objects:  79% (135/170)        
+remote: Compressing objects:  80% (136/170)        
+remote: Compressing objects:  81% (138/170)        
+remote: Compressing objects:  82% (140/170)        
+remote: Compressing objects:  83% (142/170)        
+remote: Compressing objects:  84% (143/170)        
+remote: Compressing objects:  85% (145/170)        
+remote: Compressing objects:  86% (147/170)        
+remote: Compressing objects:  87% (148/170)        
+remote: Compressing objects:  88% (150/170)        
+remote: Compressing objects:  89% (152/170)        
+remote: Compressing objects:  90% (153/170)        
+remote: Compressing objects:  91% (155/170)        
+remote: Compressing objects:  92% (157/170)        
+remote: Compressing objects:  93% (159/170)        
+remote: Compressing objects:  94% (160/170)        
+remote: Compressing objects:  95% (162/170)        
+remote: Compressing objects:  96% (164/170)        
+remote: Compressing objects:  97% (165/170)        
+remote: Compressing objects:  98% (167/170)        
+remote: Compressing objects:  99% (169/170)        
+remote: Compressing objects: 100% (170/170)        
+remote: Compressing objects: 100% (170/170), done.        
+Receiving objects:   0% (1/25284)
+Receiving objects:   1% (253/25284), 208.01 KiB | 231.00 KiB/s
+Receiving objects:   1% (341/25284), 208.01 KiB | 231.00 KiB/s
+Receiving objects:   2% (506/25284), 208.01 KiB | 231.00 KiB/s
+Receiving objects:   3% (759/25284), 416.01 KiB | 293.00 KiB/s
+Receiving objects:   3% (815/25284), 608.01 KiB | 293.00 KiB/s
+Receiving objects:   4% (1012/25284), 752.01 KiB | 291.00 KiB/s
+Receiving objects:   4% (1063/25284), 752.01 KiB | 291.00 KiB/s
+Receiving objects:   5% (1265/25284), 888.01 KiB | 287.00 KiB/s
+Receiving objects:   6% (1518/25284), 888.01 KiB | 287.00 KiB/s
+Receiving objects:   7% (1770/25284), 888.01 KiB | 287.00 KiB/s
+Receiving objects:   8% (2023/25284), 1.02 MiB | 288.00 KiB/s  
+Receiving objects:   8% (2082/25284), 1.02 MiB | 288.00 KiB/s
+Receiving objects:   9% (2276/25284), 1.11 MiB | 275.00 KiB/s
+Receiving objects:  10% (2529/25284), 1.11 MiB | 275.00 KiB/s
+Receiving objects:  11% (2782/25284), 1.25 MiB | 275.00 KiB/s
+Receiving objects:  11% (2830/25284), 1.25 MiB | 275.00 KiB/s
+Receiving objects:  11% (2926/25284), 1.51 MiB | 277.00 KiB/s
+Receiving objects:  11% (2932/25284), 1.91 MiB | 256.00 KiB/s
+Receiving objects:  11% (2965/25284), 2.04 MiB | 240.00 KiB/s
+Receiving objects:  11% (2983/25284), 2.09 MiB | 219.00 KiB/s
+Receiving objects:  11% (3034/25284), 2.37 MiB | 228.00 KiB/s
+Receiving objects:  12% (3035/25284), 2.37 MiB | 228.00 KiB/s
+Receiving objects:  12% (3050/25284), 2.65 MiB | 232.00 KiB/s
+Receiving objects:  12% (3062/25284), 3.16 MiB | 260.00 KiB/s
+Receiving objects:  12% (3106/25284), 3.55 MiB | 322.00 KiB/s
+Receiving objects:  12% (3115/25284), 3.77 MiB | 338.00 KiB/s
+Receiving objects:  12% (3133/25284), 4.17 MiB | 362.00 KiB/s
+Receiving objects:  12% (3176/25284), 4.84 MiB | 396.00 KiB/s
+Receiving objects:  12% (3176/25284), 5.33 MiB | 429.00 KiB/s
+Receiving objects:  12% (3176/25284), 5.78 MiB | 442.00 KiB/s
+Receiving objects:  12% (3176/25284), 6.30 MiB | 471.00 KiB/s
+Receiving objects:  12% (3176/25284), 6.90 MiB | 505.00 KiB/s
+Receiving objects:  12% (3176/25284), 7.20 MiB | 515.00 KiB/s
+Receiving objects:  12% (3176/25284), 7.59 MiB | 493.00 KiB/s
+Receiving objects:  12% (3176/25284), 7.99 MiB | 483.00 KiB/s
+Receiving objects:  12% (3176/25284), 8.55 MiB | 489.00 KiB/s
+Receiving objects:  12% (3176/25284), 9.16 MiB | 498.00 KiB/s
+Receiving objects:  12% (3184/25284), 9.73 MiB | 508.00 KiB/s
+Receiving objects:  12% (3243/25284), 10.04 MiB | 543.00 KiB/s
+Receiving objects:  12% (3264/25284), 10.59 MiB | 571.00 KiB/s
+Receiving objects:  12% (3272/25284), 11.47 MiB | 574.00 KiB/s
+Receiving objects:  12% (3272/25284), 12.09 MiB | 584.00 KiB/s
+Receiving objects:  12% (3272/25284), 12.73 MiB | 586.00 KiB/s
+Receiving objects:  12% (3272/25284), 13.30 MiB | 592.00 KiB/s
+Receiving objects:  12% (3273/25284), 13.52 MiB | 558.00 KiB/s
+Receiving objects:  12% (3273/25284), 14.05 MiB | 544.00 KiB/s
+Receiving objects:  12% (3273/25284), 14.63 MiB | 535.00 KiB/s
+Receiving objects:  12% (3274/25284), 15.10 MiB | 503.00 KiB/s
+Receiving objects:  12% (3274/25284), 15.67 MiB | 502.00 KiB/s
+Receiving objects:  12% (3274/25284), 16.23 MiB | 542.00 KiB/s
+Receiving objects:  12% (3274/25284), 16.91 MiB | 565.00 KiB/s
+Receiving objects:  12% (3275/25284), 17.58 MiB | 602.00 KiB/s
+Receiving objects:  12% (3275/25284), 18.27 MiB | 632.00 KiB/s
+Receiving objects:  12% (3275/25284), 18.99 MiB | 675.00 KiB/s
+Receiving objects:  12% (3276/25284), 19.67 MiB | 666.00 KiB/s
+Receiving objects:  12% (3276/25284), 20.20 MiB | 643.00 KiB/s
+Receiving objects:  12% (3276/25284), 20.92 MiB | 643.00 KiB/s
+Receiving objects:  12% (3277/25284), 21.33 MiB | 663.00 KiB/s
+Receiving objects:  13% (3287/25284), 21.33 MiB | 663.00 KiB/s
+Receiving objects:  13% (3517/25284), 22.16 MiB | 686.00 KiB/s
+Receiving objects:  14% (3540/25284), 22.16 MiB | 686.00 KiB/s
+Receiving objects:  14% (3678/25284), 22.96 MiB | 723.00 KiB/s
+Receiving objects:  15% (3793/25284), 23.34 MiB | 768.00 KiB/s
+Receiving objects:  15% (3799/25284), 23.88 MiB | 810.00 KiB/s
+Receiving objects:  15% (3948/25284), 24.75 MiB | 840.00 KiB/s
+Receiving objects:  16% (4046/25284), 25.24 MiB | 859.00 KiB/s
+Receiving objects:  16% (4137/25284), 25.24 MiB | 859.00 KiB/s
+Receiving objects:  17% (4299/25284), 26.34 MiB | 915.00 KiB/s
+Receiving objects:  17% (4342/25284), 26.34 MiB | 915.00 KiB/s
+Receiving objects:  18% (4552/25284), 27.39 MiB | 982.00 KiB/s
+Receiving objects:  18% (4605/25284), 27.39 MiB | 982.00 KiB/s
+Receiving objects:  19% (4804/25284), 28.53 MiB | 1.01 MiB/s  
+Receiving objects:  19% (4906/25284), 28.53 MiB | 1.01 MiB/s
+Receiving objects:  19% (5039/25284), 29.40 MiB | 988.00 KiB/s
+Receiving objects:  20% (5057/25284), 30.55 MiB | 1009.00 KiB/s
+Receiving objects:  20% (5084/25284), 30.55 MiB | 1009.00 KiB/s
+Receiving objects:  21% (5310/25284), 31.20 MiB | 1.01 MiB/s   
+Receiving objects:  22% (5563/25284), 31.20 MiB | 1.01 MiB/s
+Receiving objects:  23% (5816/25284), 31.20 MiB | 1.01 MiB/s
+Receiving objects:  24% (6069/25284), 31.89 MiB | 1.04 MiB/s
+Receiving objects:  25% (6321/25284), 31.89 MiB | 1.04 MiB/s
+Receiving objects:  26% (6574/25284), 31.89 MiB | 1.04 MiB/s
+Receiving objects:  26% (6810/25284), 31.89 MiB | 1.04 MiB/s
+Receiving objects:  27% (6827/25284), 31.89 MiB | 1.04 MiB/s
+Receiving objects:  28% (7080/25284), 31.89 MiB | 1.04 MiB/s
+Receiving objects:  29% (7333/25284), 32.45 MiB | 1.05 MiB/s
+Receiving objects:  30% (7586/25284), 32.45 MiB | 1.05 MiB/s
+Receiving objects:  31% (7839/25284), 33.06 MiB | 1.06 MiB/s
+Receiving objects:  31% (8024/25284), 33.06 MiB | 1.06 MiB/s
+Receiving objects:  32% (8091/25284), 33.06 MiB | 1.06 MiB/s
+Receiving objects:  33% (8344/25284), 34.36 MiB | 1.17 MiB/s
+Receiving objects:  33% (8460/25284), 34.36 MiB | 1.17 MiB/s
+Receiving objects:  34% (8597/25284), 34.36 MiB | 1.17 MiB/s
+Receiving objects:  35% (8850/25284), 35.02 MiB | 1.21 MiB/s
+Receiving objects:  35% (9005/25284), 35.63 MiB | 1.22 MiB/s
+Receiving objects:  36% (9103/25284), 35.63 MiB | 1.22 MiB/s
+Receiving objects:  37% (9356/25284), 35.63 MiB | 1.22 MiB/s
+Receiving objects:  38% (9608/25284), 35.63 MiB | 1.22 MiB/s
+Receiving objects:  39% (9861/25284), 35.63 MiB | 1.22 MiB/s
+Receiving objects:  40% (10114/25284), 35.63 MiB | 1.22 MiB/s
+Receiving objects:  41% (10367/25284), 36.20 MiB | 1.22 MiB/s
+Receiving objects:  42% (10620/25284), 36.20 MiB | 1.22 MiB/s
+Receiving objects:  43% (10873/25284), 36.20 MiB | 1.22 MiB/s
+Receiving objects:  44% (11125/25284), 36.20 MiB | 1.22 MiB/s
+Receiving objects:  45% (11378/25284), 36.20 MiB | 1.22 MiB/s
+Receiving objects:  46% (11631/25284), 36.20 MiB | 1.22 MiB/s
+Receiving objects:  47% (11884/25284), 36.20 MiB | 1.22 MiB/s
+Receiving objects:  48% (12137/25284), 36.20 MiB | 1.22 MiB/s
+Receiving objects:  49% (12390/25284), 36.20 MiB | 1.22 MiB/s
+Receiving objects:  50% (12642/25284), 36.82 MiB | 1.22 MiB/s
+Receiving objects:  50% (12858/25284), 36.82 MiB | 1.22 MiB/s
+Receiving objects:  51% (12895/25284), 36.82 MiB | 1.22 MiB/s
+Receiving objects:  52% (13148/25284), 36.82 MiB | 1.22 MiB/s
+Receiving objects:  53% (13401/25284), 36.82 MiB | 1.22 MiB/s
+Receiving objects:  54% (13654/25284), 36.82 MiB | 1.22 MiB/s
+Receiving objects:  55% (13907/25284), 36.82 MiB | 1.22 MiB/s
+Receiving objects:  56% (14160/25284), 36.82 MiB | 1.22 MiB/s
+Receiving objects:  57% (14412/25284), 36.82 MiB | 1.22 MiB/s
+Receiving objects:  58% (14665/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  59% (14918/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  60% (15171/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  61% (15424/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  62% (15677/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  63% (15929/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  64% (16182/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  65% (16435/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  66% (16688/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  67% (16941/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  68% (17194/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  69% (17446/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  70% (17699/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  71% (17952/25284), 37.40 MiB | 1.20 MiB/s
+Receiving objects:  72% (18205/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  73% (18458/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  74% (18711/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  75% (18963/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  76% (19216/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  77% (19469/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  78% (19722/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  78% (19765/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  79% (19975/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  80% (20228/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  81% (20481/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  82% (20733/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  83% (20986/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  84% (21239/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  85% (21492/25284), 37.98 MiB | 1.20 MiB/s
+Receiving objects:  86% (21745/25284), 38.61 MiB | 1.21 MiB/s
+Receiving objects:  87% (21998/25284), 38.61 MiB | 1.21 MiB/s
+Receiving objects:  88% (22250/25284), 38.61 MiB | 1.21 MiB/s
+Receiving objects:  89% (22503/25284), 38.61 MiB | 1.21 MiB/s
+Receiving objects:  90% (22756/25284), 38.61 MiB | 1.21 MiB/s
+Receiving objects:  91% (23009/25284), 38.61 MiB | 1.21 MiB/s
+Receiving objects:  92% (23262/25284), 38.61 MiB | 1.21 MiB/s
+Receiving objects:  92% (23329/25284), 39.23 MiB | 1.18 MiB/s
+Receiving objects:  93% (23515/25284), 39.84 MiB | 1.21 MiB/s
+Receiving objects:  93% (23581/25284), 41.07 MiB | 1.19 MiB/s
+Receiving objects:  93% (23581/25284), 41.28 MiB | 1.07 MiB/s
+Receiving objects:  93% (23581/25284), 42.36 MiB | 1.04 MiB/s
+Receiving objects:  93% (23581/25284), 43.39 MiB | 1024.00 KiB/s
+Receiving objects:  93% (23581/25284), 44.41 MiB | 977.00 KiB/s 
+Receiving objects:  93% (23582/25284), 45.50 MiB | 946.00 KiB/s
+Receiving objects:  93% (23739/25284), 46.04 MiB | 1.04 MiB/s  
+Receiving objects:  94% (23767/25284), 46.04 MiB | 1.04 MiB/s
+Receiving objects:  94% (23954/25284), 47.13 MiB | 1.04 MiB/s
+Receiving objects:  95% (24020/25284), 47.13 MiB | 1.04 MiB/s
+Receiving objects:  96% (24273/25284), 48.09 MiB | 1.02 MiB/s
+Receiving objects:  96% (24367/25284), 48.09 MiB | 1.02 MiB/s
+Receiving objects:  97% (24526/25284), 48.56 MiB | 1.01 MiB/s
+Receiving objects:  97% (24687/25284), 49.05 MiB | 1.00 MiB/s
+Receiving objects:  98% (24779/25284), 49.05 MiB | 1.00 MiB/s
+Receiving objects:  99% (25032/25284), 49.05 MiB | 1.00 MiB/s
+Receiving objects:  99% (25245/25284), 50.16 MiB | 1.01 MiB/s
+remote: Total 25284 (delta 395), reused 406 (delta 343), pack-reused 24771 (from 3)        
+Receiving objects: 100% (25284/25284), 50.76 MiB | 1.02 MiB/s
+Receiving objects: 100% (25284/25284), 50.86 MiB | 694.00 KiB/s, done.
+Resolving deltas:   0% (0/15625)
+Resolving deltas:   1% (157/15625)
+Resolving deltas:   2% (313/15625)
+Resolving deltas:   3% (469/15625)
+Resolving deltas:   4% (625/15625)
+Resolving deltas:   5% (782/15625)
+Resolving deltas:   6% (938/15625)
+Resolving deltas:   7% (1094/15625)
+Resolving deltas:   8% (1250/15625)
+Resolving deltas:   9% (1407/15625)
+Resolving deltas:  10% (1563/15625)
+Resolving deltas:  11% (1719/15625)
+Resolving deltas:  12% (1875/15625)
+Resolving deltas:  13% (2032/15625)
+Resolving deltas:  14% (2188/15625)
+Resolving deltas:  15% (2344/15625)
+Resolving deltas:  16% (2500/15625)
+Resolving deltas:  17% (2657/15625)
+Resolving deltas:  18% (2814/15625)
+Resolving deltas:  19% (2969/15625)
+Resolving deltas:  20% (3125/15625)
+Resolving deltas:  21% (3282/15625)
+Resolving deltas:  22% (3438/15625)
+Resolving deltas:  23% (3601/15625)
+Resolving deltas:  24% (3751/15625)
+Resolving deltas:  25% (3907/15625)
+Resolving deltas:  26% (4063/15625)
+Resolving deltas:  27% (4219/15625)
+Resolving deltas:  28% (4375/15625)
+Resolving deltas:  29% (4532/15625)
+Resolving deltas:  30% (4688/15625)
+Resolving deltas:  31% (4844/15625)
+Resolving deltas:  32% (5000/15625)
+Resolving deltas:  33% (5157/15625)
+Resolving deltas:  34% (5313/15625)
+Resolving deltas:  35% (5469/15625)
+Resolving deltas:  36% (5625/15625)
+Resolving deltas:  37% (5783/15625)
+Resolving deltas:  38% (5938/15625)
+Resolving deltas:  39% (6094/15625)
+Resolving deltas:  40% (6250/15625)
+Resolving deltas:  41% (6410/15625)
+Resolving deltas:  42% (6563/15625)
+Resolving deltas:  43% (6719/15625)
+Resolving deltas:  44% (6875/15625)
+Resolving deltas:  45% (7032/15625)
+Resolving deltas:  46% (7188/15625)
+Resolving deltas:  47% (7344/15625)
+Resolving deltas:  48% (7500/15625)
+Resolving deltas:  49% (7657/15625)
+Resolving deltas:  50% (7813/15625)
+Resolving deltas:  51% (7969/15625)
+Resolving deltas:  52% (8125/15625)
+Resolving deltas:  53% (8282/15625)
+Resolving deltas:  54% (8438/15625)
+Resolving deltas:  55% (8594/15625)
+Resolving deltas:  56% (8750/15625)
+Resolving deltas:  57% (8907/15625)
+Resolving deltas:  58% (9063/15625)
+Resolving deltas:  59% (9220/15625)
+Resolving deltas:  60% (9375/15625)
+Resolving deltas:  61% (9532/15625)
+Resolving deltas:  62% (9688/15625)
+Resolving deltas:  63% (9845/15625)
+Resolving deltas:  64% (10000/15625)
+Resolving deltas:  65% (10157/15625)
+Resolving deltas:  66% (10314/15625)
+Resolving deltas:  67% (10469/15625)
+Resolving deltas:  68% (10625/15625)
+Resolving deltas:  69% (10782/15625)
+Resolving deltas:  70% (10938/15625)
+Resolving deltas:  71% (11094/15625)
+Resolving deltas:  72% (11250/15625)
+Resolving deltas:  73% (11407/15625)
+Resolving deltas:  74% (11563/15625)
+Resolving deltas:  75% (11719/15625)
+Resolving deltas:  76% (11875/15625)
+Resolving deltas:  77% (12032/15625)
+Resolving deltas:  78% (12188/15625)
+Resolving deltas:  79% (12344/15625)
+Resolving deltas:  80% (12500/15625)
+Resolving deltas:  81% (12657/15625)
+Resolving deltas:  82% (12813/15625)
+Resolving deltas:  83% (12969/15625)
+Resolving deltas:  84% (13125/15625)
+Resolving deltas:  85% (13282/15625)
+Resolving deltas:  86% (13438/15625)
+Resolving deltas:  87% (13594/15625)
+Resolving deltas:  88% (13750/15625)
+Resolving deltas:  89% (13907/15625)
+Resolving deltas:  90% (14063/15625)
+Resolving deltas:  91% (14219/15625)
+Resolving deltas:  92% (14375/15625)
+Resolving deltas:  93% (14532/15625)
+Resolving deltas:  94% (14688/15625)
+Resolving deltas:  95% (14844/15625)
+Resolving deltas:  96% (15000/15625)
+Resolving deltas:  97% (15157/15625)
+Resolving deltas:  98% (15313/15625)
+Resolving deltas:  99% (15469/15625)
+Resolving deltas: 100% (15625/15625)
+Resolving deltas: 100% (15625/15625), done.
+Updating files:  19% (570/2947)
+Updating files:  20% (590/2947)
+Updating files:  21% (619/2947)
+Updating files:  22% (649/2947)
+Updating files:  23% (678/2947)
+Updating files:  24% (708/2947)
+Updating files:  25% (737/2947)
+Updating files:  26% (767/2947)
+Updating files:  27% (796/2947)
+Updating files:  28% (826/2947)
+Updating files:  29% (855/2947)
+Updating files:  30% (885/2947)
+Updating files:  31% (914/2947)
+Updating files:  32% (944/2947)
+Updating files:  33% (973/2947)
+Updating files:  34% (1002/2947)
+Updating files:  35% (1032/2947)
+Updating files:  36% (1061/2947)
+Updating files:  37% (1091/2947)
+Updating files:  38% (1120/2947)
+Updating files:  39% (1150/2947)
+Updating files:  40% (1179/2947)
+Updating files:  41% (1209/2947)
+Updating files:  42% (1238/2947)
+Updating files:  43% (1268/2947)
+Updating files:  44% (1297/2947)
+Updating files:  45% (1327/2947)
+Updating files:  46% (1356/2947)
+Updating files:  47% (1386/2947)
+Updating files:  48% (1415/2947)
+Updating files:  48% (1426/2947)
+Updating files:  49% (1445/2947)
+Updating files:  50% (1474/2947)
+Updating files:  51% (1503/2947)
+Updating files:  52% (1533/2947)
+Updating files:  53% (1562/2947)
+Updating files:  54% (1592/2947)
+Updating files:  55% (1621/2947)
+Updating files:  56% (1651/2947)
+Updating files:  57% (1680/2947)
+Updating files:  58% (1710/2947)
+Updating files:  59% (1739/2947)
+Updating files:  60% (1769/2947)
+Updating files:  61% (1798/2947)
+Updating files:  62% (1828/2947)
+Updating files:  63% (1857/2947)
+Updating files:  64% (1887/2947)
+Updating files:  65% (1916/2947)
+Updating files:  66% (1946/2947)
+Updating files:  67% (1975/2947)
+Updating files:  68% (2004/2947)
+Updating files:  69% (2034/2947)
+Updating files:  70% (2063/2947)
+Updating files:  71% (2093/2947)
+Updating files:  72% (2122/2947)
+Updating files:  73% (2152/2947)
+Updating files:  74% (2181/2947)
+Updating files:  75% (2211/2947)
+Updating files:  76% (2240/2947)
+Updating files:  76% (2257/2947)
+Updating files:  77% (2270/2947)
+Updating files:  78% (2299/2947)
+Updating files:  79% (2329/2947)
+Updating files:  80% (2358/2947)
+Updating files:  81% (2388/2947)
+Updating files:  82% (2417/2947)
+Updating files:  83% (2447/2947)
+Updating files:  84% (2476/2947)
+Updating files:  85% (2505/2947)
+Updating files:  86% (2535/2947)
+Updating files:  87% (2564/2947)
+Updating files:  88% (2594/2947)
+Updating files:  89% (2623/2947)
+Updating files:  90% (2653/2947)
+Updating files:  91% (2682/2947)
+Updating files:  92% (2712/2947)
+Updating files:  93% (2741/2947)
+Updating files:  94% (2771/2947)
+Updating files:  95% (2800/2947)
+Updating files:  96% (2830/2947)
+Updating files:  97% (2859/2947)
+Updating files:  98% (2889/2947)
+Updating files:  99% (2918/2947)
+Updating files:  99% (2945/2947)
+Updating files: 100% (2947/2947)
+Updating files: 100% (2947/2947), done.
+GIT_EXIT=0
