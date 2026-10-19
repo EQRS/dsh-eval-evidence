@@ -1,0 +1,346 @@
+{
+  "model": "deepseek-flash",
+  "temperature": 0.7,
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "tasks": 8,
+  "perScenario": [
+    {
+      "id": "T1",
+      "with": 2,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "answer": "1 张（`users`；全库共 2 张表，另一张是 `orders`）",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "answer": "1 张（users）",
+            "ok": false
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "answer": "2",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "answer": "users 表一共有 5 行。",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "answer": "5",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "answer": "5",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "answer": "Bob（订单金额合计 330，为最高；单笔最大订单 300 也属 Bob）",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "answer": "Bob",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "answer": "Bob",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "T4",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "answer": "3 条（严格大于 100；若含等于 100 则为 4 条）",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "answer": "3 条",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定（无法读取数据库）",
+            "ok": false
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "answer": "3 条",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "T5",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "answer": "950",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "answer": "950",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "answer": "所有订单金额的总和是 950（8 笔订单，金额范围 30–300）。",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "T6",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "answer": "2, 4",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定（缺少数据库访问）",
+            "ok": false
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "answer": "2, 4",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定（无法访问数据库文件，不能列出具体用户 id）",
+            "ok": false
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "answer": "2, 4",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定（无法访问数据库，不能列出用户 id）",
+            "ok": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "T7",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "answer": "id, user_id, amount, created_at",
+            "ok": true
+          },
+          "without": {
+            "answer": "",
+            "ok": false
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "answer": "id, user_id, amount, created_at",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "answer": "id, user_id, amount, created_at",
+            "ok": true
+          },
+          "without": {
+            "answer": "",
+            "ok": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "T8",
+      "with": 3,
+      "without": 0,
+      "samples": [
+        {
+          "seed": 101,
+          "with": {
+            "answer": "118.8",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 202,
+          "with": {
+            "answer": "118.8",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        },
+        {
+          "seed": 303,
+          "with": {
+            "answer": "118.8",
+            "ok": true
+          },
+          "without": {
+            "answer": "无法确定",
+            "ok": false
+          }
+        }
+      ]
+    }
+  ],
+  "D": 23,
+  "ci95": [
+    21,
+    24
+  ],
+  "halfWidth": 1.5,
+  "prereg": {
+    "a": 12,
+    "b": 6,
+    "precision": 6,
+    "B": 10000,
+    "seed": 20261019
+  },
+  "verdict": "真有用"
+}
