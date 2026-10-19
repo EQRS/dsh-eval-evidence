@@ -1,0 +1,32 @@
+CMD: python -X utf8 hive/test_h3_h7_scheduler.py
+  [ok] A1 标记文件按阈值落场（10 拍 × 400ms 内）
+  [ok] A2 标记字段齐备（job_id/kind/detected_ts/first_ts/ticks/threshold/last_error）
+  [ok] A3 serve 启动告警点名坏任务
+  [ok] A4 serve 周期告警（含『告警：任务 h1700000000a01_abcd』与『不可解析』）
+  [ok] A5 坏任务既不被领取也不被终态化（无 claimed.lock / 无 result.json）
+  [ok] A6 doctor 归 corrupt 独立类别 + corrupt_jobs 明细（含 error 与 marker 字段）
+  [ok] A7 poll 单查 state=corrupt（不再是无 state 的裸 error）
+  [ok] B1 坏 status.json 逐字节未变（serve 跑满阈值后，含落标记之后）
+  [ok] B2 标记是独立文件（未写到任务本体路径）
+  [ok] B3 同目录其他本体（spec.json）逐字节未变
+  [ok] B4 零闸变对照：健康任务仍被 serve 正常改写（『不改』是坏文件专属）
+  [ok] C1 --quarantine 搬家且报数（rc=0, count=1）
+  [ok] C2 隔离件退出领取面（池 h 前缀目录与 poll 列表都不含它，也不多出伪装目录）
+  [ok] C3 隔离后 status.json 字节逐字节一致（搬家不改字节）
+  [ok] C4 doctor 如实报隔离（quarantined 含它）且 corrupt 计数归零
+  [ok] C5 --unquarantine 原路退回且字节一致（可回退）
+  [ok] C6 空操作幂等（纯健康池 --quarantine count=0；无隔离件 --unquarantine count=0；重复执行不误搬且 rc=0）
+  [ok] D1 峰值 claimed+running ≤ workers（实测峰值=2, workers=2）
+  [ok] D2 有界不是空谈：采样期间确有 pending 残留（观测到=True）
+  [ok] D3 drain 不退化：全部终态 done（上界不伤吞吐）
+  [ok] D4 名额闸未破坏 N191 不变量：无 pending+锁悬置，终态后在飞数归零
+  [ok] E1 干净池端到端全 done（桩产物可读）
+  [ok] E2a 同池坏 status 字节逐字节不动（标记落场之后读出）
+  [ok] E2b 同池坏 status 不产出 result.json（不被执行）
+  [ok] E2c 同池健康任务照常全 done（两态共存互不干扰）
+  [ok] E3 serve 未被坏文件绊死（心跳 ts 持续前进）
+  [ok] E4 serve 进程零 panic
+
+27 passed, 0 failed
+
+EXIT=0
