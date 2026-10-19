@@ -1,0 +1,104 @@
+# command: <node> probes/probe_codegraph.mjs（补装 @hyzyn/dsh-kit 后）
+# exit: 0
+# seconds: 0.25
+
+## stdout
+{
+ "total": 18,
+ "failed": 0,
+ "results": [
+  {
+   "name": "mcp__codegraph__search → codegraph",
+   "pass": true,
+   "detail": "codegraph"
+  },
+  {
+   "name": "grep → file",
+   "pass": true,
+   "detail": "file"
+  },
+  {
+   "name": "read_image → other（非探索优先）",
+   "pass": true,
+   "detail": "other"
+  },
+  {
+   "name": "web_search → other",
+   "pass": true,
+   "detail": "other"
+  },
+  {
+   "name": "write_file → other",
+   "pass": true,
+   "detail": "other"
+  },
+  {
+   "name": "空字符串 → other",
+   "pass": true,
+   "detail": "other"
+  },
+  {
+   "name": "foldToolCall 累加（codegraph=1 file=2 discovery=2）",
+   "pass": true,
+   "detail": "{\"codegraph\":1,\"file\":2,\"discovery\":2,\"other\":0}"
+  },
+  {
+   "name": "summarizeAdoption rate=0.25",
+   "pass": true,
+   "detail": "{\"rate\":0.25,\"exploratory\":4}"
+  },
+  {
+   "name": "summarizeAdoption 分母 0 时 rate 未定义",
+   "pass": true,
+   "detail": "undefined"
+  },
+  {
+   "name": "locateIndex 命中 indexed",
+   "pass": true,
+   "detail": "{\"state\":\"indexed\",\"projectPath\":\"C:\\\\Users\\\\30951\\\\AppData\\\\Local\\\\Temp\\\\cg-a-i84zEu\"}"
+  },
+  {
+   "name": "空 .codegraph → not-a-project",
+   "pass": true,
+   "detail": "not-a-project"
+  },
+  {
+   "name": "无 .codegraph → missing",
+   "pass": true,
+   "detail": "missing"
+  },
+  {
+   "name": "resolveIndexedRoot 从子目录向上命中根",
+   "pass": true,
+   "detail": "C:\\Users\\30951\\AppData\\Local\\Temp\\cg-a-i84zEu"
+  },
+  {
+   "name": "syncArgs 用 -- 分隔",
+   "pass": true,
+   "detail": "[\"sync\",\"--\",\"D:/x\"]"
+  },
+  {
+   "name": "indexArgs force 在 -- 之前",
+   "pass": true,
+   "detail": "[\"index\",\"--force\",\"--\",\"D:/x\"]"
+  },
+  {
+   "name": "unlockArgs 形状",
+   "pass": true,
+   "detail": "[\"unlock\",\"--\",\"D:/x\"]"
+  },
+  {
+   "name": "resolveCliConfig 默认 command=codegraph / 60s / 600s",
+   "pass": true,
+   "detail": "{\"command\":\"codegraph\",\"cliTimeoutMs\":60000,\"indexTimeoutMs\":600000,\"indexForce\":false}"
+  },
+  {
+   "name": "resolveCliConfig 去空白与 force 透传",
+   "pass": true,
+   "detail": "{\"command\":\"cg\",\"cliTimeoutMs\":60000,\"indexTimeoutMs\":600000,\"indexForce\":true}"
+  }
+ ]
+}
+
+## stderr
+
