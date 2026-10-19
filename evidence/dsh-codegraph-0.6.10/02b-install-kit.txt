@@ -1,0 +1,20 @@
+# command: pnpm install --filter @hyzyn/dsh-kit... --frozen-lockfile
+# exit: 0
+# seconds: 2.16
+
+## stdout
+Lockfile is up to date, resolution step is skipped
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: @deepseek-ai/dsh-subprocess-local@0.1.2-rc.1,       │
+│   cpu-features@0.0.10, esbuild@0.28.2, koffi@3.2.1,                          │
+│   node-pty@1.2.0-beta.15, ssh2@1.17.0.                                       │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Done in 1s using pnpm v10.30.3
+
+## stderr
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.overrides". See https://pnpm.io/settings for the new home of each setting.
+
