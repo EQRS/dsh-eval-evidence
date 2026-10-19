@@ -1,0 +1,24 @@
+# Raw evidence index (sha256; every file under raw/, excluding this manifest)
+generated_at = 2026-10-19T02:52:40.683Z
+label = dsh-locale-es-419 1.0.0
+generator = tools/make_manifest.mjs
+
+raw/00-env.txt       3058  688aa662df33bd3e0668717477f449899c0bea4512383c37547afd9a4ecf86dc
+raw/10-anchor.txt      15367  0386828ef5866935d6d5b38855b83d38396ce71900955e5861644edcda6bfe8a
+raw/11-commit.json       3419  a1f404f8d10a687f3c3a6a57212bad35fbaa1cce26a19e0e3964e4d1d9ff1770
+raw/11-tarball.tgz    1757434  33b9c5bdc2ec39c0f25e5cb9719f085b15ba512d33a39a721c74e644876c2a23
+raw/11-upstream.txt       3495  74bd6deb917c1f582ec42e14752fc99929815e2ed27c5e0575f2a7e5280ab700
+raw/20-host-locale.txt      21637  8a927e9febe6ee89da0f1368ccd41f7a5ab7ffb79f02aad0afab0382f666cb7e
+raw/21-locale-baseline.txt       1504  d375798419d741036e7393026213fab29df3dfafb3f17c464bfefbc86837afb7
+raw/22-host-en-discovery.txt      16969  49721bd285bab63adf7b7123a3af749f5709aa23281b927f5b6c46bcdd909874
+raw/23-register-shape.txt      13362  703a6d16050d88efb345ab859bb702947269289676410bb486891615f4f5d34e
+raw/24-locale-parity.txt      36123  93ef1a4b46c632020f1d948ae1f0b18d434dd3657bc03a2c84ec0efcbd38e3e1
+raw/24-parity-summary.json      54884  d706ed5a24af6d23617a9275dba356b2648524fdc67b25be1fd18e688c6f4ca5
+raw/25-unresolved-shape.txt       7028  367d037d712709f3f4ef9f6f41ff3983ccea014e6a4b7d61cb412ffb6bb675c9
+raw/26-register-debug.txt       7331  8a04ccc7b337e6f7aed553f5aa265fff237f5ce47d1e1a1140e523e9c18647f0
+raw/30-build.txt       3177  2ad2091c3a64fa3c4145b899262058f9138d735b1dfb6d60e6869ca191f8f921
+raw/31-host-static.txt      15071  f24377121f7eb52e9b28d27a7d3234b4e5dc1dfb575c7871b219dfe61a44ea4f
+raw/32-locale-structure.txt       6128  fbd7e2bed50f8c6e90183d4c40669d8019df498d18e20e766711014eeca08f63
+raw/34-client-runtime.txt       3441  5849edd49ab2be9896a5126e68375373f679abefb0aeab779225296b586c1680
+raw/50-dedupe.txt       3316  bb9e15ca367f1fff1fcc47898162fa1dc72d27be15bb3df20c7b4de6969b3098
+raw/50-upstream-issues.json          2  4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
