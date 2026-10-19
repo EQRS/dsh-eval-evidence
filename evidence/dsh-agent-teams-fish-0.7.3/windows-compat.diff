@@ -1,0 +1,26 @@
+# Windows 兼容补丁（只用于跑官方 verify 脚本；不改 lib/ 与被测代码）
+
+## 1) spawn-shim.cjs（NODE_OPTIONS=--require 注入）
+
+原因：harness-runtime-verify.mjs 用 `spawn('npm', ...)`（无 shell）；Windows 上解析不到 npm（需 cmd /c）。
+
+```js
+const cp = require('node:child_process')
+const origSpawn = cp.spawn
+const wrap = (cmd, args, opts) => {
+  if (cmd === 'npm' || cmd === 'npx') {
+    return origSpawn(process.env.ComSpec || 'C:\\Windows\\System32\\cmd.exe', ['/d', '/s', '/c', cmd, ...(args || [])], opts)
+  }
+  return origSpawn(cmd, args, opts)
+}
+cp.spawn = wrap
+if (cp.default && typeof cp.default === 'object') { cp.default.spawn = wrap }
+```
+
+## 2) junction 补丁（harness-runtime-scenarios.mjs）
+
+原因：Windows 目录符号链接需开发者模式/管理员权限（EPERM: operation not permitted, symlink）。
+
+替换（2 处）：`symlinkSync(..., 'dir')` → `symlinkSync(..., 'junction')`
+
+业务逻辑与断言未改。补丁后的脚本副本位于 %TEMP%/at-scripts（原件未改）。
