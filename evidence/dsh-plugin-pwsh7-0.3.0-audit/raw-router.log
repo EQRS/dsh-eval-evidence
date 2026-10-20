@@ -1,0 +1,6 @@
+configPath: C:\Users\30951\AppData\Local\Temp\cfgtest\dsh\pwsh7\config.json
+state.route: plugin | state.pwsh.path: C:\Users\30951\AppData\Local\Temp\ps7\pwsh.exe | ready: true
+resolved executor path: C:\Users\30951\AppData\Local\Temp\ps7\pwsh.exe
+CALL {"action":"status; calc.exe"} THROW invalid arguments: "action" must be one of ["status","diagnose","selfcheck","route","uninstall","install","rel
+CALL {"action":"nope"} THROW invalid arguments: "action" must be one of ["status","diagnose","selfcheck","route","uninstall","install","rel
+CALL {"action":"diagnose"} ok= false | pwsh7-router diagnose (sandbox mode: unknown) / cwd: C:\Users\30951\AppData\Local\Temp\pwsh7-l3 /  / [1] pwsh versio
