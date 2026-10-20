@@ -1,0 +1,5 @@
+== memory | exports: ActivityTracker,CONFIG_ROUTE_PATH,Config,EDGE_KINDS,GRAPH_ROUTE_PATH,INSIGHTS_ROUTE_PATH,MemoryConfigStore,SettingsSchema | inject: ["systemPrompt","skills","agents"]
+    info: memory: auto-commit skipped — C:\Users\30951\.memory is not a git repository
+    apply-error: ctx.systemPrompt.context is not a function
+== snapshot | exports: Config,apply,inject,name | inject: ["systemPrompt"]
+== memo | exports: Config,MemoService,archivedQuarterSchema,default,isPeriodLabel,isoWeekParts,memoAnalysisSchema,memoArchiveDomainSpec | inject: undefined
