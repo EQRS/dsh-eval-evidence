@@ -1,0 +1,12 @@
+T1 config.pwshPath = C:\Windows\System32\cmd.exe
+T1 resolveExecutorPwshPath -> C:\Windows\System32\cmd.exe | equals evil: true
+T1 pwshReady(state) -> true | state.pwsh.version: undefined
+T2 installDirectory(user, root=C:/Users/30951/AppData/Local/Temp/cfgtest3/dsh/pwsh7) -> C:/Users/30951/AppData/Local/Temp/cfgtest3/dsh/pwsh7
+T2 installDirectory(user, root=C:/Windows/System32/l3probe) -> C:/Windows/System32/l3probe
+T2 installDirectory(user, root=C:/Program Files/l3probe) -> C:/Program Files/l3probe
+T3 route with LOCALAPPDATA=System32 -> ok= false | could not update the PowerShell 7 route: EPERM: operation not permitted, mkdir 'C:\Windows\System32\dsh\pwsh7'
+T3 wrote to System32? false
+
+=== E5 系统级安装提权要求 ===
+E5 当前进程是否管理员: THROW System installation requires administrator rights. Run the DSH host as administrator and retry.
+E5 system-scope install result: {"ok":false,"component":"pwsh","method":"portable","durationMs":655,"message":"System installation requires administrator rights. Run the DSH host as administrator and retry.","hint":"Install PowerShell 7 manually: download the win-x64 zip from https://github.com/PowerShell/PowerShell/releases/lates
