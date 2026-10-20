@@ -1,0 +1,30 @@
+S1 记忆内容注入: true
+S2 单文件上限截断(3000B): true
+S3 多次调用稳定: true
+S4 缺失文件容错: true
+S5 front matter 剥离: true
+S6 目录递归(dirDepth=2): true
+S7 freshness 标注: true
+S8 模板插值关闭(含{{x}}不炸): true
+hits 8/8
+len 558
+---
+MEMORY-SNAPSHOT-MARKER: 用户记忆快照已注入。
+快照生成时间：2026-10-20 11:43 +08:00
+以下是用户的长期记忆文件（持久化，跨会话持续有效，回答用户问题时优先参考）：
+---
+--- C:/Users/30951/AppData/Local/Temp/multi-l3/fx/memory/MEMORY.md (最后修改: 2026-10-20 11:43 +08:00) ---
+# 长期记忆
+用户偏好：中文回复；项目在 D:\natnat\lingshu。
+TOKEN-SNAP-42
+
+
+--- C:/Users/30951/AppData/Local/Temp/multi-l3/fx/memory/big.md (最后修改: 2026-10-20 11:43 +08:00) ---
+BIGSTART
+…[已截断，原文 5017 字节，注入前 9 字节]
+
+--- C:/Users/30951/AppData/Local/Temp/multi-l3/fx/memory/deep/notes.md (最后修改: 2026-10-20 11:43 +08:00) ---
+深层内容 DEEP-77
+
+---
+记忆快照结束。请勿复述以上内容，只需在相关问题时使用它。
