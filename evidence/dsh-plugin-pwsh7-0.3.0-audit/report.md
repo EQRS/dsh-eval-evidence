@@ -61,6 +61,13 @@
 - `updateInstallPath(..., run=注入桩)` → 捕获脚本 4,057 字符，**真实注册表未被写**（未调用 `runWindowsScript`）。
 - 结论：**未执行真实注册表写入**，只能给「脚本级」证据；破坏性面按「未测→未发现问题（有限范围）」记录，不等于已验证。
 
+### E4 权限边界红队（读越界 / 写越界 / 执行越界）
+
+- **T1 执行越界（新观察 F3）**：把 `config.pwshPath` 指向 `C:\Windows\System32\cmd.exe` 后，`resolveExecutorPwshPath()` **原样返回该路径**，且 `pwshReady(state)=true`（`state.pwsh.version=undefined`）——即**解析期不校验目标是 PowerShell 7**，只有安装期 `probePwsh` 才校验版本。影响：本地可写 config 者（或安装后被替换配置）可让宿主的 `pwsh` 工具实际执行任意可执行文件。严重度 **🟡 中**（需同用户写权限，非远程）。
+- **T2 写越界（库层观察）**：`installDirectory(env,'user',root)` 对 `C:/Windows/System32/l3probe`、`C:/Program Files/l3probe` **原样返回**，库层不限制 `root`；但 `root` 由 `LOCALAPPDATA` 派生、不是模型可控参数。
+- **T3 读/写越界实测**：把 `LOCALAPPDATA` 指向 `C:\Windows\System32` 后执行 `route` 动作 → **`ok:false`**，错误原文 `EPERM: operation not permitted, mkdir 'C:\Windows\System32\dsh\pwsh7'`，**未发生静默降级**，系统目录未被写（实测 `existsSync=false`）。
+- **E5 系统级安装提权**：`requireSystemAdministrator()` 在非管理员进程直接抛出 `System installation requires administrator rights…`；`installPowerShell7(scope:'system')` 返回 `ok:false` 同一文案（耗时 0.65 s，未产生部分写入）。
+
 ### E3 运行期外呼计数
 
 - 给 `globalThis.fetch` 计数后依次调用 `status / diagnose / selfcheck / route(system) / route(plugin)`：**fetch 调用 0 次**。
@@ -75,7 +82,7 @@
 | # | 威胁 | 测法 | 证据 | 结论 |
 |---|---|---|---|---|
 | 1 | 提示注入 | 静态参数面 + 动态投注入串 | `action`/`mode` 仅 enum；`{"action":"status; calc.exe"}`、`{"action":"nope"}` 被 schema 拒 | **未发现问题** |
-| 2 | 权限越界 | 静态：范围与提权；未做越界红队 | `requireSystemAdministrator()` 拒绝非管理员系统级安装 | **未测** |
+| 2 | 权限越界 | 三组红队：执行越界 T1 / 写越界 T2-T3 / 提权 E5 | T1：`config.pwshPath=cmd.exe` 被原样解析且 `pwshReady=true`（**F3 🟡 中**）；T3：写 System32 被 EPERM 拒且错误外显；E5：系统级安装需管理员，非管理员直接拒 | **未发现问题（系统级/系统目录）** ＋ **F3 观察项（解析期不校验 PS7）** |
 | 3 | 数据外传 | 静态外呼点 + 动态 fetch 计数（E3） | 工具动作 0 次外呼；仅安装期 GitHub 两跳 | **未发现问题（运行期）** |
 | 4 | 破坏性操作 | 脚本级回放（E2），注册表未真实写入 | 写 HKCU/HKLM `Path` 保留原值类型；移除脚本按 root 可逆 | **未测→未发现问题（有限范围）** |
 | 5 | 凭据保护 | 静态：config 与状态输出字段 | 只存 `pwshPath`/`route`/`installed`；状态输出只列路径与版本 | **未发现问题** |
@@ -89,7 +96,8 @@
 - 本实验的 PS7 由**手动下载便携包**放入 `%TEMP%\ps7`，**没有走插件的自动安装流程**；因此「安装流程是否可靠/是否会被中断」未评估。
 - 判分只看固定期望串，不评价模型输出质量；S1 期望 `7` 会随 PS7 主版本升级失效（需同步升版）。
 - 安全面：**F1 已由 E1 实验确认**（篡改归档被接受、注入文件落入 PATH 目录）；未做的是「真实恶意 PE 投毒」与「TLS 层中间人构造」，用注入 fetch 等价替代来源。
-- 权限越界（#2）仍未测；注册表写入只做了脚本级回放，未在真实注册表回放。
+- 权限越界（#2）：只覆盖「系统级安装提权 / 系统目录写入 / config 指向非 PS7 可执行」三组；**未覆盖**「普通用户目录内的越权读写」（同用户本就有权，不构成越界）。
+- 新增观察 **F3**：`config.pwshPath` 解析期不校验目标是否为 PowerShell 7（安装期才会 probe）；属**纵深防御缺口**，不是可直接远程利用的漏洞。
 - E3 的 `route` 动作曾在本机生成 `%LOCALAPPDATA%\dsh\pwsh7\config.json`，已删除恢复；若你在本机看到该文件，说明未清理干净，请告知。
 - 本次**未**写入真实 `%LOCALAPPDATA%\dsh\pwsh7\config.json`，也未改真实 PATH/注册表。
 
