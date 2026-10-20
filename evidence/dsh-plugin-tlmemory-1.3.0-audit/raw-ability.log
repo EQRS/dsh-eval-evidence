@@ -1,0 +1,13 @@
+S4 debug: id= 2 delete= {"content":[{"type":"text","text":"已删除记忆 [project] /exp/s1/s1"}]} post= {"content":[{"type":"text","text":"未检索到相关的长期记忆。"}]}
+scene	不装(文件笔记)	装(tlmemory)
+S1	3/3	3/3
+S2	3/3	3/3
+S3	0/3	3/3
+S4	3/3	3/3
+S5	3/3	3/3
+S6	3/3	3/3
+S7	0/3	3/3
+S8	0/3	3/3
+baseline total 15 /24
+plugin   total 24 /24
+D = 9
