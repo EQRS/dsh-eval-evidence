@@ -1,0 +1,9 @@
+E3 fetch calls during tool actions: 0 []
+   {"action":"status"} -> true pwsh7-router (win32) / PowerShell 7: NOT FOUND — the Web setup dialog and Settings
+   {"action":"diagnose"} -> false pwsh7-router diagnose (sandbox mode: unknown) / cwd: C:\Users\30951\AppData\Local\
+   {"action":"selfcheck"} -> false pwsh7 self-check: problems found (5 ok, 3 warn, 3 fail) / checkedAt: 2026-10-20T03
+   {"action":"route","mode":"system"} -> true route set to system. /  / pwsh7-router (win32) / PowerShell 7: NOT FOUND — the Web set
+   {"action":"route","mode":"plugin"} -> true route set to plugin. /  / pwsh7-router (win32) / PowerShell 7: NOT FOUND — the Web set
+E2 update script: sets Path = true | preserves raw = true | keeps kind = true | broadcasts = true
+E2 removal script: removes by root = true | keeps kind = true
+E2 updateInstallPath with injected run -> captured script chars: 4057 | real registry untouched (no runWindowsScript executed)
