@@ -1,0 +1,456 @@
+{
+ "baseline": {
+  "S1 版本大号": 0,
+  "S2 三元运算符": 0,
+  "S3 空值合并": 0,
+  "S4 JSON -AsHashtable": 0,
+  "S5 UTF-8 默认落盘": 0,
+  "S6 && 运算符": 0,
+  "S7 并行 ForEach": 0,
+  "S8 Test-Json": 0
+ },
+ "plugin": {
+  "S1 版本大号": 3,
+  "S2 三元运算符": 3,
+  "S3 空值合并": 3,
+  "S4 JSON -AsHashtable": 3,
+  "S5 UTF-8 默认落盘": 3,
+  "S6 && 运算符": 3,
+  "S7 并行 ForEach": 3,
+  "S8 Test-Json": 3
+ },
+ "detail": [
+  {
+   "group": "baseline",
+   "scene": "S1 版本大号",
+   "rep": 0,
+   "rc": 0,
+   "out": "5",
+   "err": "",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S1 版本大号",
+   "rep": 1,
+   "rc": 0,
+   "out": "5",
+   "err": "",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S1 版本大号",
+   "rep": 2,
+   "rc": 0,
+   "out": "5",
+   "err": "",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S2 三元运算符",
+   "rep": 0,
+   "rc": 1,
+   "out": "",
+   "err": "����λ�� ��:1 �ַ�: 10\n+ $x=1; $x ? 'YES' : 'NO'\n+          ~\n����ʽ������а�������ı",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S2 三元运算符",
+   "rep": 1,
+   "rc": 1,
+   "out": "",
+   "err": "����λ�� ��:1 �ַ�: 10\n+ $x=1; $x ? 'YES' : 'NO'\n+          ~\n����ʽ������а�������ı",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S2 三元运算符",
+   "rep": 2,
+   "rc": 1,
+   "out": "",
+   "err": "����λ�� ��:1 �ַ�: 10\n+ $x=1; $x ? 'YES' : 'NO'\n+          ~\n����ʽ������а�������ı",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S3 空值合并",
+   "rep": 0,
+   "rc": 1,
+   "out": "",
+   "err": "����λ�� ��:1 �ַ�: 7\n+ $null ?? 'DEF'\n+       ~~\n����ʽ������а�������ı�ǡ�??����\n  ",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S3 空值合并",
+   "rep": 1,
+   "rc": 1,
+   "out": "",
+   "err": "����λ�� ��:1 �ַ�: 7\n+ $null ?? 'DEF'\n+       ~~\n����ʽ������а�������ı�ǡ�??����\n  ",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S3 空值合并",
+   "rep": 2,
+   "rc": 1,
+   "out": "",
+   "err": "����λ�� ��:1 �ַ�: 7\n+ $null ?? 'DEF'\n+       ~~\n����ʽ������а�������ı�ǡ�??����\n  ",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S4 JSON -AsHashtable",
+   "rep": 0,
+   "rc": 1,
+   "out": "",
+   "err": "ConvertFrom-Json : �Ҳ�����������ơ�AsHashtable��ƥ��Ĳ�����\n����λ�� ��:1 �ַ�: 30\n+ ",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S4 JSON -AsHashtable",
+   "rep": 1,
+   "rc": 1,
+   "out": "",
+   "err": "ConvertFrom-Json : �Ҳ�����������ơ�AsHashtable��ƥ��Ĳ�����\n����λ�� ��:1 �ַ�: 30\n+ ",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S4 JSON -AsHashtable",
+   "rep": 2,
+   "rc": 1,
+   "out": "",
+   "err": "ConvertFrom-Json : �Ҳ�����������ơ�AsHashtable��ƥ��Ĳ�����\n����λ�� ��:1 �ַ�: 30\n+ ",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S5 UTF-8 默认落盘",
+   "rep": 0,
+   "rc": 0,
+   "out": "False",
+   "err": "",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S5 UTF-8 默认落盘",
+   "rep": 1,
+   "rc": 0,
+   "out": "False",
+   "err": "",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S5 UTF-8 默认落盘",
+   "rep": 2,
+   "rc": 0,
+   "out": "False",
+   "err": "",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S6 && 运算符",
+   "rep": 0,
+   "rc": 1,
+   "out": "",
+   "err": "����λ�� ��:1 �ַ�: 13\n+ $a=1; $true && ($a -eq 1)\n+             ~~\n��ǡ�&&�����Ǵ˰汾",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S6 && 运算符",
+   "rep": 1,
+   "rc": 1,
+   "out": "",
+   "err": "����λ�� ��:1 �ַ�: 13\n+ $a=1; $true && ($a -eq 1)\n+             ~~\n��ǡ�&&�����Ǵ˰汾",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S6 && 运算符",
+   "rep": 2,
+   "rc": 1,
+   "out": "",
+   "err": "����λ�� ��:1 �ַ�: 13\n+ $a=1; $true && ($a -eq 1)\n+             ~~\n��ǡ�&&�����Ǵ˰汾",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S7 并行 ForEach",
+   "rep": 0,
+   "rc": 1,
+   "out": "",
+   "err": "Join-String : �޷�����Join-String����ʶ��Ϊ cmdlet���������ű��ļ�������г�������ơ����",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S7 并行 ForEach",
+   "rep": 1,
+   "rc": 1,
+   "out": "",
+   "err": "Join-String : �޷�����Join-String����ʶ��Ϊ cmdlet���������ű��ļ�������г�������ơ����",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S7 并行 ForEach",
+   "rep": 2,
+   "rc": 1,
+   "out": "",
+   "err": "Join-String : �޷�����Join-String����ʶ��Ϊ cmdlet���������ű��ļ�������г�������ơ����",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S8 Test-Json",
+   "rep": 0,
+   "rc": 1,
+   "out": "",
+   "err": "Test-Json : �޷�����Test-Json����ʶ��Ϊ cmdlet���������ű��ļ�������г�������ơ��������",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S8 Test-Json",
+   "rep": 1,
+   "rc": 1,
+   "out": "",
+   "err": "Test-Json : �޷�����Test-Json����ʶ��Ϊ cmdlet���������ű��ļ�������г�������ơ��������",
+   "hit": 0
+  },
+  {
+   "group": "baseline",
+   "scene": "S8 Test-Json",
+   "rep": 2,
+   "rc": 1,
+   "out": "",
+   "err": "Test-Json : �޷�����Test-Json����ʶ��Ϊ cmdlet���������ű��ļ�������г�������ơ��������",
+   "hit": 0
+  },
+  {
+   "group": "plugin",
+   "scene": "S1 版本大号",
+   "rep": 0,
+   "rc": 0,
+   "out": "7",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S1 版本大号",
+   "rep": 1,
+   "rc": 0,
+   "out": "7",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S1 版本大号",
+   "rep": 2,
+   "rc": 0,
+   "out": "7",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S2 三元运算符",
+   "rep": 0,
+   "rc": 0,
+   "out": "YES",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S2 三元运算符",
+   "rep": 1,
+   "rc": 0,
+   "out": "YES",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S2 三元运算符",
+   "rep": 2,
+   "rc": 0,
+   "out": "YES",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S3 空值合并",
+   "rep": 0,
+   "rc": 0,
+   "out": "DEF",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S3 空值合并",
+   "rep": 1,
+   "rc": 0,
+   "out": "DEF",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S3 空值合并",
+   "rep": 2,
+   "rc": 0,
+   "out": "DEF",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S4 JSON -AsHashtable",
+   "rep": 0,
+   "rc": 0,
+   "out": "True",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S4 JSON -AsHashtable",
+   "rep": 1,
+   "rc": 0,
+   "out": "True",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S4 JSON -AsHashtable",
+   "rep": 2,
+   "rc": 0,
+   "out": "True",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S5 UTF-8 默认落盘",
+   "rep": 0,
+   "rc": 0,
+   "out": "True",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S5 UTF-8 默认落盘",
+   "rep": 1,
+   "rc": 0,
+   "out": "True",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S5 UTF-8 默认落盘",
+   "rep": 2,
+   "rc": 0,
+   "out": "True",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S6 && 运算符",
+   "rep": 0,
+   "rc": 0,
+   "out": "True\nTrue",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S6 && 运算符",
+   "rep": 1,
+   "rc": 0,
+   "out": "True\nTrue",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S6 && 运算符",
+   "rep": 2,
+   "rc": 0,
+   "out": "True\nTrue",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S7 并行 ForEach",
+   "rep": 0,
+   "rc": 0,
+   "out": "1,2,3",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S7 并行 ForEach",
+   "rep": 1,
+   "rc": 0,
+   "out": "1,2,3",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S7 并行 ForEach",
+   "rep": 2,
+   "rc": 0,
+   "out": "1,2,3",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S8 Test-Json",
+   "rep": 0,
+   "rc": 0,
+   "out": "True",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S8 Test-Json",
+   "rep": 1,
+   "rc": 0,
+   "out": "True",
+   "err": "",
+   "hit": 1
+  },
+  {
+   "group": "plugin",
+   "scene": "S8 Test-Json",
+   "rep": 2,
+   "rc": 0,
+   "out": "True",
+   "err": "",
+   "hit": 1
+  }
+ ]
+}
