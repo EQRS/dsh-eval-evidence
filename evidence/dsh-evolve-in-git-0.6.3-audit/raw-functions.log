@@ -1,0 +1,24 @@
+S1 help 文本非空: true
+S2 命令解析: true
+S3 段名净化: true
+S4 lossless 往返: true
+S5 预览截断: ERR Cannot read properties of undefined (reading 'trim')
+S6 分支名生成: ERR Cannot read properties of undefined (reading 'toLowerCase')
+S7 错误脱敏: false
+S8 技能草案生成: ERR Cannot read properties of undefined (reading 'split')
+hits 4/8
+
+=== privacy ===
+exports: SENSITIVE_PATTERNS,classifySensitivity,detectSensitive,filterBySensitivity,findById,redactSensitive,renderExport,sensitivityRank
+detect: ["email:confidential","phone:confidential","aws-access-key:secret","github-token:secret","secret-keyword:secret"]
+classify: secret
+redact -> undefined
+redact 不含原 token: true
+redact 不含邮箱: true
+
+=== privacy2 ===
+redactSensitive -> <REDACTED> 邮箱 <REDACTED> 手机 <REDACTED>
+不含 token: true
+不含邮箱: true
+不含手机: true
+classify: secret | rank: 3 0
