@@ -1,0 +1,37 @@
+RAW RES: {"default":{"sections":["memory-boot"],"skills":["memory"],"routes":0,"len":424,"text":"长期记忆（dsh-plugin-memory）。记忆库位于 C:\\Users\\30951\\AppData\\Local\\T"},"bootMaxChars-small":{"sections":["memory-boot"],"skills":["memory"],"routes":0,"len":531,"text":"长期记忆（dsh-plugin-memory）。记忆库位于 C:\\Users\\30951\\AppData\\Local\\T"},"autoInject-off":{"sections":[],"skills":["memory"],"routes":0,"len":0,"text":""},"enabled-off":{"sections":[],"skills":[],"routes":0,"len":0,"text":""}}
+S1 boot 注入 SOUL 内容: true
+S2 boot 注入 MEMORY 内容: true
+S3 boot 注入 index 内容: true
+S4 注册 memory skill: true
+S5 bootMaxChars 生效（HUGE-END 被截）: true
+S6 autoInject=false 不注入: true
+S7 enabled=false 全停(skill 也不注册): true
+S8 缺文件容错(scaffold=false 目录仅三件): true
+hits 8/8
+default len 424 | sections ["memory-boot"] | skills ["memory"] | routes 0
+---TEXT HEAD---
+长期记忆（dsh-plugin-memory）。记忆库位于 C:\Users\30951\AppData\Local\Temp\multi-l3\mstore。这是你跨会话的持久人格与记忆：以它为准，先读完再回复用户。若与当前对话冲突，优先相信用户的最新表述，并把差异写回记忆。**每次会话收尾前必须执行 memory digest：把本会话关键沉淀写回（更新页面 + index.md + 追加 log.md）。插件会注入 digest 提醒消息，收到后立即写回，不得拖延；若本会话确无值得持久化的内容，在 log.md 记一条「无新增」并说明原因。**
+
+### SOUL.md
+
+# SOUL
+身份：灵枢助手
+SOUL-TOKEN-A
+
+
+---
+
+### MEMORY.md
+
+# MEMORY
+项目 D:\natnat\lingshu
+MEM-TOKEN-B
+
+
+---
+
+### index.md
+
+# index
+索引项 TOC-C
+
