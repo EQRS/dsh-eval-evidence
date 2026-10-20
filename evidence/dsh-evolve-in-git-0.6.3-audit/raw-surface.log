@@ -1,0 +1,7 @@
+exports: GitEvolutionError,GitEvolutionService,branchNameForRecord,checkoutBranch,connectRepository,createBranch,currentBranch,default,draftSkillFromRecord,ensureGitRepository,fetchRemote,gitStatus,inject,lossless,memoryPreview,name,parseEvolveCommand,pushBranch,renderBranchesText,renderHelpText,renderHelpView,renderRememberText,renderSkillDraft,renderStatusText,sanitizeSegment,shouldOfferSkillPromotion,slugify,suggestEvolution,userFacingError
+CTOR ERR: Cannot read properties of undefined (reading 'provide')
+tools: 0 
+sections: 
+commands: 0 | skills: 0 | settings: 0
+evolve_help ERR Cannot read properties of undefined (reading 'execute')
+evolve_status ERR Cannot read properties of undefined (reading 'execute')
