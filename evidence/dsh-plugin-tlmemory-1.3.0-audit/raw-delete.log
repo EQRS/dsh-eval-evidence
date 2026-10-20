@@ -1,0 +1,7 @@
+save: {"content":[{"type":"text","text":"记忆已成功入库 [project]: /del/x/x"}]}
+query: {"content":[{"type":"text","text":"* [当前工程] /del/x/x: token DEL-286t2 (得分: 0.2, id: 2)"}]}
+parsed id: 2
+delete(id only): {"content":[{"type":"text","text":"拒绝删除：必须提供 id 或 rule_name 之一以指定目标。"}]}
+query after delete(id only): {"content":[{"type":"text","text":"* [当前工程] /del/x/x: token DEL-286t2 (得分: 0.2, id: 2)"}]}
+delete(id+rule+scope): {"content":[{"type":"text","text":"已删除记忆 [project] /del/x/x"}]}
+query after delete(full): {"content":[{"type":"text","text":"未检索到相关的长期记忆。"}]}
