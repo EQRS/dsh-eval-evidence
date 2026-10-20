@@ -1,0 +1,20 @@
+== qmd | exports: apply,name | tools: [] | sections: [] | cmds: 0 | skills: []
+   errs: apply:Cannot read properties of undefined (reading 'qmdUrl')
+== plan | exports: apply,inject,name | tools: [] | sections: [] | cmds: 0 | skills: []
+   errs: apply:Cannot read properties of undefined (reading 'tools')
+== lan | exports: apply,inject,name | tools: [] | sections: [] | cmds: 0 | skills: []
+   errs: apply:Cannot read properties of undefined (reading 'webServer')
+== flomo | exports: FLOMO_REPORT_GUIDANCE,apply,buildMemoBody,flomoReportConfigTool,flomoReportTestTool,flomoReportTool | tools: [] | sections: [] | cmds: 0 | skills: []
+   errs: apply:Cannot read properties of undefined (reading 'effect')
+== follow LOAD ERR: Cannot find module 'C:\Users\30951\AppData\Local\Temp\batch2\node_modules\dsh-followup-prompt\index.js' imported from C:\Users\30951\AppData\Local\Temp\batch2\surf.mjs
+
+=== probe2 ===
+LAN inject len 151
+LAN inject head: function injectHead(html) {
+	if (html.includes("randomUUID")) return html;
+	return html.replace("</head>", POLYFILL_SCRIPT + DEVICE_CSS + "</head>");
+}
+FLOMO tools: ["flomo_report","flomo_report_config","flomo_report_test"] | sections: ["plugin:dsh-flomo-report"]
+FLOMO buildMemoBody: undefined
+FOLLOW exports: Config,apply,inject,name
+QMD events: ["warn:qmd-autosearch: 未配置 qmdUrl 或 collections，插件已禁用。请在 cordis.pat"]
