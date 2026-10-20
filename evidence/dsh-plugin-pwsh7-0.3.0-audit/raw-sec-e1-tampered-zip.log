@@ -1,0 +1,6 @@
+elapsed_ms 3537
+RESULT {"ok":true,"component":"pwsh","scope":"user","method":"portable","path":"C:\\Users\\30951\\AppData\\Local\\Temp\\cfgtest2\\dsh\\pwsh7\\powershell7\\7.6.7\\pwsh.exe","version":"7.6.7","url":"https://example.invalid/PS7.zip","bytes":106364484,"message":"installed PowerShell 7.6.7 at C:\\Users\\30951\\AppData\\Local\\Temp\\cfgtest2\\dsh\\pwsh7\\powershell7\\7.6.7\\pwsh.exe","durationMs":3537}
+installDir C:\Users\30951\AppData\Local\Temp\cfgtest2\dsh\pwsh7\powershell7\7.6.7
+evil-payload present: true
+evil content: TAMPER-MARKER-42: this file was NOT in the official release
+PATH entries added by stub: ["C:\\Users\\30951\\AppData\\Local\\Temp\\cfgtest2\\dsh\\pwsh7\\powershell7\\7.6.7\\pwsh.exe"]
